@@ -1,0 +1,367 @@
+---
+title: "Tourism Dependence and the COVID Cliff"
+subtitle: "Data Feasibility Audit and Preliminary EDA"
+date: today
+date-format: "MMMM D, YYYY"
+author: "Bryan C. Johns"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    df-print: kable
+    fig-cap-location: bottom
+execute:
+  warning: false
+  message: false
+  cache: false
+---
+
+```{r setup}
+#| label: setup
+#| include: false
+
+library(here)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(scales)
+library(knitr)
+
+# Source shared theme and helpers from EDA script context
+processed <- here("data", "processed")
+fig_dir   <- here("output", "figures")
+tbl_dir   <- here("output", "tables")
+
+# Design system (duplicated from 03_preliminary_eda.R for document self-containment)
+pal_region <- c("Caribbean" = "#0072B2", "Pacific" = "#D55E00")
+
+base_theme <- theme_minimal(base_size = 11) +
+  theme(
+    text              = element_text(family = "sans", color = "grey15"),
+    plot.title        = element_text(face = "bold", size = 13, margin = margin(b = 4)),
+    plot.subtitle     = element_text(size = 10, color = "grey35", margin = margin(b = 8)),
+    plot.caption      = element_text(size = 7.5, color = "grey50", hjust = 0,
+                                     margin = margin(t = 8)),
+    axis.title        = element_text(size = 9, color = "grey25"),
+    axis.text         = element_text(size = 8.5, color = "grey30"),
+    axis.ticks        = element_line(color = "grey80"),
+    panel.grid.major  = element_line(color = "grey92"),
+    panel.grid.minor  = element_blank(),
+    legend.title      = element_text(size = 9, face = "bold"),
+    legend.text       = element_text(size = 8.5),
+    plot.margin       = margin(12, 14, 8, 12),
+    strip.text        = element_text(face = "bold", size = 9)
+  )
+theme_set(base_theme)
+
+short_labels <- c(
+  ABW = "Aruba", AIA = "Anguilla", ATG = "Antigua & Barbuda",
+  BHS = "Bahamas", BRB = "Barbados", BLZ = "Belize",
+  BMU = "Bermuda", BES = "Bonaire etc.", CUW = "Curaçao",
+  CYM = "Cayman Is.", DMA = "Dominica", DOM = "Dom. Rep.",
+  GRD = "Grenada", GUY = "Guyana", HTI = "Haiti",
+  JAM = "Jamaica", KNA = "St. Kitts", LCA = "St. Lucia",
+  MSR = "Montserrat", PRI = "Puerto Rico", TCA = "Turks & Caicos",
+  TTO = "Trinidad & Tobago", VCT = "St. Vincent", VGB = "British VI",
+  VIR = "US Virgin Is.", FJI = "Fiji", FSM = "Micronesia",
+  KIR = "Kiribati", MHL = "Marshall Is.", NRU = "Nauru",
+  PLW = "Palau", PNG = "Papua New Guinea", SLB = "Solomon Is.",
+  TON = "Tonga", TUV = "Tuvalu", VUT = "Vanuatu", WSM = "Samoa"
+)
+```
+
+## Overview
+
+This document reports the Phase 1 data feasibility audit for **Tourism Dependence and the COVID Cliff**.
+
+**Working research question:** Were Caribbean and Pacific island economies with greater pre-pandemic dependence on international tourism more vulnerable to the economic shock of COVID-19? Which economies had recovered to pre-pandemic levels of economic output by 2022–2023?
+
+---
+
+## Data Sources
+
+Three OWID datasets (downloaded locally) and four World Bank WDI indicators (retrieved via `wbstats`) are the foundation of this analysis.
+
+| Dataset | Indicator | Units | Source | Years |
+|---------|-----------|-------|--------|-------|
+| OWID Tourism GDP | Tourism contribution to GDP | % of GDP | UNWTO / OWID (SDG 8.9.1, TSA methodology) | 2008–2023 |
+| OWID Visitor Spending | Spending by international visitors | % of GDP | World Bank WDI (ST.INT.XPND.GD.ZS) via OWID | 1995–2024 |
+| OWID Tourist Arrivals | International tourist arrivals | Count | UNWTO via OWID | 1995–2024 |
+| WDI Tourism Receipts | International tourism receipts | % of total exports | World Bank WDI (ST.INT.RCPT.XP.ZS) | 1995–2022 |
+| WDI GDP per capita | GDP per capita, current US$ | Current USD | World Bank WDI (NY.GDP.PCAP.CD) | 2008–2023 |
+| WDI GDP growth | GDP growth, annual % | % | World Bank WDI (NY.GDP.MKTP.KD.ZG) | 2008–2023 |
+| WDI Unemployment | Unemployment, % of labor force | % | World Bank WDI (SL.UEM.TOTL.ZS) | 2008–2023 |
+
+**Important distinctions among tourism indicators:**
+
+- **Tourism GDP (% of GDP):** Derived from Tourism Satellite Accounts (TSA). Methodologically rigorous but requires countries to implement TSA — significant SIDS coverage gaps.
+- **Visitor spending (% of GDP):** International visitor expenditure relative to GDP. Better SIDS coverage than TSA-based tourism GDP; uses balance-of-payments data.
+- **Tourism receipts (% of exports):** International tourism earnings as a fraction of total export earnings. The **primary dependence measure** in this analysis: best-covered, most directly captures economic exposure.
+- **Tourist arrivals:** Volume measure, not an economic dependence indicator. Used to contextualize exposure but not for dependence rankings.
+
+---
+
+## Candidate Country List
+
+```{r candidates}
+#| label: candidates
+candidates <- read_csv(here("data", "processed", "candidates.csv"),
+                       show_col_types = FALSE)
+
+candidates |>
+  select(iso3, country_name, region, is_sids, is_territory) |>
+  arrange(region, country_name) |>
+  kable(
+    col.names = c("ISO3", "Economy", "Region", "UN SIDS", "Territory"),
+    caption   = "Table 1. Candidate economies. UN SIDS status per UNCTAD/UN-OHRLLS designation."
+  )
+```
+
+---
+
+## Data Coverage Audit
+
+```{r coverage}
+#| label: coverage
+coverage <- read_csv(here("data", "processed", "country_coverage.csv"),
+                     show_col_types = FALSE)
+
+coverage |>
+  select(iso3, country_name, region, is_sids, is_territory,
+         wb_receipts_n_1719, owid_vspend_n_1719, owid_tgdp_n_1719,
+         owid_arrivals_n_1719, wb_gdpgrowth_2020, wb_gdppc_n_req,
+         eligible_shock, eligible_full) |>
+  arrange(region, country_name) |>
+  kable(
+    col.names = c("ISO3", "Economy", "Region", "SIDS", "Terr.",
+                  "Receipts\n2017-19", "V.Spend\n2017-19", "TourGDP\n2017-19",
+                  "Arrivals\n2017-19", "GDPgrowth\n2020", "GDPpc\n(key yrs)",
+                  "Shock\neligible", "Full\neligible"),
+    caption = "Table 2. Country coverage matrix. Values show count of non-missing observations in the requested years."
+  )
+```
+
+### Coverage Summary
+
+```{r coverage-summary}
+#| label: coverage-summary
+tibble::tribble(
+  ~Criterion, ~N,
+  "Total candidate economies",                                    nrow(candidates),
+  "With any tourism-dependence indicator (2017–2019)",            sum(coverage$has_any_tourism),
+  "— WDI tourism receipts (% exports)",                          sum(coverage$has_receipts_baseline),
+  "— OWID visitor spending (% GDP)",                             sum(coverage$has_vspend_baseline),
+  "— OWID tourism GDP (% GDP)",                                  sum(coverage$has_tgdp_baseline),
+  "With tourism baseline AND 2020 GDP growth (shock-eligible)",   sum(coverage$eligible_shock),
+  "With shock data AND recovery data (full-eligible)",            sum(coverage$eligible_full)
+) |>
+  kable(caption = "Table 3. Aggregate coverage statistics.")
+```
+
+```{r coverage-by-region}
+#| label: coverage-by-region
+coverage |>
+  group_by(region) |>
+  summarise(
+    Total  = n(),
+    `Any tourism` = sum(has_any_tourism),
+    `Shock-eligible` = sum(eligible_shock),
+    `Full-eligible` = sum(eligible_full),
+    .groups = "drop"
+  ) |>
+  kable(caption = "Table 4. Coverage by region.")
+```
+
+```{r coverage-by-status}
+#| label: coverage-by-status
+coverage |>
+  mutate(status = case_when(
+    is_sids ~ "UN SIDS (sovereign)",
+    is_territory ~ "Territory / Dependency",
+    TRUE ~ "Other"
+  )) |>
+  group_by(status) |>
+  summarise(
+    Total = n(),
+    `Any tourism` = sum(has_any_tourism),
+    `Shock-eligible` = sum(eligible_shock),
+    `Full-eligible` = sum(eligible_full),
+    .groups = "drop"
+  ) |>
+  kable(caption = "Table 5. Coverage by SIDS status.")
+```
+
+### Countries with Thin Baselines
+
+The following countries have only one pre-pandemic observation for one or more tourism indicators. Their baselines should be treated with caution and are flagged in all figures.
+
+```{r thin-baselines}
+#| label: thin-baselines
+coverage |>
+  filter(receipts_thin_baseline | vspend_thin_baseline | tgdp_thin_baseline) |>
+  select(iso3, country_name, region,
+         wb_receipts_n_1719, owid_vspend_n_1719, owid_tgdp_n_1719) |>
+  kable(
+    col.names = c("ISO3", "Economy", "Region",
+                  "Receipts 2017-19 (n)", "V.Spend 2017-19 (n)", "TourGDP 2017-19 (n)"),
+    caption = "Table 6. Economies with thin (single-observation) baselines."
+  )
+```
+
+---
+
+## Coverage Visualization
+
+```{r fig4-coverage}
+#| label: fig4-coverage
+#| fig-cap: "Figure 4. Data coverage matrix. Green = full coverage for requested years; yellow = partial (one observation); grey = no data available."
+#| fig-width: 9.5
+#| fig-height: 8
+
+knitr::include_graphics(here("output", "figures", "fig4_coverage_matrix.png"))
+```
+
+---
+
+## Tourism-Dependence Rankings
+
+### Primary Measure: WDI Tourism Receipts (% of Total Exports)
+
+The WDI tourism receipts indicator (`ST.INT.RCPT.XP.ZS`) is the **primary tourism-dependence measure** for this analysis. It is available for the most candidate economies, directly captures the economic importance of tourism earnings relative to all export earnings, and uses balance-of-payments data rather than TSA methodology.
+
+```{r fig1-ranking}
+#| label: fig1-ranking
+#| fig-cap: "Figure 1. Tourism receipts as a share of total exports, 2017–2019 average. Open circles indicate thin baselines (single observation). Source: World Bank WDI."
+#| fig-width: 8
+
+knitr::include_graphics(here("output", "figures", "fig1_receipts_ranking.png"))
+```
+
+### Measure Comparison
+
+```{r fig2-comparison}
+#| label: fig2-comparison
+#| fig-cap: "Figure 2. International visitor spending (% GDP, OWID) vs. tourism receipts (% exports, WDI). Dashed line = 1:1 ratio. Both are 2017–2019 averages."
+#| fig-width: 7.5
+#| fig-height: 6
+
+if (file.exists(here("output", "figures", "fig2_measure_comparison.png"))) {
+  knitr::include_graphics(here("output", "figures", "fig2_measure_comparison.png"))
+} else {
+  cat("Figure 2 was not produced (insufficient overlap in both series).")
+}
+```
+
+---
+
+## Tourism Dependence and the 2020 Shock
+
+```{r fig3-shock}
+#| label: fig3-shock
+#| fig-cap: "Figure 3. Pre-pandemic tourism dependence versus 2020 GDP growth. OLS regression line is exploratory only and does not imply causation. Open circles indicate thin baselines."
+#| fig-width: 8
+#| fig-height: 6
+
+if (file.exists(here("output", "figures", "fig3_shock_scatter.png"))) {
+  knitr::include_graphics(here("output", "figures", "fig3_shock_scatter.png"))
+} else {
+  cat("Figure 3 was not produced (insufficient matched data).")
+}
+```
+
+```{r shock-descriptives}
+#| label: shock-descriptives
+baseline <- read_csv(here("data", "processed", "baseline_shock_recovery.csv"),
+                     show_col_types = FALSE)
+
+shock_data <- baseline |>
+  filter(!is.na(receipts_mean_1719), !is.na(gdp_growth_pct_2020))
+
+if (nrow(shock_data) >= 4) {
+  fit <- lm(gdp_growth_pct_2020 ~ receipts_mean_1719, data = shock_data)
+  fit_s <- summary(fit)
+
+  tibble::tribble(
+    ~Statistic, ~Value,
+    "Sample size (N)",                     as.character(nrow(shock_data)),
+    "Tourism receipts mean (2017-19 avg)", paste0(round(mean(shock_data$receipts_mean_1719), 1), "%"),
+    "Tourism receipts range",              paste0(round(min(shock_data$receipts_mean_1719), 1), "% – ",
+                                                  round(max(shock_data$receipts_mean_1719), 1), "%"),
+    "2020 GDP growth mean",                paste0(round(mean(shock_data$gdp_growth_pct_2020), 1), "%"),
+    "2020 GDP growth range",               paste0(round(min(shock_data$gdp_growth_pct_2020), 1), "% – ",
+                                                   round(max(shock_data$gdp_growth_pct_2020), 1), "%"),
+    "OLS slope (receipts → GDP growth)",   as.character(round(coef(fit)[2], 3)),
+    "R²",                                  as.character(round(fit_s$r.squared, 3)),
+    "p-value (slope)",                     as.character(round(coef(fit_s)[2,4], 3))
+  ) |>
+    kable(caption = "Table 7. Descriptive statistics and exploratory regression: tourism dependence vs. 2020 GDP growth.")
+}
+```
+
+---
+
+## Recovery Data Availability
+
+```{r recovery-coverage}
+#| label: recovery-coverage
+baseline |>
+  filter(!is.na(receipts_mean_1719) | !is.na(vspend_mean_1719)) |>
+  select(iso3, country_name, region,
+         gdp_per_capita_usd_2019, gdp_per_capita_usd_2020,
+         gdp_per_capita_usd_2022, gdp_per_capita_usd_2023) |>
+  arrange(region, country_name) |>
+  kable(
+    col.names = c("ISO3", "Economy", "Region",
+                  "GDP/cap 2019", "GDP/cap 2020", "GDP/cap 2022", "GDP/cap 2023"),
+    caption = "Table 8. GDP per capita (current USD) for recovery-assessment years.",
+    digits = 0
+  )
+```
+
+> **Note on recovery measurement:** GDP per capita in current US dollars is available as requested but has a key limitation for measuring real economic recovery: nominal values conflate real output changes with price-level and exchange-rate changes. For Phase 2, the preferred measure is **GDP per capita in constant 2015 USD** (`NY.GDP.PCAP.KD`) or **GDP at constant prices** (`NY.GDP.MKTP.KD`). These should be retrieved in the next phase.
+
+---
+
+## Feasibility Findings and Recommendations
+
+### Is the project viable?
+
+**Yes.** The data are sufficient to conduct a credible cross-sectional EDA of tourism dependence and the 2020 shock for a sample of ~15–25 Caribbean and Pacific island economies. The primary research question is analytically tractable.
+
+### Recommended country sample
+
+**Include (shock analysis):** Countries with both a WDI tourism receipts baseline (2017–2019) and 2020 GDP growth data. See the coverage matrix for the exact list.
+
+**Include with caution (flag thin baselines):** Countries with only one pre-pandemic tourism observation. Their dependence estimates are less reliable.
+
+**Exclude from shock analysis:** Countries with no usable tourism-dependence indicator or no 2020 GDP growth data. List these explicitly in the Field Note.
+
+### Primary tourism-dependence measure
+
+**WDI tourism receipts (% of total exports, `ST.INT.RCPT.XP.ZS`)** is the primary measure.
+
+*Rationale:* Best geographic coverage across candidates; uses consistent balance-of-payments methodology; directly captures export earnings exposure. Correlated with visitor spending (% GDP) but not identical — the two series should be compared, not merged.
+
+### Most significant data limitations
+
+1. **Pacific SIDS data gaps.** Many Pacific micro-states (NRU, TUV, KIR, MHL, FSM) have limited WDI coverage. Pacific representation in the shock analysis will be smaller than Caribbean.
+2. **Thin baselines.** Several economies have only one 2017–2019 pre-pandemic observation. Three-year means are preferred; single-year values should be flagged.
+3. **Territories excluded from WDI.** Some territories (AIA, BES) lack WB coverage and may need supplementary sources.
+4. **Current-price GDP.** Recovery analysis using current-USD GDP per capita is confounded by inflation and exchange rates. Constant-price GDP should be used in Phase 2.
+5. **Unemployment coverage is weak.** Many SIDS lack unemployment data, limiting labor-market recovery analysis.
+6. **TSA methodology gaps.** OWID tourism GDP (SDG 8.9.1) requires TSA implementation. Many SIDS do not have TSAs, producing coverage gaps unrelated to economic importance.
+
+### Recommended next steps (Phase 2)
+
+1. Retrieve constant-price GDP (`NY.GDP.PCAP.KD`) for recovery analysis.
+2. Finalize the analytical sample based on the shock-eligibility criteria.
+3. Conduct the main shock regression with appropriate controls (GDP per capita level, region).
+4. Build the recovery tracking analysis for the economies with 2021–2023 data.
+5. Consider including the Maldives as a global comparison anchor (extreme tourism dependence).
+
+---
+
+*Analysis conducted using R `r paste(R.version$major, R.version$minor, sep=".")`. Data retrieved `r format(Sys.Date(), "%B %d, %Y")`.*

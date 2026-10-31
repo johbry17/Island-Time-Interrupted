@@ -1,0 +1,525 @@
+entity,iso3,year,visitor_spend_gdp_pct,owid_region,region,is_sids,is_territory
+Antigua and Barbuda,ATG,2014,58.242958,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2015,55.791878,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2016,56.659367,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2017,53.425224,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2018,51.458607,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2019,57.574856,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2020,30.511156,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2021,31.566854,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2022,47.29068,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2023,45.403896,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2024,48.797783,North America,Caribbean,TRUE,FALSE
+Aruba,ABW,1995,41.94839,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1996,48.26478,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1997,47.39387,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1998,47.196915,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1999,45.38846,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2000,45.370777,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2001,43.502174,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2002,42.562008,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2003,41.979115,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2004,46.877132,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2005,46.482708,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2006,43.084763,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2007,45.316,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2008,47.55499,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2009,47.889545,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2010,51.108635,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2011,51.48114,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2012,53.991875,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2013,55.208332,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2014,58.225994,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2015,55.992313,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2016,58.88785,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2017,59.98523,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2018,62.11488,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2019,63.00108,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2020,43.85248,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2021,61.890373,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2022,69.271545,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2023,70.09871,North America,Caribbean,FALSE,TRUE
+Bahamas,BHS,1995,39.545055,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1996,39.041286,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1997,22.535042,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1998,19.97594,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1999,20.796812,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2000,21.705027,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2001,20.01724,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2002,19.963608,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2003,19.954702,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2004,20.949081,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2005,21.156544,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2006,20.320145,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2007,20.700033,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2008,20.473114,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2009,20.286596,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2010,21.385216,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2011,21.419102,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2012,21.762247,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2013,22.004143,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2014,20.971174,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2015,21.57532,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2016,26.016548,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2017,23.708715,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2018,29.2998,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2019,31.257061,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2020,9.381351,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2021,19.391302,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2022,30.443726,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2023,31.196045,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2024,35.010975,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1995,28.326899,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1996,28.134508,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1997,26.817333,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1998,25.487352,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1999,24.865995,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2000,25.984638,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2001,23.833689,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2002,22.372444,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2003,26.1723,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2004,24.473799,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2005,23.6942,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2006,25.32412,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2007,25.62146,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2008,25.11267,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2009,24.088781,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2010,19.17592,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2011,17.687782,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2012,17.260548,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2013,17.455647,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2014,16.007315,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2015,17.088861,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2016,18.858856,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2017,18.486908,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2018,18.629913,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2019,20.270124,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2020,10.697271,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2021,10.5397625,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2022,13.484069999999999,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1996,11.172013,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1997,11.11218,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1998,10.871355,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2020,12.070571,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2021,15.404567,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2022,21.102386,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2023,24.023561,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2024,25.541264,North America,Caribbean,TRUE,FALSE
+Bermuda,BMU,2011,7.9205523,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2012,7.0239387,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2013,6.913345,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2014,6.345506,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2015,5.560113,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2016,6.376894,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2017,7.182544,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2018,8.068113,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2019,8.09595,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2020,1.357833,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2021,1.9596075,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2022,5.131762,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2023,6.1239705,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2006,12.118216,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2007,10.769593,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2008,11.295372,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2009,10.69665,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2010,11.186379,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2011,11.275484,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2012,11.395933,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2013,11.348687,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2014,12.382602,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2015,14.442987,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2016,14.421543,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2017,16.104427,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2018,16.473248,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2019,16.223776,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2020,4.587863,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2021,0.7536624,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2022,10.076514,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2023,11.539769,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2000,10.704966,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2001,12.643165,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2002,10.042648,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2003,10.126617,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2004,10.012692,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2005,10.406727,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2006,11.271243,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2007,12.683939,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2008,13.516966,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2009,13.174619,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2010,14.840702,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2011,18.429455,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2012,22.43733,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2013,25.646362,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2014,26.80258,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2015,23.27726,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2016,21.291437,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2017,18.856522,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2018,19.82691,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2019,23.330173,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2020,11.147263,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2021,20.191477,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2022,32.358322,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2023,31.328175,North America,Caribbean,FALSE,TRUE
+Dominica,DMA,2020,6.594181,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2021,4.4852643,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2022,12.072376,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2023,14.997915,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2024,17.044773,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2020,3.405364,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2021,6.006386,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2022,7.398167,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2023,8.095056,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2024,8.828614,North America,Caribbean,TRUE,FALSE
+Fiji,FJI,1995,18.728098,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1996,17.569437,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1997,18.466946,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1998,18.691626,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1999,18.848827,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2000,17.339806,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2001,19.122982,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2002,20.946064,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2003,21.5606,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2004,21.712812,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2005,24.224905,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2006,22.234463,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2007,21.371603,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2008,27.020998,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2009,23.96691,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2010,26.27249,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2011,25.3214,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2012,24.899118,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2013,23.055069,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2014,22.46194,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2015,23.363688,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2016,23.305279,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2017,23.21859,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2018,24.545702,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2019,25.16414,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2020,5.6057577,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2021,1.5836626,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2022,21.48506,Oceania,Pacific,TRUE,FALSE
+Grenada,GRD,2020,17.7797,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2021,20.705315,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2022,36.646225,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2023,47.82809,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2024,49.699463,North America,Caribbean,TRUE,FALSE
+Guyana,GUY,1996,15.877381,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1997,15.350977,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1998,15.469722,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1999,15.688984,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2000,11.225425,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2001,9.127067,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2002,7.298954,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2003,3.7681818,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2020,0.43800175,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2021,0.32486847,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2022,0.3446601,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2023,2.3573008,South America,Caribbean,TRUE,FALSE
+Haiti,HTI,2020,0.70222944,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2021,0.53125125,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2022,0.36387828,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2023,0.54842544,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1995,18.228754,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1996,16.473057,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1997,15.357066,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1998,15.704669,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1999,16.720943,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2000,17.512367,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2001,16.248442,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2002,15.248467,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2003,17.189392,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2004,17.032501,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2005,15.857535,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2006,17.552126,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2007,16.734898,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2008,16.207855,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2009,17.078562,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2010,15.846542,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2011,14.261324,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2020,8.37347,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2021,13.123895,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2022,19.248787,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2023,20.150305,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2024,19.595875,North America,Caribbean,TRUE,FALSE
+Kiribati,KIR,1995,2.915605,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1996,2.5780518,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1997,3.2416604,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1998,4.1385365,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1999,3.6211276,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2000,3.6042998,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2001,4.9279404,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2005,2.7217946,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2017,2.3180752,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2020,0.014253595,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2021,0.0051166806,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2022,0.98350734,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2023,1.2194612,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2024,0.6108008,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1995,2.0793478,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1996,2.7061646,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1997,2.7301345,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1998,2.676896,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1999,2.5584,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2000,2.6123643,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2001,2.5325534,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2002,2.5765383,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2003,3.050443,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2004,3.7622273,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2005,2.673913,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2006,2.5,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2007,2.192691,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2008,1.8417463,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2009,2.0502646,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2010,2.2967103,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2011,2.7742312,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2012,2.26342,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2013,2.3068671,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2014,2.903226,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2015,0.8165487,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2016,15.06442,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2017,8.469818,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2018,9.136364,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2019,1.6745385,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2020,1.8614557,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2021,0.22331485,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1997,7.730047,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1998,6.0964174,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1999,6.399664,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2000,7.4036393,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2001,6.2185974,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2002,7.0690913,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2003,6.9309015,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2004,8.066635,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2005,8.502025,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2006,9.2,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2007,9.881423,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2008,10.344828,Oceania,Pacific,TRUE,FALSE
+Nauru,NRU,2020,0.77409244,Oceania,Pacific,TRUE,FALSE
+Nauru,NRU,2021,0.5032469,Oceania,Pacific,TRUE,FALSE
+Nauru,NRU,2022,0.38392508,Oceania,Pacific,TRUE,FALSE
+Nauru,NRU,2023,0.5758106,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2005,33.93333,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2006,31.450262,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2007,34.691628,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2008,39.1869,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2009,41.29318,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2010,41.23883,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2011,48.164726,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2012,50.71459,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2013,51.71092,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2014,53.374283,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2015,55.079933,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2020,15.670739,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2021,1.6267142,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2022,6.058088,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2003,0.13855852,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2004,0.18079232,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2005,0.14385849,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2006,0.055057436,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2007,0.075431935,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2008,0.035986964,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2010,0.016841177,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2011,0.03336088,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2012,0.011082325,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2013,0.017872816,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2014,0.0120633375,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2015,0.008285982,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2016,0.007707546,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2017,0.06709845,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2018,0.017295886,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2019,0.018989418,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2020,0.0064182044,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2021,0.0058849882,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2022,0.01344894,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2023,0.021157376,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2024,0.005204694,Oceania,Pacific,TRUE,FALSE
+Puerto Rico,PRI,2017,3.7735813,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2018,3.308105,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2019,3.4593594,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2020,2.8501642,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2021,2.633646,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2022,2.929543,North America,Caribbean,FALSE,TRUE
+Saint Kitts and Nevis,KNA,2020,12.123238,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2021,17.686743,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2022,30.188091,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2023,33.42795,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2024,31.589802,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2020,22.367668,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2021,30.41282,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2022,46.69746,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2023,49.16744,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2024,53.169624,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2014,23.154755,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2015,26.838537,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2016,27.176594,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2017,25.520094,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2018,27.591522,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2019,27.018671,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2020,10.4135065,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2021,6.985682,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2022,18.531311,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2023,22.904161,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2024,27.029469,North America,Caribbean,TRUE,FALSE
+Samoa,WSM,1995,15.875892,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1996,16.165167,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1997,13.490416,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1998,14.694857,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1999,16.64004,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2004,17.167484,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2005,15.47813,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2006,17.682697,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2007,17.853765,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2008,17.400898,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2009,18.34377,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2010,18.184198,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2011,18.129354,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2012,19.168543,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2013,17.198664,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2014,18.539356,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2015,17.278397,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2016,17.620052,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2017,18.873375,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2018,21.89087,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2019,22.575157,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2020,2.6829185,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2021,0.019591425,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2022,6.4841437,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2023,21.138948,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2024,19.795238,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1995,3.6426132,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1996,3.1336517,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1997,1.8421662,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1998,1.5516418,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1999,1.987605,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2000,0.9527378,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2001,2.1489174,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2002,0.2309424,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2003,0.38308063,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2004,0.7521365,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2005,1.157572,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2006,5.006015,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2007,4.760595,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2008,4.018881,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2009,4.87861,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2010,5.6562057,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2011,6.1942015,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2012,5.517974,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2013,5.482516,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2014,4.8518367,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2015,4.587476,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2016,5.1468434,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2017,5.3749156,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2018,5.694926,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2019,5.064384,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2020,0.48888618,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2022,0.9782564,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2023,3.0789201,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2024,3.4764657,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2004,5.6789117,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2005,5.7290435,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2007,5.0917926,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2008,5.2258916,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2009,5.889601,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2010,4.7153435,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2011,7.847515,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2012,8.490353,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2013,10.403098,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2014,8.684852,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2015,10.605096,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2016,12.522923,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2017,10.544009,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2018,9.746099,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2019,11.283888,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2020,9.408398,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2021,1.760624,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2022,1.7930019,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2023,7.469481,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2024,9.662327,Oceania,Pacific,TRUE,FALSE
+Trinidad and Tobago,TTO,1995,4.353359,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1996,4.5489507,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1997,5.995359,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1998,5.8904443,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1999,5.360566,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2000,4.549723,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2001,4.0907216,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2002,4.462552,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2003,3.865389,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2004,4.2770143,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2005,3.7103338,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2006,2.814469,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2007,2.8694708,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2008,1.998451,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2009,2.8583105,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2010,2.8432271,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2011,2.555734,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2012,3.138428,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2013,2.9971426,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2014,2.9687002,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2015,3.0140297,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2016,2.9969113,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2017,3.0087175,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2018,2.265204,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2019,2.0487487,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2020,0.7267754,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2021,0.48234900000000003,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2022,1.7838585,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2023,2.8791494,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2024,2.9471524,North America,Caribbean,TRUE,FALSE
+Turks and Caicos Islands,TCA,2001,86.691154,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2002,79.62741,North America,Caribbean,FALSE,TRUE
+Tuvalu,TUV,2013,12.381489,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2014,12.162563,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2015,16.32418,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2016,14.041496,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2017,14.793925,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2018,14.575138,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2019,16.25326,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2020,3.880051,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2021,1.5563637,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2022,2.8120096,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2023,18.837234,Oceania,Pacific,TRUE,FALSE
+United States Virgin Islands,VIR,2002,36.63397,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2003,36.508858,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2004,35.712406,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2005,32.339657,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2006,32.738625,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2007,31.626255,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2008,27.262016,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2009,24.303738,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2010,28.283997,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2011,26.56879,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2012,29.591587,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2013,31.246656,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2014,36.998596,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2015,36.145237,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2016,35.360718,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2017,31.681602,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2018,25.312262,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2019,25.0182,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2020,16.221329,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2021,22.276459,North America,Caribbean,FALSE,TRUE
+Vanuatu,VUT,1998,27.450174,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,1999,22.014353,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2000,25.366283,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2001,22.486994,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2002,27.418488,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2003,26.393496,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2004,25.479671,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2005,26.331617,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2006,24.808893,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2007,27.49844,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2008,31.824038,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2009,36.110687,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2010,36.08101,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2011,32.331215,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2012,35.836555,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2013,36.370075,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2014,31.84766,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2015,27.356895,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2016,29.051678,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2017,28.24134,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2018,27.552126,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2019,23.173716,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2020,5.7476516,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2021,0.20345289,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2022,3.987127,Oceania,Pacific,TRUE,FALSE

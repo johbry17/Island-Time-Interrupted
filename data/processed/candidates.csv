@@ -1,0 +1,38 @@
+iso3,country_name,region,is_sids,is_territory
+ABW,Aruba,Caribbean,FALSE,TRUE
+AIA,Anguilla,Caribbean,FALSE,TRUE
+ATG,Antigua and Barbuda,Caribbean,TRUE,FALSE
+BHS,Bahamas,Caribbean,TRUE,FALSE
+BRB,Barbados,Caribbean,TRUE,FALSE
+BLZ,Belize,Caribbean,TRUE,FALSE
+BMU,Bermuda,Caribbean,FALSE,TRUE
+BES,"Bonaire, Sint Eustatius & Saba",Caribbean,FALSE,TRUE
+CUW,Curaçao,Caribbean,FALSE,TRUE
+CYM,Cayman Islands,Caribbean,FALSE,TRUE
+DMA,Dominica,Caribbean,TRUE,FALSE
+DOM,Dominican Republic,Caribbean,TRUE,FALSE
+GRD,Grenada,Caribbean,TRUE,FALSE
+GUY,Guyana,Caribbean,TRUE,FALSE
+HTI,Haiti,Caribbean,TRUE,FALSE
+JAM,Jamaica,Caribbean,TRUE,FALSE
+KNA,Saint Kitts and Nevis,Caribbean,TRUE,FALSE
+LCA,Saint Lucia,Caribbean,TRUE,FALSE
+MSR,Montserrat,Caribbean,FALSE,TRUE
+PRI,Puerto Rico,Caribbean,FALSE,TRUE
+TCA,Turks and Caicos Islands,Caribbean,FALSE,TRUE
+TTO,Trinidad and Tobago,Caribbean,TRUE,FALSE
+VCT,Saint Vincent and the Grenadines,Caribbean,TRUE,FALSE
+VGB,British Virgin Islands,Caribbean,FALSE,TRUE
+VIR,US Virgin Islands,Caribbean,FALSE,TRUE
+FJI,Fiji,Pacific,TRUE,FALSE
+FSM,Micronesia (Fed. Sts.),Pacific,TRUE,FALSE
+KIR,Kiribati,Pacific,TRUE,FALSE
+MHL,Marshall Islands,Pacific,TRUE,FALSE
+NRU,Nauru,Pacific,TRUE,FALSE
+PLW,Palau,Pacific,TRUE,FALSE
+PNG,Papua New Guinea,Pacific,TRUE,FALSE
+SLB,Solomon Islands,Pacific,TRUE,FALSE
+TON,Tonga,Pacific,TRUE,FALSE
+TUV,Tuvalu,Pacific,TRUE,FALSE
+VUT,Vanuatu,Pacific,TRUE,FALSE
+WSM,Samoa,Pacific,TRUE,FALSE

@@ -1,0 +1,977 @@
+entity,iso3,year,arrivals,owid_region,region,is_sids,is_territory
+Anguilla,AIA,1995,39000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,1996,37000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,1997,43000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,1998,44000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,1999,47000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2000,44000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2001,48000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2002,44000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2003,47000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2004,54000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2005,62000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2006,73000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2007,78000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2008,68000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2009,58000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2010,62000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2011,66000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2012,65000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2013,69000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2014,71000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2015,73000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2016,79000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2017,68300,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2018,55000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2019,95000,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2020,25400,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2021,28400,North America,Caribbean,FALSE,TRUE
+Anguilla,AIA,2022,74100,North America,Caribbean,FALSE,TRUE
+Antigua and Barbuda,ATG,1995,220000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,1996,228000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,1997,240000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,1998,234000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,1999,232000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2000,207000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2001,215000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2002,218000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2003,239000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2004,246000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2005,245000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2006,254000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2007,262000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2008,266000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2009,234000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2010,230000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2011,241000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2012,247000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2013,243000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2014,249000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2015,250000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2016,265000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2017,247000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2018,269000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2019,301000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2020,125000,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2021,169400,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2022,265100,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2023,281800,North America,Caribbean,TRUE,FALSE
+Antigua and Barbuda,ATG,2024,330200,North America,Caribbean,TRUE,FALSE
+Aruba,ABW,1995,619000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1996,641000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1997,650000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1998,647000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,1999,683000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2000,721000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2001,691000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2002,643000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2003,642000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2004,728000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2005,733000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2006,694000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2007,772000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2008,827000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2009,813000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2010,824000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2011,869000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2012,904000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2013,979000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2014,1072000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2015,1225000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2016,1102000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2017,1070500,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2018,1082000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2019,1119000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2020,368000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2021,807000,North America,Caribbean,FALSE,TRUE
+Aruba,ABW,2022,1101000,North America,Caribbean,FALSE,TRUE
+Bahamas,BHS,1995,1598000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1996,1633000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1997,1618000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1998,1528000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,1999,1577000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2000,1544000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2001,1538000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2002,1513000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2003,1505000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2004,1561000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2005,1625000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2006,1613000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2007,1538000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2008,1469000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2009,1336000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2010,1378000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2011,1355000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2012,1431000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2013,1377000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2014,1444000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2015,1496000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2016,1499000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2017,1452000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2018,1633000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2019,1807000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2020,441000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2021,892000,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2022,1452400,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2023,1872059,North America,Caribbean,TRUE,FALSE
+Bahamas,BHS,2024,1869133,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1995,442000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1996,447000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1997,472000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1998,512000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,1999,515000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2000,545000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2001,507000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2002,498000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2003,531000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2004,552000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2005,548000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2006,563000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2007,575000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2008,568000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2009,519000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2010,532000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2011,568000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2012,536000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2013,509000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2014,521000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2015,592000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2016,632000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2017,664000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2018,680000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2019,523000,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2020,207400,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2021,144800,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2022,539700,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2023,636045.9,North America,Caribbean,TRUE,FALSE
+Barbados,BRB,2024,704340,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1995,131000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1996,133000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1997,146000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1998,176000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,1999,181000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2000,196000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2001,196000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2002,200000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2003,221000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2004,231000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2005,237000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2006,247000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2007,251000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2008,245000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2009,232000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2010,242000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2011,250000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2012,277000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2013,294000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2014,321000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2015,341000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2016,386000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2017,427000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2018,489000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2019,503000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2020,144100,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2021,219000,North America,Caribbean,TRUE,FALSE
+Belize,BLZ,2022,372600,North America,Caribbean,TRUE,FALSE
+Bermuda,BMU,1995,387000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,1996,390000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,1997,380000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,1998,370000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,1999,355000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2000,332000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2001,278000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2002,284000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2003,257000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2004,272000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2005,270000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2006,299000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2007,306000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2008,264000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2009,236000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2010,232000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2011,236000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2012,232000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2013,236000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2014,224000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2015,220000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2016,244000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2017,270000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2018,282000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2019,269000,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2020,42100,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2021,72200,North America,Caribbean,FALSE,TRUE
+Bermuda,BMU,2022,145900,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,1995,219000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,1996,244000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,1997,244000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,1998,279000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,1999,284000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2000,272000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2001,296000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2002,282000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2003,278000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2004,304000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2005,337000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2006,356000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2007,358000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2008,346000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2009,309000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2010,330000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2011,338000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2012,351000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2013,366000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2014,386000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2015,393000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2016,408000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2017,335000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2018,192000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2019,302400,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2020,83000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2021,56000,North America,Caribbean,FALSE,TRUE
+British Virgin Islands,VGB,2022,173000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,1995,361000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,1996,373000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,1997,381000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,1998,404000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,1999,395000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2000,354000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2001,334000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2002,303000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2003,294000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2004,260000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2005,168000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2006,267000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2007,292000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2008,303000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2009,272000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2010,288000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2011,309000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2012,322000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2013,345000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2014,383000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2015,385000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2016,385000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2017,418000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2018,463000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2019,503000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2020,122000,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2021,17300,North America,Caribbean,FALSE,TRUE
+Cayman Islands,CYM,2022,284300,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,1995,224000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,1996,214000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,1997,205000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,1998,199000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,1999,198000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2000,191000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2001,205000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2002,218000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2003,221000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2004,223000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2005,222000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2006,234000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2007,300000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2008,409000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2009,367000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2010,342000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2011,390000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2012,421000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2013,441000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2014,452000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2015,468000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2016,441000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2017,399000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2018,432000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2019,464000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2020,175000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2021,265000,North America,Caribbean,FALSE,TRUE
+Curacao,CUW,2022,489600,North America,Caribbean,FALSE,TRUE
+Dominica,DMA,1995,60000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,1996,63000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,1997,65000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,1998,66000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,1999,74000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2000,70000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2001,66000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2002,69000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2003,73000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2004,80000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2005,79000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2006,84000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2007,81000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2008,81000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2009,75000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2010,77000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2011,76000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2012,79000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2013,78000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2014,81500,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2015,75000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2016,78000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2017,72000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2018,63000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2019,90000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2020,22000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2021,15000,North America,Caribbean,TRUE,FALSE
+Dominica,DMA,2022,61000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,1995,1776000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,1996,1926000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,1997,2211000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,1998,2309000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,1999,2649000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2000,2978000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2001,2882000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2002,2811000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2003,3282000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2004,3450000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2005,3691000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2006,3965000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2007,3980000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2008,3980000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2009,3992000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2010,4125000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2011,4306000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2012,4563000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2013,4690000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2014,5141400,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2015,5600000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2016,5959300,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2017,6188000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2018,6569000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2019,6446000,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2020,2405310,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2021,4994313,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2022,7163414,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2023,8058671.5,North America,Caribbean,TRUE,FALSE
+Dominican Republic,DOM,2024,8535701,North America,Caribbean,TRUE,FALSE
+Fiji,FJI,1995,318000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1996,340000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1997,359000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1998,371000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,1999,410000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2000,294000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2001,348000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2002,398000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2003,431000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2004,504000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2005,545000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2006,549000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2007,540000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2008,585000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2009,542000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2010,632000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2011,675000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2012,661000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2013,659000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2014,693000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2015,755000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2016,792000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2017,843000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2018,870000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2019,894000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2020,146900,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2021,32000,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2022,636300,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2023,929740,Oceania,Pacific,TRUE,FALSE
+Fiji,FJI,2024,928938,Oceania,Pacific,TRUE,FALSE
+Grenada,GRD,1995,108000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,1996,108000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,1997,111000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,1998,116000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,1999,125000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2000,129000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2001,123000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2002,132000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2003,142000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2004,134000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2005,99000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2006,119000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2007,130000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2008,130000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2009,114000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2010,110000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2011,118000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2012,125000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2013,128000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2014,150000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2015,155000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2016,156000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2017,168000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2018,186000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2019,188000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2020,54200,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2021,47000,North America,Caribbean,TRUE,FALSE
+Grenada,GRD,2022,149000,North America,Caribbean,TRUE,FALSE
+Guyana,GUY,1995,106000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1996,92000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1997,76000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1998,66000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,1999,75000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2000,105000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2001,99000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2002,104000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2003,101000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2004,122000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2005,117000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2006,113000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2007,134000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2008,130000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2009,141000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2010,152000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2011,157000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2012,177000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2013,200000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2014,206000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2015,207000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2016,235000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2017,247000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2018,287000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2019,315000,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2020,86500,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2021,158300,South America,Caribbean,TRUE,FALSE
+Guyana,GUY,2022,288000,South America,Caribbean,TRUE,FALSE
+Haiti,HTI,1995,145000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,1996,150000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,1997,149000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,1998,147000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,1999,143000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2000,140000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2001,142000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2002,140000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2003,136000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2004,96000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2005,112000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2006,108000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2007,386000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2008,258000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2009,387000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2010,255000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2011,349000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2012,349000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2013,420000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2014,465200,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2015,516000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2016,445000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2017,467000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2018,447000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2019,286000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2020,203000,North America,Caribbean,TRUE,FALSE
+Haiti,HTI,2021,148000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1995,1147000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1996,1162000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1997,1192000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1998,1225000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,1999,1248000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2000,1323000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2001,1277000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2002,1266000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2003,1350000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2004,1415000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2005,1479000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2006,1679000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2007,1701000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2008,1767000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2009,1831000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2010,1922000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2011,1952000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2012,1986000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2013,2008400,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2014,2080000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2015,2123000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2016,2182000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2017,2353000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2018,2473000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2019,2681000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2020,880400,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2021,1464000,North America,Caribbean,TRUE,FALSE
+Jamaica,JAM,2022,2478400,North America,Caribbean,TRUE,FALSE
+Kiribati,KIR,1995,3900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1996,4200,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1997,5100,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1998,5700,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,1999,5100,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2000,4800,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2001,4600,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2002,4900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2003,4900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2004,3400,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2005,4100,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2006,4400,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2007,4700,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2008,3900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2009,3900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2010,4700,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2011,5300,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2012,4900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2013,5900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2014,5000,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2015,3900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2016,5700,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2017,5800,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2018,7100,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2019,7900,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2020,1400,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2021,70,Oceania,Pacific,TRUE,FALSE
+Kiribati,KIR,2022,1800,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1995,5500,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1996,6200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1997,6400,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1998,6400,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,1999,4600,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2000,5200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2001,5400,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2002,6000,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2003,7200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2004,9000,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2005,9200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2006,5800,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2007,7200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2008,6000,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2009,5400,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2010,4600,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2011,4600,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2012,4600,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2014,4900,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2015,6300,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2016,5400,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2017,6000,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2018,6800,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2019,6100,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2020,1200,Oceania,Pacific,TRUE,FALSE
+Marshall Islands,MHL,2021,35,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1996,17600,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1997,17200,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1998,13400,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,1999,16100,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2000,20500,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2001,15300,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2002,19100,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2003,18200,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2004,19300,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2005,19000,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2006,19100,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2007,21100,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2008,25700,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2009,47500,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2010,44700,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2011,35400,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2012,38300,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2013,42100,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2014,35400,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2015,31200,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2016,29600,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2018,19200,Oceania,Pacific,TRUE,FALSE
+Micronesia (country),FSM,2019,18000,Oceania,Pacific,TRUE,FALSE
+Montserrat,MSR,1995,17700,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,1996,8700,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,1997,5100,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,1998,7500,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,1999,9800,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2000,10300,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2001,9800,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2002,9800,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2003,8400,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2004,10100,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2005,9700,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2006,8000,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2007,7700,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2008,7400,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2009,6300,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2010,6000,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2011,5400,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2012,7310,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2013,7200,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2014,8800,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2015,8900,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2016,8700,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2017,9500,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2018,10200,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2019,10400,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2020,4500,North America,Caribbean,FALSE,TRUE
+Montserrat,MSR,2021,1600,North America,Caribbean,FALSE,TRUE
+Palau,PLW,1995,53000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,1996,69000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,1997,74000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,1998,64000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,1999,55000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2000,58000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2001,54000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2002,59000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2003,63000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2004,89000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2005,81000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2006,82000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2007,88000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2008,81000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2009,71000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2010,85000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2011,111000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2012,120000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2013,108000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2014,140000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2015,162000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2016,138000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2017,123000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2018,106000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2019,94000,Oceania,Pacific,TRUE,FALSE
+Palau,PLW,2020,18400,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,1995,42000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,1996,61000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,1997,66000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,1998,67000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,1999,67000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2000,58000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2001,54000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2002,54000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2003,56000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2004,59000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2005,69000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2006,78000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2007,104000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2008,114000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2009,121000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2010,140000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2011,158000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2012,168000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2013,174000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2014,182000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2015,183000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2016,179000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2017,139000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2018,140000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2019,160000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2020,39000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2021,17000,Oceania,Pacific,TRUE,FALSE
+Papua New Guinea,PNG,2022,66800,Oceania,Pacific,TRUE,FALSE
+Puerto Rico,PRI,1995,3131000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,1996,3065000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,1997,3242000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,1998,3396000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,1999,3024000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2000,3341000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2001,3551000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2002,3087000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2003,3238000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2004,3541000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2005,3686000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2006,3722000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2007,3687000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2008,3716000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2009,3183000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2010,3186000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2011,3048000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2012,3069000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2013,3172000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2014,3246000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2015,3542000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2016,3736000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2017,3513000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2018,3068000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2019,3180000,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2020,2617400,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2021,2754700,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2022,4231900,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2023,5046200,North America,Caribbean,FALSE,TRUE
+Puerto Rico,PRI,2024,5551200,North America,Caribbean,FALSE,TRUE
+Saint Kitts and Nevis,KNA,1995,79000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,1996,84000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,1997,88000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,1998,93000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,1999,84000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2000,73000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2001,71000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2002,69000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2003,91000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2004,118000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2005,141000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2006,139000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2007,123000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2008,128000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2009,83000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2010,98000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2011,104000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2012,104000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2013,107000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2014,113000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2015,118000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2016,116000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2017,115000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2018,125000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2019,120000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2020,30000,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2021,20200,North America,Caribbean,TRUE,FALSE
+Saint Kitts and Nevis,KNA,2022,79800,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,1995,231000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,1996,236000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,1997,248000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,1998,252000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,1999,264000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2000,270000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2001,250000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2002,253000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2003,277000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2004,298000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2005,318000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2006,303000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2007,287000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2008,296000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2009,278000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2010,306000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2011,312000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2012,307000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2013,319000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2014,338000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2015,345000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2016,348000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2017,386000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2018,395000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2019,424000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2020,130700,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2021,199000,North America,Caribbean,TRUE,FALSE
+Saint Lucia,LCA,2022,356000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,1995,60000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,1996,58000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,1997,65000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,1998,67000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,1999,68000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2000,73000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2001,71000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2002,78000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2003,79000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2004,87000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2005,96000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2006,97000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2007,90000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2008,84000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2009,75000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2010,72000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2011,74000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2012,74000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2013,72000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2014,71000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2015,75000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2016,79000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2017,76000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2018,80000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2019,84000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2020,27000,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2021,24200,North America,Caribbean,TRUE,FALSE
+Saint Vincent and the Grenadines,VCT,2022,59000,North America,Caribbean,TRUE,FALSE
+Samoa,WSM,1995,68000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1996,73000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1997,68000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1998,78000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,1999,85000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2000,88000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2001,88000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2002,89000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2003,92000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2004,98000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2005,102000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2006,110000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2007,117000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2008,118000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2009,122000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2010,122000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2011,121000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2012,126000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2013,116000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2014,120400,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2015,128000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2016,134000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2017,146000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2018,164000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2019,172000,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2020,23100,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2021,2600,Oceania,Pacific,TRUE,FALSE
+Samoa,WSM,2022,49400,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1995,11800,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1996,10300,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1997,13800,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,1998,15800,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2000,5200,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2003,6600,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2004,5600,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2005,9400,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2006,11500,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2007,13700,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2008,16299.999,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2009,18300,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2010,20500,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2011,22900,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2012,23900,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2013,24400,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2014,20100,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2015,21600,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2016,23200,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2017,25700,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2018,27900,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2019,28900,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2020,4400,Oceania,Pacific,TRUE,FALSE
+Solomon Islands,SLB,2021,700,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,1995,29000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,1996,27000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,1997,26000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,1998,27000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,1999,31000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2000,35000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2001,32000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2002,37000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2003,40000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2004,41000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2005,42000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2006,39000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2007,46000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2008,50000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2009,45700,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2010,47100,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2011,46000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2012,47400,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2013,48200,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2014,50400,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2015,53800,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2016,59100,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2017,62500,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2018,54000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2019,67300,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2020,9000,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2021,200,Oceania,Pacific,TRUE,FALSE
+Tonga,TON,2022,18400,Oceania,Pacific,TRUE,FALSE
+Trinidad and Tobago,TTO,1995,260000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1996,266000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1997,324000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1998,334000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,1999,358000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2000,399000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2001,383000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2002,384000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2003,409000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2004,443000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2005,463000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2006,461000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2007,449000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2008,437000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2009,419000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2010,388000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2011,431000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2012,455000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2013,434000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2014,412800,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2015,439800,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2016,410000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2017,394700,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2018,375500,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2019,388600,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2020,95300,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2021,40600,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2022,226500,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2023,309000,North America,Caribbean,TRUE,FALSE
+Trinidad and Tobago,TTO,2024,334000,North America,Caribbean,TRUE,FALSE
+Turks and Caicos Islands,TCA,1995,79000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,1996,88000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,1997,93000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,1998,111000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,1999,121000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2000,152000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2001,166000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2002,155000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2003,164000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2004,173000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2005,176000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2006,248000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2007,265000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2008,352000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2009,351000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2010,281000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2011,354000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2012,291700,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2013,290600,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2014,358000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2015,386000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2016,449000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2017,416400,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2018,441000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2019,487000,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2020,164500,North America,Caribbean,FALSE,TRUE
+Turks and Caicos Islands,TCA,2021,405000,North America,Caribbean,FALSE,TRUE
+Tuvalu,TUV,1995,900,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,1996,1000,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,1997,1000,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,1998,1000,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,1999,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2000,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2001,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2002,1300,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2003,1400,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2004,1300,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2005,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2006,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2007,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2008,1700,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2009,1600,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2010,1700,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2011,1200,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2012,1100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2013,1300,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2014,1400,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2015,2400,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2016,2500,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2017,2500,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2018,3100,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2019,3700,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2020,600,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2021,40,Oceania,Pacific,TRUE,FALSE
+Tuvalu,TUV,2022,244,Oceania,Pacific,TRUE,FALSE
+United States Virgin Islands,VIR,1995,454000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,1996,373000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,1997,393000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,1998,422000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,1999,484000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2000,546000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2001,527000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2002,520000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2003,538000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2004,563000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2005,594000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2006,571000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2007,587000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2008,574000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2009,563000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2010,572000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2011,567000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2012,619000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2013,590000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2014,615000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2015,642000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2016,667000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2017,535000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2018,381000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2019,514000,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2020,302700,North America,Caribbean,FALSE,TRUE
+United States Virgin Islands,VIR,2021,684800,North America,Caribbean,FALSE,TRUE
+Vanuatu,VUT,1995,44000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,1996,46000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,1997,50000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,1998,52000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,1999,51000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2000,58000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2001,53000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2002,49000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2003,50000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2004,61000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2005,62000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2006,68000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2007,81000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2008,90500,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2009,100700,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2010,97200,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2011,94000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2012,108200,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2013,110000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2014,109000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2015,90000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2016,95100,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2017,109200,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2018,115600,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2019,120600,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2020,22000,Oceania,Pacific,TRUE,FALSE
+Vanuatu,VUT,2022,30000,Oceania,Pacific,TRUE,FALSE

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='540.00pt' height='432.00pt' viewBox='0 0 540.00 432.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NDAuMDB8MC4wMHw0MzIuMDA='>
+    <rect x='0.00' y='0.00' width='540.00' height='432.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NDAuMDB8MC4wMHw0MzIuMDA=)'>
+<rect x='0.00' y='0.000000000000057' width='540.00' height='432.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNDcuNzJ8NDQ2LjQ2fDQ1LjIyfDM4Mi40OQ=='>
+    <rect x='47.72' y='45.22' width='398.74' height='337.26' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDcuNzJ8NDQ2LjQ2fDQ1LjIyfDM4Mi40OQ==)'>
+<polyline points='47.72,373.57 446.46,373.57 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='47.72,299.31 446.46,299.31 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='47.72,225.06 446.46,225.06 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='47.72,150.80 446.46,150.80 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='47.72,76.54 446.46,76.54 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='58.49,382.49 58.49,45.22 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='177.13,382.49 177.13,45.22 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='295.78,382.49 295.78,45.22 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='414.42,382.49 414.42,45.22 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<line x1='-351.02' y1='629.87' x2='845.19' y2='-118.81' style='stroke-width: 1.07; stroke: #BFBFBF; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
+<circle cx='424.51' cy='73.60' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='379.73' cy='66.08' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='225.11' cy='79.22' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='104.65' cy='236.22' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='181.11' cy='245.62' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='154.99' cy='289.79' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='202.70' cy='185.94' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='72.24' cy='308.37' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='96.61' cy='309.92' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='58.69' cy='373.20' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='90.39' cy='323.22' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='120.92' cy='195.12' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='72.97' cy='353.21' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='216.94' cy='97.77' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<circle cx='214.64' cy='63.79' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<circle cx='183.73' cy='144.53' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<text x='424.51' y='69.90' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='19.72px' lengthAdjust='spacingAndGlyphs'>Aruba</text>
+<text x='379.73' y='62.38' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='62.04px' lengthAdjust='spacingAndGlyphs'>Antigua &amp; Barbuda</text>
+<text x='225.11' y='75.51' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='31.22px' lengthAdjust='spacingAndGlyphs'>Bahamas</text>
+<text x='104.65' y='232.51' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='29.99px' lengthAdjust='spacingAndGlyphs'>Bermuda</text>
+<text x='181.11' y='241.92' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='27.94px' lengthAdjust='spacingAndGlyphs'>Curaçao</text>
+<text x='154.99' y='286.09' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='37.37px' lengthAdjust='spacingAndGlyphs'>Cayman Is.</text>
+<text x='202.70' y='182.24' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='9.44px' lengthAdjust='spacingAndGlyphs'>Fiji</text>
+<text x='72.24' y='304.67' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='22.59px' lengthAdjust='spacingAndGlyphs'>Kiribati</text>
+<text x='58.69' y='369.50' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='64.09px' lengthAdjust='spacingAndGlyphs'>Papua New Guinea</text>
+<text x='90.39' y='319.51' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='39.02px' lengthAdjust='spacingAndGlyphs'>Solomon Is.</text>
+<text x='120.92' y='191.42' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='20.14px' lengthAdjust='spacingAndGlyphs'>Tonga</text>
+<text x='72.97' y='349.50' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='59.57px' lengthAdjust='spacingAndGlyphs'>Trinidad &amp; Tobago</text>
+<text x='216.94' y='94.06' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='35.59px' lengthAdjust='spacingAndGlyphs'>St. Vincent</text>
+<text x='214.64' y='60.08' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='26.99px' lengthAdjust='spacingAndGlyphs'>Vanuatu</text>
+<text x='183.73' y='140.83' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='23.41px' lengthAdjust='spacingAndGlyphs'>Samoa</text>
+<text x='443.54' y='379.43' text-anchor='end' style='font-size: 8.54px;fill: #595959; font-family: "Arial";' textLength='29.17px' lengthAdjust='spacingAndGlyphs'>r = 0.83</text>
+</g>
+<g clip-path='url(#cpMC4wMHw1NDAuMDB8MC4wMHw0MzIuMDA=)'>
+<text x='40.05' y='376.62' text-anchor='end' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='12.29px' lengthAdjust='spacingAndGlyphs'>0%</text>
+<text x='40.05' y='302.36' text-anchor='end' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>20%</text>
+<text x='40.05' y='228.10' text-anchor='end' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>40%</text>
+<text x='40.05' y='153.84' text-anchor='end' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>60%</text>
+<text x='40.05' y='79.59' text-anchor='end' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>80%</text>
+<polyline points='44.98,373.57 47.72,373.57 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='44.98,299.31 47.72,299.31 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='44.98,225.06 47.72,225.06 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='44.98,150.80 47.72,150.80 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='44.98,76.54 47.72,76.54 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='58.49,385.23 58.49,382.49 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='177.13,385.23 177.13,382.49 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='295.78,385.23 295.78,382.49 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<polyline points='414.42,385.23 414.42,382.49 ' style='stroke-width: 1.07; stroke: #CCCCCC; stroke-linecap: butt;' />
+<text x='58.49' y='396.25' text-anchor='middle' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='12.29px' lengthAdjust='spacingAndGlyphs'>0%</text>
+<text x='177.13' y='396.25' text-anchor='middle' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>20%</text>
+<text x='295.78' y='396.25' text-anchor='middle' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>40%</text>
+<text x='414.42' y='396.25' text-anchor='middle' style='font-size: 8.50px;fill: #4D4D4D; font-family: "Arial";' textLength='17.02px' lengthAdjust='spacingAndGlyphs'>60%</text>
+<text x='247.09' y='407.23' text-anchor='middle' style='font-size: 9.00px;fill: #404040; font-family: "Arial";' textLength='163.04px' lengthAdjust='spacingAndGlyphs'>International visitor spending (% of GDP)</text>
+<text transform='translate(18.40,213.85) rotate(-90)' text-anchor='middle' style='font-size: 9.00px;fill: #404040; font-family: "Arial";' textLength='143.50px' lengthAdjust='spacingAndGlyphs'>Tourism receipts (% of total exports)</text>
+<text x='462.89' y='201.38' style='font-size: 9.00px; font-weight: bold;fill: #262626; font-family: "Arial";' textLength='30.51px' lengthAdjust='spacingAndGlyphs'>Region</text>
+<circle cx='469.37' cy='214.28' r='3.02' style='stroke-width: 0.71; stroke: #0072B2; stroke-opacity: 0.85; fill: #0072B2; fill-opacity: 0.85;' />
+<text x='469.37' y='224.00' text-anchor='middle' style='font-size: 7.40px;fill: #0072B2; font-family: "Arial";' textLength='4.11px' lengthAdjust='spacingAndGlyphs'>a</text>
+<circle cx='469.37' cy='227.24' r='3.02' style='stroke-width: 0.71; stroke: #D55E00; stroke-opacity: 0.85; fill: #D55E00; fill-opacity: 0.85;' />
+<text x='469.37' y='236.96' text-anchor='middle' style='font-size: 7.40px;fill: #D55E00; font-family: "Arial";' textLength='4.11px' lengthAdjust='spacingAndGlyphs'>a</text>
+<text x='481.33' y='217.32' style='font-size: 8.50px;fill: #262626; font-family: "Arial";' textLength='39.24px' lengthAdjust='spacingAndGlyphs'>Caribbean</text>
+<text x='481.33' y='230.28' style='font-size: 8.50px;fill: #262626; font-family: "Arial";' textLength='25.05px' lengthAdjust='spacingAndGlyphs'>Pacific</text>
+<text x='47.72' y='35.15' style='font-size: 10.00px;fill: #595959; font-family: "Arial";' textLength='408.04px' lengthAdjust='spacingAndGlyphs'>Visitor spending vs. tourism receipts (% of exports) — 16 economies with data in both series</text>
+<text x='47.72' y='21.26' style='font-size: 13.00px; font-weight: bold;fill: #262626; font-family: "Arial";' textLength='292.10px' lengthAdjust='spacingAndGlyphs'>Two Tourism-Dependence Measures Compared</text>
+<text x='47.72' y='422.45' style='font-size: 7.50px;fill: #7F7F7F; font-family: "Arial";' textLength='507.27px' lengthAdjust='spacingAndGlyphs'>Sources: WDI (ST.INT.RCPT.XP.ZS); OWID/WB (ST.INT.XPND.GD.ZS). Both indicators 2017–2019 mean. Countries with data in both series only shown.</text>
+</g>
+</svg>
