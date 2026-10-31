@@ -1,0 +1,52 @@
+{
+  "chart": {
+    "title": "Spending by international visitors while visiting a country as a share of GDP",
+    "subtitle": "Money received by the destination country from foreign visitors, including spending on accommodation, food, transport, entertainment, shopping, and fares paid to the country’s own airlines, as a share of, as a share of GDP.",
+    "note": "Transactions associated with all types of foreign visitors considered, including students or seasonal workers, which can be significant in certain countries.",
+    "citation": "UN Tourism (2025); National statistical organizations and central banks, OECD national accounts, and World Bank staff estimates (2026)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "China",
+      "Sweden",
+      "Philippines",
+      "Egypt",
+      "Thailand",
+      "Croatia"
+    ]
+  },
+  "columns": {
+    "Spending by international visitors while visiting a country as a share of GDP": {
+      "titleShort": "Spending by international visitors while visiting a country as a share of GDP",
+      "titleLong": "Spending by international visitors while visiting a country as a share of GDP",
+      "descriptionShort": "Money received by the destination country from foreign visitors, including spending on accommodation, food, transport, entertainment, shopping, and fares paid to the country’s own airlines, as a share of, as a share of GDP.",
+      "descriptionKey": "- Total international tourism receipts measure all the money a country earns from foreign visitors.\n- This includes spending within the country (accommodation, food, transport, entertainment, shopping, cruises) plus fares paid to the country's airlines.\n- All types of foreign visitors are included, such as students and seasonal workers, which can be significant in certain countries.\n- A high percentage means that the country earns a large amount from foreign visitors relative to the size of the economy. A low percentage means it earns relatively little.\n- In small countries with a lot of tourism, this ratio can look very large. This is because this indicator compares total international tourist spending to the overall size of the economy, GDP. It is not the same as the tourism sector's contribution to GDP, which is shown in this [other chart](https://ourworldindata.org/grapher/tourism-gdp-proportion-of-total-gdp).",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "1995-2024",
+      "type": "Numeric",
+      "owidVariableId": 1146095,
+      "shortName": "in_tour_exp_total_share_gdp",
+      "lastUpdated": "2026-01-21",
+      "nextUpdate": "2027-01-21",
+      "citationShort": "UN Tourism (2025); National statistical organizations and central banks, OECD national accounts, and World Bank staff estimates (2026) – processed by Our World in Data",
+      "citationLong": "UN Tourism (2025); National statistical organizations and central banks, OECD national accounts, and World Bank staff estimates (2026) – processed by Our World in Data. “Spending by international visitors while visiting a country as a share of GDP” [dataset]. UN Tourism, “UN Tourism Statistics Database”; National statistical organizations and central banks, OECD national accounts, and World Bank staff estimates, “World Development Indicators 129” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1146095.metadata.json"
+    },
+    "World region according to OWID": {
+      "titleShort": "World region according to OWID",
+      "titleLong": "World region according to OWID",
+      "descriptionShort": "Regions defined by Our World in Data, which are used in OWID charts and maps.",
+      "unit": "",
+      "timespan": "2023-2023",
+      "type": "Continent",
+      "owidVariableId": 900801,
+      "shortName": "owid_region",
+      "lastUpdated": "2023-01-01",
+      "citationShort": "Our World in Data",
+      "citationLong": "Our World in Data. “World region according to OWID” [dataset]. Our World in Data, “Regions” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/900801.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-10-31",
+  "activeFilters": {}
+}

@@ -1,0 +1,50 @@
+{
+  "chart": {
+    "title": "Tourism contribution to GDP",
+    "citation": "UN Tourism (2025)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/tourism-gdp-proportion-of-total-gdp?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "Canada",
+      "Russia",
+      "Australia",
+      "Malaysia",
+      "Greece",
+      "Portugal"
+    ]
+  },
+  "columns": {
+    "Tourism contribution to GDP": {
+      "titleShort": "Tourism contribution to GDP",
+      "titleLong": "Tourism contribution to GDP",
+      "descriptionShort": "Percentage of a country's GDP that comes directly from tourism, including spending by visitors and the industries that serve them.",
+      "descriptionKey": "- This indicator shows how much tourism directly contributes to a country’s economy.\n- It captures the value created when visitors spend money in the country, for example on accommodation, food, transport, entertainment, shopping, and other services.\n- This includes not only tourism-specific industries (like hotels and airlines), but also other industries that supply goods and services to visitors. It also includes taxes on the goods and services that tourists buy, minus any subsidies.\n- It adds together the value created by these activities, known as gross value added.\n- The result is expressed as a share of the country’s total GDP, showing how important tourism is to the overall economy.\n- This indicator is used in the Sustainable Development Goals (SDG 8.9.1) to track progress in promoting sustainable tourism.",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "2008-2023",
+      "type": "Numeric",
+      "owidVariableId": 1146082,
+      "shortName": "tourism_share_gdp",
+      "lastUpdated": "2026-01-21",
+      "nextUpdate": "2027-01-21",
+      "citationShort": "UN Tourism (2025) – processed by Our World in Data",
+      "citationLong": "UN Tourism (2025) – processed by Our World in Data. “Tourism contribution to GDP” [dataset]. UN Tourism, “UN Tourism Statistics Database” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1146082.metadata.json"
+    },
+    "World region according to OWID": {
+      "titleShort": "World region according to OWID",
+      "titleLong": "World region according to OWID",
+      "descriptionShort": "Regions defined by Our World in Data, which are used in OWID charts and maps.",
+      "unit": "",
+      "timespan": "2023-2023",
+      "type": "Continent",
+      "owidVariableId": 900801,
+      "shortName": "owid_region",
+      "lastUpdated": "2023-01-01",
+      "citationShort": "Our World in Data",
+      "citationLong": "Our World in Data. “World region according to OWID” [dataset]. Our World in Data, “Regions” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/900801.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-10-31",
+  "activeFilters": {}
+}
