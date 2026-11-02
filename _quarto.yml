@@ -4,12 +4,19 @@ project:
   render:
     - index.qmd
 
+author: "Bryan C. Johns"
+
 website:
   title: "Island Time, Interrupted"
+  favicon: "images/favicon.ico"
   navbar:
     left:
       - href: index.qmd
         text: "Tourism & COVID"
+    right:
+      - icon: github
+        href: https://github.com/johbry17/Island-Time-Interrupted
+      
 
 format:
   html:
