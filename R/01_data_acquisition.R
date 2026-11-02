@@ -1,8 +1,8 @@
 # =============================================================================
 # 01_data_acquisition.R
-# F1: Tourism Dependence and the COVID Cliff
+# Island Time, Interrupted: Tourism Dependence and the COVID Cliff
 # Purpose: Load OWID raw data; retrieve World Bank WDI indicators via wbstats.
-# Run from: F1-tourism-covid/ (project root)
+# Run from: repository root (here() anchors at .git)
 # =============================================================================
 
 library(here)
@@ -14,7 +14,6 @@ library(wbstats)
 # Paths
 # ---------------------------------------------------------------------------
 
-# OWID CSVs live in the repository-level data/raw/ (one level above this project root)
 raw_owid  <- here("data", "raw")
 raw_wb    <- here("data", "raw", "worldbank")
 processed <- here("data", "processed")
@@ -23,55 +22,106 @@ dir.create(raw_wb,    showWarnings = FALSE, recursive = TRUE)
 dir.create(processed, showWarnings = FALSE, recursive = TRUE)
 
 # ---------------------------------------------------------------------------
-# Candidate country vector
+# Candidate universe
 # ---------------------------------------------------------------------------
-# ~37 Caribbean and Pacific small island economies and territories.
-# ISO3 codes used throughout.  Not all are UN-designated SIDS; the flag
-# `is_sids` documents UN SIDS status separately.
+# 58 economies: all UN Member SIDS (39) + Associate Members of UN Regional
+# Commissions (18) + one non-listed island economy (BES).
+# Authority: UN-OHRLLS list of SIDS, retrieved November 2026.
+# https://www.un.org/ohrlls/content/list-sids
+#
+# sids_status:
+#   "UN Member SIDS"       — UN member states formally recognised as SIDS
+#   "Associate Member SIDS"— associate members of UN Regional Commissions
+#                            included in the SIDS group
+#   "Other island economy" — island economies not listed by UN-OHRLLS (BES)
+#
+# sids_region:
+#   "Caribbean" | "Pacific" | "AIMS" (Atlantic, Indian Ocean, Med., S. China Sea)
+#   "Not applicable" only for economies without a SIDS region assignment
+#
+# political_status:
+#   "Sovereign state"      — independent state with full international personality
+#   "Territory/Dependency" — non-sovereign; includes British Overseas Territories,
+#                            US territories, Dutch special municipalities/countries,
+#                            French collectivités and départements
 
 candidates <- tibble::tribble(
-  ~iso3,  ~country_name,                    ~region,     ~is_sids, ~is_territory,
-  "ABW",  "Aruba",                           "Caribbean", FALSE,    TRUE,
-  "AIA",  "Anguilla",                        "Caribbean", FALSE,    TRUE,
-  "ATG",  "Antigua and Barbuda",             "Caribbean", TRUE,     FALSE,
-  "BHS",  "Bahamas",                         "Caribbean", TRUE,     FALSE,
-  "BRB",  "Barbados",                        "Caribbean", TRUE,     FALSE,
-  "BLZ",  "Belize",                          "Caribbean", TRUE,     FALSE,
-  "BMU",  "Bermuda",                         "Caribbean", FALSE,    TRUE,
-  "BES",  "Bonaire, Sint Eustatius & Saba",  "Caribbean", FALSE,    TRUE,
-  "CUW",  "Curaçao",                         "Caribbean", FALSE,    TRUE,
-  "CYM",  "Cayman Islands",                  "Caribbean", FALSE,    TRUE,
-  "DMA",  "Dominica",                        "Caribbean", TRUE,     FALSE,
-  "DOM",  "Dominican Republic",              "Caribbean", TRUE,     FALSE,
-  "GRD",  "Grenada",                         "Caribbean", TRUE,     FALSE,
-  "GUY",  "Guyana",                          "Caribbean", TRUE,     FALSE,
-  "HTI",  "Haiti",                           "Caribbean", TRUE,     FALSE,
-  "JAM",  "Jamaica",                         "Caribbean", TRUE,     FALSE,
-  "KNA",  "Saint Kitts and Nevis",           "Caribbean", TRUE,     FALSE,
-  "LCA",  "Saint Lucia",                     "Caribbean", TRUE,     FALSE,
-  "MSR",  "Montserrat",                      "Caribbean", FALSE,    TRUE,
-  "PRI",  "Puerto Rico",                     "Caribbean", FALSE,    TRUE,
-  "TCA",  "Turks and Caicos Islands",        "Caribbean", FALSE,    TRUE,
-  "TTO",  "Trinidad and Tobago",             "Caribbean", TRUE,     FALSE,
-  "VCT",  "Saint Vincent and the Grenadines","Caribbean", TRUE,     FALSE,
-  "VGB",  "British Virgin Islands",          "Caribbean", FALSE,    TRUE,
-  "VIR",  "US Virgin Islands",               "Caribbean", FALSE,    TRUE,
-  "FJI",  "Fiji",                            "Pacific",   TRUE,     FALSE,
-  "FSM",  "Micronesia (Fed. Sts.)",          "Pacific",   TRUE,     FALSE,
-  "KIR",  "Kiribati",                        "Pacific",   TRUE,     FALSE,
-  "MHL",  "Marshall Islands",                "Pacific",   TRUE,     FALSE,
-  "NRU",  "Nauru",                           "Pacific",   TRUE,     FALSE,
-  "PLW",  "Palau",                           "Pacific",   TRUE,     FALSE,
-  "PNG",  "Papua New Guinea",                "Pacific",   TRUE,     FALSE,
-  "SLB",  "Solomon Islands",                 "Pacific",   TRUE,     FALSE,
-  "TON",  "Tonga",                           "Pacific",   TRUE,     FALSE,
-  "TUV",  "Tuvalu",                          "Pacific",   TRUE,     FALSE,
-  "VUT",  "Vanuatu",                         "Pacific",   TRUE,     FALSE,
-  "WSM",  "Samoa",                           "Pacific",   TRUE,     FALSE
+  ~iso3,  ~country,                            ~sids_region,  ~sids_status,             ~political_status,       ~source,        ~notes,
+  # ── CARIBBEAN: UN Member SIDS ─────────────────────────────────────────────
+  "ATG",  "Antigua and Barbuda",               "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "BHS",  "Bahamas",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "BRB",  "Barbados",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "BLZ",  "Belize",                            "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "CUB",  "Cuba",                              "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "DMA",  "Dominica",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "DOM",  "Dominican Republic",                "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "GRD",  "Grenada",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "GUY",  "Guyana",                            "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "HTI",  "Haiti",                             "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "JAM",  "Jamaica",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "KNA",  "Saint Kitts and Nevis",             "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "LCA",  "Saint Lucia",                       "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "SUR",  "Suriname",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "TTO",  "Trinidad and Tobago",               "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "VCT",  "Saint Vincent and the Grenadines",  "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  # ── CARIBBEAN: Associate Member SIDS ─────────────────────────────────────
+  "AIA",  "Anguilla",                          "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "ABW",  "Aruba",                             "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "Constituent country, Kingdom of the Netherlands",
+  "BMU",  "Bermuda",                           "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "VGB",  "British Virgin Islands",            "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "CYM",  "Cayman Islands",                    "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "CUW",  "Curaçao",                           "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "Constituent country, Kingdom of the Netherlands",
+  "GLP",  "Guadeloupe",                        "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "French overseas department",
+  "MTQ",  "Martinique",                        "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "French overseas department",
+  "MSR",  "Montserrat",                        "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "PRI",  "Puerto Rico",                       "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US Commonwealth territory",
+  "SXM",  "Sint Maarten",                      "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "Constituent country, Kingdom of the Netherlands",
+  "TCA",  "Turks and Caicos Islands",          "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
+  "VIR",  "US Virgin Islands",                 "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US unincorporated territory",
+  # ── CARIBBEAN: Other island economy ──────────────────────────────────────
+  "BES",  "Bonaire, Sint Eustatius and Saba",  "Caribbean",   "Other island economy",   "Territory/Dependency",  "Not UN-listed","Dutch special municipalities; not on UN SIDS list",
+  # ── PACIFIC: UN Member SIDS ───────────────────────────────────────────────
+  "COK",  "Cook Islands",                      "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
+  "FJI",  "Fiji",                              "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "KIR",  "Kiribati",                          "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "MHL",  "Marshall Islands",                  "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "FSM",  "Micronesia (Fed. Sts.)",            "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "NRU",  "Nauru",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "NIU",  "Niue",                              "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
+  "PLW",  "Palau",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "PNG",  "Papua New Guinea",                  "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "WSM",  "Samoa",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "SLB",  "Solomon Islands",                   "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "TLS",  "Timor-Leste",                       "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC; classified with Pacific SIDS by UN",
+  "TON",  "Tonga",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "TUV",  "Tuvalu",                            "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "VUT",  "Vanuatu",                           "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  # ── PACIFIC: Associate Member SIDS ───────────────────────────────────────
+  "ASM",  "American Samoa",                    "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US unincorporated territory",
+  "MNP",  "Northern Mariana Islands",          "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US Commonwealth territory; listed as Commonwealth of Northern Marianas",
+  "PYF",  "French Polynesia",                  "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "French overseas collectivity",
+  "GUM",  "Guam",                              "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US unincorporated territory",
+  "NCL",  "New Caledonia",                     "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "French special collectivity",
+  # ── AIMS: UN Member SIDS ─────────────────────────────────────────────────
+  # Atlantic, Indian Ocean, Mediterranean, and South China Sea
+  "CPV",  "Cabo Verde",                        "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
+  "COM",  "Comoros",                           "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean; LDC",
+  "GNB",  "Guinea-Bissau",                     "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic; LDC",
+  "MDV",  "Maldives",                          "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "MUS",  "Mauritius",                         "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "STP",  "São Tomé and Príncipe",             "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
+  "SYC",  "Seychelles",                        "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "SGP",  "Singapore",                         "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "South China Sea"
 )
 
 write_csv(candidates, file.path(processed, "candidates.csv"))
 message("Candidate list saved: ", nrow(candidates), " economies")
+message("  UN Member SIDS:       ", sum(candidates$sids_status == "UN Member SIDS"))
+message("  Associate Member SIDS:", sum(candidates$sids_status == "Associate Member SIDS"))
+message("  Other island economy: ", sum(candidates$sids_status == "Other island economy"))
+message("  Caribbean: ", sum(candidates$sids_region == "Caribbean"))
+message("  Pacific:   ", sum(candidates$sids_region == "Pacific"))
+message("  AIMS:      ", sum(candidates$sids_region == "AIMS"))
 
 # ---------------------------------------------------------------------------
 # Load OWID datasets
@@ -99,7 +149,13 @@ owid_tgdp <- read_csv(
   )
 
 # 2. Spending by international visitors as share of GDP
-#    Units: % of GDP  |  Source: World Bank WDI (ST.INT.XPND.GD.ZS) via OWID
+#    Units: % of GDP
+#    Source: UN Tourism (2025); National statistical organizations and central
+#    banks, OECD national accounts, and World Bank staff estimates — processed
+#    by Our World in Data. OWID variable ID: 1146095.
+#    Note: This is NOT sourced from a single World Bank indicator code.
+#    The denominator (GDP) is from WB; the numerator (inbound receipts) is from
+#    UN Tourism statistics. Do not attribute to ST.INT.XPND.GD.ZS (unverified).
 owid_vspend <- read_csv(
   file.path(raw_owid,
             "spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp",
@@ -157,14 +213,18 @@ message("  Tourist Arrivals: ", nrow(owid_arrivals), " rows, ",
 # ---------------------------------------------------------------------------
 # Indicators:
 #   ST.INT.RCPT.XP.ZS  Tourism receipts (% of total exports)
-#   NY.GDP.PCAP.CD      GDP per capita (current US$)
+#   NY.GDP.PCAP.CD      GDP per capita (current US$) — for comparison only
 #   NY.GDP.MKTP.KD.ZG   GDP growth (annual %)
+#   NY.GDP.MKTP.KD      GDP, constant 2015 US$ — primary real recovery measure
+#   NY.GDP.PCAP.KD      GDP per capita, constant 2015 US$
 #   SL.UEM.TOTL.ZS      Unemployment, total (% of labor force)
 
 wb_indicators <- c(
   "ST.INT.RCPT.XP.ZS",
   "NY.GDP.PCAP.CD",
   "NY.GDP.MKTP.KD.ZG",
+  "NY.GDP.MKTP.KD",
+  "NY.GDP.PCAP.KD",
   "SL.UEM.TOTL.ZS"
 )
 
@@ -172,6 +232,8 @@ wb_indicator_labels <- c(
   ST.INT.RCPT.XP.ZS = "tourism_receipts_pct_exports",
   NY.GDP.PCAP.CD    = "gdp_per_capita_usd",
   NY.GDP.MKTP.KD.ZG = "gdp_growth_pct",
+  NY.GDP.MKTP.KD    = "gdp_real_const2015usd",
+  NY.GDP.PCAP.KD    = "gdppc_real_const2015usd",
   SL.UEM.TOTL.ZS    = "unemployment_pct"
 )
 
@@ -197,17 +259,20 @@ if (is.null(wb_raw)) {
 # Rename columns to clean names
 wb_clean <- wb_raw |>
   rename(
-    iso3                      = iso3c,
-    year                      = date,
-    country_name_wb           = country,
+    iso3                         = iso3c,
+    year                         = date,
+    country_wb                   = country,
     tourism_receipts_pct_exports = ST.INT.RCPT.XP.ZS,
-    gdp_per_capita_usd        = NY.GDP.PCAP.CD,
-    gdp_growth_pct            = NY.GDP.MKTP.KD.ZG,
-    unemployment_pct          = SL.UEM.TOTL.ZS
+    gdp_per_capita_usd           = NY.GDP.PCAP.CD,
+    gdp_growth_pct               = NY.GDP.MKTP.KD.ZG,
+    gdp_real_const2015usd        = NY.GDP.MKTP.KD,
+    gdppc_real_const2015usd      = NY.GDP.PCAP.KD,
+    unemployment_pct             = SL.UEM.TOTL.ZS
   ) |>
-  select(iso3, year, country_name_wb,
+  select(iso3, year, country_wb,
          tourism_receipts_pct_exports, gdp_per_capita_usd,
-         gdp_growth_pct, unemployment_pct) |>
+         gdp_growth_pct, gdp_real_const2015usd, gdppc_real_const2015usd,
+         unemployment_pct) |>
   arrange(iso3, year)
 
 # Flag codes that WB silently dropped (not in response)
@@ -244,18 +309,21 @@ message("WB data saved: ", nrow(wb_clean), " rows, ",
 
 owid_tgdp_cand <- owid_tgdp |>
   filter(iso3 %in% candidates$iso3) |>
-  left_join(select(candidates, iso3, region, is_sids, is_territory), by = "iso3")
+  left_join(select(candidates, iso3, sids_region, sids_status, political_status),
+            by = "iso3")
 
 owid_vspend_cand <- owid_vspend |>
   filter(iso3 %in% candidates$iso3) |>
-  left_join(select(candidates, iso3, region, is_sids, is_territory), by = "iso3")
+  left_join(select(candidates, iso3, sids_region, sids_status, political_status),
+            by = "iso3")
 
 owid_arrivals_cand <- owid_arrivals |>
   filter(iso3 %in% candidates$iso3) |>
-  left_join(select(candidates, iso3, region, is_sids, is_territory), by = "iso3")
+  left_join(select(candidates, iso3, sids_region, sids_status, political_status),
+            by = "iso3")
 
-write_csv(owid_tgdp_cand,    file.path(processed, "owid_tourism_gdp.csv"))
-write_csv(owid_vspend_cand,  file.path(processed, "owid_visitor_spending.csv"))
+write_csv(owid_tgdp_cand,     file.path(processed, "owid_tourism_gdp.csv"))
+write_csv(owid_vspend_cand,   file.path(processed, "owid_visitor_spending.csv"))
 write_csv(owid_arrivals_cand, file.path(processed, "owid_arrivals.csv"))
 
 message("Processed OWID subsets saved.")

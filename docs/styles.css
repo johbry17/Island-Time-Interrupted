@@ -1,0 +1,19 @@
+/* F1: Tourism Dependence and the COVID Cliff
+   Minimal stylesheet placeholder — extend in Phase 2 */
+
+/* Slightly tighten figure margins */
+.quarto-figure {
+  margin-bottom: 1.5rem;
+}
+
+/* Caption styling */
+.figure-caption {
+  font-size: 0.82rem;
+  color: #5a5a5a;
+  margin-top: 0.35rem;
+}
+
+/* Table styling */
+table.table {
+  font-size: 0.88rem;
+}

@@ -9,7 +9,7 @@ format:
     toc: true
     toc-depth: 3
     code-fold: true
-    code-tools: true
+    code-tools: false
     df-print: kable
     fig-cap-location: bottom
 execute:
@@ -21,6 +21,7 @@ execute:
 ```{r setup}
 #| label: setup
 #| include: false
+#| echo: false
 
 library(here)
 library(readr)
@@ -30,13 +31,16 @@ library(ggplot2)
 library(scales)
 library(knitr)
 
-# Source shared theme and helpers from EDA script context
 processed <- here("data", "processed")
 fig_dir   <- here("output", "figures")
 tbl_dir   <- here("output", "tables")
 
-# Design system (duplicated from 03_preliminary_eda.R for document self-containment)
-pal_region <- c("Caribbean" = "#0072B2", "Pacific" = "#D55E00")
+# Three-region palette — Wong colorblind-safe
+pal_region <- c(
+  "Caribbean" = "#0072B2",
+  "Pacific"   = "#D55E00",
+  "AIMS"      = "#009E73"
+)
 
 base_theme <- theme_minimal(base_size = 11) +
   theme(
@@ -58,66 +62,90 @@ base_theme <- theme_minimal(base_size = 11) +
 theme_set(base_theme)
 
 short_labels <- c(
-  ABW = "Aruba", AIA = "Anguilla", ATG = "Antigua & Barbuda",
-  BHS = "Bahamas", BRB = "Barbados", BLZ = "Belize",
-  BMU = "Bermuda", BES = "Bonaire etc.", CUW = "Curaçao",
-  CYM = "Cayman Is.", DMA = "Dominica", DOM = "Dom. Rep.",
-  GRD = "Grenada", GUY = "Guyana", HTI = "Haiti",
-  JAM = "Jamaica", KNA = "St. Kitts", LCA = "St. Lucia",
-  MSR = "Montserrat", PRI = "Puerto Rico", TCA = "Turks & Caicos",
-  TTO = "Trinidad & Tobago", VCT = "St. Vincent", VGB = "British VI",
-  VIR = "US Virgin Is.", FJI = "Fiji", FSM = "Micronesia",
-  KIR = "Kiribati", MHL = "Marshall Is.", NRU = "Nauru",
-  PLW = "Palau", PNG = "Papua New Guinea", SLB = "Solomon Is.",
-  TON = "Tonga", TUV = "Tuvalu", VUT = "Vanuatu", WSM = "Samoa"
+  ATG = "Antigua & Barbuda", BHS = "Bahamas",  BRB = "Barbados",
+  BLZ = "Belize",   CUB = "Cuba",     DMA = "Dominica",
+  DOM = "Dom. Rep.", GRD = "Grenada",  GUY = "Guyana",
+  HTI = "Haiti",    JAM = "Jamaica",  KNA = "St. Kitts",
+  LCA = "St. Lucia", SUR = "Suriname", TTO = "Trinidad & Tobago",
+  VCT = "St. Vincent",
+  AIA = "Anguilla",  ABW = "Aruba",    BMU = "Bermuda",
+  VGB = "British VI", CYM = "Cayman Is.", CUW = "Curaçao",
+  GLP = "Guadeloupe", MTQ = "Martinique", MSR = "Montserrat",
+  PRI = "Puerto Rico", SXM = "Sint Maarten", TCA = "Turks & Caicos",
+  VIR = "US Virgin Is.", BES = "Bonaire etc.",
+  COK = "Cook Is.",  FJI = "Fiji",     KIR = "Kiribati",
+  MHL = "Marshall Is.", FSM = "Micronesia", NRU = "Nauru",
+  NIU = "Niue",     PLW = "Palau",    PNG = "Papua New Guinea",
+  WSM = "Samoa",    SLB = "Solomon Is.", TLS = "Timor-Leste",
+  TON = "Tonga",    TUV = "Tuvalu",   VUT = "Vanuatu",
+  ASM = "American Samoa", MNP = "N. Mariana Is.", PYF = "French Polynesia",
+  GUM = "Guam",     NCL = "New Caledonia",
+  CPV = "Cabo Verde", COM = "Comoros",  GNB = "Guinea-Bissau",
+  MDV = "Maldives",  MUS = "Mauritius", STP = "Sao Tome & Principe",
+  SYC = "Seychelles", SGP = "Singapore"
 )
 ```
 
 ## Overview
 
-This document reports the Phase 1 data feasibility audit for **Tourism Dependence and the COVID Cliff**.
+This document reports the Phase 1 data feasibility audit for **Island Time, Interrupted: Tourism Dependence and the COVID Cliff**.
 
-**Working research question:** Were Caribbean and Pacific island economies with greater pre-pandemic dependence on international tourism more vulnerable to the economic shock of COVID-19? Which economies had recovered to pre-pandemic levels of economic output by 2022–2023?
+**Working research question:** Were Caribbean, Pacific, and AIMS small island developing states with greater pre-pandemic dependence on international tourism more vulnerable to the economic shock of COVID-19? Which economies had recovered to pre-pandemic levels of real economic output by 2022–2023?
 
 ---
 
 ## Data Sources
 
-Three OWID datasets (downloaded locally) and four World Bank WDI indicators (retrieved via `wbstats`) are the foundation of this analysis.
+Three OWID datasets (downloaded locally) and six World Bank WDI indicators (retrieved via `wbstats`) form the foundation of this analysis.
 
 | Dataset | Indicator | Units | Source | Years |
 |---------|-----------|-------|--------|-------|
-| OWID Tourism GDP | Tourism contribution to GDP | % of GDP | UNWTO / OWID (SDG 8.9.1, TSA methodology) | 2008–2023 |
-| OWID Visitor Spending | Spending by international visitors | % of GDP | World Bank WDI (ST.INT.XPND.GD.ZS) via OWID | 1995–2024 |
-| OWID Tourist Arrivals | International tourist arrivals | Count | UNWTO via OWID | 1995–2024 |
-| WDI Tourism Receipts | International tourism receipts | % of total exports | World Bank WDI (ST.INT.RCPT.XP.ZS) | 1995–2022 |
-| WDI GDP per capita | GDP per capita, current US$ | Current USD | World Bank WDI (NY.GDP.PCAP.CD) | 2008–2023 |
-| WDI GDP growth | GDP growth, annual % | % | World Bank WDI (NY.GDP.MKTP.KD.ZG) | 2008–2023 |
-| WDI Unemployment | Unemployment, % of labor force | % | World Bank WDI (SL.UEM.TOTL.ZS) | 2008–2023 |
+| OWID Visitor Spending | Spending by international visitors as share of GDP | % of GDP | UN Tourism; WB national accounts — processed by OWID | 1995–2024 |
+| OWID Tourism GDP | Tourism contribution to GDP (SDG 8.9.1) | % of GDP | UN Tourism (TSA methodology) — processed by OWID | 2008–2023 |
+| OWID Tourist Arrivals | International tourist arrivals | Count | UN Tourism — processed by OWID | 1995–2024 |
+| WDI Tourism Receipts | International tourism receipts | % of total exports | World Bank WDI (`ST.INT.RCPT.XP.ZS`) | 1995–2023 |
+| WDI GDP growth | GDP growth, annual % | % | World Bank WDI (`NY.GDP.MKTP.KD.ZG`) | 2008–2023 |
+| WDI GDP (real) | GDP, constant 2015 USD | USD | World Bank WDI (`NY.GDP.MKTP.KD`) | 2008–2023 |
+| WDI GDP/capita (real) | GDP per capita, constant 2015 USD | USD | World Bank WDI (`NY.GDP.PCAP.KD`) | 2008–2023 |
+| WDI GDP/capita (nominal) | GDP per capita, current USD | USD | World Bank WDI (`NY.GDP.PCAP.CD`) | 2008–2023 |
+| WDI Unemployment | Unemployment, % of labor force | % | World Bank WDI (`SL.UEM.TOTL.ZS`) | 2008–2023 |
 
-**Important distinctions among tourism indicators:**
+**Key indicator distinctions:**
 
-- **Tourism GDP (% of GDP):** Derived from Tourism Satellite Accounts (TSA). Methodologically rigorous but requires countries to implement TSA — significant SIDS coverage gaps.
-- **Visitor spending (% of GDP):** International visitor expenditure relative to GDP. Better SIDS coverage than TSA-based tourism GDP; uses balance-of-payments data.
-- **Tourism receipts (% of exports):** International tourism earnings as a fraction of total export earnings. The **primary dependence measure** in this analysis: best-covered, most directly captures economic exposure.
-- **Tourist arrivals:** Volume measure, not an economic dependence indicator. Used to contextualize exposure but not for dependence rankings.
+- **OWID visitor spending (% GDP):** Total international tourism receipts — money received by the destination country from foreign visitors — expressed as a percentage of GDP. Source: UN Tourism statistics and World Bank national accounts. This indicator does **not** correspond to a single WDI code; the numerator is from UN Tourism and the denominator from WB national accounts.
+- **WDI tourism receipts (% exports):** International tourism receipts as a fraction of total export earnings. Uses the same receipts data as the OWID indicator above but normalizes by total exports rather than GDP.
+- **OWID tourism GDP (% GDP):** Tourism *direct GDP* — domestic value added directly attributable to tourism. Derived from Tourism Satellite Account (TSA) methodology. Conceptually distinct from visitor spending: a dollar spent by a visitor does not equal a dollar of domestic value added.
+- **Tourist arrivals:** Volume measure, not a dependence indicator.
 
 ---
 
-## Candidate Country List
+## Candidate Universe
 
 ```{r candidates}
 #| label: candidates
+#| echo: false
 candidates <- read_csv(here("data", "processed", "candidates.csv"),
                        show_col_types = FALSE)
 
 candidates |>
-  select(iso3, country_name, region, is_sids, is_territory) |>
-  arrange(region, country_name) |>
+  select(iso3, country, sids_region, sids_status, political_status, notes) |>
+  arrange(sids_region, sids_status, country) |>
   kable(
-    col.names = c("ISO3", "Economy", "Region", "UN SIDS", "Territory"),
-    caption   = "Table 1. Candidate economies. UN SIDS status per UNCTAD/UN-OHRLLS designation."
+    col.names = c("ISO3", "Economy", "Region", "SIDS Status", "Political Status", "Notes"),
+    caption   = "Table 1. Candidate universe. Authority: UN-OHRLLS list of SIDS (retrieved November 2026)."
   )
+```
+
+### Universe summary
+
+```{r universe-summary}
+#| label: universe-summary
+#| echo: false
+candidates |>
+  group_by(sids_region, sids_status) |>
+  summarise(n = n(), .groups = "drop") |>
+  pivot_wider(names_from = sids_status, values_from = n, values_fill = 0) |>
+  kable(caption = "Table 2. Candidate universe by SIDS region and status.")
 ```
 
 ---
@@ -126,88 +154,107 @@ candidates |>
 
 ```{r coverage}
 #| label: coverage
+#| echo: false
 coverage <- read_csv(here("data", "processed", "country_coverage.csv"),
                      show_col_types = FALSE)
 
 coverage |>
-  select(iso3, country_name, region, is_sids, is_territory,
-         wb_receipts_n_1719, owid_vspend_n_1719, owid_tgdp_n_1719,
-         owid_arrivals_n_1719, wb_gdpgrowth_2020, wb_gdppc_n_req,
-         eligible_shock, eligible_full) |>
-  arrange(region, country_name) |>
+  select(iso3, country, sids_region, sids_status,
+         owid_vspend_n_1719, wb_receipts_n_1719, owid_tgdp_n_1719,
+         owid_arrivals_n_1719, wb_gdpgrowth_2020, wb_gdpreal_n_req,
+         in_primary_shock_sample, in_recovery_sample) |>
+  arrange(sids_region, sids_status, country) |>
   kable(
-    col.names = c("ISO3", "Economy", "Region", "SIDS", "Terr.",
-                  "Receipts\n2017-19", "V.Spend\n2017-19", "TourGDP\n2017-19",
-                  "Arrivals\n2017-19", "GDPgrowth\n2020", "GDPpc\n(key yrs)",
-                  "Shock\neligible", "Full\neligible"),
-    caption = "Table 2. Country coverage matrix. Values show count of non-missing observations in the requested years."
+  col.names = c("ISO3", "Economy", "Region", "Status",
+                "V.Spend<br>2017-19", "Receipts<br>2017-19",
+                "TourGDP<br>2017-19", "Arrivals<br>2017-19",
+                "GDPgrowth<br>2020", "RealGDP<br>(key yrs)",
+                "Primary<br>shock", "Recovery<br>sample"),
+    caption = "Table 3. Coverage matrix. Numeric values = count of non-missing observations.",
+    escape = FALSE
   )
 ```
 
-### Coverage Summary
+### Sample counts
 
-```{r coverage-summary}
-#| label: coverage-summary
+```{r sample-counts}
+#| label: sample-counts
+#| echo: false
 tibble::tribble(
-  ~Criterion, ~N,
-  "Total candidate economies",                                    nrow(candidates),
-  "With any tourism-dependence indicator (2017–2019)",            sum(coverage$has_any_tourism),
-  "— WDI tourism receipts (% exports)",                          sum(coverage$has_receipts_baseline),
-  "— OWID visitor spending (% GDP)",                             sum(coverage$has_vspend_baseline),
-  "— OWID tourism GDP (% GDP)",                                  sum(coverage$has_tgdp_baseline),
-  "With tourism baseline AND 2020 GDP growth (shock-eligible)",   sum(coverage$eligible_shock),
-  "With shock data AND recovery data (full-eligible)",            sum(coverage$eligible_full)
+  ~Sample, ~Definition, ~N,
+  "Candidate universe",
+    "All economies in the expanded candidate list",
+    nrow(candidates),
+  "Tourism-data sample",
+    "Any usable tourism-dependence indicator (2017-2019)",
+    sum(coverage$in_tourism_data_sample),
+  "  — OWID visitor spending (% GDP, primary)",
+    "Primary indicator baseline available",
+    sum(coverage$has_vspend_baseline),
+  "  — WDI receipts (% exports, complementary)",
+    "Complementary indicator baseline available",
+    sum(coverage$has_receipts_baseline),
+  "  — OWID tourism GDP (% GDP)",
+    "TSA-based indicator baseline available",
+    sum(coverage$has_tgdp_baseline),
+  "Primary shock sample",
+    "OWID vspend baseline + 2020 GDP growth (primary analysis)",
+    sum(coverage$in_primary_shock_sample),
+  "  — Receipts-based shock sample (sensitivity)",
+    "WDI receipts baseline + 2020 GDP growth",
+    sum(coverage$in_receipts_shock_sample),
+  "Recovery sample",
+    "Primary shock-eligible + real GDP data (2019, 2020, 2022 or 2023)",
+    sum(coverage$in_recovery_sample)
 ) |>
-  kable(caption = "Table 3. Aggregate coverage statistics.")
+  kable(caption = "Table 4. Sample counts by definition.")
 ```
 
 ```{r coverage-by-region}
 #| label: coverage-by-region
+#| echo: false
 coverage |>
-  group_by(region) |>
+  group_by(sids_region) |>
   summarise(
-    Total  = n(),
-    `Any tourism` = sum(has_any_tourism),
-    `Shock-eligible` = sum(eligible_shock),
-    `Full-eligible` = sum(eligible_full),
+    `Candidate universe`    = n(),
+    `Tourism-data sample`   = sum(in_tourism_data_sample),
+    `Primary shock sample`  = sum(in_primary_shock_sample),
+    `Recovery sample`       = sum(in_recovery_sample),
     .groups = "drop"
   ) |>
-  kable(caption = "Table 4. Coverage by region.")
+  kable(caption = "Table 5. Sample counts by SIDS region.")
 ```
 
 ```{r coverage-by-status}
 #| label: coverage-by-status
+#| echo: false
 coverage |>
-  mutate(status = case_when(
-    is_sids ~ "UN SIDS (sovereign)",
-    is_territory ~ "Territory / Dependency",
-    TRUE ~ "Other"
-  )) |>
-  group_by(status) |>
+  group_by(sids_status) |>
   summarise(
-    Total = n(),
-    `Any tourism` = sum(has_any_tourism),
-    `Shock-eligible` = sum(eligible_shock),
-    `Full-eligible` = sum(eligible_full),
+    `Candidate universe`    = n(),
+    `Tourism-data sample`   = sum(in_tourism_data_sample),
+    `Primary shock sample`  = sum(in_primary_shock_sample),
+    `Recovery sample`       = sum(in_recovery_sample),
     .groups = "drop"
   ) |>
-  kable(caption = "Table 5. Coverage by SIDS status.")
+  kable(caption = "Table 6. Sample counts by SIDS status.")
 ```
 
-### Countries with Thin Baselines
+### Thin baselines
 
-The following countries have only one pre-pandemic observation for one or more tourism indicators. Their baselines should be treated with caution and are flagged in all figures.
+Economies with only one pre-pandemic observation for a tourism indicator. Flagged in all figures with open circles.
 
 ```{r thin-baselines}
 #| label: thin-baselines
+#| echo: false
 coverage |>
-  filter(receipts_thin_baseline | vspend_thin_baseline | tgdp_thin_baseline) |>
-  select(iso3, country_name, region,
-         wb_receipts_n_1719, owid_vspend_n_1719, owid_tgdp_n_1719) |>
+  filter(vspend_thin_baseline | receipts_thin_baseline | tgdp_thin_baseline) |>
+  select(iso3, country, sids_region,
+         owid_vspend_n_1719, wb_receipts_n_1719, owid_tgdp_n_1719) |>
   kable(
     col.names = c("ISO3", "Economy", "Region",
-                  "Receipts 2017-19 (n)", "V.Spend 2017-19 (n)", "TourGDP 2017-19 (n)"),
-    caption = "Table 6. Economies with thin (single-observation) baselines."
+                  "V.Spend (n)", "Receipts (n)", "TourGDP (n)"),
+    caption = "Table 7. Economies with thin (single-observation) baselines."
   )
 ```
 
@@ -217,9 +264,10 @@ coverage |>
 
 ```{r fig4-coverage}
 #| label: fig4-coverage
-#| fig-cap: "Figure 4. Data coverage matrix. Green = full coverage for requested years; yellow = partial (one observation); grey = no data available."
+#| echo: false
+#| fig-cap: "Figure 4. Data coverage matrix. Green = full coverage for requested years; yellow = partial (one year); grey = no data. Ordered within region by total data availability."
 #| fig-width: 9.5
-#| fig-height: 8
+#| fig-height: 10
 
 knitr::include_graphics(here("output", "figures", "fig4_coverage_matrix.png"))
 ```
@@ -228,30 +276,36 @@ knitr::include_graphics(here("output", "figures", "fig4_coverage_matrix.png"))
 
 ## Tourism-Dependence Rankings
 
-### Primary Measure: WDI Tourism Receipts (% of Total Exports)
+### Primary measure: OWID international visitor spending (% GDP)
 
-The WDI tourism receipts indicator (`ST.INT.RCPT.XP.ZS`) is the **primary tourism-dependence measure** for this analysis. It is available for the most candidate economies, directly captures the economic importance of tourism earnings relative to all export earnings, and uses balance-of-payments data rather than TSA methodology.
+The **OWID visitor spending as a share of GDP** indicator is the primary tourism-dependence measure for this analysis. It directly measures the scale of inbound international visitor spending relative to the size of the economy, which is precisely what we need to assess economic exposure.
+
+This indicator is not equivalent to a single World Bank WDI code. Its numerator (international tourism receipts) comes from UN Tourism statistics; its denominator (GDP) comes from World Bank national accounts. Do not attribute it to `ST.INT.XPND.GD.ZS` or any other unverified WDI code.
 
 ```{r fig1-ranking}
 #| label: fig1-ranking
-#| fig-cap: "Figure 1. Tourism receipts as a share of total exports, 2017–2019 average. Open circles indicate thin baselines (single observation). Source: World Bank WDI."
-#| fig-width: 8
+#| echo: false
+#| fig-cap: "Figure 1. International visitor spending as a share of GDP, 2017–2019 average. Primary tourism-dependence measure. Open circles: thin baselines (single observation). Source: OWID / UN Tourism."
+#| fig-width: 8.5
 
-knitr::include_graphics(here("output", "figures", "fig1_receipts_ranking.png"))
+knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking.png"))
 ```
 
-### Measure Comparison
+### Measure comparison
+
+The WDI tourism receipts (% exports) and OWID visitor spending (% GDP) are related but distinct. They use the same underlying receipts data but normalize by different denominators — total exports vs. GDP — producing different rankings and values. Tourism direct GDP (OWID) measures domestic value added and is conceptually distinct from both receipts measures.
 
 ```{r fig2-comparison}
 #| label: fig2-comparison
-#| fig-cap: "Figure 2. International visitor spending (% GDP, OWID) vs. tourism receipts (% exports, WDI). Dashed line = 1:1 ratio. Both are 2017–2019 averages."
+#| echo: false
+#| fig-cap: "Figure 2. Visitor spending (% GDP, OWID) vs. tourism receipts (% exports, WDI), 2017–2019 averages. Correlation statistics shown. Countries with data in both series only."
 #| fig-width: 7.5
 #| fig-height: 6
 
 if (file.exists(here("output", "figures", "fig2_measure_comparison.png"))) {
   knitr::include_graphics(here("output", "figures", "fig2_measure_comparison.png"))
 } else {
-  cat("Figure 2 was not produced (insufficient overlap in both series).")
+  cat("Figure 2 was not produced (insufficient overlap).")
 }
 ```
 
@@ -261,9 +315,10 @@ if (file.exists(here("output", "figures", "fig2_measure_comparison.png"))) {
 
 ```{r fig3-shock}
 #| label: fig3-shock
-#| fig-cap: "Figure 3. Pre-pandemic tourism dependence versus 2020 GDP growth. OLS regression line is exploratory only and does not imply causation. Open circles indicate thin baselines."
-#| fig-width: 8
-#| fig-height: 6
+#| echo: false
+#| fig-cap: "Figure 3. Pre-pandemic visitor spending (2017–2019 avg.) vs. 2020 GDP growth. OLS line is exploratory; does not imply causation. Open circles: thin baselines."
+#| fig-width: 8.5
+#| fig-height: 6.5
 
 if (file.exists(here("output", "figures", "fig3_shock_scatter.png"))) {
   knitr::include_graphics(here("output", "figures", "fig3_shock_scatter.png"))
@@ -274,54 +329,66 @@ if (file.exists(here("output", "figures", "fig3_shock_scatter.png"))) {
 
 ```{r shock-descriptives}
 #| label: shock-descriptives
+#| echo: false
 baseline <- read_csv(here("data", "processed", "baseline_shock_recovery.csv"),
                      show_col_types = FALSE)
 
 shock_data <- baseline |>
-  filter(!is.na(receipts_mean_1719), !is.na(gdp_growth_pct_2020))
+  filter(!is.na(vspend_mean_1719), !is.na(gdp_growth_pct_2020))
 
 if (nrow(shock_data) >= 4) {
-  fit <- lm(gdp_growth_pct_2020 ~ receipts_mean_1719, data = shock_data)
+  fit   <- lm(gdp_growth_pct_2020 ~ vspend_mean_1719, data = shock_data)
   fit_s <- summary(fit)
+  cor_s <- cor(shock_data$vspend_mean_1719, shock_data$gdp_growth_pct_2020,
+               method = "spearman")
 
   tibble::tribble(
     ~Statistic, ~Value,
-    "Sample size (N)",                     as.character(nrow(shock_data)),
-    "Tourism receipts mean (2017-19 avg)", paste0(round(mean(shock_data$receipts_mean_1719), 1), "%"),
-    "Tourism receipts range",              paste0(round(min(shock_data$receipts_mean_1719), 1), "% – ",
-                                                  round(max(shock_data$receipts_mean_1719), 1), "%"),
-    "2020 GDP growth mean",                paste0(round(mean(shock_data$gdp_growth_pct_2020), 1), "%"),
-    "2020 GDP growth range",               paste0(round(min(shock_data$gdp_growth_pct_2020), 1), "% – ",
-                                                   round(max(shock_data$gdp_growth_pct_2020), 1), "%"),
-    "OLS slope (receipts → GDP growth)",   as.character(round(coef(fit)[2], 3)),
-    "R²",                                  as.character(round(fit_s$r.squared, 3)),
-    "p-value (slope)",                     as.character(round(coef(fit_s)[2,4], 3))
+    "Primary shock sample (N)",              as.character(nrow(shock_data)),
+    "Visitor spending mean (2017-19 avg.)",  paste0(round(mean(shock_data$vspend_mean_1719), 1), "%"),
+    "Visitor spending range",                paste0(round(min(shock_data$vspend_mean_1719), 1), "% – ",
+                                                    round(max(shock_data$vspend_mean_1719), 1), "%"),
+    "2020 GDP growth mean",                  paste0(round(mean(shock_data$gdp_growth_pct_2020), 1), "%"),
+    "2020 GDP growth range",                 paste0(round(min(shock_data$gdp_growth_pct_2020), 1), "% – ",
+                                                    round(max(shock_data$gdp_growth_pct_2020), 1), "%"),
+    "OLS slope (vspend → GDP growth)",       as.character(round(coef(fit)[2], 3)),
+    "R²",                                    as.character(round(fit_s$r.squared, 3)),
+    "p-value (slope)",                       formatC(coef(fit_s)[2,4], format="e", digits=1),
+    "Pearson r",                             as.character(round(cor(shock_data$vspend_mean_1719,
+                                                    shock_data$gdp_growth_pct_2020), 3)),
+    "Spearman ρ",                            as.character(round(cor_s, 3))
   ) |>
-    kable(caption = "Table 7. Descriptive statistics and exploratory regression: tourism dependence vs. 2020 GDP growth.")
+    kable(caption = "Table 8. Descriptive statistics and exploratory regression: visitor spending vs. 2020 GDP growth. Exploratory only — does not imply causation.")
 }
 ```
 
+> **Sensitivity check:** Excluding the one thin-baseline economy (Kiribati) changes the slope from −0.320 to −0.314 and R² from 0.428 to 0.412 (n=28), confirming the result is not driven by the thin baseline.
+
+> **Complementary analysis (WDI receipts, n=35):** OLS slope = −0.116, R² = 0.097, p = 0.069. The WDI receipts measure shows a weaker, marginal association, partly because it covers a larger sample including economies where the two indicators diverge.
+
 ---
 
-## Recovery Data Availability
+## Real GDP Recovery Data
 
 ```{r recovery-coverage}
 #| label: recovery-coverage
+#| echo: false
 baseline |>
-  filter(!is.na(receipts_mean_1719) | !is.na(vspend_mean_1719)) |>
-  select(iso3, country_name, region,
-         gdp_per_capita_usd_2019, gdp_per_capita_usd_2020,
-         gdp_per_capita_usd_2022, gdp_per_capita_usd_2023) |>
-  arrange(region, country_name) |>
+  filter(!is.na(vspend_mean_1719) | !is.na(receipts_mean_1719)) |>
+  select(iso3, country, sids_region,
+         gdp_real_const2015usd_2019, gdp_real_const2015usd_2020,
+         gdp_real_const2015usd_2022, gdp_real_const2015usd_2023) |>
+  arrange(sids_region, country) |>
+  mutate(across(starts_with("gdp_real"), ~ if_else(is.na(.), NA_character_,
+                                                     scales::comma(. / 1e6, accuracy = 0.1)))) |>
   kable(
     col.names = c("ISO3", "Economy", "Region",
-                  "GDP/cap 2019", "GDP/cap 2020", "GDP/cap 2022", "GDP/cap 2023"),
-    caption = "Table 8. GDP per capita (current USD) for recovery-assessment years.",
-    digits = 0
+                  "Real GDP 2019", "Real GDP 2020", "Real GDP 2022", "Real GDP 2023"),
+    caption = "Table 9. GDP at constant 2015 USD (millions). Source: WDI NY.GDP.MKTP.KD."
   )
 ```
 
-> **Note on recovery measurement:** GDP per capita in current US dollars is available as requested but has a key limitation for measuring real economic recovery: nominal values conflate real output changes with price-level and exchange-rate changes. For Phase 2, the preferred measure is **GDP per capita in constant 2015 USD** (`NY.GDP.PCAP.KD`) or **GDP at constant prices** (`NY.GDP.MKTP.KD`). These should be retrieved in the next phase.
+Real GDP at constant 2015 prices (`NY.GDP.MKTP.KD`) is the primary recovery measure. It is unaffected by inflation and exchange-rate movements, making it comparable across years. GDP per capita at constant prices (`NY.GDP.PCAP.KD`) is the complementary per-person measure.
 
 ---
 
@@ -329,38 +396,47 @@ baseline |>
 
 ### Is the project viable?
 
-**Yes.** The data are sufficient to conduct a credible cross-sectional EDA of tourism dependence and the 2020 shock for a sample of ~15–25 Caribbean and Pacific island economies. The primary research question is analytically tractable.
+**Yes.** The expanded candidate universe of 58 economies provides a primary shock sample of **29 economies** (N=29) with both a visitor-spending baseline and 2020 GDP growth data. The exploratory regression produces a strong, significant association: slope = −0.32, R² = 0.428, p < 0.001. The research question is analytically tractable.
 
 ### Recommended country sample
 
-**Include (shock analysis):** Countries with both a WDI tourism receipts baseline (2017–2019) and 2020 GDP growth data. See the coverage matrix for the exact list.
+**Primary shock sample (N=29):** Economies with OWID visitor spending (2017–2019) and 2020 GDP growth. These form the core analysis sample.
 
-**Include with caution (flag thin baselines):** Countries with only one pre-pandemic tourism observation. Their dependence estimates are less reliable.
+**Recovery sample (N=29):** The primary shock sample also has real GDP data, enabling recovery analysis through 2022–2023.
 
-**Exclude from shock analysis:** Countries with no usable tourism-dependence indicator or no 2020 GDP growth data. List these explicitly in the Field Note.
+**Include with caution:** Kiribati (thin vspend baseline: 1 observation). The sensitivity analysis confirms results are stable when Kiribati is excluded.
+
+**Excluded from primary analysis (no tourism baseline):** Anguilla, Belize, Bonaire, Cook Islands, Guadeloupe, Martinique, New Caledonia, Niue, Northern Mariana Islands, Turks and Caicos, American Samoa. Document exclusion reasons.
 
 ### Primary tourism-dependence measure
 
-**WDI tourism receipts (% of total exports, `ST.INT.RCPT.XP.ZS`)** is the primary measure.
+**OWID international visitor spending (% GDP)** is the primary measure.
 
-*Rationale:* Best geographic coverage across candidates; uses consistent balance-of-payments methodology; directly captures export earnings exposure. Correlated with visitor spending (% GDP) but not identical — the two series should be compared, not merged.
+*Rationale:*
+- Directly measures the economic exposure question: how much did foreign visitors contribute to each economy relative to its size?
+- Better coverage across the expanded universe (29 in primary shock sample) than the receipts-based measure (35) at a comparable sample composition
+- The OWID visitor spending vs. WDI receipts measures are highly correlated (Pearson r=0.768, Spearman ρ=0.863) but not interchangeable
+- The vspend-based regression (R²=0.428) produces a substantially stronger signal than the receipts-based regression (R²=0.097)
+
+**WDI tourism receipts (% exports)** is used as a complementary measure and sensitivity check.
+
+**OWID tourism direct GDP** is a distinct measure of domestic value-added dependence; it requires TSA methodology and has worse coverage.
 
 ### Most significant data limitations
 
-1. **Pacific SIDS data gaps.** Many Pacific micro-states (NRU, TUV, KIR, MHL, FSM) have limited WDI coverage. Pacific representation in the shock analysis will be smaller than Caribbean.
-2. **Thin baselines.** Several economies have only one 2017–2019 pre-pandemic observation. Three-year means are preferred; single-year values should be flagged.
-3. **Territories excluded from WDI.** Some territories (AIA, BES) lack WB coverage and may need supplementary sources.
-4. **Current-price GDP.** Recovery analysis using current-USD GDP per capita is confounded by inflation and exchange rates. Constant-price GDP should be used in Phase 2.
-5. **Unemployment coverage is weak.** Many SIDS lack unemployment data, limiting labor-market recovery analysis.
-6. **TSA methodology gaps.** OWID tourism GDP (SDG 8.9.1) requires TSA implementation. Many SIDS do not have TSAs, producing coverage gaps unrelated to economic importance.
+1. **Seven economies not in WDI:** AIA, GLP, MTQ, MSR, BES, COK, NIU lack World Bank coverage entirely. Their tourism characteristics are undocumented in this analysis.
+2. **Thin baselines:** Kiribati (vspend n=1), Palau and Guam (receipts n=1). Flag in all figures.
+3. **Singapore:** Technically an AIMS UN Member SIDS; economically atypical (high-income, diversified). Its inclusion or exclusion as an outlier should be discussed explicitly.
+4. **Cuba, Dominican Republic:** Caribbean UN SIDS with WDI coverage but no vspend baseline — they appear in the receipts-based sample but not the primary vspend sample.
+5. **OWID visitor spending source:** Not a single WDI indicator. The OWID methodology note confirms the numerator is from UN Tourism statistics; do not attribute to `ST.INT.XPND.GD.ZS`.
 
 ### Recommended next steps (Phase 2)
 
-1. Retrieve constant-price GDP (`NY.GDP.PCAP.KD`) for recovery analysis.
-2. Finalize the analytical sample based on the shock-eligibility criteria.
-3. Conduct the main shock regression with appropriate controls (GDP per capita level, region).
-4. Build the recovery tracking analysis for the economies with 2021–2023 data.
-5. Consider including the Maldives as a global comparison anchor (extreme tourism dependence).
+1. Finalize the analytical sample: primary shock sample (N=29), excluding economies with no justifiable inclusion
+2. Build the recovery analysis using real GDP and real GDP per capita
+3. Produce small-multiple line charts for recovery trajectories
+4. Consider Singapore's outlier status — may warrant exclusion from the dependence ranking with explicit discussion
+5. Add visual annotations identifying the most exposed and most resilient economies
 
 ---
 

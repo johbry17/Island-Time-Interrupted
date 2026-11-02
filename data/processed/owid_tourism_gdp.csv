@@ -1,181 +1,216 @@
-entity,iso3,year,tourism_gdp_pct,owid_region,region,is_sids,is_territory
-Antigua and Barbuda,ATG,2011,10.53691,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2012,10.22042,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2013,10.67817,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2014,10.93971,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2015,11.28182,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2016,11.3816,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2017,10.83745,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2018,10.69594,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2019,10.63667,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2020,7.52403,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2021,9.73113,North America,Caribbean,TRUE,FALSE
-Antigua and Barbuda,ATG,2022,11.70779,North America,Caribbean,TRUE,FALSE
-Aruba,ABW,2013,19.9,North America,Caribbean,FALSE,TRUE
-Aruba,ABW,2014,21.1,North America,Caribbean,FALSE,TRUE
-Aruba,ABW,2015,21.6,North America,Caribbean,FALSE,TRUE
-Aruba,ABW,2016,21.2,North America,Caribbean,FALSE,TRUE
-Aruba,ABW,2017,21.2,North America,Caribbean,FALSE,TRUE
-Bahamas,BHS,2012,15.16544,North America,Caribbean,TRUE,FALSE
-Bermuda,BMU,2008,4.9,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2009,4.3,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2010,5.2,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2011,5.7,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2012,5.2,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2013,5,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2014,4.6,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2015,4.2,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2016,4.7,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2017,4.8,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2018,5.3,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2019,5.1,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2020,1.8,North America,Caribbean,FALSE,TRUE
-Bermuda,BMU,2021,2.2,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2010,30.27512,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2011,30.35111,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2012,30.32917,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2013,30.76,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2014,30.86,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2015,30.81,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2016,37,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2017,32.405,North America,Caribbean,FALSE,TRUE
-British Virgin Islands,VGB,2018,33.2025,North America,Caribbean,FALSE,TRUE
-Fiji,FJI,2008,13,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2011,11.5,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2012,11.5,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2013,12.1,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2014,13.3,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2015,13.7,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2016,12.6,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2017,13.5,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2018,12.6,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2019,11.8,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2020,0.1,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2021,-0.1,Oceania,Pacific,TRUE,FALSE
-Fiji,FJI,2022,9.9,Oceania,Pacific,TRUE,FALSE
-Guyana,GUY,2008,1.8,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2009,3.6,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2010,4.1,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2011,5.2,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2012,5.3,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2013,3.7,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2014,1.7,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2015,0.7,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2016,3.8,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2017,3.7,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2018,4.4,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2019,5.4,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2020,43.5,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2021,20,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2022,63.4,South America,Caribbean,TRUE,FALSE
-Guyana,GUY,2023,33,South America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2008,7.05903,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2009,7.2,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2010,6.9,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2011,6.5,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2012,6.4,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2013,6.9,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2014,7.5,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2015,7.8,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2016,8.4,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2017,9,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2018,9.2,North America,Caribbean,TRUE,FALSE
-Jamaica,JAM,2019,9.8,North America,Caribbean,TRUE,FALSE
-Kiribati,KIR,2008,0.57,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2009,0.61,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2010,0.52,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2011,0.58,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2012,0.51,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2013,0.53,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2014,0.5,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2015,0.51,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2016,0.6,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2017,0.76,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2018,0.69,Oceania,Pacific,TRUE,FALSE
-Kiribati,KIR,2019,0.72,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2008,2.6,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2009,2.5,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2010,2.3,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2011,2.2,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2012,2.1,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2013,1.9,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2014,2.1,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2015,2.2,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2016,2.3,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2017,2.3,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2018,2.3,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2019,2.5,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2020,2,Oceania,Pacific,TRUE,FALSE
-Marshall Islands,MHL,2021,1.8,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2008,1.9007,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2009,1.67777,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2010,1.70253,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2011,1.62598,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2012,1.6569,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2013,1.66103,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2014,1.6353,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2015,1.69541,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2016,1.7171400000000001,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2017,1.78008,Oceania,Pacific,TRUE,FALSE
-Micronesia (country),FSM,2018,1.78827,Oceania,Pacific,TRUE,FALSE
-Montserrat,MSR,2008,2.34,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2009,1.98,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2010,2.13,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2011,1.8,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2012,2.04,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2013,2.01,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2014,2.2,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2015,2.27,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2016,1.75,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2017,2.3,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2018,2.24,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2019,1.76,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2020,0.87,North America,Caribbean,FALSE,TRUE
-Montserrat,MSR,2021,0.5,North America,Caribbean,FALSE,TRUE
-Palau,PLW,2008,17.47299,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2009,17.89294,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2010,18.6892,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2011,21.52718,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2012,23.51177,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2013,24.82607,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2014,25.70048,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2015,26.39814,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2016,24.65382,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2017,21.92255,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2018,19.97486,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2019,18.1375,Oceania,Pacific,TRUE,FALSE
-Palau,PLW,2020,9.75938,Oceania,Pacific,TRUE,FALSE
-Puerto Rico,PRI,2016,3.4127,North America,Caribbean,FALSE,TRUE
-Puerto Rico,PRI,2017,3.42083,North America,Caribbean,FALSE,TRUE
-Puerto Rico,PRI,2018,2.91018,North America,Caribbean,FALSE,TRUE
-Puerto Rico,PRI,2019,3.4083,North America,Caribbean,FALSE,TRUE
-Puerto Rico,PRI,2020,2.7498,North America,Caribbean,FALSE,TRUE
-Saint Lucia,LCA,2008,30,North America,Caribbean,TRUE,FALSE
-Samoa,WSM,2008,2.10536,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2009,5.93516,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2010,5.94588,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2011,5.00594,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2012,4.12531,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2013,4.71747,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2014,4.45779,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2015,5.19432,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2016,5.21456,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2017,5.36671,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2018,4.99849,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2019,4.80039,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2020,5.10718,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2021,5.45139,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2022,4.40606,Oceania,Pacific,TRUE,FALSE
-Samoa,WSM,2023,3.69091,Oceania,Pacific,TRUE,FALSE
-United States Virgin Islands,VIR,2008,22.7,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2009,21.1,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2010,20.6,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2011,22.2,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2012,26.7,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2013,29.2,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2014,30.8,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2015,31.5,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2016,30.9,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2017,25.3,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2018,20.9,North America,Caribbean,FALSE,TRUE
-United States Virgin Islands,VIR,2019,25.1,North America,Caribbean,FALSE,TRUE
+entity,iso3,year,tourism_gdp_pct,owid_region,sids_region,sids_status,political_status
+Antigua and Barbuda,ATG,2011,10.53691,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2012,10.22042,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2013,10.67817,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2014,10.93971,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2015,11.28182,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2016,11.3816,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2017,10.83745,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2018,10.69594,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2019,10.63667,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2020,7.52403,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2021,9.73113,North America,Caribbean,UN Member SIDS,Sovereign state
+Antigua and Barbuda,ATG,2022,11.70779,North America,Caribbean,UN Member SIDS,Sovereign state
+Aruba,ABW,2013,19.9,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Aruba,ABW,2014,21.1,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Aruba,ABW,2015,21.6,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Aruba,ABW,2016,21.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Aruba,ABW,2017,21.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bahamas,BHS,2012,15.16544,North America,Caribbean,UN Member SIDS,Sovereign state
+Bermuda,BMU,2008,4.9,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2009,4.3,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2010,5.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2011,5.7,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2012,5.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2013,5,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2014,4.6,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2015,4.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2016,4.7,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2017,4.8,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2018,5.3,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2019,5.1,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2020,1.8,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Bermuda,BMU,2021,2.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2010,30.27512,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2011,30.35111,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2012,30.32917,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2013,30.76,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2014,30.86,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2015,30.81,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2016,37,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2017,32.405,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+British Virgin Islands,VGB,2018,33.2025,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Fiji,FJI,2008,13,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2011,11.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2012,11.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2013,12.1,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2014,13.3,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2015,13.7,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2016,12.6,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2017,13.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2018,12.6,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2019,11.8,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2020,0.1,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2021,-0.1,Oceania,Pacific,UN Member SIDS,Sovereign state
+Fiji,FJI,2022,9.9,Oceania,Pacific,UN Member SIDS,Sovereign state
+French Polynesia,PYF,2018,7.3,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+French Polynesia,PYF,2019,7.3,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+French Polynesia,PYF,2022,8,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2010,12,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2015,11.2,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2016,12.1,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2019,22,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2020,10.7,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guam,GUM,2021,6.3,Oceania,Pacific,Associate Member SIDS,Territory/Dependency
+Guyana,GUY,2008,1.8,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2009,3.6,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2010,4.1,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2011,5.2,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2012,5.3,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2013,3.7,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2014,1.7,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2015,0.7,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2016,3.8,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2017,3.7,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2018,4.4,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2019,5.4,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2020,43.5,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2021,20,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2022,63.4,South America,Caribbean,UN Member SIDS,Sovereign state
+Guyana,GUY,2023,33,South America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2008,7.05903,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2009,7.2,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2010,6.9,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2011,6.5,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2012,6.4,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2013,6.9,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2014,7.5,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2015,7.8,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2016,8.4,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2017,9,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2018,9.2,North America,Caribbean,UN Member SIDS,Sovereign state
+Jamaica,JAM,2019,9.8,North America,Caribbean,UN Member SIDS,Sovereign state
+Kiribati,KIR,2008,0.57,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2009,0.61,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2010,0.52,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2011,0.58,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2012,0.51,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2013,0.53,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2014,0.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2015,0.51,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2016,0.6,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2017,0.76,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2018,0.69,Oceania,Pacific,UN Member SIDS,Sovereign state
+Kiribati,KIR,2019,0.72,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2008,2.6,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2009,2.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2010,2.3,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2011,2.2,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2012,2.1,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2013,1.9,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2014,2.1,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2015,2.2,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2016,2.3,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2017,2.3,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2018,2.3,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2019,2.5,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2020,2,Oceania,Pacific,UN Member SIDS,Sovereign state
+Marshall Islands,MHL,2021,1.8,Oceania,Pacific,UN Member SIDS,Sovereign state
+Martinique,MTQ,2008,4.66594,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2009,4.86705,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2010,5.20199,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2011,5.22271,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2012,5.1136,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2013,5.18047,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2014,4.7,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2015,5,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2016,5.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2017,5.64481,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2018,5.3,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Martinique,MTQ,2019,5.4,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Mauritius,MUS,2010,9.6,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2011,10,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2012,9.9,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2013,9,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2014,9.1,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2015,9.2,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2016,9.2,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2017,9.1,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2018,9.3,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2019,9.2,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2020,2.7,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2021,2.3,Africa,AIMS,UN Member SIDS,Sovereign state
+Mauritius,MUS,2022,8.6,Africa,AIMS,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2008,1.9007,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2009,1.67777,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2010,1.70253,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2011,1.62598,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2012,1.6569,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2013,1.66103,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2014,1.6353,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2015,1.69541,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2016,1.7171400000000001,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2017,1.78008,Oceania,Pacific,UN Member SIDS,Sovereign state
+Micronesia (country),FSM,2018,1.78827,Oceania,Pacific,UN Member SIDS,Sovereign state
+Montserrat,MSR,2008,2.34,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2009,1.98,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2010,2.13,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2011,1.8,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2012,2.04,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2013,2.01,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2014,2.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2015,2.27,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2016,1.75,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2017,2.3,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2018,2.24,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2019,1.76,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2020,0.87,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Montserrat,MSR,2021,0.5,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Palau,PLW,2008,17.47299,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2009,17.89294,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2010,18.6892,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2011,21.52718,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2012,23.51177,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2013,24.82607,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2014,25.70048,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2015,26.39814,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2016,24.65382,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2017,21.92255,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2018,19.97486,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2019,18.1375,Oceania,Pacific,UN Member SIDS,Sovereign state
+Palau,PLW,2020,9.75938,Oceania,Pacific,UN Member SIDS,Sovereign state
+Puerto Rico,PRI,2016,3.4127,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Puerto Rico,PRI,2017,3.42083,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Puerto Rico,PRI,2018,2.91018,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Puerto Rico,PRI,2019,3.4083,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Puerto Rico,PRI,2020,2.7498,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+Saint Lucia,LCA,2008,30,North America,Caribbean,UN Member SIDS,Sovereign state
+Samoa,WSM,2008,2.10536,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2009,5.93516,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2010,5.94588,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2011,5.00594,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2012,4.12531,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2013,4.71747,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2014,4.45779,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2015,5.19432,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2016,5.21456,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2017,5.36671,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2018,4.99849,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2019,4.80039,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2020,5.10718,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2021,5.45139,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2022,4.40606,Oceania,Pacific,UN Member SIDS,Sovereign state
+Samoa,WSM,2023,3.69091,Oceania,Pacific,UN Member SIDS,Sovereign state
+Singapore,SGP,2015,2.62761,Asia,AIMS,UN Member SIDS,Sovereign state
+United States Virgin Islands,VIR,2008,22.7,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2009,21.1,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2010,20.6,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2011,22.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2012,26.7,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2013,29.2,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2014,30.8,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2015,31.5,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2016,30.9,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2017,25.3,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2018,20.9,North America,Caribbean,Associate Member SIDS,Territory/Dependency
+United States Virgin Islands,VIR,2019,25.1,North America,Caribbean,Associate Member SIDS,Territory/Dependency

@@ -1,13 +1,15 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
+  render:
+    - index.qmd
 
 website:
   title: "Island Time, Interrupted"
   navbar:
     left:
       - href: index.qmd
-        text: "F1: Tourism & COVID"
+        text: "Tourism & COVID"
 
 format:
   html:
@@ -18,7 +20,7 @@ format:
     number-sections: false
     df-print: kable
     code-fold: true
-    code-tools: true
+    code-tools: false
     fig-format: png
     fig-dpi: 150
     embed-resources: false
