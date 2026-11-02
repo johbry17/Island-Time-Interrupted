@@ -237,13 +237,17 @@ wb_indicator_labels <- c(
   SL.UEM.TOTL.ZS    = "unemployment_pct"
 )
 
-message("Fetching World Bank data via wbstats (2008-2023)...")
+message("Fetching World Bank data via wbstats (2008-2025)...")
+# Note: ST.INT.RCPT.XP.ZS (tourism receipts) has a significant publication lag.
+# As of 2026, WDI only provides receipts data through approximately 2020.
+# Real GDP indicators (NY.GDP.MKTP.KD, NY.GDP.PCAP.KD) are retrieved through 2025
+# but 2024-2025 observations may only be available for a subset of economies.
 wb_raw <- tryCatch(
   wb_data(
-    indicator = wb_indicators,
-    country   = candidates$iso3,
+    indicator  = wb_indicators,
+    country    = candidates$iso3,
     start_date = 2008,
-    end_date   = 2023,
+    end_date   = 2025,
     return_wide = TRUE
   ),
   error = function(e) {
@@ -302,6 +306,8 @@ writeLines(
 message("WB data saved: ", nrow(wb_clean), " rows, ",
         length(wb_returned), " countries, ",
         min(wb_clean$year), "-", max(wb_clean$year))
+message("Note: ST.INT.RCPT.XP.ZS (receipts) lags ~3-5 years behind real-time;",
+        " most recent data ~2020. NY.GDP.MKTP.KD and NY.GDP.PCAP.KD extend to 2024/2025.")
 
 # ---------------------------------------------------------------------------
 # Save cleaned OWID subsets (candidates only) to processed/

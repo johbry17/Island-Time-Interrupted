@@ -36,6 +36,18 @@ LICENSE
 
 ---
 
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `R/01_data_acquisition.R` | Load OWID CSVs; retrieve WDI indicators (2008–2025) via wbstats |
+| `R/02_data_quality.R` | Coverage matrix; 2015–2019 and 2017–2019 baselines; fixed sample flags |
+| `R/03_preliminary_eda.R` | Tourism-dependence rankings and preliminary figures (figs 1–4) |
+| `R/04_shock_models.R` | Eight-model shock analysis; influential observations; sensitivity (figs 5–6) |
+| `R/05_recovery_analysis.R` | Real GDP recovery trajectories; 2019=100 index (figs 7–8) |
+
+---
+
 ## Reproducing the analysis
 
 ### Prerequisites
@@ -57,9 +69,11 @@ Open an R session with the working directory set to the repository root
 (`here()` anchors at the `.git` directory).
 
 ```r
-source("R/01_data_acquisition.R")   # ~1-2 min (World Bank API call)
-source("R/02_data_quality.R")
-source("R/03_preliminary_eda.R")
+source("R/01_data_acquisition.R")   # ~2-3 min (World Bank API call, retrieves 2008-2025)
+source("R/02_data_quality.R")       # builds coverage matrix and 2015-19/2017-19 baselines
+source("R/03_preliminary_eda.R")    # preliminary figures (figs 1-4)
+source("R/04_shock_models.R")       # 8-model shock comparison (figs 5-6)
+source("R/05_recovery_analysis.R")  # recovery trajectories (figs 7-8)
 ```
 
 ### Render the Quarto document
@@ -126,20 +140,32 @@ AIA, GLP, MTQ, MSR, BES, COK, NIU.
 
 ---
 
-## Key results (feasibility audit)
+## Key results
 
-| Sample | N |
-|--------|---|
-| Candidate universe | 58 |
-| Tourism-data sample (any indicator) | 48 |
-| Primary shock sample (vspend + 2020 GDP growth) | 29 |
-| Recovery sample (primary shock + real GDP data) | 29 |
+### Shock analysis
 
-**Primary measure:** OWID visitor spending (% GDP).
+| Sample | N | Indicator | Window | Slope | R² | p (raw) | p (Holm) |
+|--------|---|-----------|--------|-------|----|---------|----------|
+| OWID | 29 | Visitor spending % GDP | 2015-19 | −0.308 | 0.414 | 0.0002 | 0.001 |
+| WDI  | 35 | Tourism receipts % exports | 2015-19 | −0.120 | 0.100 | 0.065 | 0.129 |
+| Common | 24 | Visitor spending % GDP | 2015-19 | −0.331 | 0.489 | 0.0001 | 0.001 |
+| Common | 24 | Tourism receipts % exports | 2015-19 | −0.158 | 0.233 | 0.017 | 0.053 |
 
-**Shock analysis:** Slope = −0.32, R² = 0.428, p < 0.001 (N=29). Stable under sensitivity analysis excluding thin baselines (N=28, R² = 0.412).
+**Primary finding:** Consistent negative association between pre-pandemic visitor spending (% GDP) and 2020 GDP growth across all OWID sample specifications. WDI receipts show a weaker, inconsistent signal.
 
-See `docs/index.html` for the full feasibility report with figures and tables.
+**Maldives (MDV) is influential** in all OWID models (Cook's D ≈ 0.36–0.39); exclusion weakens but does not reverse the result.
+
+### Recovery
+
+- 19 of 28 economies with 2023 data had recovered to 2019 real GDP levels by 2023.
+- No significant association between pre-pandemic tourism dependence and 2023 recovery index (Pearson r=0.18, p=0.36): tourism-dependent economies had the worst shocks but also the strongest recoveries.
+- Real GDP data: 2015–2022 complete (N=29); 2023–2024 (N=28); 2025 preliminary (N=22).
+
+### Important data notes
+
+- **WDI tourism receipts (`ST.INT.RCPT.XP.ZS`):** No data beyond 2020; significant publication lag.
+- **OWID visitor spending:** Available through 2024; no single WDI indicator code.
+- **Seven economies not in WDI:** AIA, GLP, MTQ, MSR, BES, COK, NIU.
 
 ---
 

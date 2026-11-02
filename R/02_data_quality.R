@@ -1,7 +1,7 @@
 # =============================================================================
 # 02_data_quality.R
 # Island Time, Interrupted: Tourism Dependence and the COVID Cliff
-# Purpose: Build country-level coverage matrix; produce feasibility audit stats.
+# Purpose: Coverage matrix, feasibility audit, baseline datasets.
 # Depends on: 01_data_acquisition.R having been run first.
 # Run from: repository root (here() anchors at .git)
 # =============================================================================
@@ -25,7 +25,9 @@ wb         <- read_csv(file.path(here("data","raw","worldbank"), "wdi_tourism_co
                        show_col_types = FALSE)
 
 # ---------------------------------------------------------------------------
-# Build indicator-level coverage counts for each candidate
+# Build indicator-level coverage counts (used for coverage matrix)
+# Baseline eligibility is assessed on 2017-2019 throughout the coverage matrix.
+# 2015-2019 baselines are calculated separately below for the analytical dataset.
 # ---------------------------------------------------------------------------
 
 base <- candidates |>
@@ -37,7 +39,7 @@ tgdp_cover <- tgdp |>
   group_by(iso3) |>
   summarise(owid_tgdp_n_1719 = n(), .groups = "drop")
 
-# -- Visitor spending (OWID) 2017-2019 --  PRIMARY tourism indicator
+# -- Visitor spending (OWID) 2017-2019 -- PRIMARY indicator
 vsp_cover <- vspend |>
   filter(year %in% 2017:2019, !is.na(visitor_spend_gdp_pct)) |>
   group_by(iso3) |>
@@ -55,7 +57,11 @@ arr_2020_cover <- arrivals |>
   group_by(iso3) |>
   summarise(owid_arrivals_2020 = 1L, .groups = "drop")
 
-# -- WDI tourism receipts 2017-2019 --  COMPLEMENTARY measure
+# -- WDI tourism receipts 2017-2019 -- complementary measure
+# NOTE: WDI ST.INT.RCPT.XP.ZS has a significant publication lag.
+# As of 2026, data is available only through approximately 2020; many
+# economies lack 2019 data. The 2017-2019 n therefore includes countries
+# with 2017 and 2018 data only.
 wb_receipts_cover <- wb |>
   filter(year %in% 2017:2019, !is.na(tourism_receipts_pct_exports)) |>
   group_by(iso3) |>
@@ -73,7 +79,7 @@ wb_gdppc_cover <- wb |>
   group_by(iso3) |>
   summarise(wb_gdppc_n_req = n(), .groups = "drop")
 
-# -- WDI real GDP (constant 2015 USD) key years --
+# -- WDI real GDP (constant 2015 USD) key years 2019-2023 --
 wb_gdpreal_cover <- wb |>
   filter(year %in% c(2019, 2020, 2022, 2023), !is.na(gdp_real_const2015usd)) |>
   group_by(iso3) |>
@@ -109,126 +115,53 @@ coverage <- base |>
   mutate(across(where(is.integer) | where(is.double),
                 ~ replace_na(., 0L))) |>
   mutate(
-    # Tourism baseline flags
     has_tgdp_baseline     = owid_tgdp_n_1719 > 0,
     has_vspend_baseline   = owid_vspend_n_1719 > 0,
     has_receipts_baseline = wb_receipts_n_1719 > 0,
     has_any_tourism       = has_tgdp_baseline | has_vspend_baseline | has_receipts_baseline,
 
-    # Thin baseline (single observation) flags
     tgdp_thin_baseline    = owid_tgdp_n_1719 == 1,
     vspend_thin_baseline  = owid_vspend_n_1719 == 1,
     receipts_thin_baseline = wb_receipts_n_1719 == 1,
 
-    # 2020 shock availability
     has_gdpgrowth_2020    = wb_gdpgrowth_2020 == 1,
 
-    # Real GDP recovery data (constant 2015 USD)
-    has_real_gdp_recovery = wb_gdpreal_n_req >= 2,   # need 2019 + at least one of 2022/2023
+    has_real_gdp_recovery   = wb_gdpreal_n_req >= 2,
     has_real_gdppc_recovery = wb_gdppcreal_n_req >= 2,
 
-    # ── Four-tier sample definitions ─────────────────────────────────────
-    # 1. Tourism-data sample: any usable tourism baseline indicator
-    in_tourism_data_sample  = has_any_tourism,
-
-    # 2. Primary shock sample: PRIMARY indicator (OWID vspend) + 2020 GDP growth
-    #    Use vspend as primary; fall back to receipts only for complementary analysis
-    in_primary_shock_sample = has_vspend_baseline & has_gdpgrowth_2020,
-
-    # 2b. Receipts shock sample (complementary/sensitivity)
+    # Sample definitions (based on 2017-2019 availability + 2020 GDP growth)
+    in_tourism_data_sample   = has_any_tourism,
+    in_primary_shock_sample  = has_vspend_baseline & has_gdpgrowth_2020,
     in_receipts_shock_sample = has_receipts_baseline & has_gdpgrowth_2020,
-
-    # 3. Recovery sample: primary shock-eligible + real GDP recovery data
-    in_recovery_sample      = in_primary_shock_sample & has_real_gdp_recovery
+    in_common_sample         = has_vspend_baseline & has_receipts_baseline & has_gdpgrowth_2020,
+    in_recovery_sample       = in_primary_shock_sample & has_real_gdp_recovery
   )
 
 write_csv(coverage, file.path(processed, "country_coverage.csv"))
 message("Coverage matrix saved: ", file.path(processed, "country_coverage.csv"))
 
 # ---------------------------------------------------------------------------
-# Feasibility audit statistics
+# Sample membership report
 # ---------------------------------------------------------------------------
+
+owid_sample_iso  <- coverage |> filter(in_primary_shock_sample)  |> pull(iso3)
+wdi_sample_iso   <- coverage |> filter(in_receipts_shock_sample) |> pull(iso3)
+common_sample_iso <- coverage |> filter(in_common_sample)         |> pull(iso3)
 
 cat("\n================================================================\n")
-cat("FEASIBILITY AUDIT — AGGREGATE STATISTICS\n")
+cat("SAMPLE DEFINITIONS (based on 2017-2019 availability)\n")
 cat("================================================================\n\n")
-
-cat("── CANDIDATE UNIVERSE ──────────────────────────────────────────\n")
-cat("Total candidate economies:", nrow(candidates), "\n")
-cat("  UN Member SIDS:        ", sum(candidates$sids_status == "UN Member SIDS"), "\n")
-cat("  Associate Member SIDS: ", sum(candidates$sids_status == "Associate Member SIDS"), "\n")
-cat("  Other island economy:  ", sum(candidates$sids_status == "Other island economy"), "\n")
-cat("  Caribbean:             ", sum(candidates$sids_region == "Caribbean"), "\n")
-cat("  Pacific:               ", sum(candidates$sids_region == "Pacific"), "\n")
-cat("  AIMS:                  ", sum(candidates$sids_region == "AIMS"), "\n")
-
-cat("\n── TOURISM-DATA SAMPLE ─────────────────────────────────────────\n")
-cat("Economies with at least one tourism indicator (2017-2019):\n")
-cat("  Any indicator (tourism-data sample):", sum(coverage$in_tourism_data_sample), "\n")
-cat("  OWID visitor spending (% GDP):      ", sum(coverage$has_vspend_baseline), "\n")
-cat("  WDI tourism receipts (% exports):   ", sum(coverage$has_receipts_baseline), "\n")
-cat("  OWID tourism GDP (% GDP):           ", sum(coverage$has_tgdp_baseline), "\n")
-
-cat("\n── PRIMARY SHOCK SAMPLE ────────────────────────────────────────\n")
-cat("Economies with OWID vspend baseline AND 2020 GDP growth:\n")
-cat("  Primary shock sample:  ", sum(coverage$in_primary_shock_sample), "\n")
-cat("  (WDI receipts-based):  ", sum(coverage$in_receipts_shock_sample), "\n")
-
-cat("\n── RECOVERY SAMPLE ─────────────────────────────────────────────\n")
-cat("Economies in primary shock sample WITH real GDP recovery data:\n")
-cat("  Recovery sample:       ", sum(coverage$in_recovery_sample), "\n")
-cat("  (real GDP, const USD): ", sum(coverage$has_real_gdp_recovery), "\n")
-cat("  (real GDP/cap):        ", sum(coverage$has_real_gdppc_recovery), "\n")
-
-cat("\n── COVERAGE BY SIDS REGION ─────────────────────────────────────\n")
-coverage |>
-  group_by(sids_region) |>
-  summarise(
-    n_candidate    = n(),
-    n_any_tourism  = sum(in_tourism_data_sample),
-    n_primary_shock = sum(in_primary_shock_sample),
-    n_recovery     = sum(in_recovery_sample),
-    .groups = "drop"
-  ) |>
-  print()
-
-cat("\n── COVERAGE BY SIDS STATUS ─────────────────────────────────────\n")
-coverage |>
-  group_by(sids_status) |>
-  summarise(
-    n_candidate     = n(),
-    n_any_tourism   = sum(in_tourism_data_sample),
-    n_primary_shock = sum(in_primary_shock_sample),
-    n_recovery      = sum(in_recovery_sample),
-    .groups = "drop"
-  ) |>
-  print()
-
-cat("\n── THIN BASELINES (single pre-pandemic observation) ────────────\n")
-coverage |>
-  filter(vspend_thin_baseline | receipts_thin_baseline | tgdp_thin_baseline) |>
-  select(iso3, country, sids_region,
-         owid_vspend_n_1719, wb_receipts_n_1719, owid_tgdp_n_1719) |>
-  arrange(sids_region, country) |>
-  print(n = 40)
-
-cat("\n── PRIMARY SHOCK SAMPLE: country list ──────────────────────────\n")
-coverage |>
-  filter(in_primary_shock_sample) |>
-  select(iso3, country, sids_region, sids_status,
-         owid_vspend_n_1719, wb_receipts_n_1719, wb_gdpreal_n_req) |>
-  arrange(sids_region, country) |>
-  print(n = 60)
-
-cat("\n── NO USABLE TOURISM INDICATOR ──────────────────────────────────\n")
-coverage |>
-  filter(!in_tourism_data_sample) |>
-  select(iso3, country, sids_region, sids_status) |>
-  arrange(sids_region, country) |>
-  print(n = 40)
+cat("OWID sample  (vspend 2017-19 + GDP growth 2020) N =",
+    length(owid_sample_iso), ":", paste(sort(owid_sample_iso), collapse=", "), "\n\n")
+cat("WDI sample   (receipts 2017-19 + GDP growth 2020) N =",
+    length(wdi_sample_iso), ":", paste(sort(wdi_sample_iso), collapse=", "), "\n\n")
+cat("Common sample(both indicators + GDP growth 2020) N =",
+    length(common_sample_iso), ":", paste(sort(common_sample_iso), collapse=", "), "\n\n")
+cat("OWID-only:", paste(sort(setdiff(owid_sample_iso, common_sample_iso)), collapse=", "), "\n")
+cat("WDI-only: ", paste(sort(setdiff(wdi_sample_iso,  common_sample_iso)), collapse=", "), "\n")
 
 # ---------------------------------------------------------------------------
-# Build the analytical dataset (country-year panel)
+# Build analytical dataset (country-year panel)
 # ---------------------------------------------------------------------------
 
 wb_panel <- wb |>
@@ -254,34 +187,51 @@ analytical <- wb_panel |>
 
 write_csv(analytical, file.path(processed, "analytical_panel.csv"))
 message("Analytical panel saved: ", nrow(analytical), " rows, ",
-        length(unique(analytical$iso3)), " countries")
+        length(unique(analytical$iso3)), " countries, ",
+        min(analytical$year), "-", max(analytical$year))
 
 # ---------------------------------------------------------------------------
-# Pre-pandemic baseline (2017-2019 means) + shock + recovery
+# Baseline calculations — BOTH 2015-2019 and 2017-2019 windows
+#
+# Sample membership is fixed based on 2017-2019 availability (above).
+# Baselines are calculated for all candidates; sample flags added below.
 # ---------------------------------------------------------------------------
 
-baseline_tourism <- analytical |>
-  filter(year %in% 2017:2019) |>
-  group_by(iso3, country, sids_region, sids_status, political_status) |>
-  summarise(
-    vspend_mean_1719   = mean(visitor_spend_gdp_pct,      na.rm = TRUE),
-    vspend_n_1719      = sum(!is.na(visitor_spend_gdp_pct)),
-    receipts_mean_1719 = mean(tourism_receipts_pct_exports, na.rm = TRUE),
-    receipts_n_1719    = sum(!is.na(tourism_receipts_pct_exports)),
-    tgdp_mean_1719     = mean(tourism_gdp_pct,             na.rm = TRUE),
-    tgdp_n_1719        = sum(!is.na(tourism_gdp_pct)),
-    arrivals_mean_1719 = mean(arrivals,                    na.rm = TRUE),
-    arrivals_n_1719    = sum(!is.na(arrivals)),
-    .groups = "drop"
-  ) |>
-  mutate(
-    across(where(is.double), ~ if_else(is.nan(.), NA_real_, .)),
-    vspend_thin   = vspend_n_1719 == 1,
-    receipts_thin = receipts_n_1719 == 1
-  )
+compute_baselines <- function(data_wide, years) {
+  data_wide |>
+    filter(year %in% years) |>
+    group_by(iso3, country, sids_region, sids_status, political_status) |>
+    summarise(
+      vspend_mean   = mean(visitor_spend_gdp_pct,      na.rm = TRUE),
+      vspend_n      = sum(!is.na(visitor_spend_gdp_pct)),
+      receipts_mean = mean(tourism_receipts_pct_exports, na.rm = TRUE),
+      receipts_n    = sum(!is.na(tourism_receipts_pct_exports)),
+      tgdp_mean     = mean(tourism_gdp_pct,             na.rm = TRUE),
+      tgdp_n        = sum(!is.na(tourism_gdp_pct)),
+      arrivals_mean = mean(arrivals,                    na.rm = TRUE),
+      arrivals_n    = sum(!is.na(arrivals)),
+      .groups = "drop"
+    ) |>
+    mutate(
+      across(c(vspend_mean, receipts_mean, tgdp_mean, arrivals_mean),
+             ~ if_else(is.nan(.), NA_real_, .)),
+      vspend_thin   = vspend_n == 1,
+      receipts_thin = receipts_n == 1
+    )
+}
+
+bl_1519 <- compute_baselines(analytical, 2015:2019) |>
+  rename_with(~ paste0(., "_1519"), starts_with(c("vspend","receipts","tgdp","arrivals")))
+
+bl_1719 <- compute_baselines(analytical, 2017:2019) |>
+  rename_with(~ paste0(., "_1719"), starts_with(c("vspend","receipts","tgdp","arrivals")))
+
+# ---------------------------------------------------------------------------
+# Shock and recovery data (wide format, years 2015-2025)
+# ---------------------------------------------------------------------------
 
 shock_recovery <- analytical |>
-  filter(year %in% c(2019, 2020, 2021, 2022, 2023)) |>
+  filter(year %in% c(2015:2025)) |>
   select(iso3, year, gdp_growth_pct, gdp_per_capita_usd,
          gdp_real_const2015usd, gdppc_real_const2015usd, unemployment_pct) |>
   pivot_wider(
@@ -292,10 +242,76 @@ shock_recovery <- analytical |>
     names_sep   = "_"
   )
 
-baseline <- baseline_tourism |>
-  left_join(shock_recovery, by = "iso3")
+# ---------------------------------------------------------------------------
+# Assemble combined baseline + shock + recovery dataset
+# ---------------------------------------------------------------------------
+
+baseline <- bl_1519 |>
+  left_join(
+    bl_1719 |> select(iso3, starts_with(c("vspend","receipts","tgdp","arrivals"))),
+    by = "iso3"
+  ) |>
+  left_join(shock_recovery, by = "iso3") |>
+  left_join(
+    coverage |> select(iso3,
+                       in_primary_shock_sample, in_receipts_shock_sample,
+                       in_common_sample, in_recovery_sample,
+                       in_tourism_data_sample),
+    by = "iso3"
+  )
 
 write_csv(baseline, file.path(processed, "baseline_shock_recovery.csv"))
-message("Baseline + shock + recovery dataset saved: ", nrow(baseline), " rows")
+message("Baseline dataset saved: ", nrow(baseline), " rows")
 
-message("Done: 02_data_quality.R")
+# ---------------------------------------------------------------------------
+# Coverage distribution report for 2015-2019 baseline
+# ---------------------------------------------------------------------------
+
+cat("\n================================================================\n")
+cat("BASELINE COVERAGE DISTRIBUTION\n")
+cat("================================================================\n\n")
+
+for (spec_name in c("2015-2019", "2017-2019")) {
+  sfx <- if (spec_name == "2015-2019") "_1519" else "_1719"
+
+  cat("=== Baseline window:", spec_name, "===\n")
+  for (ind_name in c("OWID vspend", "WDI receipts")) {
+    col_n <- if (ind_name == "OWID vspend") paste0("vspend_n", sfx) else paste0("receipts_n", sfx)
+    vals  <- baseline[[col_n]]
+    cat("  ", ind_name, "| obs per country distribution:\n")
+    tbl <- table(vals[vals > 0], useNA="no")
+    print(tbl)
+    cat("    Total with >=1 obs:", sum(vals >= 1, na.rm=TRUE), "\n")
+    cat("    Total with >=3 obs:", sum(vals >= 3, na.rm=TRUE), "\n")
+    cat("    Total with  5 obs:", sum(vals == 5, na.rm=TRUE), "\n")
+  }
+  cat("\n")
+}
+
+# Coverage restricted to fixed sample members
+for (samp_name in c("OWID", "WDI", "Common")) {
+  samp_col <- switch(samp_name,
+    "OWID"   = "in_primary_shock_sample",
+    "WDI"    = "in_receipts_shock_sample",
+    "Common" = "in_common_sample"
+  )
+  ind_col_1519 <- switch(samp_name,
+    "OWID"   = "vspend_n_1519",
+    "WDI"    = "receipts_n_1519",
+    "Common" = "vspend_n_1519"
+  )
+  ind_col_1719 <- sub("1519","1719", ind_col_1519)
+
+  samp <- baseline |> filter(.data[[samp_col]])
+  cat("--- Fixed", samp_name, "sample (N =", nrow(samp), ") ---\n")
+  cat("  2015-2019 obs counts:\n  ")
+  print(table(samp[[ind_col_1519]]))
+  cat("  Countries with 0 obs in 2015-2019 baseline:", sum(samp[[ind_col_1519]] == 0), "\n")
+  cat("  Countries with 1 obs (thin):", sum(samp[[ind_col_1519]] == 1), "\n")
+  cat("  2017-2019 obs counts:\n  ")
+  print(table(samp[[ind_col_1719]]))
+  cat("  Countries with 0 obs in 2017-2019 baseline:", sum(samp[[ind_col_1719]] == 0), "\n")
+  cat("  Countries with 1 obs (thin):", sum(samp[[ind_col_1719]] == 1), "\n\n")
+}
+
+cat("Done: 02_data_quality.R\n")

@@ -109,12 +109,12 @@ baseline <- baseline |>
 # Sources: UN Tourism; WB national accounts. No single WDI indicator code.
 
 fig1_data <- baseline |>
-  filter(!is.na(vspend_mean_1719)) |>
+  filter(!is.na(vspend_mean_1519)) |>
   mutate(
-    thin_flag = if_else(vspend_thin, "Thin (1 obs)", "Full (2-3 obs)"),
+    thin_flag = if_else(vspend_thin_1519, "Thin (1 obs)", "Full (2-3 obs)"),
     thin_flag = factor(thin_flag, levels = c("Full (2-3 obs)", "Thin (1 obs)"))
   ) |>
-  arrange(vspend_mean_1719) |>
+  arrange(vspend_mean_1519) |>
   mutate(label = factor(label, levels = label))
 
 caption_fig1 <- paste0(
@@ -136,7 +136,6 @@ p1 <- ggplot(fig1_data,
                      expand = expansion(mult = c(0, 0.04))) +
   labs(
     title    = "International Visitor Spending as a Share of GDP, 2017\u20132019",
-    subtitle = "SIDS candidate universe \u2014 primary tourism-dependence measure",
     x        = "International visitor spending (% of GDP)",
     y        = NULL,
     caption  = caption_fig1
@@ -208,7 +207,7 @@ if (nrow(fig2_data) >= 4) {
 # Primary shock sample: OWID vspend + 2020 GDP growth
 shock_primary <- baseline |>
   filter(!is.na(vspend_mean_1719), !is.na(gdp_growth_pct_2020)) |>
-  mutate(thin_flag = if_else(vspend_thin, "Thin (1 obs)", "Full (2-3 obs)"))
+  mutate(thin_flag = if_else(vspend_thin_1719, "Thin (1 obs)", "Full (2-3 obs)"))
 
 cat("\n================================================================\n")
 cat("PRIMARY SHOCK ANALYSIS (vspend baseline)\n")
@@ -243,7 +242,7 @@ if (nrow(shock_primary) >= 6) {
                       "\nPearson r = ", cor_p, " | Spearman \u03c1 = ", cor_sp_p)
 
   # --- Sensitivity: exclude thin baselines ---
-  shock_full <- shock_primary |> filter(!vspend_thin)
+  shock_full <- shock_primary |> filter(!vspend_thin_1719)
   if (nrow(shock_full) >= 6) {
     fit_f   <- lm(gdp_growth_pct_2020 ~ vspend_mean_1719, data = shock_full)
     fit_fs  <- summary(fit_f)
@@ -438,13 +437,13 @@ write_csv(
   baseline |>
     filter(!is.na(vspend_mean_1719) | !is.na(receipts_mean_1719)) |>
     select(iso3, country, sids_region, sids_status, political_status,
-           vspend_mean_1719, vspend_n_1719, vspend_thin,
-           receipts_mean_1719, receipts_n_1719,
+           vspend_mean_1519, vspend_mean_1719, vspend_n_1719, vspend_thin_1719,
+           receipts_mean_1519, receipts_mean_1719, receipts_n_1719,
            tgdp_mean_1719, tgdp_n_1719,
            gdp_growth_pct_2020,
            gdp_real_const2015usd_2019, gdp_real_const2015usd_2022,
            gdp_real_const2015usd_2023) |>
-    arrange(sids_region, desc(coalesce(vspend_mean_1719, receipts_mean_1719))),
+    arrange(sids_region, desc(coalesce(vspend_mean_1519, vspend_mean_1719, receipts_mean_1519))),
   file.path(tbl_dir, "eda_tourism_shock_table.csv")
 )
 

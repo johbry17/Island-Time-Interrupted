@@ -1,0 +1,8 @@
+topic,note
+UN SIDS count,"UN-OHRLLS lists 39 economies under Small Island Developing States. Of these, 37 are UN General Assembly member states; Cook Islands and Niue are sovereign states in free association with New Zealand and are not UNGA members but ARE included on the SIDS list."
+Cook Islands (COK),"Sovereign state in free association with NZ. Member of many UN specialized agencies (WHO, UNICEF, FAO, etc.). Not a UN General Assembly member. Included on UN-OHRLLS SIDS list. Not in WDI database."
+Niue (NIU),Sovereign state in free association with NZ. Member of some UN specialized agencies. Not a UN General Assembly member. Included on UN-OHRLLS SIDS list. Not in WDI database.
+Bahrain (BHR),"Was previously on some UN SIDS lists as an AIMS economy. As of the current UN-OHRLLS list (retrieved November 2026), Bahrain is not listed as a SIDS. Not included in the candidate universe."
+Associate Members,The 18 associate members listed by UN-OHRLLS are territories and dependencies that are associate members of UN Regional Commissions. They are included in the SIDS group but are not sovereign states. Not all have WDI coverage.
+BES,"Bonaire, Sint Eustatius and Saba are Dutch special municipalities. Not on the UN-OHRLLS list. Retained in the candidate universe as an other island economy for regional completeness."
+Data authority,"UN-OHRLLS list of SIDS, retrieved November 2026. URL: https://www.un.org/ohrlls/content/list-sids"

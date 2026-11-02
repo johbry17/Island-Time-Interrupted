@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -150,7 +185,31 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#recommended-country-sample" id="toc-recommended-country-sample" class="nav-link" data-scroll-target="#recommended-country-sample">Recommended country sample</a></li>
   <li><a href="#primary-tourism-dependence-measure" id="toc-primary-tourism-dependence-measure" class="nav-link" data-scroll-target="#primary-tourism-dependence-measure">Primary tourism-dependence measure</a></li>
   <li><a href="#most-significant-data-limitations" id="toc-most-significant-data-limitations" class="nav-link" data-scroll-target="#most-significant-data-limitations">Most significant data limitations</a></li>
-  <li><a href="#recommended-next-steps-phase-2" id="toc-recommended-next-steps-phase-2" class="nav-link" data-scroll-target="#recommended-next-steps-phase-2">Recommended next steps (Phase 2)</a></li>
+  </ul></li>
+  <li><a href="#sids-universe-classification" id="toc-sids-universe-classification" class="nav-link" data-scroll-target="#sids-universe-classification">SIDS Universe Classification</a>
+  <ul class="collapse">
+  <li><a href="#cook-islands-and-niue" id="toc-cook-islands-and-niue" class="nav-link" data-scroll-target="#cook-islands-and-niue">Cook Islands and Niue</a></li>
+  <li><a href="#bahrain" id="toc-bahrain" class="nav-link" data-scroll-target="#bahrain">Bahrain</a></li>
+  </ul></li>
+  <li><a href="#extended-baseline-coverage-20152019-vs-20172019" id="toc-extended-baseline-coverage-20152019-vs-20172019" class="nav-link" data-scroll-target="#extended-baseline-coverage-20152019-vs-20172019">Extended Baseline Coverage: 2015–2019 vs 2017–2019</a></li>
+  <li><a href="#extended-shock-analysis-eight-model-comparison" id="toc-extended-shock-analysis-eight-model-comparison" class="nav-link" data-scroll-target="#extended-shock-analysis-eight-model-comparison">Extended Shock Analysis: Eight-Model Comparison</a>
+  <ul class="collapse">
+  <li><a href="#model-specifications" id="toc-model-specifications" class="nav-link" data-scroll-target="#model-specifications">Model specifications</a></li>
+  <li><a href="#figures-four-panel-comparison-20152019-baseline" id="toc-figures-four-panel-comparison-20152019-baseline" class="nav-link" data-scroll-target="#figures-four-panel-comparison-20152019-baseline">Figures: four-panel comparison (2015–2019 baseline)</a></li>
+  <li><a href="#influential-observations" id="toc-influential-observations" class="nav-link" data-scroll-target="#influential-observations">Influential observations</a></li>
+  <li><a href="#coverage-restricted-sensitivity-3-baseline-observations" id="toc-coverage-restricted-sensitivity-3-baseline-observations" class="nav-link" data-scroll-target="#coverage-restricted-sensitivity-3-baseline-observations">Coverage-restricted sensitivity (≥3 baseline observations)</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  </ul></li>
+  <li><a href="#real-gdp-recovery-trajectories" id="toc-real-gdp-recovery-trajectories" class="nav-link" data-scroll-target="#real-gdp-recovery-trajectories">Real GDP Recovery Trajectories</a>
+  <ul class="collapse">
+  <li><a href="#coverage" id="toc-coverage" class="nav-link" data-scroll-target="#coverage">Coverage</a></li>
+  <li><a href="#recovery-status-by-2023" id="toc-recovery-status-by-2023" class="nav-link" data-scroll-target="#recovery-status-by-2023">Recovery status by 2023</a></li>
+  </ul></li>
+  <li><a href="#methodological-assessment" id="toc-methodological-assessment" class="nav-link" data-scroll-target="#methodological-assessment">Methodological Assessment</a>
+  <ul class="collapse">
+  <li><a href="#what-the-evidence-supports" id="toc-what-the-evidence-supports" class="nav-link" data-scroll-target="#what-the-evidence-supports">What the evidence supports</a></li>
+  <li><a href="#what-the-evidence-does-not-support" id="toc-what-the-evidence-does-not-support" class="nav-link" data-scroll-target="#what-the-evidence-does-not-support">What the evidence does not support</a></li>
+  <li><a href="#remaining-uncertainties" id="toc-remaining-uncertainties" class="nav-link" data-scroll-target="#remaining-uncertainties">Remaining uncertainties</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -161,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Tourism Dependence and the COVID Cliff</h1>
-<p class="subtitle lead">Data Feasibility Audit and Preliminary EDA</p>
+<p class="subtitle lead">Extended Baseline, Shock-Model Comparison, and Recovery Analysis</p>
 </div>
 
 
@@ -298,12 +357,12 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table table-sm table-striped small">
 <caption>Table 1. Candidate universe. Authority: UN-OHRLLS list of SIDS (retrieved November 2026).</caption>
 <colgroup>
-<col style="width: 3%">
-<col style="width: 20%">
-<col style="width: 6%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 43%">
+<col style="width: 2%">
+<col style="width: 15%">
+<col style="width: 4%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 57%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -666,7 +725,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Pacific</td>
 <td style="text-align: left;">UN Member SIDS</td>
 <td style="text-align: left;">Sovereign state</td>
-<td style="text-align: left;">Free association with New Zealand</td>
+<td style="text-align: left;">Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">FJI</td>
@@ -714,7 +773,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Pacific</td>
 <td style="text-align: left;">UN Member SIDS</td>
 <td style="text-align: left;">Sovereign state</td>
-<td style="text-align: left;">Free association with New Zealand</td>
+<td style="text-align: left;">Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">PLW</td>
@@ -2441,15 +2500,1500 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Cuba, Dominican Republic:</strong> Caribbean UN SIDS with WDI coverage but no vspend baseline — they appear in the receipts-based sample but not the primary vspend sample.</li>
 <li><strong>OWID visitor spending source:</strong> Not a single WDI indicator. The OWID methodology note confirms the numerator is from UN Tourism statistics; do not attribute to <code>ST.INT.XPND.GD.ZS</code>.</li>
 </ol>
+<hr>
 </section>
-<section id="recommended-next-steps-phase-2" class="level3">
-<h3 class="anchored" data-anchor-id="recommended-next-steps-phase-2">Recommended next steps (Phase 2)</h3>
+</section>
+<section id="sids-universe-classification" class="level2">
+<h2 class="anchored" data-anchor-id="sids-universe-classification">SIDS Universe Classification</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 10. Candidate universe classification. Authority: UN-OHRLLS, retrieved November 2026.</caption>
+<colgroup>
+<col style="width: 2%">
+<col style="width: 15%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">iso3</th>
+<th style="text-align: left;">country</th>
+<th style="text-align: left;">sids_region</th>
+<th style="text-align: left;">sids_status</th>
+<th style="text-align: left;">political_status</th>
+<th style="text-align: left;">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CPV</td>
+<td style="text-align: left;">Cabo Verde</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Atlantic</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COM</td>
+<td style="text-align: left;">Comoros</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Indian Ocean; LDC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GNB</td>
+<td style="text-align: left;">Guinea-Bissau</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Atlantic; LDC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">Maldives</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Indian Ocean</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUS</td>
+<td style="text-align: left;">Mauritius</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Indian Ocean</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SYC</td>
+<td style="text-align: left;">Seychelles</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Indian Ocean</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SGP</td>
+<td style="text-align: left;">Singapore</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">South China Sea</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STP</td>
+<td style="text-align: left;">São Tomé and Príncipe</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Atlantic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AIA</td>
+<td style="text-align: left;">Anguilla</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ABW</td>
+<td style="text-align: left;">Aruba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">Constituent country, Kingdom of the Netherlands</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BMU</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VGB</td>
+<td style="text-align: left;">British Virgin Islands</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CYM</td>
+<td style="text-align: left;">Cayman Islands</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CUW</td>
+<td style="text-align: left;">Curaçao</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">Constituent country, Kingdom of the Netherlands</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GLP</td>
+<td style="text-align: left;">Guadeloupe</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">French overseas department</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MTQ</td>
+<td style="text-align: left;">Martinique</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">French overseas department</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MSR</td>
+<td style="text-align: left;">Montserrat</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRI</td>
+<td style="text-align: left;">Puerto Rico</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">US Commonwealth territory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SXM</td>
+<td style="text-align: left;">Sint Maarten</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">Constituent country, Kingdom of the Netherlands</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TCA</td>
+<td style="text-align: left;">Turks and Caicos Islands</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">British Overseas Territory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VIR</td>
+<td style="text-align: left;">US Virgin Islands</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">US unincorporated territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BES</td>
+<td style="text-align: left;">Bonaire, Sint Eustatius and Saba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">Other island economy</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">Dutch special municipalities; not on UN SIDS list</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ATG</td>
+<td style="text-align: left;">Antigua and Barbuda</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BHS</td>
+<td style="text-align: left;">Bahamas</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRB</td>
+<td style="text-align: left;">Barbados</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BLZ</td>
+<td style="text-align: left;">Belize</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CUB</td>
+<td style="text-align: left;">Cuba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DMA</td>
+<td style="text-align: left;">Dominica</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOM</td>
+<td style="text-align: left;">Dominican Republic</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GRD</td>
+<td style="text-align: left;">Grenada</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GUY</td>
+<td style="text-align: left;">Guyana</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HTI</td>
+<td style="text-align: left;">Haiti</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">LDC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JAM</td>
+<td style="text-align: left;">Jamaica</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KNA</td>
+<td style="text-align: left;">Saint Kitts and Nevis</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LCA</td>
+<td style="text-align: left;">Saint Lucia</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VCT</td>
+<td style="text-align: left;">Saint Vincent and the Grenadines</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SUR</td>
+<td style="text-align: left;">Suriname</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TTO</td>
+<td style="text-align: left;">Trinidad and Tobago</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ASM</td>
+<td style="text-align: left;">American Samoa</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">US unincorporated territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PYF</td>
+<td style="text-align: left;">French Polynesia</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">French overseas collectivity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GUM</td>
+<td style="text-align: left;">Guam</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">US unincorporated territory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NCL</td>
+<td style="text-align: left;">New Caledonia</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">French special collectivity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MNP</td>
+<td style="text-align: left;">Northern Mariana Islands</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Associate Member SIDS</td>
+<td style="text-align: left;">Territory/Dependency</td>
+<td style="text-align: left;">US Commonwealth territory; listed as Commonwealth of Northern Marianas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COK</td>
+<td style="text-align: left;">Cook Islands</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FJI</td>
+<td style="text-align: left;">Fiji</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KIR</td>
+<td style="text-align: left;">Kiribati</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">LDC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MHL</td>
+<td style="text-align: left;">Marshall Islands</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FSM</td>
+<td style="text-align: left;">Micronesia (Fed. Sts.)</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NRU</td>
+<td style="text-align: left;">Nauru</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NIU</td>
+<td style="text-align: left;">Niue</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PLW</td>
+<td style="text-align: left;">Palau</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PNG</td>
+<td style="text-align: left;">Papua New Guinea</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WSM</td>
+<td style="text-align: left;">Samoa</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SLB</td>
+<td style="text-align: left;">Solomon Islands</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">LDC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TLS</td>
+<td style="text-align: left;">Timor-Leste</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">LDC; classified with Pacific SIDS by UN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TON</td>
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TUV</td>
+<td style="text-align: left;">Tuvalu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">LDC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VUT</td>
+<td style="text-align: left;">Vanuatu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">UN Member SIDS</td>
+<td style="text-align: left;">Sovereign state</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="cook-islands-and-niue" class="level3">
+<h3 class="anchored" data-anchor-id="cook-islands-and-niue">Cook Islands and Niue</h3>
+<p>Cook Islands and Niue appear on the UN-OHRLLS SIDS list among the 39 listed economies. However, they are <strong>not UN General Assembly member states</strong> — both are sovereign states in free association with New Zealand and participate in UN activities through that arrangement. They are members of many UN specialized agencies (WHO, UNICEF, FAO).</p>
+<p>The OHRLLS list does not formally distinguish between full UNGA members and free-association states within the “UN Member SIDS” heading. For this analysis, Cook Islands and Niue retain the <code>sids_status = "UN Member SIDS"</code> classification with an explicit note on their UNGA membership status.</p>
+<p>Neither is in the WDI database; neither contributes data to the shock or recovery analysis.</p>
+</section>
+<section id="bahrain" class="level3">
+<h3 class="anchored" data-anchor-id="bahrain">Bahrain</h3>
+<p>Bahrain is not on the current UN-OHRLLS SIDS list (retrieved November 2026). It was previously listed as an AIMS SIDS but is not included in the current candidate universe. No action required.</p>
+<hr>
+</section>
+</section>
+<section id="extended-baseline-coverage-20152019-vs-20172019" class="level2">
+<h2 class="anchored" data-anchor-id="extended-baseline-coverage-20152019-vs-20172019">Extended Baseline Coverage: 2015–2019 vs 2017–2019</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 11. Annual observation counts per economy within each baseline window, for fixed sample members. The 2017-2019 window spans at most 3 years; the 2015-2019 window spans at most 5 years.</caption>
+<colgroup>
+<col style="width: 59%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sample/indicator/window</th>
+<th style="text-align: right;">1 obs</th>
+<th style="text-align: right;">2 obs</th>
+<th style="text-align: right;">3 obs</th>
+<th style="text-align: right;">4 obs</th>
+<th style="text-align: right;">5 obs</th>
+<th style="text-align: right;">0 obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OWID shock sample (N=29) | OWID vspend 2015-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OWID shock sample (N=29) | WDI receipts 2015-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OWID shock sample (N=29) | OWID vspend 2017-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OWID shock sample (N=29) | WDI receipts 2017-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WDI shock sample (N=35) | OWID vspend 2015-19</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WDI shock sample (N=35) | WDI receipts 2015-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WDI shock sample (N=35) | OWID vspend 2017-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WDI shock sample (N=35) | WDI receipts 2017-19</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Common sample (N=24) | OWID vspend 2015-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Common sample (N=24) | WDI receipts 2015-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Common sample (N=24) | OWID vspend 2017-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Common sample (N=24) | WDI receipts 2017-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Key findings:</strong></p>
+<ul>
+<li>For the OWID vspend 2015-2019 baseline: all 29 OWID sample members have ≥1 observation; 26/29 have all 5 years; 1 (Kiribati) has only 1 year.</li>
+<li>For the WDI receipts 2015-2019 baseline: all 35 WDI sample members have ≥1 observation; 19/35 have all 5 years; many have 4 years (2015–2018 only, 2019 missing due to WDI publication lag).</li>
+<li><strong>Important:</strong> WDI tourism receipts (<code>ST.INT.RCPT.XP.ZS</code>) has a significant publication lag. As of the 2026 data retrieval, data is available only through approximately 2020 for most economies; 2021–2023 data is absent entirely.</li>
+</ul>
+<hr>
+</section>
+<section id="extended-shock-analysis-eight-model-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="extended-shock-analysis-eight-model-comparison">Extended Shock Analysis: Eight-Model Comparison</h2>
+<section id="model-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="model-specifications">Model specifications</h3>
+<p>All eight models use <strong>2020 GDP growth (annual %, WDI <code>NY.GDP.MKTP.KD.ZG</code>)</strong> as the outcome. The explanatory variable is the economy’s pre-pandemic tourism dependence baseline, varying by indicator and window.</p>
+<p><strong>This analysis was conducted after observing the 2017–2019 results. The 2015–2019 window was not designated a priori as the primary specification.</strong> All eight results are reported; none is withheld.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 12. Eight principal shock-model estimates. Outcome: 2020 GDP growth (%). Holm adjustment applied across all 8 raw p-values. All models report the bivariate OLS slope and Pearson/Spearman correlations.</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Model</th>
+<th style="text-align: left;">Indicator</th>
+<th style="text-align: left;">Window</th>
+<th style="text-align: left;">Sample</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Slope</th>
+<th style="text-align: left;">CI (95%)</th>
+<th style="text-align: right;">R2</th>
+<th style="text-align: right;">Pearson_r</th>
+<th style="text-align: right;">Spearman_rho</th>
+<th style="text-align: right;">p_raw</th>
+<th style="text-align: right;">p_holm</th>
+<th style="text-align: left;">Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">OWID (N=29)</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">-0.308</td>
+<td style="text-align: left;">[-0.453, -0.163]</td>
+<td style="text-align: right;">0.414</td>
+<td style="text-align: right;">-0.643</td>
+<td style="text-align: right;">-0.550</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">WDI (N=35)</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: left;">[-0.248, 0.008]</td>
+<td style="text-align: right;">0.100</td>
+<td style="text-align: right;">-0.316</td>
+<td style="text-align: right;">-0.443</td>
+<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.129</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">-0.331</td>
+<td style="text-align: left;">[-0.481, -0.181]</td>
+<td style="text-align: right;">0.489</td>
+<td style="text-align: right;">-0.699</td>
+<td style="text-align: right;">-0.655</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">-0.158</td>
+<td style="text-align: left;">[-0.285, -0.031]</td>
+<td style="text-align: right;">0.233</td>
+<td style="text-align: right;">-0.483</td>
+<td style="text-align: right;">-0.480</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">OWID (N=29)</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">-0.320</td>
+<td style="text-align: left;">[-0.465, -0.174]</td>
+<td style="text-align: right;">0.428</td>
+<td style="text-align: right;">-0.654</td>
+<td style="text-align: right;">-0.564</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">WDI (N=35)</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">-0.116</td>
+<td style="text-align: left;">[-0.242, 0.01]</td>
+<td style="text-align: right;">0.097</td>
+<td style="text-align: right;">-0.311</td>
+<td style="text-align: right;">-0.432</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">0.129</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">-0.339</td>
+<td style="text-align: left;">[-0.491, -0.187]</td>
+<td style="text-align: right;">0.493</td>
+<td style="text-align: right;">-0.702</td>
+<td style="text-align: right;">-0.660</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">-0.160</td>
+<td style="text-align: left;">[-0.284, -0.037]</td>
+<td style="text-align: right;">0.248</td>
+<td style="text-align: right;">-0.498</td>
+<td style="text-align: right;">-0.491</td>
+<td style="text-align: right;">0.013</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: left;">Negative</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="figures-four-panel-comparison-20152019-baseline" class="level3">
+<h3 class="anchored" data-anchor-id="figures-four-panel-comparison-20152019-baseline">Figures: four-panel comparison (2015–2019 baseline)</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"fig5_shock_4panel_1519.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output/figures/fig5_shock_4panel_1519.png" class="img-fluid figure-img" width="2496"></p>
+<figcaption>Figure 5. Four model specifications using the 2015-2019 baseline. Each panel shows a different indicator × sample combination. OLS regression line with 95% CI; open circles = thin baselines (1 obs). No causal interpretation.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"fig6_common_sample_comparison.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output/figures/fig6_common_sample_comparison.png" class="img-fluid figure-img" width="2112"></p>
+<figcaption>Figure 6. Common sample (N=24): both indicators on the same 24 economies, 2015-2019 baseline. Differences between panels isolate the indicator measurement choice from sample composition.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="influential-observations" class="level3">
+<h3 class="anchored" data-anchor-id="influential-observations">Influential observations</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 13. Most influential observation per model (Cook’s D &gt; 4/N). MDV = Maldives (extremely high tourism dependence + very large 2020 contraction). TLS = Timor-Leste (structural outlier in WDI receipts series). Excluding MDV weakens but does not reverse the OWID results.</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">Most influential</th>
+<th style="text-align: left;">Cook’s D</th>
+<th style="text-align: left;">Effect of exclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">M1 OWID/2015-19/OWID</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.392</td>
+<td style="text-align: left;">slope: −0.308 → −0.251; R²: 0.414 → 0.309; p: &lt;0.001 → 0.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M2 WDI/2015-19/WDI</td>
+<td style="text-align: left;">TLS</td>
+<td style="text-align: left;">0.287</td>
+<td style="text-align: left;">slope: −0.120 → −0.141; R²: 0.100 → 0.224; p: 0.064 → 0.005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M3 OWID/2015-19/Common</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.363</td>
+<td style="text-align: left;">slope: −0.331 → −0.276; R²: 0.489 → 0.389; p: &lt;0.001 → 0.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M4 WDI/2015-19/Common</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.339</td>
+<td style="text-align: left;">slope: −0.158 → −0.116; R²: 0.233 → 0.157; p: 0.017 → 0.062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M5 OWID/2017-19/OWID</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.384</td>
+<td style="text-align: left;">slope: −0.320 → −0.263; R²: 0.428 → 0.331; p: &lt;0.001 → 0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M6 WDI/2017-19/WDI</td>
+<td style="text-align: left;">TLS</td>
+<td style="text-align: left;">0.324</td>
+<td style="text-align: left;">slope: −0.116 → −0.142; R²: 0.097 → 0.234; p: 0.069 → 0.004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M7 OWID/2017-19/Common</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.362</td>
+<td style="text-align: left;">slope: −0.339 → −0.284; R²: 0.493 → 0.402; p: &lt;0.001 → 0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M8 WDI/2017-19/Common</td>
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">0.334</td>
+<td style="text-align: left;">slope: −0.160 → −0.120; R²: 0.248 → 0.173; p: 0.013 → 0.048</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="coverage-restricted-sensitivity-3-baseline-observations" class="level3">
+<h3 class="anchored" data-anchor-id="coverage-restricted-sensitivity-3-baseline-observations">Coverage-restricted sensitivity (≥3 baseline observations)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 14. Coverage-restricted sensitivity analysis. S5 (WDI receipts, 2017-19, WDI sample, ≥3 obs) drops 14 economies because WDI 2019 receipts data is missing for many SIDS, reducing the usable sample from N=35 to N=21.</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 2%">
+<col style="width: 47%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sensitivity</th>
+<th style="text-align: left;">Window</th>
+<th style="text-align: left;">Indicator</th>
+<th style="text-align: left;">Sample</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: left;">Excluded</th>
+<th style="text-align: right;">Slope</th>
+<th style="text-align: right;">R2</th>
+<th style="text-align: right;">p_raw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">OWID</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">-0.302</td>
+<td style="text-align: right;">0.397</td>
+<td style="text-align: right;">0.0003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">WDI</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">-0.116</td>
+<td style="text-align: right;">0.092</td>
+<td style="text-align: right;">0.0820</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">Common</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">-0.325</td>
+<td style="text-align: right;">0.470</td>
+<td style="text-align: right;">0.0003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S4</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">OWID</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">-0.314</td>
+<td style="text-align: right;">0.412</td>
+<td style="text-align: right;">0.0002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S5</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">WDI</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">DMA,DOM,GRD,HTI,KIR,KNA,LCA,MHL,NRU,PLW,PNG,SGP,STP,TLS</td>
+<td style="text-align: right;">-0.143</td>
+<td style="text-align: right;">0.180</td>
+<td style="text-align: right;">0.0554</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S6</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">Common</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">-0.333</td>
+<td style="text-align: right;">0.474</td>
+<td style="text-align: right;">0.0003</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>What the evidence shows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OWID vspend models (M1, M3, M5, M7)</td>
+<td>Consistent negative association: slope ≈ −0.31 to −0.34; R² 0.41–0.49; Pearson r ≈ −0.64 to −0.70; p &lt; 0.001 across all windows and samples</td>
+</tr>
+<tr class="even">
+<td>WDI receipts, full sample (M2, M6)</td>
+<td>Weaker, not significant: slope ≈ −0.12; R² ≈ 0.10; p ≈ 0.064–0.069 (Holm: 0.13)</td>
+</tr>
+<tr class="odd">
+<td>WDI receipts, common sample (M4, M8)</td>
+<td>Moderate, marginal: slope ≈ −0.16; R² ≈ 0.23–0.25; p ≈ 0.013–0.017 (Holm: 0.053)</td>
+</tr>
+<tr class="even">
+<td>2015-19 vs.&nbsp;2017-19 baseline</td>
+<td>Minimal difference in OWID results; modest difference in WDI results</td>
+</tr>
+<tr class="odd">
+<td>Maldives influence</td>
+<td>High Cook’s D (0.36–0.39) in all OWID models; exclusion weakens but does not eliminate the association</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Caution:</strong> These are exploratory bivariate associations from a sample of N=24–35 small economies. They do not establish a causal mechanism. Multiple confounders (economic structure, policy response, pre-existing fiscal buffers, hurricane exposure) could explain part or all of the observed pattern.</p>
+<p>The difference between the OWID vspend and WDI receipts results, visible in the common-sample comparison (Figure 6), is partly attributable to Timor-Leste — a structural outlier in the WDI receipts series that has high receipts relative to exports but was less exposed to the tourism shock. The measurement choice matters substantively, not just statistically.</p>
+<hr>
+</section>
+</section>
+<section id="real-gdp-recovery-trajectories" class="level2">
+<h2 class="anchored" data-anchor-id="real-gdp-recovery-trajectories">Real GDP Recovery Trajectories</h2>
+<section id="coverage" class="level3">
+<h3 class="anchored" data-anchor-id="coverage">Coverage</h3>
+<p>All 29 OWID shock sample members have real GDP data for 2015–2022. Twenty-eight have data through 2024 (VIR missing 2023+). Twenty-two have preliminary 2025 estimates.</p>
+<p><strong>The 2025 data (N=22) are not comparable to 2020 data (N=29).</strong> Annual sample sizes are shown in Figure 7.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"fig7_recovery_trajectories.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output/figures/fig7_recovery_trajectories.png" class="img-fluid figure-img" width="1728"></p>
+<figcaption>Figure 7. Real GDP recovery trajectories (2015-2025), primary shock sample. Index: 2019 = 100. Horizontal line marks pre-pandemic level. Bottom annotation shows annual sample size.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="recovery-status-by-2023" class="level3">
+<h3 class="anchored" data-anchor-id="recovery-status-by-2023">Recovery status by 2023</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 15. Real GDP index (2019=100) and recovery status. N=29; VIR missing 2023+ data.</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ISO3</th>
+<th style="text-align: left;">Economy</th>
+<th style="text-align: left;">Region</th>
+<th style="text-align: right;">2020</th>
+<th style="text-align: right;">2022</th>
+<th style="text-align: right;">2023</th>
+<th style="text-align: right;">2024</th>
+<th style="text-align: left;">Rec. by 2022?</th>
+<th style="text-align: left;">Rec. by 2023?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">COM</td>
+<td style="text-align: left;">Comoros</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">99.8</td>
+<td style="text-align: right;">104.3</td>
+<td style="text-align: right;">107.7</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CPV</td>
+<td style="text-align: left;">CapeVerde</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">79.2</td>
+<td style="text-align: right;">98.2</td>
+<td style="text-align: right;">102.9</td>
+<td style="text-align: right;">110.1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GNB</td>
+<td style="text-align: left;">Guinea-B.</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">102.9</td>
+<td style="text-align: right;">114.0</td>
+<td style="text-align: right;">119.2</td>
+<td style="text-align: right;">124.5</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">Maldives</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">67.1</td>
+<td style="text-align: right;">105.0</td>
+<td style="text-align: right;">110.2</td>
+<td style="text-align: right;">114.1</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUS</td>
+<td style="text-align: left;">Mauritius</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">85.8</td>
+<td style="text-align: right;">96.1</td>
+<td style="text-align: right;">100.6</td>
+<td style="text-align: right;">105.6</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SYC</td>
+<td style="text-align: left;">Seychelles</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">88.3</td>
+<td style="text-align: right;">97.5</td>
+<td style="text-align: right;">102.6</td>
+<td style="text-align: right;">106.0</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ABW</td>
+<td style="text-align: left;">Aruba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">76.1</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">105.8</td>
+<td style="text-align: right;">113.0</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ATG</td>
+<td style="text-align: left;">Antigua</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">81.1</td>
+<td style="text-align: right;">95.2</td>
+<td style="text-align: right;">98.9</td>
+<td style="text-align: right;">101.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BHS</td>
+<td style="text-align: left;">Bahamas</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">79.9</td>
+<td style="text-align: right;">104.2</td>
+<td style="text-align: right;">107.4</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BMU</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">93.0</td>
+<td style="text-align: right;">103.6</td>
+<td style="text-align: right;">108.0</td>
+<td style="text-align: right;">110.1</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRB</td>
+<td style="text-align: left;">Barbados</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">82.6</td>
+<td style="text-align: right;">103.4</td>
+<td style="text-align: right;">105.3</td>
+<td style="text-align: right;">108.9</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CUB</td>
+<td style="text-align: left;">Cuba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">89.1</td>
+<td style="text-align: right;">91.8</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">89.0</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CUW</td>
+<td style="text-align: left;">Curacao</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">81.6</td>
+<td style="text-align: right;">90.8</td>
+<td style="text-align: right;">94.7</td>
+<td style="text-align: right;">99.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CYM</td>
+<td style="text-align: left;">Cayman Is.</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: right;">105.3</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">115.6</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRI</td>
+<td style="text-align: left;">Puerto Rico</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.8</td>
+<td style="text-align: right;">99.0</td>
+<td style="text-align: right;">99.8</td>
+<td style="text-align: right;">102.9</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SUR</td>
+<td style="text-align: left;">Suriname</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">86.0</td>
+<td style="text-align: right;">87.5</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SXM</td>
+<td style="text-align: left;">Sint Maarten</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">86.7</td>
+<td style="text-align: right;">103.3</td>
+<td style="text-align: right;">107.2</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TTO</td>
+<td style="text-align: left;">Trinidad</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">91.2</td>
+<td style="text-align: right;">91.3</td>
+<td style="text-align: right;">92.7</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VCT</td>
+<td style="text-align: left;">St.Vincent</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.7</td>
+<td style="text-align: right;">100.8</td>
+<td style="text-align: right;">106.1</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VIR</td>
+<td style="text-align: left;">US VI</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">98.4</td>
+<td style="text-align: right;">100.7</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FJI</td>
+<td style="text-align: left;">Fiji</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">82.8</td>
+<td style="text-align: right;">93.3</td>
+<td style="text-align: right;">102.1</td>
+<td style="text-align: right;">105.7</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KIR</td>
+<td style="text-align: left;">Kiribati</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">98.7</td>
+<td style="text-align: right;">112.5</td>
+<td style="text-align: right;">116.0</td>
+<td style="text-align: right;">121.5</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MHL</td>
+<td style="text-align: left;">Marshall Is.</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">97.2</td>
+<td style="text-align: right;">98.6</td>
+<td style="text-align: right;">93.3</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PNG</td>
+<td style="text-align: left;">Papua NG</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.8</td>
+<td style="text-align: right;">101.8</td>
+<td style="text-align: right;">105.7</td>
+<td style="text-align: right;">109.8</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SLB</td>
+<td style="text-align: left;">Solomon Is.</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">93.9</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">99.5</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TON</td>
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">101.8</td>
+<td style="text-align: right;">98.7</td>
+<td style="text-align: right;">101.5</td>
+<td style="text-align: right;">103.2</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TUV</td>
+<td style="text-align: left;">Tuvalu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">97.0</td>
+<td style="text-align: right;">86.4</td>
+<td style="text-align: right;">89.4</td>
+<td style="text-align: right;">92.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VUT</td>
+<td style="text-align: left;">Vanuatu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">94.3</td>
+<td style="text-align: right;">98.4</td>
+<td style="text-align: right;">104.1</td>
+<td style="text-align: right;">108.0</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WSM</td>
+<td style="text-align: left;">Samoa</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.9</td>
+<td style="text-align: right;">94.1</td>
+<td style="text-align: right;">108.4</td>
+<td style="text-align: right;">113.6</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Of 28 economies with 2023 data: <strong>19 had recovered to or above their 2019 real GDP level by 2023.</strong> Nine had not: Cuba (90), Curaçao (95), Suriname (86), Trinidad and Tobago (93), Tuvalu (89), Marshall Islands (93), Solomon Islands (97), and Curaçao (95). Aruba recovered by 2024 (index = 113).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>, <span class="st">"figures"</span>, <span class="st">"fig8_recovery_vs_tourism.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output/figures/fig8_recovery_vs_tourism.png" class="img-fluid figure-img" width="1632"></p>
+<figcaption>Figure 8. Pre-pandemic visitor spending vs.&nbsp;2023 real GDP index (2019=100). No statistically significant association (Pearson r=0.18, p=0.36). Note: highly tourism-dependent economies had both the worst shocks and the strongest recoveries.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The absence of a significant association between pre-pandemic tourism dependence and 2023 recovery reflects the asymmetric trajectory: the most tourism-dependent economies suffered the steepest 2020 contractions but also benefited most from the return of international travel in 2021–2023. The pandemic shock and the recovery are two phases of the same story, not independent outcomes.</p>
+<hr>
+</section>
+</section>
+<section id="methodological-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="methodological-assessment">Methodological Assessment</h2>
+<section id="what-the-evidence-supports" class="level3">
+<h3 class="anchored" data-anchor-id="what-the-evidence-supports">What the evidence supports</h3>
 <ol type="1">
-<li>Finalize the analytical sample: primary shock sample (N=29), excluding economies with no justifiable inclusion</li>
-<li>Build the recovery analysis using real GDP and real GDP per capita</li>
-<li>Produce small-multiple line charts for recovery trajectories</li>
-<li>Consider Singapore’s outlier status — may warrant exclusion from the dependence ranking with explicit discussion</li>
-<li>Add visual annotations identifying the most exposed and most resilient economies</li>
+<li><p><strong>A consistent negative association between pre-pandemic visitor spending (% GDP) and 2020 GDP growth.</strong> Across all four OWID vspend model specifications, the slope is approximately −0.31 to −0.34 and R² is 0.41–0.49 (Holm-adjusted p &lt; 0.001). Economies with higher visitor spending shares tended to experience larger 2020 GDP contractions. This pattern is directionally consistent and stable across baseline windows and sample compositions.</p></li>
+<li><p><strong>The common-sample comparison confirms the indicator choice matters.</strong> When the same 24 economies are analyzed with both the OWID visitor spending and WDI receipts indicators, OWID vspend shows a stronger association (R²=0.489 vs.&nbsp;0.233 in 2015–19). The difference is not only a sample-composition effect.</p></li>
+<li><p><strong>Maldives is a high-influence point but not the whole story.</strong> Excluding MDV reduces the R² substantially (from ~0.49 to ~0.39) but the slope and significance remain. The qualitative pattern holds without MDV.</p></li>
+<li><p><strong>WDI tourism receipts (% exports) shows a weaker and inconsistent signal.</strong> In the full WDI sample (N=35), the association is not significant (p ≈ 0.07). In the common sample (N=24), it is marginally significant (p ≈ 0.013). The difference likely reflects Timor-Leste’s structural influence and the fact that the receipts/exports denominator captures different variation than receipts/GDP.</p></li>
+<li><p><strong>WDI receipts data has a significant publication lag.</strong> Data beyond 2020 is absent; the 2019 data year is missing for 14 of 35 WDI sample members. The 2015-2019 WDI receipts baseline is better-covered than the 2017-2019 baseline because 2015–2018 data is available for more economies than 2017–2019.</p></li>
+</ol>
+</section>
+<section id="what-the-evidence-does-not-support" class="level3">
+<h3 class="anchored" data-anchor-id="what-the-evidence-does-not-support">What the evidence does not support</h3>
+<ol type="1">
+<li><p><strong>Causal inference.</strong> These are bivariate cross-sectional associations from a sample of N=24–35 economies. No controls for GDP level, institutional capacity, fiscal buffers, pre-existing recession, or pandemic response policy are included. The association may reflect confounders.</p></li>
+<li><p><strong>Precision claims.</strong> At N=24–35, slope estimates carry wide confidence intervals. Any point estimate should be treated as a rough indication of direction and magnitude, not a precise effect size.</p></li>
+<li><p><strong>Equivalence of the two dependence measures.</strong> They are correlated (Pearson r=0.77, Spearman ρ=0.86) but not interchangeable. They produce materially different regression results on the same sample.</p></li>
+<li><p><strong>A simple linear recovery story.</strong> Tourism-dependent economies suffered larger shocks and achieved stronger recoveries — the tourism shock was partly self-reversing as travel resumed. The absence of a significant association between tourism dependence and 2023 recovery index is itself a finding (Figure 8, p=0.36).</p></li>
+</ol>
+</section>
+<section id="remaining-uncertainties" class="level3">
+<h3 class="anchored" data-anchor-id="remaining-uncertainties">Remaining uncertainties</h3>
+<ol type="1">
+<li><strong>WDI receipts data lag.</strong> No 2021–2023 WDI receipts data is available, limiting the complementary analysis to the 2020 time horizon.</li>
+<li><strong>2025 preliminary data.</strong> Only 22 of 29 economies have 2025 real GDP estimates; cross-country comparisons at 2025 should be treated with caution.</li>
+<li><strong>Singapore’s SIDS status.</strong> Singapore is a high-income, highly diversified economy — its inclusion as an AIMS SIDS is technically correct but analytically unusual. The WDI receipts sample includes Singapore; its effect on the results has not been isolated in this analysis.</li>
+<li><strong>Sample selection.</strong> The analysis covers economies that survive in the data — small SIDS with no WDI coverage (AIA, GLP, MTQ, MSR, BES, COK, NIU) may have distinctive vulnerability profiles.</li>
+<li><strong>Annual GDP growth as outcome.</strong> 2020 annual GDP growth aggregates a full calendar year: COVID-19 travel bans and lockdowns affected different economies at different times, and some economies had partial recovery within 2020. This attenuates the relationship.</li>
 </ol>
 <hr>
 <p><em>Analysis conducted using R 4.4.1. Data retrieved November 02, 2026.</em></p>
