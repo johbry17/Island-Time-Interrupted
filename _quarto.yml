@@ -3,6 +3,9 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - analysis.qmd
+    - data-dictionary.qmd
+    - methodology.qmd
 
 author: "Bryan C. Johns"
 
@@ -12,11 +15,16 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Tourism & COVID"
+        text: "Field Note"
+      - href: analysis.qmd
+        text: "Analysis"
+      - href: data-dictionary.qmd
+        text: "Data"
+      - href: methodology.qmd
+        text: "Methodology"
     right:
       - icon: github
         href: https://github.com/johbry17/Island-Time-Interrupted
-      
 
 format:
   html:

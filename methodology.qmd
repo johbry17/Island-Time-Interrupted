@@ -1,0 +1,239 @@
+---
+title: "Methodology"
+subtitle: "Research Design, Sample Construction, and Analytical Decisions"
+date: today
+date-format: "MMMM D, YYYY"
+author: "Bryan C. Johns"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    fig-cap-location: bottom
+execute:
+  warning: false
+  message: false
+  cache: false
+---
+
+```{r setup}
+#| include: false
+library(here); library(readr); library(dplyr); library(knitr)
+bl    <- read_csv(here("data","processed","baseline_shock_recovery.csv"), show_col_types=FALSE)
+cands <- read_csv(here("data","processed","candidates.csv"), show_col_types=FALSE)
+```
+
+## Research Design
+
+### Questions
+
+**Primary:** Was greater pre-pandemic dependence on international tourism associated with more severe 2020 GDP contractions among Caribbean, Pacific, and AIMS small island developing states?
+
+**Secondary:** Did the most tourism-dependent economies recover to their 2019 real GDP levels by 2022–2023?
+
+### Analytical approach
+
+This is a cross-sectional exploratory analysis. The unit of analysis is the economy (one row per country). The approach is descriptive and associational: we examine whether a pre-pandemic characteristic (tourism dependence) predicts an outcome (2020 GDP growth) using bivariate OLS regression and rank correlation.
+
+This analysis does not establish causation. No controls for confounders (fiscal buffers, governance quality, pre-existing recession, pandemic response policy, population size, or economic structure) are included. The analysis is deliberately kept bivariate to maintain transparency about what the data show before additional assumptions are introduced.
+
+---
+
+## Candidate Universe and SIDS Classification
+
+### Source authority
+
+The candidate universe was constructed from the **UN Office of the High Representative for the Least Developed Countries, Landlocked Developing Countries and Small Island Developing States (UN-OHRLLS) list of SIDS**, retrieved November 2026 ([source](https://www.un.org/ohrlls/content/list-sids)).
+
+### Classification categories
+
+| Category | Definition | N |
+|----------|-----------|---|
+| UN Member SIDS | Sovereign states formally listed as SIDS by UN-OHRLLS. Includes Cook Islands and Niue, which are sovereign states in free association with New Zealand and are not UN General Assembly members but appear on the SIDS list. | 39 |
+| Associate Member SIDS | Associate members of UN Regional Commissions included in the SIDS group; mostly non-sovereign territories | 18 |
+| Other island economy | BES (Bonaire, Sint Eustatius and Saba), retained for regional completeness; not on the UN SIDS list | 1 |
+| **Total candidate universe** | | **58** |
+
+### Classification discrepancies documented
+
+- **Cook Islands and Niue**: Not UN General Assembly members. Included under "UN Member SIDS" with an explicit note. Do not have WDI coverage.
+- **Bahrain**: Not on the current OHRLLS list. Previously appeared on some SIDS lists. Excluded.
+- **BES**: Dutch special municipalities. Included as "Other island economy." No WDI coverage.
+
+---
+
+## Sample Definitions
+
+### Fixed-sample principle
+
+Sample membership is determined by **2017–2019 indicator availability plus 2020 GDP growth availability**. This definition is fixed and does not change when baseline windows are extended or narrowed. The 2017–2019 window was used for sample definition because it is the most recent pre-pandemic three-year period available for both indicators.
+
+### Four principal samples
+
+| Sample | Criterion | N |
+|--------|-----------|---|
+| Candidate universe | All 58 economies | 58 |
+| Tourism-data sample | Any tourism indicator, 2017–2019 | `r sum(bl$in_tourism_data_sample, na.rm=TRUE)` |
+| OWID shock sample | OWID vspend (2017–19) + 2020 GDP growth | `r sum(bl$in_primary_shock_sample, na.rm=TRUE)` |
+| WDI shock sample | WDI receipts (2017–19) + 2020 GDP growth | `r sum(bl$in_receipts_shock_sample, na.rm=TRUE)` |
+| Common sample | Both indicators (2017–19) + 2020 GDP growth | `r sum(bl$in_common_sample, na.rm=TRUE)` |
+| Recovery sample | OWID shock sample + real GDP (2019 + ≥1 later year) | `r sum(bl$in_recovery_sample, na.rm=TRUE)` |
+
+### Excluded economies (and why)
+
+Economies not in any shock sample are excluded because they lack either:
+- A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019).
+- 2020 GDP growth data.
+
+Exclusion is based on data availability, not substantive selection. These economies are documented in `data/processed/country_coverage.csv`.
+
+---
+
+## Baseline Windows
+
+### Two specifications
+
+| Window | Years | Rationale |
+|--------|-------|-----------|
+| **Primary (2015–2019)** | Up to 5 years | A broader baseline is less sensitive to an atypical single year; more stable estimate of structural dependence |
+| **Sensitivity (2017–2019)** | Up to 3 years | Most recent pre-pandemic conditions; used for sample definition |
+
+### Transparency about window selection
+
+**The 2015–2019 primary window was evaluated after observing the 2017–2019 results.** This is not preregistered research. The primary specification was not selected before examining the data. This is documented explicitly, and both specifications are reported in full (see [Analysis](analysis.qmd), Table A5). The two specifications produce nearly identical results for the OWID indicator.
+
+### Baseline construction
+
+For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary descriptive statistics (included in output tables) but are not used as primary regression inputs.
+
+**No imputation.** Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline; this could reduce N below the fixed-sample definition only if an economy had observations in 2017–2019 but none in 2015–2016 (which does not occur in these data).
+
+### Thin baselines
+
+Economies with only one annual observation in the baseline window are flagged as "thin baseline" in all figures (open circles) and tables. **Kiribati** is the thin-baseline economy in both the OWID vspend samples (1 observation in 2015–2019 and 1 in 2017–2019). Sensitivity analyses excluding Kiribati (see sensitivity table) show minimal effect on results.
+
+---
+
+## Shock Model Specification
+
+### Outcome variable
+
+**2020 annual GDP growth (%)** from WDI `NY.GDP.MKTP.KD.ZG`. This is the percentage change in constant-price GDP from 2019 to 2020. It captures the aggregate economic shock of the pandemic year.
+
+Limitations of this choice:
+- Annual GDP growth aggregates a full calendar year. COVID-19 travel restrictions began at different times in different economies, and some may have had partial within-year recovery.
+- GDP growth is not the only dimension of economic harm; unemployment, poverty, and debt are not captured.
+- Some economies had pre-existing recessions that 2020 GDP growth conflates with the COVID shock.
+
+### Explanatory variable
+
+Pre-pandemic tourism-dependence baseline (% of GDP or % of exports), computed as described above.
+
+### Estimation
+
+Bivariate OLS: `gdp_growth_2020 ~ baseline_tourism_dependence`
+
+This is the simplest possible linear specification. No interaction terms, no controls, no fixed effects. This is intentional: the goal is to describe the raw association transparently before introducing model complexity.
+
+### Eight principal models
+
+| Dimension | Levels |
+|-----------|--------|
+| Indicator | OWID visitor spending (% GDP); WDI receipts (% exports) |
+| Sample | OWID shock sample; WDI shock sample; Common sample |
+| Window | 2015–2019; 2017–2019 |
+
+Models 1–4 use the 2015–2019 baseline; Models 5–8 use 2017–2019. **All eight are reported. No model is suppressed.** Model preference should not be inferred from which produces the most significant p-value.
+
+### Multiple comparison adjustment
+
+Holm's step-down procedure is applied across all 8 principal p-values. This is reported for transparency, not as a definitive decision criterion. The 8 models are not independent (overlapping samples and related outcomes), so the Holm adjustment is conservative.
+
+### Influential observations
+
+Cook's distance is computed for all models. The conventional threshold 4/N is used to flag influential observations. **Maldives (MDV)** is consistently the most influential in OWID models (Cook's D ≈ 0.36–0.39). **Timor-Leste (TLS)** is influential in WDI receipts models.
+
+Excluding influential observations is reported as a labeled diagnostic sensitivity analysis. **Influential observations are not removed from primary models.** The Maldives is an economically meaningful data point — an economy with genuine extreme tourism dependence that experienced one of the largest 2020 contractions.
+
+---
+
+## Coverage-Restricted Sensitivity
+
+A secondary sensitivity analysis restricts each sample to economies with at least 3 annual observations in the relevant baseline window. This tests whether thin-baseline economies drive the results.
+
+The most consequential case is **S5 (WDI receipts, 2017–2019, WDI sample, N=35 → 21)**: 14 economies are excluded because WDI 2019 receipts data is missing (the baseline can only be computed from 2017 and 2018). The restricted N=21 sample still shows a negative slope (−0.143) but with weaker evidence (p = 0.055). This primarily reflects the severe reduction in sample size rather than an absence of pattern.
+
+---
+
+## Recovery Index
+
+### Construction
+
+`Recovery_index_t = (Real_GDP_t / Real_GDP_2019) × 100`
+
+Computed separately for aggregate real GDP (`NY.GDP.MKTP.KD`) and per-capita real GDP (`NY.GDP.PCAP.KD`). A value of 100 means the economy has exactly returned to its 2019 level; above 100 means it has exceeded it.
+
+### Pre-pandemic baseline: 2019
+
+The reference year is 2019, the last full year before COVID-19 travel restrictions. This is the most natural pre-pandemic comparison point. 2015–2018 observations are included to show the pre-pandemic trend.
+
+### Comparison year: 2023
+
+The primary recovery comparison year is 2023, the most recent year with near-complete data for the sample (28/29 economies). 2024 data exists for 28 economies but is preliminary for some; 2025 data exists for 22 economies only.
+
+**Annual sample sizes vary across the recovery period** and are shown explicitly in Figure 7. Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.
+
+### Aggregate vs. per-capita distinction
+
+These are not interchangeable. 19/28 economies recovered aggregate real GDP by 2023; 17/28 recovered real GDP per capita. The 2-economy gap reflects population growth in some Pacific economies. The Field Note reports both; claims about recovery should specify which measure is being used.
+
+---
+
+## Missing Data
+
+| Treatment | Approach |
+|-----------|----------|
+| Baseline calculation | Arithmetic mean of available years (no imputation) |
+| Sample membership | Requires at least 1 baseline observation AND 2020 GDP growth |
+| Recovery index | Requires 2019 real GDP observation (all 29 shock-sample members satisfy this) |
+| Coverage matrix | Missing = 0 observations; documented explicitly |
+
+No observations are imputed, substituted, or estimated. Countries with no usable data for a particular indicator are excluded from analyses using that indicator and documented.
+
+---
+
+## Reproduction
+
+### Software
+
+- R 4.4.1
+- Required packages: `tidyverse`, `wbstats`, `here`, `scales`, `knitr`, `rmarkdown`, `patchwork`, `svglite`
+
+### Script execution order
+
+```r
+source("R/01_data_acquisition.R")   # ~2-3 min; calls World Bank API
+source("R/02_data_quality.R")
+source("R/03_preliminary_eda.R")
+source("R/04_shock_models.R")
+source("R/05_recovery_analysis.R")
+```
+
+### Rendering the site
+
+```bash
+quarto render
+```
+
+This renders all four pages to `docs/`. The site is published from `docs/` on the `main` branch via GitHub Pages.
+
+### World Bank API
+
+WDI data is retrieved using `wbstats::wb_data()`. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date is recorded in `data/raw/worldbank/wdi_retrieval_metadata.txt`.
+
+### OWID data
+
+OWID CSV files in `data/raw/` are fixed downloads from January–July 2026. They will not automatically update. To retrieve updated data, download fresh CSVs from the OWID grapher and replace the files in `data/raw/`.
+
+---
+
+*Return to [Field Note](index.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*

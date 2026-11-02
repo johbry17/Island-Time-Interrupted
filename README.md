@@ -1,190 +1,140 @@
 # Island Time, Interrupted
 
-**Tourism Dependence and the COVID Cliff**
+**Tourism Dependence and the COVID Cliff in Small Island Developing States**
 
-> Were Caribbean, Pacific, and AIMS small island developing states with greater
-> pre-pandemic dependence on international tourism more vulnerable to the
-> economic shock of COVID-19? Which economies had recovered to pre-pandemic
-> levels of real output by 2022–2023?
+When COVID-19 shut down international travel, small island economies that depended most on tourism contracted the most. This project documents that association across 29 Caribbean, Pacific, and AIMS economies using pre-pandemic visitor spending data and 2020 GDP growth, then traces the recovery through 2023–2025.
+
+**The central finding:** Each additional percentage point of international visitor spending relative to GDP was associated with approximately 0.31 percentage points of additional GDP contraction in 2020 (OLS, N=29, R² ≈ 0.41–0.49, p < 0.001). The result is stable across two baseline windows, two samples, and after excluding the most influential observation (Maldives).
+
+By 2023, 19 of 28 economies with data had returned to their 2019 aggregate real GDP level; 17 had returned to their 2019 real GDP per capita.
+
+---
+
+## Published site
+
+> **[https://johbry17.github.io/Island-Time-Interrupted/](https://johbry17.github.io/Island-Time-Interrupted/)**
+
+| Page | Description |
+|------|-------------|
+| [Field Note](https://johbry17.github.io/Island-Time-Interrupted/index.html) | Public-facing research communication: question, findings, figures, limitations |
+| [Analysis](https://johbry17.github.io/Island-Time-Interrupted/analysis.html) | Full technical results: all 8 models, diagnostics, recovery tables and figures |
+| [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/data-dictionary.html) | Indicator definitions, sources, units, coverage, and limitations |
+| [Methodology](https://johbry17.github.io/Island-Time-Interrupted/methodology.html) | Research design, sample construction, baseline windows, model specification, reproduction |
+
+---
+
+## Data sources and coverage
+
+| Dataset | Source | Years | Geography |
+|---------|--------|-------|-----------|
+| Visitor spending (% GDP) | OWID / UN Tourism | 1995–2024 | ~200 countries |
+| Tourism direct GDP (% GDP) | OWID / UN Tourism (TSA) | 2008–2023 | ~125 countries |
+| Tourist arrivals | OWID / UN Tourism | 1995–2024 | ~207 countries |
+| Tourism receipts (% exports) | WDI `ST.INT.RCPT.XP.ZS` | ~1995–2020* | ~180 countries |
+| Real GDP (const. 2015 USD) | WDI `NY.GDP.MKTP.KD` | 2008–2025 | 51 candidates |
+| Real GDP per capita | WDI `NY.GDP.PCAP.KD` | 2008–2025 | 51 candidates |
+| GDP growth (annual %) | WDI `NY.GDP.MKTP.KD.ZG` | 2008–2025 | 51 candidates |
+
+\* WDI tourism receipts has a significant publication lag. No observations beyond 2020 were available in the November 2026 retrieval.
+
+**Candidate universe:** 58 economies — 39 UN Member SIDS + 18 Associate Member SIDS + 1 other island economy (BES), across Caribbean (30), Pacific (20), and AIMS (8) regions. Authority: UN-OHRLLS, retrieved November 2026.
+
+**7 candidate economies not in WDI:** AIA, GLP, MTQ, MSR, BES, COK, NIU.
 
 ---
 
 ## Repository structure
 
 ```
-_quarto.yml              Quarto website configuration (renders to docs/)
-index.qmd                Feasibility audit document
-styles.css               Custom stylesheet
+_quarto.yml              Quarto site configuration (renders to docs/)
+index.qmd                Field Note (public-facing)
+analysis.qmd             Full technical analysis
+data-dictionary.qmd      Data sources, definitions, and limitations
+methodology.qmd          Research design and reproduction instructions
+styles.css               Site stylesheet
+images/                  Favicon and site images
 data/
 ├── raw/
-│   ├── international-tourist-trips/
-│   ├── spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/
-│   ├── tourism-gdp-proportion-of-total-gdp/
-│   └── worldbank/       WDI data retrieved via wbstats
-└── processed/           Cleaned and joined datasets
+│   ├── international-tourist-trips/            OWID arrivals CSV
+│   ├── spending-by-international-visitors-.../ OWID visitor spending CSV
+│   ├── tourism-gdp-proportion-of-total-gdp/    OWID tourism GDP CSV
+│   └── worldbank/                              WDI data (retrieved via wbstats)
+└── processed/                                  Cleaned datasets and outputs
 R/
-├── 01_data_acquisition.R   Load OWID + retrieve WB WDI data
-├── 02_data_quality.R       Coverage matrix and feasibility audit
-└── 03_preliminary_eda.R    EDA analysis and publication figures
+├── 01_data_acquisition.R     Load OWID CSVs; retrieve WDI via wbstats (2008-2025)
+├── 02_data_quality.R         Coverage matrix; 2015-19 and 2017-19 baselines
+├── 03_preliminary_eda.R      Tourism-dependence rankings and preliminary figures
+├── 04_shock_models.R         Eight-model shock analysis; diagnostics; sensitivity
+└── 05_recovery_analysis.R    Real GDP recovery trajectories and tables
 output/
-├── figures/             PNG (300 dpi) and SVG figures
-└── tables/              CSV analysis tables
-docs/                    Rendered website (GitHub Pages source)
-README.md
+├── figures/                  PNG (300 dpi) and SVG figures (figs 1-8)
+└── tables/                   CSV output tables (models, sensitivity, recovery)
+docs/                         Rendered website (GitHub Pages source — do not edit directly)
+archive/                      Superseded planning documents
 LICENSE
+README.md
 ```
 
 ---
 
-## Scripts
+## Prerequisites
 
-| Script | Purpose |
-|--------|---------|
-| `R/01_data_acquisition.R` | Load OWID CSVs; retrieve WDI indicators (2008–2025) via wbstats |
-| `R/02_data_quality.R` | Coverage matrix; 2015–2019 and 2017–2019 baselines; fixed sample flags |
-| `R/03_preliminary_eda.R` | Tourism-dependence rankings and preliminary figures (figs 1–4) |
-| `R/04_shock_models.R` | Eight-model shock analysis; influential observations; sensitivity (figs 5–6) |
-| `R/05_recovery_analysis.R` | Real GDP recovery trajectories; 2019=100 index (figs 7–8) |
+- **R ≥ 4.4.0**
+- **Quarto ≥ 1.4**
+- R packages: `tidyverse`, `wbstats`, `here`, `scales`, `knitr`, `rmarkdown`, `patchwork`, `svglite`
+
+Install missing packages:
+```r
+install.packages(c("tidyverse","wbstats","here","scales",
+                   "knitr","rmarkdown","patchwork","svglite"))
+```
 
 ---
 
 ## Reproducing the analysis
 
-### Prerequisites
-
-- **R ≥ 4.4.0**
-- **Quarto ≥ 1.4**
-- R packages: `tidyverse`, `wbstats`, `scales`, `here`, `knitr`, `rmarkdown`, `svglite`
-
-Install missing packages:
+Run from the **repository root** (where `.git` is located). The `here` package anchors paths there automatically.
 
 ```r
-install.packages(c("tidyverse", "wbstats", "scales", "here",
-                   "knitr", "rmarkdown", "svglite"))
+source("R/01_data_acquisition.R")   # ~2-3 min; calls World Bank API
+source("R/02_data_quality.R")
+source("R/03_preliminary_eda.R")
+source("R/04_shock_models.R")
+source("R/05_recovery_analysis.R")
 ```
 
-### Run the analysis
-
-Open an R session with the working directory set to the repository root
-(`here()` anchors at the `.git` directory).
-
-```r
-source("R/01_data_acquisition.R")   # ~2-3 min (World Bank API call, retrieves 2008-2025)
-source("R/02_data_quality.R")       # builds coverage matrix and 2015-19/2017-19 baselines
-source("R/03_preliminary_eda.R")    # preliminary figures (figs 1-4)
-source("R/04_shock_models.R")       # 8-model shock comparison (figs 5-6)
-source("R/05_recovery_analysis.R")  # recovery trajectories (figs 7-8)
-```
-
-### Render the Quarto document
+### Render the full site
 
 ```bash
-quarto render index.qmd
+quarto render
 ```
 
-The rendered HTML is written to `docs/index.html`.
+This renders all four pages to `docs/`. Open `docs/index.html` locally to preview.
 
-> **Note:** R scripts must be run before rendering because the Quarto
-> document reads pre-computed output files from `data/processed/` and
-> `output/figures/`. The scripts do not re-execute inside the document.
+> **Note:** R scripts must be run before rendering. The Quarto pages read from pre-computed files in `data/processed/` and `output/`. They do not re-execute the R scripts at render time.
 
 ---
 
-## Data sources
+## Publishing to GitHub Pages
 
-| Dataset | Source | Notes |
-|---------|--------|-------|
-| International visitor spending (% GDP) | OWID / UN Tourism | Primary dependence measure. No single WDI code. |
-| Tourism contribution to GDP | OWID / UN Tourism | TSA methodology; coverage gaps for many SIDS |
-| International tourist arrivals | OWID / UN Tourism | Volume measure, not a dependence indicator |
-| Tourism receipts (% exports) | WDI `ST.INT.RCPT.XP.ZS` | Complementary dependence measure |
-| GDP growth | WDI `NY.GDP.MKTP.KD.ZG` | 2020 shock measure |
-| GDP, constant 2015 USD | WDI `NY.GDP.MKTP.KD` | Primary real recovery measure |
-| GDP/capita, constant 2015 USD | WDI `NY.GDP.PCAP.KD` | Per-capita real recovery measure |
-| GDP/capita, current USD | WDI `NY.GDP.PCAP.CD` | Nominal reference only |
-| Unemployment | WDI `SL.UEM.TOTL.ZS` | Sparse coverage for Pacific micro-states |
+The site is published from `docs/` on the `main` branch.
 
-Raw OWID CSV files are stored in `data/raw/` and are not modified.
-WDI data is retrieved programmatically and saved to `data/raw/worldbank/`.
+GitHub repository → Settings → Pages → Deploy from a branch → `main` → `/docs`.
 
-### Important: OWID visitor spending attribution
-
-The OWID indicator *Spending by international visitors while visiting a
-country as a share of GDP* is **not** equivalent to WDI indicator
-`ST.INT.XPND.GD.ZS`. The OWID numerator (inbound tourism receipts) comes
-from UN Tourism statistics; the denominator (GDP) comes from World Bank
-national accounts. Do not substitute or combine these series.
+`docs/` is committed to the repository and should not be in `.gitignore`.
 
 ---
 
-## Candidate universe
+## Data provenance
 
-58 economies across three SIDS regions:
+**OWID data** are downloaded CSV files from Our World in Data (January–July 2026). They will not update automatically. To refresh, download new CSVs from the OWID grapher and replace files in `data/raw/`.
 
-- **39 UN Member SIDS:** Sovereign states formally recognised as SIDS by the
-  United Nations. Authority: UN-OHRLLS list of SIDS.
-- **18 Associate Members:** Associate members of UN Regional Commissions
-  included in the SIDS group (territories and dependencies).
-- **1 other island economy:** BES (Bonaire, Sint Eustatius and Saba),
-  retained from the original candidate list; not on the UN SIDS list.
+**WDI data** are retrieved programmatically via `wbstats::wb_data()`. Retrieval date and returned country codes are logged in `data/raw/worldbank/wdi_retrieval_metadata.txt`. Re-running `01_data_acquisition.R` will pull the latest available WDI data, which may differ from results reported here.
 
-| Region | UN SIDS | Associates | Other | Total |
-|--------|---------|------------|-------|-------|
-| Caribbean | 16 | 13 | 1 | 30 |
-| Pacific | 15 | 5 | 0 | 20 |
-| AIMS | 8 | 0 | 0 | 8 |
-| **Total** | **39** | **18** | **1** | **58** |
-
-7 economies are not in the World Bank WDI database:
-AIA, GLP, MTQ, MSR, BES, COK, NIU.
-
----
-
-## Key results
-
-### Shock analysis
-
-| Sample | N | Indicator | Window | Slope | R² | p (raw) | p (Holm) |
-|--------|---|-----------|--------|-------|----|---------|----------|
-| OWID | 29 | Visitor spending % GDP | 2015-19 | −0.308 | 0.414 | 0.0002 | 0.001 |
-| WDI  | 35 | Tourism receipts % exports | 2015-19 | −0.120 | 0.100 | 0.065 | 0.129 |
-| Common | 24 | Visitor spending % GDP | 2015-19 | −0.331 | 0.489 | 0.0001 | 0.001 |
-| Common | 24 | Tourism receipts % exports | 2015-19 | −0.158 | 0.233 | 0.017 | 0.053 |
-
-**Primary finding:** Consistent negative association between pre-pandemic visitor spending (% GDP) and 2020 GDP growth across all OWID sample specifications. WDI receipts show a weaker, inconsistent signal.
-
-**Maldives (MDV) is influential** in all OWID models (Cook's D ≈ 0.36–0.39); exclusion weakens but does not reverse the result.
-
-### Recovery
-
-- 19 of 28 economies with 2023 data had recovered to 2019 real GDP levels by 2023.
-- No significant association between pre-pandemic tourism dependence and 2023 recovery index (Pearson r=0.18, p=0.36): tourism-dependent economies had the worst shocks but also the strongest recoveries.
-- Real GDP data: 2015–2022 complete (N=29); 2023–2024 (N=28); 2025 preliminary (N=22).
-
-### Important data notes
-
-- **WDI tourism receipts (`ST.INT.RCPT.XP.ZS`):** No data beyond 2020; significant publication lag.
-- **OWID visitor spending:** Available through 2024; no single WDI indicator code.
-- **Seven economies not in WDI:** AIA, GLP, MTQ, MSR, BES, COK, NIU.
-
----
-
-## Publishing
-
-The site is published from the `docs/` folder on the `main` branch via
-GitHub Pages. To update the published site, re-run the analysis scripts
-and re-render:
-
-```bash
-quarto render index.qmd
-git add docs/
-git commit -m "Update rendered site"
-git push
-```
+**OWID visitor spending** is sourced from UN Tourism statistics and World Bank national accounts. It does not correspond to a single WDI indicator code; do not attribute it to `ST.INT.XPND.GD.ZS`.
 
 ---
 
 ## License
 
-Data from Our World in Data and the World Bank are used under their
-respective open-data licenses. See source URLs in the raw data files.
+OWID data are used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). World Bank WDI data are used under [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses#cc-by). Analysis code and narrative are the work of Bryan C. Johns. See LICENSE file.
