@@ -64,6 +64,155 @@ fmt_p <- function(p) {
   if (is.na(p)) return("NA")
   if (p < 0.001) "< 0.001" else formatC(p, digits = 3, format = "f")
 }
+
+# =============================================================================
+# DYNAMIC NARRATIVE STATISTICS
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Sample sizes
+# ---------------------------------------------------------------------------
+
+primary_data <- bl |>
+  filter(in_primary_shock_sample)
+
+n_primary <- nrow(primary_data)
+n_candidate <- 58  # Fixed candidate universe from UN-OHRLLS SIDS list
+
+
+# ---------------------------------------------------------------------------
+# Tourism dependence: descriptive statistics
+# ---------------------------------------------------------------------------
+
+exposure_ranked <- primary_data |>
+  filter(!is.na(vspend_mean_1519)) |>
+  mutate(label_disp = coalesce(short_lbl[iso3], iso3)) |>
+  arrange(desc(vspend_mean_1519))
+
+exposure_top <- exposure_ranked |> slice_head(n = 5)
+
+maldives_exposure <- primary_data |>
+  filter(iso3 == "MDV") |>
+  pull(vspend_mean_1519)
+
+
+# ---------------------------------------------------------------------------
+# Shock model results
+# ---------------------------------------------------------------------------
+
+m1 <- mres |> filter(Model == 1)
+m2 <- mres |> filter(Model == 2)
+m3 <- mres |> filter(Model == 3)
+m4 <- mres |> filter(Model == 4)
+m5 <- mres |> filter(Model == 5)
+
+# Maldives sensitivity: calculate directly from the baseline data
+shock_data_stats <- primary_data |>
+  filter(
+    !is.na(vspend_mean_1519),
+    !is.na(gdp_growth_pct_2020)
+  )
+
+fit_no_mdv <- lm(
+  gdp_growth_pct_2020 ~ vspend_mean_1519,
+  data = shock_data_stats |> filter(iso3 != "MDV")
+)
+
+no_mdv_r2 <- summary(fit_no_mdv)$r.squared
+no_mdv_p <- summary(fit_no_mdv)$coefficients[2, 4]
+
+maldives_shock <- shock_data_stats |>
+  filter(iso3 == "MDV") |>
+  pull(gdp_growth_pct_2020)
+
+
+# ---------------------------------------------------------------------------
+# Recovery statistics: aggregate and per-capita GDP
+# ---------------------------------------------------------------------------
+
+pcap_data <- bl |>
+  filter(in_primary_shock_sample) |>
+  mutate(
+    gdppc_idx_2024 =
+      gdppc_real_const2015usd_2024 /
+      gdppc_real_const2015usd_2019 * 100
+  ) |>
+  select(iso3, gdppc_idx_2024)
+
+recovery_stats <- rsum |>
+  left_join(pcap_data, by = "iso3") |>
+  mutate(
+    agg_recovered = if_else(
+      is.na(gdp_idx_2024),
+      NA,
+      gdp_idx_2024 >= 100
+    ),
+    pcap_recovered = if_else(
+      is.na(gdppc_idx_2024),
+      NA,
+      gdppc_idx_2024 >= 100
+    )
+  )
+
+# Aggregate GDP
+n_agg <- sum(!is.na(recovery_stats$gdp_idx_2024))
+agg_count <- sum(recovery_stats$agg_recovered, na.rm = TRUE)
+agg_pct <- 100 * agg_count / n_agg
+
+# Per-capita GDP
+n_pcap <- sum(!is.na(recovery_stats$gdppc_idx_2024))
+pcap_count <- sum(recovery_stats$pcap_recovered, na.rm = TRUE)
+pcap_pct <- 100 * pcap_count / n_pcap
+
+# Economies with both measures
+paired_recovery <- recovery_stats |>
+  filter(!is.na(agg_recovered), !is.na(pcap_recovered))
+
+# Economy lists
+agg_only_names <- paired_recovery |>
+  filter(agg_recovered, !pcap_recovered) |>
+  pull(iso3) |>
+  (\(x) coalesce(short_lbl[x], x))() |>
+  paste(collapse = ", ")
+
+pcap_only_names <- paired_recovery |>
+  filter(!agg_recovered, pcap_recovered) |>
+  pull(iso3) |>
+  (\(x) coalesce(short_lbl[x], x))() |>
+  paste(collapse = ", ")
+
+not_recovered <- recovery_stats |>
+  filter(!is.na(gdp_idx_2024), !agg_recovered) |>
+  arrange(gdp_idx_2024)
+
+not_recovered_n <- nrow(not_recovered)
+
+not_recovered_names <- not_recovered |>
+  pull(iso3) |>
+  (\(x) coalesce(short_lbl[x], x))() |>
+  paste(collapse = ", ")
+
+
+# ---------------------------------------------------------------------------
+# Recovery vs. tourism dependence
+# ---------------------------------------------------------------------------
+
+recovery_corr_data <- ridx |>
+  filter(
+    year == 2024,
+    !is.na(gdp_index),
+    !is.na(vspend_mean_1519)
+  )
+
+recovery_cor <- cor.test(
+  recovery_corr_data$vspend_mean_1519,
+  recovery_corr_data$gdp_index,
+  method = "pearson"
+)
+
+recovery_r <- unname(recovery_cor$estimate)
+recovery_p <- recovery_cor$p.value
+recovery_n <- nrow(recovery_corr_data)
 ```
 
 ## When Tourism Stops
@@ -72,7 +221,7 @@ For most countries, a pandemic is a health crisis with economic side effects. Fo
 
 When COVID-19 closed borders in early 2020, international arrivals fell by roughly 74 percent globally. In the Maldives, where visitors routinely spend more than half the country's entire economic output in a year, that collapse was not a disruption to one sector — it was a contraction of the economy itself. Across the Caribbean and the Pacific, islands that had spent decades integrating their economies around the movement of foreign visitors suddenly found themselves cut off from their primary engine of growth.
 
-This field note examines a straightforward empirical question: **Were small island economies that depended more on international tourism before the pandemic more severely affected in 2020?**
+This analysis examines a straightforward empirical question: **Were small island economies that depended more on international tourism before the pandemic more severely affected in 2020?**
 
 The short answer, for the primary measure used here, is yes. The more interesting question — what happened next — turns out to have a less tidy answer.
 
@@ -88,7 +237,7 @@ The **primary measure** is international visitor spending as a share of GDP — 
 
 The **complementary measure** is international tourism receipts as a share of total exports, from the World Bank's World Development Indicators (WDI). It asks a related but different question: how important are tourism earnings relative to everything else the country sells or earns internationally? For export-intensive economies, this ratio can look quite different from the first measure.
 
-The data for this analysis cover **29 economies** in the primary sample — islands from the Caribbean, Pacific, and AIMS (Atlantic, Indian Ocean, Mediterranean, and South China Sea) regions with both a usable pre-pandemic tourism baseline and 2020 real GDP growth data. These are drawn from a candidate universe of 58 small island developing states and associated economies identified through the UN-OHRLLS SIDS list.
+The data for this analysis cover **`r n_primary`** in the primary sample — islands from the Caribbean, Pacific, and AIMS (Atlantic, Indian Ocean, Mediterranean, and South China Sea) regions with both a usable pre-pandemic tourism baseline and 2020 real GDP growth data. These are drawn from a candidate universe of `r n_candidate` small island developing states and associated economies identified through the UN-OHRLLS SIDS list.
 
 ```{r fig-ranking, echo=FALSE}
 #| fig-cap: "International visitor spending as a share of GDP, 2015–2019 average. Source: OWID / UN Tourism; World Bank national accounts. Primary shock sample, N = 29. Open circle: Kiribati, with only one year of pre-pandemic data."
@@ -129,7 +278,7 @@ ggplot(plot_data, aes(x = vspend_mean_1519, y = label_disp,
   )
 ```
 
-The range is striking. At one extreme: Aruba and the Maldives, with visitor spending averaging nearly 60 and 59 percent of GDP over 2015–2019. Antigua and Barbuda, Sint Maarten, and Seychelles were not far behind, all above 40 percent. At the other extreme: Guinea-Bissau and Trinidad and Tobago, where tourism plays a marginal role relative to the broader economy.
+The range is striking. At one extreme: Aruba and the Maldives, with visitor spending averaging nearly `r round(exposure_top$vspend_mean_1519[1])` and `r round(exposure_top$vspend_mean_1519[2])` percent of GDP over 2015–2019. Antigua and Barbuda, Sint Maarten, and Seychelles were not far behind, all above 40 percent. At the other extreme: Guinea-Bissau and Trinidad and Tobago, where tourism plays a marginal role relative to the broader economy.
 
 The differences matter because they translate directly into the scale of the exposure question. An economy where foreign visitors account for 60 percent of GDP is simply not the same kind of entity as one where they account for 5 percent — not in structure, not in vulnerability, and not in what it meant when international travel stopped.
 
@@ -188,22 +337,22 @@ The association in Figure 2 is visible without a regression line: the more an ec
 
 Fitting a simple regression across these `r m1$N` economies, each additional percentage point of visitor spending relative to GDP was associated with roughly **`r abs(round(m1$Slope, 2))` percentage points of additional GDP contraction** in 2020. The relationship explains approximately **`r round(m1$R2 * 100)`% of the variation** in 2020 growth rates across these economies (R² = `r round(m1$R2, 3)`, p `r fmt_p(m1$p_raw)`).
 
-That is a substantial degree of predictability for a bivariate, cross-sectional relationship involving 29 diverse economies from three different ocean regions.
+That is a substantial degree of predictability for a bivariate, cross-sectional relationship involving `r m1$N` diverse economies from three different ocean regions.
 
 ### What drives this association, and what might complicate it
 
-The Maldives deserves specific mention. With visitor spending averaging about 59 percent of GDP before the pandemic and a GDP contraction of roughly 33 percent in 2020, the Maldives is the most extreme observation in the sample — and the most statistically influential. Excluding it reduces R² from `r round(m1$R2, 3)` to approximately 0.31, but the association remains statistically significant. The result does not depend on a single outlier.
+The Maldives deserves specific mention. With visitor spending averaging about `r round(maldives_exposure)` percent of GDP before the pandemic and a GDP contraction of roughly `r abs(round(maldives_shock))` percent in 2020, the Maldives is the most extreme observation in the sample — and the most statistically influential. Excluding it reduces R² from `r round(m1$R2, 3)` to approximately `r round(no_mdv_r2, 2)`, but the association remains statistically significant (p `r fmt_p(no_mdv_p)`). The result does not depend on a single outlier.
 
 The association also holds when:
 
-- The 2017–2019 mean replaces the 2015–2019 baseline (slope = `r round(mres$Slope[mres$Model==5], 3)`, R² = `r round(mres$R2[mres$Model==5], 3)`).
-- The analysis is restricted to 24 economies with data for both tourism indicators — isolating the measurement from sample-composition effects (R² = `r round(mres$R2[mres$Model==3], 3)`).
+- The 2017–2019 mean replaces the 2015–2019 baseline (slope = `r round(m5$Slope, 3)`, R² = `r round(m5$R2, 3)`).
+- The analysis is restricted to `r m3$N` economies with data for both tourism indicators — isolating the measurement from sample-composition effects (R² = `r round(m3$R2, 3)`).
 
 This is an observational cross-sectional analysis of 29 economies. **It documents that economies with greater tourism exposure tended to experience more severe contractions; it does not establish that tourism dependence caused those contractions.** Confounders — pre-existing fiscal pressures, the timing of border closures, domestic containment measures, economic diversification — are not accounted for. The pattern is consistent with the economic logic, but consistent-with is not the same as established-by.
 
 ### The complementary indicator tells a more ambiguous story
 
-When the analysis uses the World Bank's tourism receipts measure instead — receipts as a share of total exports rather than visitor spending as a share of GDP — the results are noticeably weaker. In the full WDI sample of 35 economies, the association is not statistically significant (R² = `r round(mres$R2[mres$Model==2], 3)`, p = `r fmt_p(mres$p_raw[mres$Model==2])`). In the 24-economy common sample — the same countries analyzed with both indicators — it is moderate but marginal (R² = `r round(mres$R2[mres$Model==4], 3)`).
+When the analysis uses the World Bank's tourism receipts measure instead — receipts as a share of total exports rather than visitor spending as a share of GDP — the results are noticeably weaker. In the full WDI sample of `r m2$N` economies, the association is not statistically significant (R² = `r round(m2$R2, 3)`, p = `r fmt_p(m2$p_raw)`). In the `r m4$N`-economy common sample — the same countries analyzed with both indicators — it is moderate but marginal (R² = `r round(m4$R2, 3)`, p = `r fmt_p(m4$p_raw)`).
 
 The two indicators are correlated but not identical. They divide by different denominators and cover different sets of economies. Their divergence in results partly reflects those conceptual and sample differences, and partly reflects specific outlier cases — particularly Timor-Leste, which has high receipts relative to exports but experienced a less severe 2020 contraction than its tourism-receipts exposure would predict.
 
@@ -246,7 +395,7 @@ ggplot(ridx |> filter(!is.na(gdp_index)),
         strip.text = element_text(face = "bold", size = 10.5))
 ```
 
-By 2024, **`r sum(rsum$recovered_by_2024, na.rm=TRUE)` of `r sum(!is.na(rsum$gdp_idx_2024))`** economies with available data had returned to or exceeded their 2019 aggregate real GDP. The collapse and the rebound, for most of these islands, traced a steep V.
+By 2024, **`r agg_count` of `r n_agg`** economies with available data (`r round(agg_pct)` percent) had returned to or exceeded their 2019 aggregate real GDP. The collapse and the rebound, for most of these islands, traced a steep V.
 
 But the recovery picture is more textured than that simple count suggests.
 
@@ -254,17 +403,17 @@ But the recovery picture is more textured than that simple count suggests.
 
 Aggregate GDP and GDP per capita measure different things, and in small island economies, the gap between them matters. An economy where population has grown cannot treat a return to 2019 total output as a return to 2019 living standards; an economy where population has declined may show recovering per-capita output even when total output has not fully returned.
 
-Of the 28 economies with 2024 real GDP data:
+Of the `r n_pcap` economies with 2024 real GDP data:
 
-- **20 of 28** had restored real GDP per capita to 2019 levels by 2024 — one fewer than the aggregate count.
+- **`r pcap_count` of `r n_pcap`** had restored real GDP per capita to 2019 levels by 2024 (`r round(pcap_pct)` percent).
 
-The gap runs in both directions. Four economies — Antigua and Barbuda, Papua New Guinea, Seychelles, and Vanuatu — had restored total GDP but not GDP per capita by 2024. In the opposite direction, three economies — Curaçao, Marshall Islands, and Tuvalu — had restored GDP per capita but not total GDP. These differences are consistent with the influence of population change on aggregate and per-capita output, although this analysis does not isolate population dynamics as a cause.
+The gap runs in both directions. Four economies — `r agg_only_names` — had restored total GDP but not GDP per capita by 2024. In the opposite direction, three economies — `r pcap_only_names` — had restored GDP per capita but not total GDP. These differences are consistent with the influence of population change on aggregate and per-capita output, although this analysis does not isolate population dynamics as a cause.
 
-Seven economies had not recovered aggregate GDP to 2019 levels by 2024: Cuba, Curaçao, Suriname, Trinidad and Tobago, Marshall Islands, Solomon Islands, and Tuvalu. For several of these, economic difficulties extended well before and beyond the pandemic itself.
+Seven economies had not recovered aggregate GDP to 2019 levels by 2024: `r not_recovered_names`. For several of these, economic difficulties extended well before and beyond the pandemic itself.
 
 ### Tourism dependence did not predict recovery
 
-Here the story departs from what the shock analysis might lead one to expect. Among these 28 economies, **pre-pandemic tourism dependence was not significantly associated with 2024 recovery** (Pearson r = `r round(cor(ridx$vspend_mean_1519[ridx$year==2024 & !is.na(ridx$gdp_index)], ridx$gdp_index[ridx$year==2024 & !is.na(ridx$gdp_index)], use="complete"), 2)`, p = 0.27).
+Here the story departs from what the shock analysis might lead one to expect. Among these `r recovery_n` economies, **pre-pandemic tourism dependence was not significantly associated with 2024 recovery** (Pearson r = `r round(recovery_r, 2)`, p = `r fmt_p(recovery_p)`).
 
 This contrasts with the initial shock, where greater tourism dependence was associated with more severe economic contraction. Several highly tourism-dependent economies — including the Maldives, Seychelles, Bahamas, and Aruba — experienced sharp contractions in 2020 followed by substantial rebounds as international travel resumed.
 
