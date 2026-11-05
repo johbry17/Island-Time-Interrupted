@@ -59,11 +59,11 @@ base_theme <- theme_minimal(base_size = 11) +
 
 theme_set(base_theme)
 
-save_fig <- function(filename, width = 8, height = 5.5) {
+save_fig <- function(plot, filename, width = 8, height = 5.5) {
   ggsave(file.path(fig_dir, paste0(filename, ".png")),
-         width = width, height = height, dpi = 300, bg = "white")
+         plot = plot, width = width, height = height, dpi = 300, bg = "white")
   ggsave(file.path(fig_dir, paste0(filename, ".svg")),
-         width = width, height = height, bg = "white")
+         plot = plot, width = width, height = height, bg = "white")
   message("Saved: ", filename)
 }
 
@@ -146,7 +146,7 @@ p1 <- ggplot(fig1_data,
     panel.grid.major.x = element_line(color = "grey92")
   )
 
-save_fig("fig1_vspend_ranking",
+save_fig(p1, "fig1_vspend_ranking",
          width = 8.5, height = max(5.5, nrow(fig1_data) * 0.28 + 1.2))
 
 # ============================================================
@@ -197,7 +197,7 @@ if (nrow(fig2_data) >= 4) {
       y        = "WDI: Tourism receipts (% of total exports)",
       caption  = fig2_caption
     )
-  save_fig("fig2_measure_comparison", width = 7.5, height = 6)
+  save_fig(p2, "fig2_measure_comparison", width = 7.5, height = 6)
 }
 
 # ============================================================
@@ -286,7 +286,7 @@ if (nrow(shock_primary) >= 6) {
       y        = "GDP growth (annual %, 2020)",
       caption  = fig3_caption
     )
-  save_fig("fig3_shock_scatter", width = 8.5, height = 6.5)
+  save_fig(p3, "fig3_shock_scatter", width = 8.5, height = 6.5)
 }
 
 # --- Complementary: receipts-based shock (for comparison) ---
@@ -384,7 +384,7 @@ p4 <- ggplot(cov_plot_data, aes(x = indicator, y = country, fill = avail)) +
     legend.position = "bottom"
   )
 
-save_fig("fig4_coverage_matrix",
+save_fig(p4, "fig4_coverage_matrix",
          width = 9.5, height = max(6, n_cov * 0.26 + 2.5))
 
 # ============================================================

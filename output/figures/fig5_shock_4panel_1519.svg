@@ -453,7 +453,7 @@
 <text transform='translate(485.40,526.14) rotate(-90)' text-anchor='middle' style='font-size: 9.00px;fill: #404040; font-family: "Arial";' textLength='87.85px' lengthAdjust='spacingAndGlyphs'>GDP growth 2020 (%)</text>
 <text x='514.81' y='386.76' style='font-size: 9.00px; font-weight: bold;fill: #262626; font-family: "Arial";' textLength='191.51px' lengthAdjust='spacingAndGlyphs'>M4: WDI receipts [2015-19], Common sample</text>
 <text x='23.91' y='702.35' style='font-size: 7.50px;fill: #7F7F7F; font-family: "Arial";' textLength='277.55px' lengthAdjust='spacingAndGlyphs'>Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG.</text>
-<text x='23.91' y='710.45' style='font-size: 7.50px;fill: #7F7F7F; font-family: "Arial";' textLength='261.89px' lengthAdjust='spacingAndGlyphs'>Exploratry OLS; does not imply causation. Open circles = thin baseline (1 obs).</text>
+<text x='23.91' y='710.45' style='font-size: 7.50px;fill: #7F7F7F; font-family: "Arial";' textLength='266.06px' lengthAdjust='spacingAndGlyphs'>Exploratory OLS; does not imply causation. Open circles = thin baseline (1 obs).</text>
 <text x='23.91' y='35.15' style='font-size: 10.00px;fill: #595959; font-family: "Arial";' textLength='319.79px' lengthAdjust='spacingAndGlyphs'>Four model specifications; OLS regression line with 95% CI band shown</text>
 <text x='23.91' y='21.26' style='font-size: 13.00px; font-weight: bold;fill: #262626; font-family: "Arial";' textLength='401.26px' lengthAdjust='spacingAndGlyphs'>Tourism Dependence and 2020 GDP Growth: 2015–2019 Baseline</text>
 </g>

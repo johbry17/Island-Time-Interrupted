@@ -74,9 +74,9 @@ base_theme <- theme_minimal(base_size = 11) +
   )
 theme_set(base_theme)
 
-save_fig <- function(nm, w=8.5, h=6) {
-  ggsave(file.path(fig_dir, paste0(nm, ".png")), width=w, height=h, dpi=300, bg="white")
-  ggsave(file.path(fig_dir, paste0(nm, ".svg")), width=w, height=h, bg="white")
+save_fig <- function(plt, nm, w=8.5, h=6) {
+  ggsave(file.path(fig_dir, paste0(nm, ".png")), plot = plt, width=w, height=h, dpi=300, bg="white")
+  ggsave(file.path(fig_dir, paste0(nm, ".svg")), plot = plt, width=w, height=h, bg="white")
   message("Saved: ", nm)
 }
 
@@ -375,7 +375,7 @@ p5 <- ggpubr_or_patchwork <- tryCatch({
     plot_annotation(
       title   = "Tourism Dependence and 2020 GDP Growth: 2015\u20132019 Baseline",
       subtitle = "Four model specifications; OLS regression line with 95% CI band shown",
-      caption = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG.\nExploratry OLS; does not imply causation. Open circles = thin baseline (1 obs).",
+      caption = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG.\nExploratory OLS; does not imply causation. Open circles = thin baseline (1 obs).",
       theme   = theme(plot.title=element_text(face="bold",size=13),
                       plot.subtitle=element_text(size=10,color="grey35"),
                       plot.caption=element_text(size=7.5,color="grey50",hjust=0))
@@ -383,8 +383,7 @@ p5 <- ggpubr_or_patchwork <- tryCatch({
 }, error = function(e) NULL)
 
 if (!is.null(p5)) {
-  ggsave(file.path(fig_dir, "fig5_shock_4panel_1519.png"), p5, width=13, height=10, dpi=300, bg="white")
-  ggsave(file.path(fig_dir, "fig5_shock_4panel_1519.svg"), p5, width=13, height=10, bg="white")
+  save_fig(p5, "fig5_shock_4panel_1519", w=13, h=10)
   message("Saved: fig5_shock_4panel_1519")
 }
 
@@ -429,7 +428,7 @@ if (!is.null(r3) && !is.null(r4)) {
       y        = "GDP growth 2020 (%)",
       caption  = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG."
     )
-  save_fig("fig6_common_sample_comparison", w=11, h=5.5)
+  save_fig(p6, "fig6_common_sample_comparison", w=11, h=5.5)
 }
 
 message("Done: 04_shock_models.R")

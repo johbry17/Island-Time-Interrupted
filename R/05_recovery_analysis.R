@@ -12,7 +12,7 @@
 # price and exchange-rate changes.
 #
 # Annual sample sizes vary; see coverage tables. Do not compare 2025 data
-# (N=37) directly with 2020 data (N=49/50) as if they are the same sample.
+# (N=18) directly with 2020 data (N=29) as if they are the same sample.
 # =============================================================================
 
 library(here)
@@ -58,9 +58,9 @@ base_theme <- theme_minimal(base_size = 11) +
   )
 theme_set(base_theme)
 
-save_fig <- function(nm, w=10, h=6.5) {
-  ggsave(file.path(fig_dir, paste0(nm, ".png")), width=w, height=h, dpi=300, bg="white")
-  ggsave(file.path(fig_dir, paste0(nm, ".svg")), width=w, height=h, bg="white")
+save_fig <- function(plt, nm, w=10, h=6.5) {
+  ggsave(file.path(fig_dir, paste0(nm, ".png")), plot = plt, width=w, height=h, dpi=300, bg="white")
+  ggsave(file.path(fig_dir, paste0(nm, ".svg")), plot = plt, width=w, height=h, bg="white")
   message("Saved: ", nm)
 }
 
@@ -189,7 +189,7 @@ cat("================================================================\n\n")
 recovery_summary |>
   select(iso3, label, sids_region, shock_2020,
          gdp_idx_2022, gdp_idx_2023, gdp_idx_2024,
-         recovered_by_2022, recovered_by_2023) |>
+         recovered_by_2022, recovered_by_2023, recovered_by_2024) |>
   mutate(across(starts_with("gdp_idx"), ~round(., 1))) |>
   print(n=40)
 
@@ -201,6 +201,13 @@ cat("N =", nrow(rec_2023), ":", paste(sort(rec_2023$iso3), collapse=", "), "\n")
 cat("Not recovered / missing by 2023: ",
     sum(recovery_summary$gdp_idx_2023 < 100, na.rm=TRUE), "economies\n")
 cat("Missing 2023 data:", sum(is.na(recovery_summary$gdp_idx_2023)), "economies\n")
+
+cat("\n=== Recovered to 2019 level by 2024: ===\n")
+rec_2024 <- recovery_summary |> filter(recovered_by_2024, !is.na(gdp_idx_2024))
+cat("N =", nrow(rec_2024), ":", paste(sort(rec_2024$iso3), collapse=", "), "\n")
+cat("Not recovered / missing by 2024: ",
+    sum(recovery_summary$gdp_idx_2024 < 100, na.rm=TRUE), "economies\n")
+cat("Missing 2024 data:", sum(is.na(recovery_summary$gdp_idx_2024)), "economies\n")
 
 # ---------------------------------------------------------------------------
 # Figure 7: GDP recovery trajectories (2015-2025), faceted by region
@@ -217,8 +224,8 @@ has_2023 <- recovery_idx |>
 # Annual sample sizes for annotation
 annual_n <- recovery_idx |>
   filter(!is.na(gdp_index)) |>
-  group_by(year) |>
-  summarise(n = n())
+  group_by(sids_region, year) |>
+  summarise(n = n_distinct(iso3), .groups = "drop")
 
 p7 <- ggplot(
   recovery_idx |> filter(!is.na(gdp_index)),
@@ -255,7 +262,7 @@ p7 <- ggplot(
     strip.text      = element_text(face = "bold", size = 9.5)
   )
 
-save_fig("fig7_recovery_trajectories", w = 9, h = 10)
+save_fig(p7, "fig7_recovery_trajectories", w = 9, h = 10)
 
 # ---------------------------------------------------------------------------
 # Figure 8: Recovery index in 2023 vs pre-pandemic tourism dependence
@@ -303,7 +310,7 @@ if (nrow(rec_vs_tourism) >= 6) {
       y        = "Real GDP index, 2023 (2019 = 100)",
       caption  = "Sources: OWID/UN Tourism; WDI NY.GDP.MKTP.KD. OLS line is exploratory."
     )
-  save_fig("fig8_recovery_vs_tourism", w=8.5, h=6)
+  save_fig(p8, "fig8_recovery_vs_tourism", w=8.5, h=6)
 }
 
 cat("Done: 05_recovery_analysis.R\n")
