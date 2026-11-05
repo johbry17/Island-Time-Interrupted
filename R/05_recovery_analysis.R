@@ -264,12 +264,12 @@ p7 <- ggplot(
 save_fig(p7, "fig7_recovery_trajectories", w = 9, h = 10)
 
 # ---------------------------------------------------------------------------
-# Figure 8: Recovery index in 2023 vs pre-pandemic tourism dependence
+# Figure 8: Recovery index in 2024 vs pre-pandemic tourism dependence
 # ---------------------------------------------------------------------------
-
-# Use latest common year with good coverage (2023)
+ 
+# Use latest common year with good coverage (2024)
 rec_vs_tourism <- recovery_idx |>
-  filter(year == 2023, !is.na(gdp_index)) |>
+  filter(year == 2024, !is.na(gdp_index)) |>
   mutate(label_disp = coalesce(short_labels[iso3], iso3))
 
 if (nrow(rec_vs_tourism) >= 6) {
@@ -278,7 +278,7 @@ if (nrow(rec_vs_tourism) >= 6) {
   cor_s <- cor(rec_vs_tourism$vspend_mean_1519, rec_vs_tourism$gdp_index,
                method = "spearman", use = "complete.obs")
   fit_r <- lm(gdp_index ~ vspend_mean_1519, data = rec_vs_tourism)
-  cat("\n=== Recovery vs. Tourism Dependence (2023) ===\n")
+  cat("\n=== Recovery vs. Tourism Dependence (2024) ===\n")
   cat("N:", nrow(rec_vs_tourism), "\n")
   cat("Pearson r:", round(cor_p, 3), "\n")
   cat("Spearman ρ:", round(cor_s, 3), "\n")
@@ -302,11 +302,11 @@ if (nrow(rec_vs_tourism) >= 6) {
              label=paste0("Pearson r = ", round(cor_p,2), " | Spearman \u03c1 = ", round(cor_s,2)),
              hjust=1.1, vjust=1.5, size=2.8, color="grey35") +
     labs(
-      title    = "Tourism Dependence and Recovery by 2023",
-      subtitle = paste0("Pre-pandemic visitor spending vs. 2023 real GDP index (2019=100). N=",
+      title    = "Tourism Dependence and Recovery by 2024",
+      subtitle = paste0("Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). N=",
                         nrow(rec_vs_tourism), "."),
       x        = "Visitor spending (% GDP, 2015-2019 avg.)",
-      y        = "Real GDP index, 2023 (2019 = 100)",
+      y        = "Real GDP index, 2024 (2019 = 100)",
       caption  = "Sources: OWID/UN Tourism; WDI NY.GDP.MKTP.KD. OLS line is exploratory."
     )
   save_fig(p8, "fig8_recovery_vs_tourism", w=8.5, h=6)

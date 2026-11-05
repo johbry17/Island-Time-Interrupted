@@ -209,7 +209,7 @@ tibble::tribble(
 ```{r sens-restricted}
 #| echo: false
 sens |>
-  select(Sensitivity, Window, Indicator, Sample, N, Excluded, Slope, R2, Spearman, p_raw) |>
+  select(Sensitivity, Window, Indicator, Sample, N, Slope, R2, Spearman, p_raw, Excluded) |>
   kable(caption=paste0("Table A7. Sensitivity analysis restricted to economies with ≥3 ",
         "annual observations in the baseline window. S5 (WDI/2017-19/WDI) drops 14 ",
         "economies (N drops from 35 to 21) because WDI 2019 receipts data is missing for many SIDS."))
@@ -238,7 +238,7 @@ ridx |>
 knitr::include_graphics(here("output","figures","fig7_recovery_trajectories.png"))
 ```
 
-### Recovery status by 2023
+### Recovery status by 2024
 
 ```{r recovery-table}
 #| echo: false
@@ -246,35 +246,47 @@ knitr::include_graphics(here("output","figures","fig7_recovery_trajectories.png"
 pcap_data <- bl |>
   filter(in_primary_shock_sample) |>
   mutate(
-    gdppc_idx_2023 = gdppc_real_const2015usd_2023 / gdppc_real_const2015usd_2019 * 100
+    gdppc_idx_2024 = gdppc_real_const2015usd_2024 / gdppc_real_const2015usd_2019 * 100
   ) |>
-  select(iso3, gdppc_idx_2023)
+  select(iso3, gdppc_idx_2024)
 
 rsum |>
   left_join(pcap_data, by="iso3") |>
-  select(iso3, label, sids_region, shock_2020, gdp_idx_2023, gdppc_idx_2023,
-         recovered_by_2023) |>
-  mutate(across(c(shock_2020, gdp_idx_2023, gdppc_idx_2023), ~round(., 1))) |>
+  select(iso3, label, sids_region, shock_2020, gdp_idx_2024, gdppc_idx_2024) |>
+  mutate(across(c(shock_2020, gdp_idx_2024, gdppc_idx_2024), ~round(., 1)),
+    agg_recovered = case_when(
+      is.na(gdp_idx_2024) ~ NA_character_,
+      gdp_idx_2024 >= 100 ~ "Yes",
+      TRUE ~ "No"
+    ),
+    pcap_recovered = case_when(
+      is.na(gdppc_idx_2024) ~ NA_character_,
+      gdppc_idx_2024 >= 100 ~ "Yes",
+      TRUE ~ "No"
+    )) |>
   arrange(sids_region, iso3) |>
-  kable(col.names=c("ISO3","Economy","Region","2020<br>(shock)","GDP idx<br>2023","GDP/cap<br>idx 2023","Agg.<br>recovered"),
-        caption=paste0("Table A9. Aggregate real GDP and per-capita real GDP recovery indices ",
-               "(2019=100). 'Agg. recovered' = GDP ≥ 100 in 2023. VIR has no 2023 data. ",
-               "19/28 recovered aggregate GDP by 2023; 17/28 recovered per-capita GDP by 2023. Four economies (COM, SYC, PNG, VUT) recovered aggregate but not per-capita; two (MHL, PRI) recovered per-capita but not aggregate.."), escape=FALSE)
+  kable(col.names=c("ISO3","Economy","Region","2020<br>(shock)","GDP idx<br>2024","GDP/cap<br>idx 2024","Agg.<br>recovered","Per-capita<br>recovered"),
+        caption=paste0("Table A9. Aggregate and per-capita real GDP recovery indices ",
+              "(2019=100). Recovery means an index >= 100 in 2024. VIR has no 2024 data. ",
+              "21/28 recovered aggregate GDP; 20/28 recovered per-capita GDP. ",
+              "Four economies recovered aggregate but not per-capita GDP ",
+              "(ATG, PNG, SYC, VUT); three recovered per-capita but not ",
+              "aggregate GDP (CUW, MHL, TUV)."), escape=FALSE)
 ```
 
 ### Recovery vs. tourism dependence
 
 ```{r fig-recovery-vs-tourism}
 #| echo: false
-#| fig-cap: "Pre-pandemic visitor spending vs. 2023 real GDP index (2019=100). No statistically significant association (Pearson r = 0.18, p = 0.36, N = 28). Tourism-dependent economies had both the worst shocks and the strongest recoveries."
+#| fig-cap: "Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). No statistically significant association (Pearson r = 0.21, p = 0.27, N = 28)."
 #| fig-width: 8.5
 #| fig-height: 6
 knitr::include_graphics(here("output","figures","fig8_recovery_vs_tourism.png"))
 ```
 
-The absence of a significant association between tourism dependence and the 2023 recovery index (Figure 6) is **not** evidence that tourism dependence is harmless or that the shock was ultimately irrelevant. It reflects the fact that the same sectors that collapsed in 2020 — international tourism and hospitality — were also the sectors that recovered as travel rebounded. Economies with high visitor spending contracted sharply in 2020 and rebounded sharply from 2021 onward, producing a near-symmetrical pattern in aggregate GDP terms.
+The absence of a significant association between pre-pandemic tourism dependence and the 2024 recovery index (Figure 6) does **not** mean tourism dependence was harmless or that the initial shock was inconsequential for these economies. Rather, the relationship between pre-pandemic exposure and longer-term economic recovery is not straightforward. Although tourism-dependent economies experienced particularly severe contractions in 2020, their subsequent recovery trajectories varied. By 2024, the degree of pre-pandemic tourism dependence alone did not explain which economies had regained their 2019 aggregate GDP levels.
 
-Per-capita recovery tells a more nuanced story: 17 of 28 economies had recovered GDP per person by 2023, compared with 19 of 28 for aggregate GDP. The 2-economy gap reflects continued population growth in some Pacific economies, where total output recovered but output per person had not yet returned to 2019 levels.
+Per-capita recovery provides a more nuanced picture. By 2024, 20 of 28 economies had recovered their 2019 real GDP per capita, compared with 21 of 28 for aggregate GDP. The difference illustrates why aggregate output alone can overstate the extent of economic recovery: an economy may regain its total output while remaining below its pre-pandemic level on a per-person basis. Population growth is one possible contributor to this divergence, although this analysis does not isolate its effects.
 
 ---
 
