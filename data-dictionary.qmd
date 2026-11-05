@@ -17,8 +17,14 @@ execute:
 
 ```{r setup}
 #| include: false
-library(here); library(readr); library(dplyr); library(knitr)
-cands <- read_csv(here("data","processed","candidates.csv"), show_col_types=FALSE)
+library(here)
+library(readr)
+library(dplyr)
+library(knitr)
+cands <- read_csv(
+    here("data", "processed", "candidates.csv"),
+    show_col_types = FALSE
+)
 ```
 
 ## Tourism Indicators
@@ -198,8 +204,11 @@ Records retrieval date, indicators requested, country codes requested, and codes
 
 ```{r sids-class}
 #| echo: false
-notes_df <- read_csv(here("data","processed","sids_classification_notes.csv"), show_col_types=FALSE)
-notes_df |> kable(caption="Table D1. SIDS universe classification notes.")
+notes_df <- read_csv(
+    here("data", "processed", "sids_classification_notes.csv"),
+    show_col_types = FALSE
+)
+notes_df |> kable(caption = "Table D1. SIDS universe classification notes.")
 ```
 
 ---

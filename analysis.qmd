@@ -18,24 +18,59 @@ execute:
 
 ```{r setup}
 #| include: false
-library(here); library(readr); library(dplyr); library(tidyr); library(purrr)
-library(ggplot2); library(scales); library(knitr)
+library(here)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
+library(scales)
+library(knitr)
 
-processed  <- here("data","processed")
-tbl_dir    <- here("output","tables")
-fig_dir    <- here("output","figures")
+processed <- here("data", "processed")
+tbl_dir <- here("output", "tables")
+fig_dir <- here("output", "figures")
 
-pal <- c("Caribbean"="#0072B2","Pacific"="#D55E00","AIMS"="#009E73")
+pal <- c("Caribbean" = "#0072B2", "Pacific" = "#D55E00", "AIMS" = "#009E73")
 
-bl    <- read_csv(file.path(processed,"baseline_shock_recovery.csv"),show_col_types=FALSE)
-cov   <- read_csv(file.path(processed,"country_coverage.csv"),       show_col_types=FALSE)
-cands <- read_csv(file.path(processed,"candidates.csv"),              show_col_types=FALSE)
-mres  <- read_csv(file.path(tbl_dir,"shock_model_results.csv"),       show_col_types=FALSE)
-sens  <- read_csv(file.path(tbl_dir,"shock_sensitivity_restricted.csv"),show_col_types=FALSE)
-rsum  <- read_csv(file.path(tbl_dir,"recovery_summary.csv"),          show_col_types=FALSE)
-ridx  <- read_csv(file.path(processed,"recovery_index.csv"),           show_col_types=FALSE)
+bl <- read_csv(
+    file.path(processed, "baseline_shock_recovery.csv"),
+    show_col_types = FALSE
+)
+cov <- read_csv(
+    file.path(processed, "country_coverage.csv"),
+    show_col_types = FALSE
+)
+cands <- read_csv(
+    file.path(processed, "candidates.csv"),
+    show_col_types = FALSE
+)
+mres <- read_csv(
+    file.path(tbl_dir, "shock_model_results.csv"),
+    show_col_types = FALSE
+)
+sens <- read_csv(
+    file.path(tbl_dir, "shock_sensitivity_restricted.csv"),
+    show_col_types = FALSE
+)
+rsum <- read_csv(
+    file.path(tbl_dir, "recovery_summary.csv"),
+    show_col_types = FALSE
+)
+ridx <- read_csv(
+    file.path(processed, "recovery_index.csv"),
+    show_col_types = FALSE
+)
 
-fmt_p <- function(p) if (is.na(p)) "NA" else if (p < 0.001) "< 0.001" else formatC(p, digits=3, format="f")
+fmt_p <- function(p) {
+    if (is.na(p)) {
+        "NA"
+    } else if (p < 0.001) {
+        "< 0.001"
+    } else {
+        formatC(p, digits = 3, format = "f")
+    }
+}
 ```
 
 ## Candidate Universe and Sample Definitions
@@ -43,10 +78,12 @@ fmt_p <- function(p) if (is.na(p)) "NA" else if (p < 0.001) "< 0.001" else forma
 ```{r universe-summary}
 #| echo: false
 cands |>
-  group_by(sids_region, sids_status) |>
-  summarise(n = n(), .groups="drop") |>
-  pivot_wider(names_from=sids_status, values_from=n, values_fill=0L) |>
-  kable(caption="Table A1. Candidate universe: 58 economies across three SIDS regions. Authority: UN-OHRLLS list of SIDS, retrieved November 2026.")
+    group_by(sids_region, sids_status) |>
+    summarise(n = n(), .groups = "drop") |>
+    pivot_wider(names_from = sids_status, values_from = n, values_fill = 0L) |>
+    kable(
+        caption = "Table A1. Candidate universe: 58 economies across three SIDS regions. Authority: UN-OHRLLS list of SIDS, retrieved November 2026."
+    )
 ```
 
 ### Three fixed samples
@@ -56,14 +93,15 @@ Sample membership is defined by 2017–2019 data availability and is **fixed** �
 ```{r sample-counts}
 #| echo: false
 tibble::tribble(
-  ~Sample, ~Criterion, ~N,
-  "Candidate universe", "All 58 economies", nrow(cands),
-  "Tourism-data sample", "At least one tourism indicator, 2017-2019", sum(cov$in_tourism_data_sample),
-  "OWID shock sample", "OWID vspend (2017-19) + 2020 GDP growth", sum(cov$in_primary_shock_sample),
-  "WDI shock sample",  "WDI receipts (2017-19) + 2020 GDP growth", sum(cov$in_receipts_shock_sample),
-  "Common sample",     "Both indicators (2017-19) + 2020 GDP growth", sum(cov$in_common_sample),
-  "Recovery sample",   "OWID shock sample + real GDP (2019 + later year)", sum(cov$in_recovery_sample)
-) |> kable(caption="Table A2. Sample definitions and sizes.")
+    ~Sample               , ~Criterion                                         , ~N                                ,
+    "Candidate universe"  , "All 58 economies"                                 , nrow(cands)                       ,
+    "Tourism-data sample" , "At least one tourism indicator, 2017-2019"        , sum(cov$in_tourism_data_sample)   ,
+    "OWID shock sample"   , "OWID vspend (2017-19) + 2020 GDP growth"          , sum(cov$in_primary_shock_sample)  ,
+    "WDI shock sample"    , "WDI receipts (2017-19) + 2020 GDP growth"         , sum(cov$in_receipts_shock_sample) ,
+    "Common sample"       , "Both indicators (2017-19) + 2020 GDP growth"      , sum(cov$in_common_sample)         ,
+    "Recovery sample"     , "OWID shock sample + real GDP (2019 + later year)" , sum(cov$in_recovery_sample)
+) |>
+    kable(caption = "Table A2. Sample definitions and sizes.")
 ```
 
 **OWID-only economies** (in OWID shock sample but not common sample): `r paste(sort(setdiff(bl$iso3[bl$in_primary_shock_sample], bl$iso3[bl$in_common_sample])), collapse=", ")`.
@@ -81,7 +119,7 @@ tibble::tribble(
 #| fig-cap: "Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial (one year); grey = absent."
 #| fig-width: 9.5
 #| fig-height: 10
-knitr::include_graphics(here("output","figures","fig4_coverage_matrix.png"))
+knitr::include_graphics(here("output", "figures", "fig4_coverage_matrix.png"))
 ```
 
 ### WDI receipts: end of series in this retrieval
@@ -91,11 +129,14 @@ WDI `ST.INT.RCPT.XP.ZS` has **no observations beyond 2020** in the retrieved dat
 ```{r wdi-coverage}
 #| echo: false
 tibble::tribble(
-  ~Indicator, ~`Latest year in retrieval`, ~`2019 available?`, ~`Notes`,
-  "OWID visitor spending (% GDP)", "2024",      "Yes (all sample members)", "Updated 2026",
-  "WDI receipts (% exports)",      "2020",      "21 of 35 only",            "Series ends 2020; 14/35 lack 2019 data",
-  "WDI real GDP (const. 2015 USD)","2024–2025", "Yes (all sample members)", "2025 preliminary for 22/29"
-) |> kable(caption="Table A3. Key coverage differences between tourism indicators.")
+    ~Indicator                       , ~`Latest year in retrieval` , ~`2019 available?`         , ~`Notes`                                 ,
+    "OWID visitor spending (% GDP)"  , "2024"                      , "Yes (all sample members)" , "Updated 2026"                           ,
+    "WDI receipts (% exports)"       , "2020"                      , "21 of 35 only"            , "Series ends 2020; 14/35 lack 2019 data" ,
+    "WDI real GDP (const. 2015 USD)" , "2024–2025"                 , "Yes (all sample members)" , "2025 preliminary for 22/29"
+) |>
+    kable(
+        caption = "Table A3. Key coverage differences between tourism indicators."
+    )
 ```
 
 ### Baseline coverage distributions
@@ -103,34 +144,67 @@ tibble::tribble(
 ```{r baseline-coverage}
 #| echo: false
 samples_list <- list(
-  "OWID (N=29)" = bl |> filter(in_primary_shock_sample),
-  "WDI (N=35)"  = bl |> filter(in_receipts_shock_sample),
-  "Common (N=24)"= bl |> filter(in_common_sample)
+    "OWID (N=29)" = bl |> filter(in_primary_shock_sample),
+    "WDI (N=35)" = bl |> filter(in_receipts_shock_sample),
+    "Common (N=24)" = bl |> filter(in_common_sample)
 )
 purrr::map_dfr(names(samples_list), function(nm) {
-  d <- samples_list[[nm]]
-  tibble(
-    Sample = nm,
-    Indicator = c("OWID vspend","OWID vspend","WDI receipts","WDI receipts"),
-    Window    = c("2015-19","2017-19","2015-19","2017-19"),
-    `0 obs`   = c(sum(d$vspend_n_1519==0), sum(d$vspend_n_1719==0),
-                  sum(d$receipts_n_1519==0), sum(d$receipts_n_1719==0)),
-    `1 obs`   = c(sum(d$vspend_n_1519==1), sum(d$vspend_n_1719==1),
-                  sum(d$receipts_n_1519==1), sum(d$receipts_n_1719==1)),
-    `2 obs`   = c(sum(d$vspend_n_1519==2), sum(d$vspend_n_1719==2),
-                  sum(d$receipts_n_1519==2), sum(d$receipts_n_1719==2)),
-    `3 obs`   = c(sum(d$vspend_n_1519==3), sum(d$vspend_n_1719==3),
-                  sum(d$receipts_n_1519==3), sum(d$receipts_n_1719==3)),
-    `4 obs`   = c(sum(d$vspend_n_1519==4), sum(d$vspend_n_1719==4),
-                  sum(d$receipts_n_1519==4), sum(d$receipts_n_1719==4)),
-    `5 obs`   = c(sum(d$vspend_n_1519==5), sum(d$vspend_n_1719==5),
-                  sum(d$receipts_n_1519==5), sum(d$receipts_n_1719==5))
-  )
+    d <- samples_list[[nm]]
+    tibble(
+        Sample = nm,
+        Indicator = c(
+            "OWID vspend",
+            "OWID vspend",
+            "WDI receipts",
+            "WDI receipts"
+        ),
+        Window = c("2015-19", "2017-19", "2015-19", "2017-19"),
+        `0 obs` = c(
+            sum(d$vspend_n_1519 == 0),
+            sum(d$vspend_n_1719 == 0),
+            sum(d$receipts_n_1519 == 0),
+            sum(d$receipts_n_1719 == 0)
+        ),
+        `1 obs` = c(
+            sum(d$vspend_n_1519 == 1),
+            sum(d$vspend_n_1719 == 1),
+            sum(d$receipts_n_1519 == 1),
+            sum(d$receipts_n_1719 == 1)
+        ),
+        `2 obs` = c(
+            sum(d$vspend_n_1519 == 2),
+            sum(d$vspend_n_1719 == 2),
+            sum(d$receipts_n_1519 == 2),
+            sum(d$receipts_n_1719 == 2)
+        ),
+        `3 obs` = c(
+            sum(d$vspend_n_1519 == 3),
+            sum(d$vspend_n_1719 == 3),
+            sum(d$receipts_n_1519 == 3),
+            sum(d$receipts_n_1719 == 3)
+        ),
+        `4 obs` = c(
+            sum(d$vspend_n_1519 == 4),
+            sum(d$vspend_n_1719 == 4),
+            sum(d$receipts_n_1519 == 4),
+            sum(d$receipts_n_1719 == 4)
+        ),
+        `5 obs` = c(
+            sum(d$vspend_n_1519 == 5),
+            sum(d$vspend_n_1719 == 5),
+            sum(d$receipts_n_1519 == 5),
+            sum(d$receipts_n_1719 == 5)
+        )
+    )
 }) |>
-  kable(caption=paste0("Table A4. Annual observation counts within each baseline window, ",
-                       "restricted to fixed sample members. WDI receipts 2017-19 window has ",
-                       "many economies with only 2 observations (2017+2018) because 2019 data ",
-                       "is missing from the WDI series."))
+    kable(
+        caption = paste0(
+            "Table A4. Annual observation counts within each baseline window, ",
+            "restricted to fixed sample members. WDI receipts 2017-19 window has ",
+            "many economies with only 2 observations (2017+2018) because 2019 data ",
+            "is missing from the WDI series."
+        )
+    )
 ```
 
 ## Indicator Comparison
@@ -140,7 +214,11 @@ purrr::map_dfr(names(samples_list), function(nm) {
 #| fig-cap: "OWID visitor spending (% GDP) vs. WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts."
 #| fig-width: 7.5
 #| fig-height: 6
-knitr::include_graphics(here("output","figures","fig2_measure_comparison.png"))
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig2_measure_comparison.png"
+))
 ```
 
 The Pearson correlation between the two indicators (across economies with both) is approximately 0.77, and the Spearman rank correlation is 0.86. They produce similar rankings but material differences for some economies. The WDI receipts/exports denominator amplifies the apparent dependence of export-intensive small economies, while the OWID visitor spending/GDP denominator captures the share of overall economic activity attributable to visitors.
@@ -153,12 +231,28 @@ The Pearson correlation between the two indicators (across economies with both) 
 ```{r full-results}
 #| echo: false
 mres |>
-  mutate(`95% CI` = paste0("[",CI_lo,", ",CI_hi,"]")) |>
-  select(Model, Indicator, Window, Sample, N, Slope, `95% CI`, R2,
-         Pearson_r, Spearman_rho, p_raw, p_holm) |>
-  kable(digits=3,
-        caption=paste0("Table A5. Complete eight-model results. Holm correction applied ",
-                       "across all 8 raw p-values. No result is suppressed."))
+    mutate(`95% CI` = paste0("[", CI_lo, ", ", CI_hi, "]")) |>
+    select(
+        Model,
+        Indicator,
+        Window,
+        Sample,
+        N,
+        Slope,
+        `95% CI`,
+        R2,
+        Pearson_r,
+        Spearman_rho,
+        p_raw,
+        p_holm
+    ) |>
+    kable(
+        digits = 3,
+        caption = paste0(
+            "Table A5. Complete eight-model results. Holm correction applied ",
+            "across all 8 raw p-values. No result is suppressed."
+        )
+    )
 ```
 
 ### Four-panel figure (2015–2019 baseline)
@@ -168,7 +262,7 @@ mres |>
 #| fig-cap: "Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs)."
 #| fig-width: 13
 #| fig-height: 10
-knitr::include_graphics(here("output","figures","fig5_shock_4panel_1519.png"))
+knitr::include_graphics(here("output", "figures", "fig5_shock_4panel_1519.png"))
 ```
 
 ### Common-sample comparison
@@ -180,7 +274,11 @@ The common sample (N = 24) holds the country set constant and varies only the in
 #| fig-cap: "Common sample (N=24): OWID visitor spending vs. WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association."
 #| fig-width: 11
 #| fig-height: 5.5
-knitr::include_graphics(here("output","figures","fig6_common_sample_comparison.png"))
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig6_common_sample_comparison.png"
+))
 ```
 
 ### Influential observations
@@ -188,18 +286,23 @@ knitr::include_graphics(here("output","figures","fig6_common_sample_comparison.p
 ```{r influential}
 #| echo: false
 tibble::tribble(
-  ~Model, ~`Most influential`, ~`Cook's D`, ~`Slope (orig.)`, ~`Slope (excl.)`, ~`R² (orig.)`, ~`R² (excl.)`, ~`p (excl.)`,
-  "M1 OWID/2015-19/OWID (N=29)",    "MDV", "0.392", "-0.308", "-0.251", "0.414", "0.309", "0.002",
-  "M2 WDI/2015-19/WDI (N=35)",      "TLS", "0.287", "-0.120", "-0.141", "0.100", "0.224", "0.005",
-  "M3 OWID/2015-19/Common (N=24)",   "MDV", "0.363", "-0.331", "-0.276", "0.489", "0.389", "0.002",
-  "M4 WDI/2015-19/Common (N=24)",    "MDV", "0.339", "-0.158", "-0.116", "0.233", "0.157", "0.062",
-  "M5 OWID/2017-19/OWID (N=29)",    "MDV", "0.384", "-0.320", "-0.263", "0.428", "0.331", "0.001",
-  "M6 WDI/2017-19/WDI (N=35)",      "TLS", "0.324", "-0.116", "-0.142", "0.097", "0.234", "0.004",
-  "M7 OWID/2017-19/Common (N=24)",   "MDV", "0.362", "-0.339", "-0.284", "0.493", "0.402", "0.001",
-  "M8 WDI/2017-19/Common (N=24)",    "MDV", "0.334", "-0.160", "-0.120", "0.248", "0.173", "0.048"
-) |> kable(caption=paste0("Table A6. Most influential observation per model (Cook's D threshold = 4/N). ",
-           "MDV = Maldives; TLS = Timor-Leste. The OWID association ",
-           "survives MDV exclusion; the WDI/TLS exclusion actually strengthens M2 and M6."))
+    ~Model                          , ~`Most influential` , ~`Cook's D` , ~`Slope (orig.)` , ~`Slope (excl.)` , ~`R² (orig.)` , ~`R² (excl.)` , ~`p (excl.)` ,
+    "M1 OWID/2015-19/OWID (N=29)"   , "MDV"               , "0.392"     , "-0.308"         , "-0.251"         , "0.414"       , "0.309"       , "0.002"      ,
+    "M2 WDI/2015-19/WDI (N=35)"     , "TLS"               , "0.287"     , "-0.120"         , "-0.141"         , "0.100"       , "0.224"       , "0.005"      ,
+    "M3 OWID/2015-19/Common (N=24)" , "MDV"               , "0.363"     , "-0.331"         , "-0.276"         , "0.489"       , "0.389"       , "0.002"      ,
+    "M4 WDI/2015-19/Common (N=24)"  , "MDV"               , "0.339"     , "-0.158"         , "-0.116"         , "0.233"       , "0.157"       , "0.062"      ,
+    "M5 OWID/2017-19/OWID (N=29)"   , "MDV"               , "0.384"     , "-0.320"         , "-0.263"         , "0.428"       , "0.331"       , "0.001"      ,
+    "M6 WDI/2017-19/WDI (N=35)"     , "TLS"               , "0.324"     , "-0.116"         , "-0.142"         , "0.097"       , "0.234"       , "0.004"      ,
+    "M7 OWID/2017-19/Common (N=24)" , "MDV"               , "0.362"     , "-0.339"         , "-0.284"         , "0.493"       , "0.402"       , "0.001"      ,
+    "M8 WDI/2017-19/Common (N=24)"  , "MDV"               , "0.334"     , "-0.160"         , "-0.120"         , "0.248"       , "0.173"       , "0.048"
+) |>
+    kable(
+        caption = paste0(
+            "Table A6. Most influential observation per model (Cook's D threshold = 4/N). ",
+            "MDV = Maldives; TLS = Timor-Leste. The OWID association ",
+            "survives MDV exclusion; the WDI/TLS exclusion actually strengthens M2 and M6."
+        )
+    )
 ```
 
 **Why Timor-Leste influences M2 and M6:** Timor-Leste has moderately high WDI tourism receipts as a share of exports but experienced a modest 2020 contraction, making it a structural outlier in the WDI receipts models. Excluding it makes those models stronger, not weaker — a counter-intuitive diagnostic result worth noting.
@@ -209,10 +312,25 @@ tibble::tribble(
 ```{r sens-restricted}
 #| echo: false
 sens |>
-  select(Sensitivity, Window, Indicator, Sample, N, Slope, R2, Spearman, p_raw, Excluded) |>
-  kable(caption=paste0("Table A7. Sensitivity analysis restricted to economies with ≥3 ",
-        "annual observations in the baseline window. S5 (WDI/2017-19/WDI) drops 14 ",
-        "economies (N drops from 35 to 21) because WDI 2019 receipts data is missing for many SIDS."))
+    select(
+        Sensitivity,
+        Window,
+        Indicator,
+        Sample,
+        N,
+        Slope,
+        R2,
+        Spearman,
+        p_raw,
+        Excluded
+    ) |>
+    kable(
+        caption = paste0(
+            "Table A7. Sensitivity analysis restricted to economies with ≥3 ",
+            "annual observations in the baseline window. S5 (WDI/2017-19/WDI) drops 14 ",
+            "economies (N drops from 35 to 21) because WDI 2019 receipts data is missing for many SIDS."
+        )
+    )
 ```
 
 ## Recovery Analysis
@@ -222,10 +340,12 @@ sens |>
 ```{r recovery-coverage}
 #| echo: false
 ridx |>
-  filter(!is.na(gdp_index)) |>
-  group_by(year) |>
-  summarise(`N with real GDP` = n()) |>
-  kable(caption="Table A8. Annual count of primary shock sample economies (N ≤ 29) with real GDP data. 2025 data are preliminary estimates.")
+    filter(!is.na(gdp_index)) |>
+    group_by(year) |>
+    summarise(`N with real GDP` = n()) |>
+    kable(
+        caption = "Table A8. Annual count of primary shock sample economies (N ≤ 29) with real GDP data. 2025 data are preliminary estimates."
+    )
 ```
 
 ### Trajectories
@@ -235,7 +355,11 @@ ridx |>
 #| fig-cap: "Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size."
 #| fig-width: 9
 #| fig-height: 10
-knitr::include_graphics(here("output","figures","fig7_recovery_trajectories.png"))
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig7_recovery_trajectories.png"
+))
 ```
 
 ### Recovery status by 2024
@@ -244,34 +368,59 @@ knitr::include_graphics(here("output","figures","fig7_recovery_trajectories.png"
 #| echo: false
 # Per-capita columns are in the baseline dataset, not recovery_summary
 pcap_data <- bl |>
-  filter(in_primary_shock_sample) |>
-  mutate(
-    gdppc_idx_2024 = gdppc_real_const2015usd_2024 / gdppc_real_const2015usd_2019 * 100
-  ) |>
-  select(iso3, gdppc_idx_2024)
+    filter(in_primary_shock_sample) |>
+    mutate(
+        gdppc_idx_2024 = gdppc_real_const2015usd_2024 /
+            gdppc_real_const2015usd_2019 *
+            100
+    ) |>
+    select(iso3, gdppc_idx_2024)
 
 rsum |>
-  left_join(pcap_data, by="iso3") |>
-  select(iso3, label, sids_region, shock_2020, gdp_idx_2024, gdppc_idx_2024) |>
-  mutate(across(c(shock_2020, gdp_idx_2024, gdppc_idx_2024), ~round(., 1)),
-    agg_recovered = case_when(
-      is.na(gdp_idx_2024) ~ NA_character_,
-      gdp_idx_2024 >= 100 ~ "Yes",
-      TRUE ~ "No"
-    ),
-    pcap_recovered = case_when(
-      is.na(gdppc_idx_2024) ~ NA_character_,
-      gdppc_idx_2024 >= 100 ~ "Yes",
-      TRUE ~ "No"
-    )) |>
-  arrange(sids_region, iso3) |>
-  kable(col.names=c("ISO3","Economy","Region","2020<br>(shock)","GDP idx<br>2024","GDP/cap<br>idx 2024","Agg.<br>recovered","Per-capita<br>recovered"),
-        caption=paste0("Table A9. Aggregate and per-capita real GDP recovery indices ",
-              "(2019=100). Recovery means an index >= 100 in 2024. VIR has no 2024 data. ",
-              "21/28 recovered aggregate GDP; 20/28 recovered per-capita GDP. ",
-              "Four economies recovered aggregate but not per-capita GDP ",
-              "(ATG, PNG, SYC, VUT); three recovered per-capita but not ",
-              "aggregate GDP (CUW, MHL, TUV)."), escape=FALSE)
+    left_join(pcap_data, by = "iso3") |>
+    select(
+        iso3,
+        label,
+        sids_region,
+        shock_2020,
+        gdp_idx_2024,
+        gdppc_idx_2024
+    ) |>
+    mutate(
+        across(c(shock_2020, gdp_idx_2024, gdppc_idx_2024), ~ round(., 1)),
+        agg_recovered = case_when(
+            is.na(gdp_idx_2024) ~ NA_character_,
+            gdp_idx_2024 >= 100 ~ "Yes",
+            TRUE ~ "No"
+        ),
+        pcap_recovered = case_when(
+            is.na(gdppc_idx_2024) ~ NA_character_,
+            gdppc_idx_2024 >= 100 ~ "Yes",
+            TRUE ~ "No"
+        )
+    ) |>
+    arrange(sids_region, iso3) |>
+    kable(
+        col.names = c(
+            "ISO3",
+            "Economy",
+            "Region",
+            "2020<br>(shock)",
+            "GDP idx<br>2024",
+            "GDP/cap<br>idx 2024",
+            "Agg.<br>recovered",
+            "Per-capita<br>recovered"
+        ),
+        caption = paste0(
+            "Table A9. Aggregate and per-capita real GDP recovery indices ",
+            "(2019=100). Recovery means an index >= 100 in 2024. VIR has no 2024 data. ",
+            "21/28 recovered aggregate GDP; 20/28 recovered per-capita GDP. ",
+            "Four economies recovered aggregate but not per-capita GDP ",
+            "(ATG, PNG, SYC, VUT); three recovered per-capita but not ",
+            "aggregate GDP (CUW, MHL, TUV)."
+        ),
+        escape = FALSE
+    )
 ```
 
 ### Recovery vs. tourism dependence
@@ -281,7 +430,11 @@ rsum |>
 #| fig-cap: "Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). No statistically significant association (Pearson r = 0.21, p = 0.27, N = 28)."
 #| fig-width: 8.5
 #| fig-height: 6
-knitr::include_graphics(here("output","figures","fig8_recovery_vs_tourism.png"))
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig8_recovery_vs_tourism.png"
+))
 ```
 
 The absence of a significant association between pre-pandemic tourism dependence and the 2024 recovery index (Figure 6) does **not** mean tourism dependence was harmless or that the initial shock was inconsequential for these economies. Rather, the relationship between pre-pandemic exposure and longer-term economic recovery is not straightforward. Although tourism-dependent economies experienced particularly severe contractions in 2020, their subsequent recovery trajectories varied. By 2024, the degree of pre-pandemic tourism dependence alone did not explain which economies had regained their 2019 aggregate GDP levels.

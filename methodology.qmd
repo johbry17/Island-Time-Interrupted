@@ -17,9 +17,18 @@ execute:
 
 ```{r setup}
 #| include: false
-library(here); library(readr); library(dplyr); library(knitr)
-bl    <- read_csv(here("data","processed","baseline_shock_recovery.csv"), show_col_types=FALSE)
-cands <- read_csv(here("data","processed","candidates.csv"), show_col_types=FALSE)
+library(here)
+library(readr)
+library(dplyr)
+library(knitr)
+bl <- read_csv(
+    here("data", "processed", "baseline_shock_recovery.csv"),
+    show_col_types = FALSE
+)
+cands <- read_csv(
+    here("data", "processed", "candidates.csv"),
+    show_col_types = FALSE
+)
 ```
 
 ## Research Design
