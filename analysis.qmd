@@ -252,10 +252,10 @@ rsum |>
          recovered_by_2023) |>
   mutate(across(c(shock_2020, gdp_idx_2023, gdppc_idx_2023), ~round(., 1))) |>
   arrange(sids_region, iso3) |>
-  kable(col.names=c("ISO3","Economy","Region","2020\n(shock)","GDP idx\n2023","GDP/cap\nidx 2023","Agg.\nrecovered"),
+  kable(col.names=c("ISO3","Economy","Region","2020<br>(shock)","GDP idx<br>2023","GDP/cap<br>idx 2023","Agg.<br>recovered"),
         caption=paste0("Table A9. Aggregate real GDP and per-capita real GDP recovery indices ",
                "(2019=100). 'Agg. recovered' = GDP ≥ 100 in 2023. VIR has no 2023 data. ",
-               "19/28 recovered aggregate GDP; 17/28 recovered per-capita GDP."))
+               "19/28 recovered aggregate GDP; 17/28 recovered per-capita GDP."), escape=FALSE)
 ```
 
 ### Recovery vs. tourism dependence
@@ -268,7 +268,7 @@ rsum |>
 knitr::include_graphics(here("output","figures","fig8_recovery_vs_tourism.png"))
 ```
 
-The absence of a significant association between tourism dependence and the 2023 recovery index (Figure 8) is **not** evidence that tourism dependence is harmless or that the shock was ultimately irrelevant. It reflects the fact that the same sectors that collapsed in 2020 — international tourism and hospitality — were also the sectors that recovered as travel rebounded. Economies with high visitor spending contracted sharply in 2020 and rebounded sharply from 2021 onward, producing a near-symmetrical pattern in aggregate GDP terms.
+The absence of a significant association between tourism dependence and the 2023 recovery index (Figure 6) is **not** evidence that tourism dependence is harmless or that the shock was ultimately irrelevant. It reflects the fact that the same sectors that collapsed in 2020 — international tourism and hospitality — were also the sectors that recovered as travel rebounded. Economies with high visitor spending contracted sharply in 2020 and rebounded sharply from 2021 onward, producing a near-symmetrical pattern in aggregate GDP terms.
 
 Per-capita recovery tells a more nuanced story: 17 of 28 economies had recovered GDP per person by 2023, compared with 19 of 28 for aggregate GDP. The 2-economy gap reflects continued population growth in some Pacific economies, where total output recovered but output per person had not yet returned to 2019 levels.
 

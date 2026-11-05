@@ -1053,8 +1053,292 @@ Figure&nbsp;5: Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Li
 <h3 class="anchored" data-anchor-id="recovery-status-by-2023">Recovery status by 2023</h3>
 <div class="cell">
 <div class="cell-output-display">
-<p>Table: Table A9. Aggregate real GDP and per-capita real GDP recovery indices (2019=100). ‘Agg. recovered’ = GDP ≥ 100 in 2023. VIR has no 2023 data. 19/28 recovered aggregate GDP; 17/28 recovered per-capita GDP.</p>
-<p>|ISO3 |Economy |Region | 2020 (shock)| GDP idx 2023| GDP/cap idx 2023|Agg. recovered | |:—-|:————|:———|———–:|———–:|—————:|:————-| |COM |Comoros |AIMS | 99.8| 107.7| 99.6|TRUE | |CPV |CapeVerde |AIMS | 79.2| 102.9| 101.3|TRUE | |GNB |Guinea-B. |AIMS | 102.9| 119.2| 108.9|TRUE | |MDV |Maldives |AIMS | 67.1| 110.2| 102.2|TRUE | |MUS |Mauritius |AIMS | 85.8| 100.6| 102.0|TRUE | |SYC |Seychelles |AIMS | 88.3| 102.6| 83.6|TRUE | |ABW |Aruba |Caribbean | 76.1| 105.8| 107.6|TRUE | |ATG |Antigua |Caribbean | 81.1| 98.9| 96.8|FALSE | |BHS |Bahamas |Caribbean | 79.9| 107.4| 106.1|TRUE | |BMU |Bermuda |Caribbean | 93.0| 108.0| 107.1|TRUE | |BRB |Barbados |Caribbean | 82.6| 105.3| 104.9|TRUE | |CUB |Cuba |Caribbean | 89.1| 90.0| 91.5|FALSE | |CUW |Curacao |Caribbean | 81.6| 94.7| 96.4|FALSE | |CYM |Cayman Is. |Caribbean | 95.0| 111.4| 102.7|TRUE | |PRI |Puerto Rico |Caribbean | 95.8| 99.8| 102.8|FALSE | |SUR |Suriname |Caribbean | 84.0| 86.0| 82.8|FALSE | |SXM |Sint Maarten |Caribbean | 86.7| 107.2| 101.2|TRUE | |TTO |Trinidad |Caribbean | 91.2| 92.7| 92.4|FALSE | |VCT |St.Vincent |Caribbean | 95.7| 106.1| 109.1|TRUE | |VIR |US VI |Caribbean | 98.4| NA| NA|FALSE | |FJI |Fiji |Pacific | 82.8| 102.1| 101.1|TRUE | |KIR |Kiribati |Pacific | 98.7| 116.0| 108.5|TRUE | |MHL |Marshall Is. |Pacific | 97.2| 93.3| 105.8|FALSE | |PNG |Papua NG |Pacific | 96.8| 105.7| 97.8|TRUE | |SLB |Solomon Is. |Pacific | 96.6| 96.6| 87.9|FALSE | |TON |Tonga |Pacific | 101.8| 101.5| 102.5|TRUE | |TUV |Tuvalu |Pacific | 97.0| 89.4| 96.4|FALSE | |VUT |Vanuatu |Pacific | 94.3| 104.1| 94.9|TRUE | |WSM |Samoa |Pacific | 96.9| 108.4| 105.0|TRUE |</p>
+<table class="caption-top table table-sm table-striped small">
+<caption>Table A9. Aggregate real GDP and per-capita real GDP recovery indices (2019=100). ‘Agg. recovered’ = GDP ≥ 100 in 2023. VIR has no 2023 data. 19/28 recovered aggregate GDP; 17/28 recovered per-capita GDP.</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ISO3</th>
+<th style="text-align: left;">Economy</th>
+<th style="text-align: left;">Region</th>
+<th style="text-align: right;">2020<br>(shock)</th>
+<th style="text-align: right;">GDP idx<br>2023</th>
+<th style="text-align: right;">GDP/cap<br>idx 2023</th>
+<th style="text-align: left;">Agg.<br>recovered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">COM</td>
+<td style="text-align: left;">Comoros</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">99.8</td>
+<td style="text-align: right;">107.7</td>
+<td style="text-align: right;">99.6</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CPV</td>
+<td style="text-align: left;">CapeVerde</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">79.2</td>
+<td style="text-align: right;">102.9</td>
+<td style="text-align: right;">101.3</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GNB</td>
+<td style="text-align: left;">Guinea-B.</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">102.9</td>
+<td style="text-align: right;">119.2</td>
+<td style="text-align: right;">108.9</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MDV</td>
+<td style="text-align: left;">Maldives</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">67.1</td>
+<td style="text-align: right;">110.2</td>
+<td style="text-align: right;">102.2</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUS</td>
+<td style="text-align: left;">Mauritius</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">85.8</td>
+<td style="text-align: right;">100.6</td>
+<td style="text-align: right;">102.0</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SYC</td>
+<td style="text-align: left;">Seychelles</td>
+<td style="text-align: left;">AIMS</td>
+<td style="text-align: right;">88.3</td>
+<td style="text-align: right;">102.6</td>
+<td style="text-align: right;">83.6</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ABW</td>
+<td style="text-align: left;">Aruba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">76.1</td>
+<td style="text-align: right;">105.8</td>
+<td style="text-align: right;">107.6</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ATG</td>
+<td style="text-align: left;">Antigua</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">81.1</td>
+<td style="text-align: right;">98.9</td>
+<td style="text-align: right;">96.8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BHS</td>
+<td style="text-align: left;">Bahamas</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">79.9</td>
+<td style="text-align: right;">107.4</td>
+<td style="text-align: right;">106.1</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BMU</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">93.0</td>
+<td style="text-align: right;">108.0</td>
+<td style="text-align: right;">107.1</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRB</td>
+<td style="text-align: left;">Barbados</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">82.6</td>
+<td style="text-align: right;">105.3</td>
+<td style="text-align: right;">104.9</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CUB</td>
+<td style="text-align: left;">Cuba</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">89.1</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">91.5</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CUW</td>
+<td style="text-align: left;">Curacao</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">81.6</td>
+<td style="text-align: right;">94.7</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CYM</td>
+<td style="text-align: left;">Cayman Is.</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">102.7</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRI</td>
+<td style="text-align: left;">Puerto Rico</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.8</td>
+<td style="text-align: right;">99.8</td>
+<td style="text-align: right;">102.8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SUR</td>
+<td style="text-align: left;">Suriname</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">86.0</td>
+<td style="text-align: right;">82.8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SXM</td>
+<td style="text-align: left;">Sint Maarten</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">86.7</td>
+<td style="text-align: right;">107.2</td>
+<td style="text-align: right;">101.2</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TTO</td>
+<td style="text-align: left;">Trinidad</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">91.2</td>
+<td style="text-align: right;">92.7</td>
+<td style="text-align: right;">92.4</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VCT</td>
+<td style="text-align: left;">St.Vincent</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">95.7</td>
+<td style="text-align: right;">106.1</td>
+<td style="text-align: right;">109.1</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VIR</td>
+<td style="text-align: left;">US VI</td>
+<td style="text-align: left;">Caribbean</td>
+<td style="text-align: right;">98.4</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FJI</td>
+<td style="text-align: left;">Fiji</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">82.8</td>
+<td style="text-align: right;">102.1</td>
+<td style="text-align: right;">101.1</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KIR</td>
+<td style="text-align: left;">Kiribati</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">98.7</td>
+<td style="text-align: right;">116.0</td>
+<td style="text-align: right;">108.5</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MHL</td>
+<td style="text-align: left;">Marshall Is.</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">97.2</td>
+<td style="text-align: right;">93.3</td>
+<td style="text-align: right;">105.8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PNG</td>
+<td style="text-align: left;">Papua NG</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.8</td>
+<td style="text-align: right;">105.7</td>
+<td style="text-align: right;">97.8</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SLB</td>
+<td style="text-align: left;">Solomon Is.</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">87.9</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TON</td>
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">101.8</td>
+<td style="text-align: right;">101.5</td>
+<td style="text-align: right;">102.5</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TUV</td>
+<td style="text-align: left;">Tuvalu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">97.0</td>
+<td style="text-align: right;">89.4</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VUT</td>
+<td style="text-align: left;">Vanuatu</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">94.3</td>
+<td style="text-align: right;">104.1</td>
+<td style="text-align: right;">94.9</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WSM</td>
+<td style="text-align: left;">Samoa</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: right;">96.9</td>
+<td style="text-align: right;">108.4</td>
+<td style="text-align: right;">105.0</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
@@ -1074,7 +1358,7 @@ Figure&nbsp;6: Pre-pandemic visitor spending vs.&nbsp;2023 real GDP index (2019=
 </div>
 </div>
 </div>
-<p>The absence of a significant association between tourism dependence and the 2023 recovery index (Figure 8) is <strong>not</strong> evidence that tourism dependence is harmless or that the shock was ultimately irrelevant. It reflects the fact that the same sectors that collapsed in 2020 — international tourism and hospitality — were also the sectors that recovered as travel rebounded. Economies with high visitor spending contracted sharply in 2020 and rebounded sharply from 2021 onward, producing a near-symmetrical pattern in aggregate GDP terms.</p>
+<p>The absence of a significant association between tourism dependence and the 2023 recovery index (Figure 6) is <strong>not</strong> evidence that tourism dependence is harmless or that the shock was ultimately irrelevant. It reflects the fact that the same sectors that collapsed in 2020 — international tourism and hospitality — were also the sectors that recovered as travel rebounded. Economies with high visitor spending contracted sharply in 2020 and rebounded sharply from 2021 onward, producing a near-symmetrical pattern in aggregate GDP terms.</p>
 <p>Per-capita recovery tells a more nuanced story: 17 of 28 economies had recovered GDP per person by 2023, compared with 19 of 28 for aggregate GDP. The 2-economy gap reflects continued population growth in some Pacific economies, where total output recovered but output per person had not yet returned to 2019 levels.</p>
 <hr>
 <p><em>See <a href="./data-dictionary.html">Data Dictionary</a> for source documentation and <a href="./methodology.html">Methodology</a> for research design.</em></p>
