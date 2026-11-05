@@ -4,21 +4,17 @@
 
 *When international travel stopped, how did tourism-dependent island economies fare — and what happened next?*
 
-Small island economies built around international tourism faced an involuntary stress test in 2020. This project examines whether pre-pandemic tourism dependence predicted the severity of the 2020 economic shock across Caribbean, Pacific, and AIMS small island developing states — and then traces the recovery through the most recent available data.
 
-**The central finding:** Across 29 economies in the primary sample, each additional percentage point of visitor spending relative to GDP was associated with roughly 0.31 percentage points of additional GDP contraction in 2020 (R² ≈ 0.41, p < 0.001). The association holds across baseline windows, samples, and after excluding the most influential observation (Maldives). A second indicator — WDI tourism receipts as a share of exports — shows a weaker and less consistent signal.
-
-**The qualification:** By 2023, most economies had returned to 2019 real GDP levels. Tourism dependence was not significantly associated with the 2023 recovery index (Pearson r = 0.18, p = 0.36). The same exposure that drove the initial contraction also drove the rebound once travel resumed.
 
 ---
 
 ## Published Site
 
-> ### 🏝️ [johbry17.github.io/Island-Time-Interrupted](https://johbry17.github.io/Island-Time-Interrupted/)
+> ### 🔗 [johbry17.github.io/Island-Time-Interrupted](https://johbry17.github.io/Island-Time-Interrupted/)
 
 | Page | Content |
 |------|---------|
-| [Field Note](https://johbry17.github.io/Island-Time-Interrupted/index.html) | Narrative overview: question, findings, figures, conclusion |
+| [Overview](https://johbry17.github.io/Island-Time-Interrupted/index.html) | Narrative overview: question, findings, figures, conclusion |
 | [Analysis](https://johbry17.github.io/Island-Time-Interrupted/analysis.html) | Full technical results: all 8 models, diagnostics, recovery analysis |
 | [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/data-dictionary.html) | Sources, indicator definitions, coverage, and limitations |
 | [Methodology](https://johbry17.github.io/Island-Time-Interrupted/methodology.html) | Research design, sample construction, specifications, reproducibility |
@@ -63,9 +59,9 @@ This is an exploratory cross-sectional analysis. It documents associations; it d
 
 ### The recovery
 
-- **19 of 28** economies with 2023 data had returned to or exceeded their 2019 aggregate real GDP.
-- **17 of 28** had recovered real GDP per capita — two fewer, reflecting population dynamics: four economies (Comoros, PNG, Seychelles, Vanuatu) recovered aggregate but not per-capita; two (Marshall Islands, Puerto Rico) recovered per-capita but not aggregate.
-- Pre-pandemic tourism dependence was **not significantly associated** with the 2023 recovery index (Pearson r = 0.18, p = 0.36). Tourism-dependent economies contracted more sharply in 2020 and bounced back more strongly from 2021 — the shock and rebound share the same mechanism.
+- **21 of 28** economies with 2024 data had returned to or exceeded their 2019 aggregate real GDP.
+- **20 of 28** had recovered real GDP per capita — two fewer, reflecting population dynamics: four economies (Seychelles, Antigua & Barbuda, Papua New Guinea, Vanuatu) recovered aggregate but not per-capita; three (Curaçao, Marshall Islands, Tuvalu) recovered per-capita but not aggregate.
+- Pre-pandemic tourism dependence was **not significantly associated** with the 2024 recovery index (Pearson r = 0.21, p = 0.275). Tourism-dependent economies contracted more sharply in 2020 and bounced back more strongly from 2021 — the shock and rebound share the same mechanism.
 
 ---
 
@@ -116,7 +112,7 @@ Eight principal shock models are estimated: two indicators × two samples (full 
 | ![Coverage](output/figures/fig4_coverage_matrix.png) | Data coverage matrix across the candidate universe |
 | ![Models](output/figures/fig5_shock_4panel_1519.png) | Four-panel model comparison (2015–2019 baseline) |
 | ![Common sample](output/figures/fig6_common_sample_comparison.png) | Common-sample indicator comparison |
-| ![Recovery vs tourism](output/figures/fig8_recovery_vs_tourism.png) | 2023 recovery index vs. pre-pandemic tourism dependence |
+| ![Recovery vs tourism](output/figures/fig8_recovery_vs_tourism.png) | 2024 recovery index vs. pre-pandemic tourism dependence |
 
 ---
 
@@ -244,15 +240,17 @@ Island-Time-Interrupted/
 
 ---
 
-## Author
-
-**Bryan C. Johns**  
-Data Analyst | Portfolio: [github.com/johbry17](https://github.com/johbry17)
-
----
-
 ## License
 
 OWID data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
 World Bank WDI data: [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses#cc-by)  
 Analysis code and narrative: © Bryan C. Johns — see LICENSE file
+
+
+---
+
+## Author
+ 
+Bryan Johns, November 2026  
+[bryan.johns@informedwanderer.com](mailto:bryan.johns@informedwanderer.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://informedwanderer.com)  
+— Fluent in Data. Fluent in Human.
