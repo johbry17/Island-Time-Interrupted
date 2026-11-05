@@ -170,23 +170,23 @@ cands <- read_csv(here("data","processed","candidates.csv"), show_col_types=FALS
 
 ### `data/processed/country_coverage.csv`
 
-Coverage matrix. One row per candidate. Fields include observation counts for each indicator in the 2017–2019 window and binary sample-membership flags (`in_primary_shock_sample`, `in_receipts_shock_sample`, `in_common_sample`, `in_recovery_sample`).
+Coverage matrix. One row per candidate (58 rows). Fields include observation counts for each indicator in the 2017–2019 window and binary sample-membership flags (`in_primary_shock_sample`, `in_receipts_shock_sample`, `in_common_sample`, `in_recovery_sample`).
 
 ### `data/processed/baseline_shock_recovery.csv`
 
-One row per economy (51 economies with any WDI data). Contains: 2015–2019 and 2017–2019 baseline means and observation counts for all tourism indicators; 2015–2025 wide-format columns for economic outcomes; sample membership flags.
+One row per economy that appears in the analytical panel (57 economies). Contains: 2015–2019 and 2017–2019 baseline means and observation counts for all tourism indicators; 2015–2025 wide-format columns for economic outcomes; sample membership flags. BES is absent because it has no data in any source.
 
 ### `data/processed/analytical_panel.csv`
 
-Long-format panel, 2008–2025, 51 economies × 18 years. All WDI and OWID indicators. Used as the primary input to baseline and recovery calculations.
+Long-format, unbalanced panel. 1,707 rows; 57 economies; years 1995–2025 (coverage varies by indicator and economy). All WDI and OWID indicators are present as columns; most rows have NA for at least some indicators. This is **not a balanced panel**: not every economy has observations for every year. Used as the primary input to baseline and recovery calculations. BES is absent (no data in any source).
 
 ### `data/processed/recovery_index.csv`
 
-Long-format recovery dataset for primary shock sample (N=29), 2015–2025. Contains `gdp_index` (real GDP, 2019=100) and `gdppc_index` (real GDP per capita, 2019=100).
+Long-format recovery dataset for primary shock sample (N = 29), years 2015–2025. Contains `gdp_index` (real GDP, 2019 = 100) and `gdppc_index` (real GDP per capita, 2019 = 100). 2025 rows exist for 22 of 29 economies (preliminary estimates).
 
 ### `data/raw/worldbank/wdi_tourism_covid.csv`
 
-Raw WDI data retrieved via `wbstats::wb_data()`. Retrieved November 2026. Indicators: `ST.INT.RCPT.XP.ZS`, `NY.GDP.PCAP.CD`, `NY.GDP.MKTP.KD.ZG`, `NY.GDP.MKTP.KD`, `NY.GDP.PCAP.KD`, `SL.UEM.TOTL.ZS`. Years: 2008–2025. 51 economies (7 candidate codes not returned by WB API: AIA, GLP, MTQ, MSR, BES, COK, NIU).
+Raw WDI data retrieved via `wbstats::wb_data()`. Retrieved November 2026. Indicators: `ST.INT.RCPT.XP.ZS`, `NY.GDP.PCAP.CD`, `NY.GDP.MKTP.KD.ZG`, `NY.GDP.MKTP.KD`, `NY.GDP.PCAP.KD`, `SL.UEM.TOTL.ZS`. Years: 2008–2025. 51 economies returned (7 candidate codes not recognized by the WB API: AIA, GLP, MTQ, MSR, BES, COK, NIU).
 
 ### `data/raw/worldbank/wdi_retrieval_metadata.txt`
 
@@ -202,20 +202,8 @@ notes_df <- read_csv(here("data","processed","sids_classification_notes.csv"), s
 notes_df |> kable(caption="Table D1. SIDS universe classification notes.")
 ```
 
-### Cook Islands and Niue
-
-Both appear on the UN-OHRLLS SIDS list among the 39 listed economies. They are **sovereign states** but are **not UN General Assembly member states** — both are in free association with New Zealand. They are members of many UN specialized agencies. Neither has WDI coverage; neither appears in any analytical sample.
-
-### Bahrain
-
-Not on the current UN-OHRLLS list (November 2026). Previously appeared on some SIDS lists as an AIMS economy. Not included in the candidate universe.
-
-### Non-UN-listed economies
-
-Bonaire, Sint Eustatius and Saba (BES) is retained in the candidate universe as an "Other island economy" for regional completeness. It is not on the UN SIDS list. It has no WDI coverage and does not contribute to any analytical sample.
-
 ---
 
-*Return to the [Field Note](index.qmd) · [Technical Analysis](analysis.qmd) · [Methodology](methodology.qmd)*
+*Return to the [Overview](index.qmd) · [Technical Analysis](analysis.qmd) · [Methodology](methodology.qmd)*
 
 

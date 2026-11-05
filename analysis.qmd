@@ -34,6 +34,8 @@ mres  <- read_csv(file.path(tbl_dir,"shock_model_results.csv"),       show_col_t
 sens  <- read_csv(file.path(tbl_dir,"shock_sensitivity_restricted.csv"),show_col_types=FALSE)
 rsum  <- read_csv(file.path(tbl_dir,"recovery_summary.csv"),          show_col_types=FALSE)
 ridx  <- read_csv(file.path(processed,"recovery_index.csv"),           show_col_types=FALSE)
+
+fmt_p <- function(p) if (is.na(p)) "NA" else if (p < 0.001) "< 0.001" else formatC(p, digits=3, format="f")
 ```
 
 ## Candidate Universe and Sample Definitions
@@ -68,29 +70,31 @@ tibble::tribble(
 
 **WDI-only economies** (in WDI shock sample but not common sample): `r paste(sort(setdiff(bl$iso3[bl$in_receipts_shock_sample], bl$iso3[bl$in_common_sample])), collapse=", ")`.
 
+> **Analytical panel note.** The candidate universe contains 58 economies; the analytical panel contains data for 57. BES (Bonaire, Sint Eustatius and Saba) is the one economy present in the candidate universe but absent from the panel: it has no coverage in any OWID dataset and no World Bank API coverage, so the full join that constructs the panel produces no rows for it. The remaining six WDI-absent economies (AIA, GLP, MTQ, MSR, COK, NIU) have at least partial OWID data and therefore appear in the panel with WDI columns missing. None of the seven WDI-absent economies qualifies for any shock or recovery sample.
+
 ## Tourism Indicator Coverage
 
 ### Coverage matrix
 
 ```{r fig-coverage-matrix}
 #| echo: false
-#| fig-cap: "Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent."
+#| fig-cap: "Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial (one year); grey = absent."
 #| fig-width: 9.5
 #| fig-height: 10
 knitr::include_graphics(here("output","figures","fig4_coverage_matrix.png"))
 ```
 
-### WDI receipts publication lag
+### WDI receipts: end of series in this retrieval
 
-WDI `ST.INT.RCPT.XP.ZS` has **no observations beyond 2020** in the retrieved data. In 2019, 14 of 35 WDI sample members have no receipts observation — their 2017–2019 baseline is computed from 2017 and 2018 only. This lag distinguishes the WDI series from the OWID visitor spending series (available through 2024).
+WDI `ST.INT.RCPT.XP.ZS` has **no observations beyond 2020** in the retrieved data. This does not appear to be a simple publication lag; it likely reflects a change in UN Tourism's data dissemination approach following the pandemic. The pre-pandemic coverage is also uneven: 14 of 35 WDI sample members have no 2019 receipts observation, meaning their 2017–2019 baseline draws on 2017 and 2018 only. The OWID visitor spending series, by contrast, is available through 2024 with near-complete coverage.
 
 ```{r wdi-coverage}
 #| echo: false
 tibble::tribble(
-  ~Indicator, ~`Latest year`, ~`2019 available?`, ~`Notes`,
-  "OWID visitor spending (% GDP)", "2024", "Yes (all sample members)", "No lag; updated 2026",
-  "WDI receipts (% exports)",      "2020", "14 of 35 missing",         "~3-5 year lag; absent 2021-2023+",
-  "WDI real GDP (const. 2015 USD)","2024/2025", "Yes (all sample members)", "2025 preliminary for 22/29"
+  ~Indicator, ~`Latest year in retrieval`, ~`2019 available?`, ~`Notes`,
+  "OWID visitor spending (% GDP)", "2024",      "Yes (all sample members)", "Updated 2026",
+  "WDI receipts (% exports)",      "2020",      "21 of 35 only",            "Series ends 2020; 14/35 lack 2019 data",
+  "WDI real GDP (const. 2015 USD)","2024–2025", "Yes (all sample members)", "2025 preliminary for 22/29"
 ) |> kable(caption="Table A3. Key coverage differences between tourism indicators.")
 ```
 

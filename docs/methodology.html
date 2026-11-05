@@ -322,9 +322,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="classification-discrepancies-documented" class="level3">
 <h3 class="anchored" data-anchor-id="classification-discrepancies-documented">Classification discrepancies documented</h3>
 <ul>
-<li><strong>Cook Islands and Niue</strong>: Not UN General Assembly members. Included under “OHRLLS-listed SIDS” with an explicit note. Do not have WDI coverage.</li>
+<li><strong>Cook Islands and Niue</strong>: Not UN General Assembly members. Included under “OHRLLS-listed SIDS” with an explicit note. No WDI coverage.</li>
 <li><strong>Bahrain</strong>: Not on the current OHRLLS list. Previously appeared on some SIDS lists. Excluded.</li>
-<li><strong>BES</strong>: Dutch special municipalities. Included as “Other island economy.” No WDI coverage.</li>
+<li><strong>BES</strong>: Dutch special municipalities. Included as “Other island economy.” No WDI coverage, no OWID data. BES is the one candidate that appears in the universe but not in the analytical panel (57 economies in the panel, 58 in the universe) — because no data source produced rows for it.</li>
 </ul>
 <hr>
 </section>
@@ -357,26 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>58</td>
 </tr>
 <tr class="even">
+<td>Analytical panel</td>
+<td>Economies with ≥1 observation in any source</td>
+<td>57</td>
+</tr>
+<tr class="odd">
 <td>Tourism-data sample</td>
 <td>Any tourism indicator, 2017–2019</td>
 <td>48</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OWID shock sample</td>
 <td>OWID vspend (2017–19) + 2020 GDP growth</td>
 <td>29</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>WDI shock sample</td>
 <td>WDI receipts (2017–19) + 2020 GDP growth</td>
 <td>35</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Common sample</td>
 <td>Both indicators (2017–19) + 2020 GDP growth</td>
 <td>24</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Recovery sample</td>
 <td>OWID shock sample + real GDP (2019 + ≥1 later year)</td>
 <td>29</td>
@@ -386,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="excluded-economies-and-why" class="level3">
 <h3 class="anchored" data-anchor-id="excluded-economies-and-why">Excluded economies (and why)</h3>
-<p>Economies not in any shock sample are excluded because they lack either: - A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019). - 2020 GDP growth data.</p>
+<p>Economies not in any shock sample are excluded because they lack either: - A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, MSR, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019). - 2020 GDP growth data.</p>
 <p>Exclusion is based on data availability, not substantive selection. These economies are documented in <code>data/processed/country_coverage.csv</code>.</p>
 <hr>
 </section>
@@ -412,12 +417,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><strong>Primary (2015–2019)</strong></td>
 <td>Up to 5 years</td>
-<td>A broader baseline is less sensitive to an atypical single year; more stable estimate of structural dependence</td>
+<td>Broader window, less sensitive to a single atypical year; more stable estimate of structural dependence</td>
 </tr>
 <tr class="even">
 <td><strong>Sensitivity (2017–2019)</strong></td>
 <td>Up to 3 years</td>
-<td>Most recent pre-pandemic conditions; used for sample definition</td>
+<td>Most recent pre-pandemic conditions; used for sample-membership definition</td>
 </tr>
 </tbody>
 </table>
@@ -428,12 +433,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="baseline-construction" class="level3">
 <h3 class="anchored" data-anchor-id="baseline-construction">Baseline construction</h3>
-<p>For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary descriptive statistics (included in output tables) but are not used as primary regression inputs.</p>
-<p><strong>No imputation.</strong> Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline; this could reduce N below the fixed-sample definition only if an economy had observations in 2017–2019 but none in 2015–2016 (which does not occur in these data).</p>
+<p>For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary statistics (in output tables) but are not used as primary regression inputs.</p>
+<p><strong>No imputation.</strong> Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline.</p>
 </section>
 <section id="thin-baselines" class="level3">
 <h3 class="anchored" data-anchor-id="thin-baselines">Thin baselines</h3>
-<p>Economies with only one annual observation in the baseline window are flagged as “thin baseline” in all figures (open circles) and tables. <strong>Kiribati</strong> is the thin-baseline economy in both the OWID vspend samples (1 observation in 2015–2019 and 1 in 2017–2019). Sensitivity analyses excluding Kiribati (see sensitivity table) show minimal effect on results.</p>
+<p>Economies with only one annual observation in the baseline window are flagged as “thin baseline” in all figures (open circles) and tables. <strong>Kiribati</strong> is the thin-baseline economy in both OWID vspend samples (1 observation in both 2015–2019 and 2017–2019). Sensitivity analyses excluding Kiribati show minimal effect on results.</p>
 <hr>
 </section>
 </section>
@@ -441,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="shock-model-specification">Shock Model Specification</h2>
 <section id="outcome-variable" class="level3">
 <h3 class="anchored" data-anchor-id="outcome-variable">Outcome variable</h3>
-<p><strong>2020 annual GDP growth (%)</strong> from WDI <code>NY.GDP.MKTP.KD.ZG</code>. This is the percentage change in constant-price GDP from 2019 to 2020. It captures the aggregate economic shock of the pandemic year.</p>
-<p>Limitations of this choice: - Annual GDP growth aggregates a full calendar year. COVID-19 travel restrictions began at different times in different economies, and some may have had partial within-year recovery. - GDP growth is not the only dimension of economic harm; unemployment, poverty, and debt are not captured. - Some economies had pre-existing recessions that 2020 GDP growth conflates with the COVID shock.</p>
+<p><strong>2020 annual GDP growth (%)</strong> from WDI <code>NY.GDP.MKTP.KD.ZG</code>. This is the percentage change in constant-price GDP from 2019 to 2020.</p>
+<p>Limitations: - Annual GDP growth aggregates a full calendar year. Travel restrictions began at different times in different economies; some may have had partial within-year recovery. - GDP growth does not capture unemployment, poverty, or debt accumulation. - Some economies had pre-existing recessions that overlap with the pandemic period.</p>
 </section>
 <section id="explanatory-variable" class="level3">
 <h3 class="anchored" data-anchor-id="explanatory-variable">Explanatory variable</h3>
@@ -577,13 +582,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="world-bank-api" class="level3">
 <h3 class="anchored" data-anchor-id="world-bank-api">World Bank API</h3>
-<p>WDI data is retrieved using <code>wbstats::wb_data()</code>. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date is recorded in <code>data/raw/worldbank/wdi_retrieval_metadata.txt</code>.</p>
+<p>WDI data is retrieved using <code>wbstats::wb_data()</code>. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date and returned codes are recorded in <code>data/raw/worldbank/wdi_retrieval_metadata.txt</code>. Note that ST.INT.RCPT.XP.ZS (tourism receipts) contains no observations beyond 2020 in this retrieval; this appears to reflect a change in UN Tourism data dissemination rather than a simple publication lag, and may indicate the WDI series is no longer actively updated.</p>
 </section>
 <section id="owid-data" class="level3">
 <h3 class="anchored" data-anchor-id="owid-data">OWID data</h3>
 <p>OWID CSV files in <code>data/raw/</code> are fixed downloads from January–July 2026. They will not automatically update. To retrieve updated data, download fresh CSVs from the OWID grapher and replace the files in <code>data/raw/</code>.</p>
 <hr>
-<p><em>Return to <a href="./index.html">Field Note</a> · <a href="./analysis.html">Technical Analysis</a> · <a href="./data-dictionary.html">Data Dictionary</a></em></p>
+<p><em>Return to <a href="./index.html">Overview</a> · <a href="./analysis.html">Technical Analysis</a> · <a href="./data-dictionary.html">Data Dictionary</a></em></p>
 
 
 </section>

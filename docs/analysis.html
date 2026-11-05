@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tourism-indicator-coverage" id="toc-tourism-indicator-coverage" class="nav-link" data-scroll-target="#tourism-indicator-coverage">Tourism Indicator Coverage</a>
   <ul class="collapse">
   <li><a href="#coverage-matrix" id="toc-coverage-matrix" class="nav-link" data-scroll-target="#coverage-matrix">Coverage matrix</a></li>
-  <li><a href="#wdi-receipts-publication-lag" id="toc-wdi-receipts-publication-lag" class="nav-link" data-scroll-target="#wdi-receipts-publication-lag">WDI receipts publication lag</a></li>
+  <li><a href="#wdi-receipts-end-of-series-in-this-retrieval" id="toc-wdi-receipts-end-of-series-in-this-retrieval" class="nav-link" data-scroll-target="#wdi-receipts-end-of-series-in-this-retrieval">WDI receipts: end of series in this retrieval</a></li>
   <li><a href="#baseline-coverage-distributions" id="toc-baseline-coverage-distributions" class="nav-link" data-scroll-target="#baseline-coverage-distributions">Baseline coverage distributions</a></li>
   </ul></li>
   <li><a href="#indicator-comparison" id="toc-indicator-comparison" class="nav-link" data-scroll-target="#indicator-comparison">Indicator Comparison</a></li>
@@ -299,6 +299,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p><strong>OWID-only economies</strong> (in OWID shock sample but not common sample): BRB, CUB, PRI, TUV, VIR.</p>
 <p><strong>WDI-only economies</strong> (in WDI shock sample but not common sample): DMA, DOM, GRD, HTI, KNA, LCA, NRU, PLW, SGP, STP, TLS.</p>
+<blockquote class="blockquote">
+<p><strong>Analytical panel note.</strong> The candidate universe contains 58 economies; the analytical panel contains data for 57. BES (Bonaire, Sint Eustatius and Saba) is the one economy present in the candidate universe but absent from the panel: it has no coverage in any OWID dataset and no World Bank API coverage, so the full join that constructs the panel produces no rows for it. The remaining six WDI-absent economies (AIA, GLP, MTQ, MSR, COK, NIU) have at least partial OWID data and therefore appear in the panel with WDI columns missing. None of the seven WDI-absent economies qualifies for any shock or recovery sample.</p>
+</blockquote>
 </section>
 </section>
 <section id="tourism-indicator-coverage" class="level2">
@@ -313,30 +316,30 @@ ul.task-list li input[type="checkbox"] {
 <img src="output/figures/fig4_coverage_matrix.png" class="img-fluid figure-img" width="1824">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coverage-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent.
+Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial (one year); grey = absent.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="wdi-receipts-publication-lag" class="level3">
-<h3 class="anchored" data-anchor-id="wdi-receipts-publication-lag">WDI receipts publication lag</h3>
-<p>WDI <code>ST.INT.RCPT.XP.ZS</code> has <strong>no observations beyond 2020</strong> in the retrieved data. In 2019, 14 of 35 WDI sample members have no receipts observation — their 2017–2019 baseline is computed from 2017 and 2018 only. This lag distinguishes the WDI series from the OWID visitor spending series (available through 2024).</p>
+<section id="wdi-receipts-end-of-series-in-this-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="wdi-receipts-end-of-series-in-this-retrieval">WDI receipts: end of series in this retrieval</h3>
+<p>WDI <code>ST.INT.RCPT.XP.ZS</code> has <strong>no observations beyond 2020</strong> in the retrieved data. This does not appear to be a simple publication lag; it likely reflects a change in UN Tourism’s data dissemination approach following the pandemic. The pre-pandemic coverage is also uneven: 14 of 35 WDI sample members have no 2019 receipts observation, meaning their 2017–2019 baseline draws on 2017 and 2018 only. The OWID visitor spending series, by contrast, is available through 2024 with near-complete coverage.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Table A3. Key coverage differences between tourism indicators.</caption>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 11%">
-<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
 <col style="width: 32%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Indicator</th>
-<th style="text-align: left;">Latest year</th>
+<th style="text-align: left;">Latest year in retrieval</th>
 <th style="text-align: left;">2019 available?</th>
 <th style="text-align: left;">Notes</th>
 </tr>
@@ -346,17 +349,17 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <td style="text-align: left;">OWID visitor spending (% GDP)</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">Yes (all sample members)</td>
-<td style="text-align: left;">No lag; updated 2026</td>
+<td style="text-align: left;">Updated 2026</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WDI receipts (% exports)</td>
 <td style="text-align: left;">2020</td>
-<td style="text-align: left;">14 of 35 missing</td>
-<td style="text-align: left;">~3-5 year lag; absent 2021-2023+</td>
+<td style="text-align: left;">21 of 35 only</td>
+<td style="text-align: left;">Series ends 2020; 14/35 lack 2019 data</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WDI real GDP (const. 2015 USD)</td>
-<td style="text-align: left;">2024/2025</td>
+<td style="text-align: left;">2024–2025</td>
 <td style="text-align: left;">Yes (all sample members)</td>
 <td style="text-align: left;">2025 preliminary for 22/29</td>
 </tr>

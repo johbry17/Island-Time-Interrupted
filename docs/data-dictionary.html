@@ -162,12 +162,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#datarawworldbankwdi_tourism_covid.csv" id="toc-datarawworldbankwdi_tourism_covid.csv" class="nav-link" data-scroll-target="#datarawworldbankwdi_tourism_covid.csv"><code>data/raw/worldbank/wdi_tourism_covid.csv</code></a></li>
   <li><a href="#datarawworldbankwdi_retrieval_metadata.txt" id="toc-datarawworldbankwdi_retrieval_metadata.txt" class="nav-link" data-scroll-target="#datarawworldbankwdi_retrieval_metadata.txt"><code>data/raw/worldbank/wdi_retrieval_metadata.txt</code></a></li>
   </ul></li>
-  <li><a href="#sids-classification" id="toc-sids-classification" class="nav-link" data-scroll-target="#sids-classification">SIDS Classification</a>
-  <ul class="collapse">
-  <li><a href="#cook-islands-and-niue" id="toc-cook-islands-and-niue" class="nav-link" data-scroll-target="#cook-islands-and-niue">Cook Islands and Niue</a></li>
-  <li><a href="#bahrain" id="toc-bahrain" class="nav-link" data-scroll-target="#bahrain">Bahrain</a></li>
-  <li><a href="#non-un-listed-economies" id="toc-non-un-listed-economies" class="nav-link" data-scroll-target="#non-un-listed-economies">Non-UN-listed economies</a></li>
-  </ul></li>
+  <li><a href="#sids-classification" id="toc-sids-classification" class="nav-link" data-scroll-target="#sids-classification">SIDS Classification</a></li>
   </ul>
 </nav>
     </div>
@@ -632,23 +627,23 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dataprocessedcountry_coverage.csv" class="level3">
 <h3 class="anchored" data-anchor-id="dataprocessedcountry_coverage.csv"><code>data/processed/country_coverage.csv</code></h3>
-<p>Coverage matrix. One row per candidate. Fields include observation counts for each indicator in the 2017–2019 window and binary sample-membership flags (<code>in_primary_shock_sample</code>, <code>in_receipts_shock_sample</code>, <code>in_common_sample</code>, <code>in_recovery_sample</code>).</p>
+<p>Coverage matrix. One row per candidate (58 rows). Fields include observation counts for each indicator in the 2017–2019 window and binary sample-membership flags (<code>in_primary_shock_sample</code>, <code>in_receipts_shock_sample</code>, <code>in_common_sample</code>, <code>in_recovery_sample</code>).</p>
 </section>
 <section id="dataprocessedbaseline_shock_recovery.csv" class="level3">
 <h3 class="anchored" data-anchor-id="dataprocessedbaseline_shock_recovery.csv"><code>data/processed/baseline_shock_recovery.csv</code></h3>
-<p>One row per economy (51 economies with any WDI data). Contains: 2015–2019 and 2017–2019 baseline means and observation counts for all tourism indicators; 2015–2025 wide-format columns for economic outcomes; sample membership flags.</p>
+<p>One row per economy that appears in the analytical panel (57 economies). Contains: 2015–2019 and 2017–2019 baseline means and observation counts for all tourism indicators; 2015–2025 wide-format columns for economic outcomes; sample membership flags. BES is absent because it has no data in any source.</p>
 </section>
 <section id="dataprocessedanalytical_panel.csv" class="level3">
 <h3 class="anchored" data-anchor-id="dataprocessedanalytical_panel.csv"><code>data/processed/analytical_panel.csv</code></h3>
-<p>Long-format panel, 2008–2025, 51 economies × 18 years. All WDI and OWID indicators. Used as the primary input to baseline and recovery calculations.</p>
+<p>Long-format, unbalanced panel. 1,707 rows; 57 economies; years 1995–2025 (coverage varies by indicator and economy). All WDI and OWID indicators are present as columns; most rows have NA for at least some indicators. This is <strong>not a balanced panel</strong>: not every economy has observations for every year. Used as the primary input to baseline and recovery calculations. BES is absent (no data in any source).</p>
 </section>
 <section id="dataprocessedrecovery_index.csv" class="level3">
 <h3 class="anchored" data-anchor-id="dataprocessedrecovery_index.csv"><code>data/processed/recovery_index.csv</code></h3>
-<p>Long-format recovery dataset for primary shock sample (N=29), 2015–2025. Contains <code>gdp_index</code> (real GDP, 2019=100) and <code>gdppc_index</code> (real GDP per capita, 2019=100).</p>
+<p>Long-format recovery dataset for primary shock sample (N = 29), years 2015–2025. Contains <code>gdp_index</code> (real GDP, 2019 = 100) and <code>gdppc_index</code> (real GDP per capita, 2019 = 100). 2025 rows exist for 22 of 29 economies (preliminary estimates).</p>
 </section>
 <section id="datarawworldbankwdi_tourism_covid.csv" class="level3">
 <h3 class="anchored" data-anchor-id="datarawworldbankwdi_tourism_covid.csv"><code>data/raw/worldbank/wdi_tourism_covid.csv</code></h3>
-<p>Raw WDI data retrieved via <code>wbstats::wb_data()</code>. Retrieved November 2026. Indicators: <code>ST.INT.RCPT.XP.ZS</code>, <code>NY.GDP.PCAP.CD</code>, <code>NY.GDP.MKTP.KD.ZG</code>, <code>NY.GDP.MKTP.KD</code>, <code>NY.GDP.PCAP.KD</code>, <code>SL.UEM.TOTL.ZS</code>. Years: 2008–2025. 51 economies (7 candidate codes not returned by WB API: AIA, GLP, MTQ, MSR, BES, COK, NIU).</p>
+<p>Raw WDI data retrieved via <code>wbstats::wb_data()</code>. Retrieved November 2026. Indicators: <code>ST.INT.RCPT.XP.ZS</code>, <code>NY.GDP.PCAP.CD</code>, <code>NY.GDP.MKTP.KD.ZG</code>, <code>NY.GDP.MKTP.KD</code>, <code>NY.GDP.PCAP.KD</code>, <code>SL.UEM.TOTL.ZS</code>. Years: 2008–2025. 51 economies returned (7 candidate codes not recognized by the WB API: AIA, GLP, MTQ, MSR, BES, COK, NIU).</p>
 </section>
 <section id="datarawworldbankwdi_retrieval_metadata.txt" class="level3">
 <h3 class="anchored" data-anchor-id="datarawworldbankwdi_retrieval_metadata.txt"><code>data/raw/worldbank/wdi_retrieval_metadata.txt</code></h3>
@@ -678,14 +673,6 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">UN-OHRLLS lists 39 economies under Small Island Developing States. Of these, 37 are UN General Assembly member states; Cook Islands and Niue are sovereign states in free association with New Zealand and are not UNGA members but ARE included on the SIDS list.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Cook Islands (COK)</td>
-<td style="text-align: left;">Sovereign state in free association with NZ. Member of many UN specialized agencies (WHO, UNICEF, FAO, etc.). Not a UN General Assembly member. Included on UN-OHRLLS SIDS list. Not in WDI database.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Niue (NIU)</td>
-<td style="text-align: left;">Sovereign state in free association with NZ. Member of some UN specialized agencies. Not a UN General Assembly member. Included on UN-OHRLLS SIDS list. Not in WDI database.</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Bahrain (BHR)</td>
 <td style="text-align: left;">Was previously on some UN SIDS lists as an AIMS economy. As of the current UN-OHRLLS list (retrieved November 2026), Bahrain is not listed as a SIDS. Not included in the candidate universe.</td>
 </tr>
@@ -695,7 +682,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">BES</td>
-<td style="text-align: left;">Bonaire, Sint Eustatius and Saba are Dutch special municipalities. Not on the UN-OHRLLS list. Retained in the candidate universe as an other island economy for regional completeness.</td>
+<td style="text-align: left;">Bonaire, Sint Eustatius and Saba are Dutch special municipalities. Not on the UN-OHRLLS list. Retained in the candidate universe as an other island economy for regional completeness. No WDI coverage and does not contribute to any analytical sample.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Data authority</td>
@@ -705,22 +692,10 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-<section id="cook-islands-and-niue" class="level3">
-<h3 class="anchored" data-anchor-id="cook-islands-and-niue">Cook Islands and Niue</h3>
-<p>Both appear on the UN-OHRLLS SIDS list among the 39 listed economies. They are <strong>sovereign states</strong> but are <strong>not UN General Assembly member states</strong> — both are in free association with New Zealand. They are members of many UN specialized agencies. Neither has WDI coverage; neither appears in any analytical sample.</p>
-</section>
-<section id="bahrain" class="level3">
-<h3 class="anchored" data-anchor-id="bahrain">Bahrain</h3>
-<p>Not on the current UN-OHRLLS list (November 2026). Previously appeared on some SIDS lists as an AIMS economy. Not included in the candidate universe.</p>
-</section>
-<section id="non-un-listed-economies" class="level3">
-<h3 class="anchored" data-anchor-id="non-un-listed-economies">Non-UN-listed economies</h3>
-<p>Bonaire, Sint Eustatius and Saba (BES) is retained in the candidate universe as an “Other island economy” for regional completeness. It is not on the UN SIDS list. It has no WDI coverage and does not contribute to any analytical sample.</p>
 <hr>
-<p><em>Return to the <a href="./index.html">Field Note</a> · <a href="./analysis.html">Technical Analysis</a> · <a href="./methodology.html">Methodology</a></em></p>
+<p><em>Return to the <a href="./index.html">Overview</a> · <a href="./analysis.html">Technical Analysis</a> · <a href="./methodology.html">Methodology</a></em></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

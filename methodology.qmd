@@ -55,9 +55,9 @@ The candidate universe was constructed from the **UN Office of the High Represen
 
 ### Classification discrepancies documented
 
-- **Cook Islands and Niue**: Not UN General Assembly members. Included under "OHRLLS-listed SIDS" with an explicit note. Do not have WDI coverage.
+- **Cook Islands and Niue**: Not UN General Assembly members. Included under "OHRLLS-listed SIDS" with an explicit note. No WDI coverage.
 - **Bahrain**: Not on the current OHRLLS list. Previously appeared on some SIDS lists. Excluded.
-- **BES**: Dutch special municipalities. Included as "Other island economy." No WDI coverage.
+- **BES**: Dutch special municipalities. Included as "Other island economy." No WDI coverage, no OWID data. BES is the one candidate that appears in the universe but not in the analytical panel (57 economies in the panel, 58 in the universe) — because no data source produced rows for it.
 
 ---
 
@@ -72,6 +72,7 @@ Sample membership is determined by **2017–2019 indicator availability plus 202
 | Sample | Criterion | N |
 |--------|-----------|---|
 | Candidate universe | All 58 economies | 58 |
+| Analytical panel | Economies with ≥1 observation in any source | 57 |
 | Tourism-data sample | Any tourism indicator, 2017–2019 | `r sum(bl$in_tourism_data_sample, na.rm=TRUE)` |
 | OWID shock sample | OWID vspend (2017–19) + 2020 GDP growth | `r sum(bl$in_primary_shock_sample, na.rm=TRUE)` |
 | WDI shock sample | WDI receipts (2017–19) + 2020 GDP growth | `r sum(bl$in_receipts_shock_sample, na.rm=TRUE)` |
@@ -81,7 +82,7 @@ Sample membership is determined by **2017–2019 indicator availability plus 202
 ### Excluded economies (and why)
 
 Economies not in any shock sample are excluded because they lack either:
-- A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019).
+- A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, MSR, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019).
 - 2020 GDP growth data.
 
 Exclusion is based on data availability, not substantive selection. These economies are documented in `data/processed/country_coverage.csv`.
@@ -94,8 +95,8 @@ Exclusion is based on data availability, not substantive selection. These econom
 
 | Window | Years | Rationale |
 |--------|-------|-----------|
-| **Primary (2015–2019)** | Up to 5 years | A broader baseline is less sensitive to an atypical single year; more stable estimate of structural dependence |
-| **Sensitivity (2017–2019)** | Up to 3 years | Most recent pre-pandemic conditions; used for sample definition |
+| **Primary (2015–2019)** | Up to 5 years | Broader window, less sensitive to a single atypical year; more stable estimate of structural dependence |
+| **Sensitivity (2017–2019)** | Up to 3 years | Most recent pre-pandemic conditions; used for sample-membership definition |
 
 ### Transparency about window selection
 
@@ -103,13 +104,13 @@ Exclusion is based on data availability, not substantive selection. These econom
 
 ### Baseline construction
 
-For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary descriptive statistics (included in output tables) but are not used as primary regression inputs.
+For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary statistics (in output tables) but are not used as primary regression inputs.
 
-**No imputation.** Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline; this could reduce N below the fixed-sample definition only if an economy had observations in 2017–2019 but none in 2015–2016 (which does not occur in these data).
+**No imputation.** Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline.
 
 ### Thin baselines
 
-Economies with only one annual observation in the baseline window are flagged as "thin baseline" in all figures (open circles) and tables. **Kiribati** is the thin-baseline economy in both the OWID vspend samples (1 observation in 2015–2019 and 1 in 2017–2019). Sensitivity analyses excluding Kiribati (see sensitivity table) show minimal effect on results.
+Economies with only one annual observation in the baseline window are flagged as "thin baseline" in all figures (open circles) and tables. **Kiribati** is the thin-baseline economy in both OWID vspend samples (1 observation in both 2015–2019 and 2017–2019). Sensitivity analyses excluding Kiribati show minimal effect on results.
 
 ---
 
@@ -117,12 +118,12 @@ Economies with only one annual observation in the baseline window are flagged as
 
 ### Outcome variable
 
-**2020 annual GDP growth (%)** from WDI `NY.GDP.MKTP.KD.ZG`. This is the percentage change in constant-price GDP from 2019 to 2020. It captures the aggregate economic shock of the pandemic year.
+**2020 annual GDP growth (%)** from WDI `NY.GDP.MKTP.KD.ZG`. This is the percentage change in constant-price GDP from 2019 to 2020.
 
-Limitations of this choice:
-- Annual GDP growth aggregates a full calendar year. COVID-19 travel restrictions began at different times in different economies, and some may have had partial within-year recovery.
-- GDP growth is not the only dimension of economic harm; unemployment, poverty, and debt are not captured.
-- Some economies had pre-existing recessions that 2020 GDP growth conflates with the COVID shock.
+Limitations:
+- Annual GDP growth aggregates a full calendar year. Travel restrictions began at different times in different economies; some may have had partial within-year recovery.
+- GDP growth does not capture unemployment, poverty, or debt accumulation.
+- Some economies had pre-existing recessions that overlap with the pandemic period.
 
 ### Explanatory variable
 
@@ -228,7 +229,7 @@ This renders all four pages to `docs/`. The site is published from `docs/` on th
 
 ### World Bank API
 
-WDI data is retrieved using `wbstats::wb_data()`. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date is recorded in `data/raw/worldbank/wdi_retrieval_metadata.txt`.
+WDI data is retrieved using `wbstats::wb_data()`. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date and returned codes are recorded in `data/raw/worldbank/wdi_retrieval_metadata.txt`. Note that ST.INT.RCPT.XP.ZS (tourism receipts) contains no observations beyond 2020 in this retrieval; this appears to reflect a change in UN Tourism data dissemination rather than a simple publication lag, and may indicate the WDI series is no longer actively updated.
 
 ### OWID data
 
@@ -236,5 +237,6 @@ OWID CSV files in `data/raw/` are fixed downloads from January–July 2026. They
 
 ---
 
-*Return to [Field Note](index.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*
+*Return to [Overview](index.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*
+
 
