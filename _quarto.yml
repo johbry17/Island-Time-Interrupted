@@ -15,13 +15,13 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Field Note"
+        text: "Overview"
       - href: analysis.qmd
         text: "Analysis"
       - href: data-dictionary.qmd
         text: "Data"
       - href: methodology.qmd
-        text: "Methodology"
+        text: "Methods"
     right:
       - icon: github
         href: https://github.com/johbry17/Island-Time-Interrupted
@@ -30,6 +30,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    respect-user-color-scheme: true
     toc: true
     toc-depth: 3
     number-sections: false
