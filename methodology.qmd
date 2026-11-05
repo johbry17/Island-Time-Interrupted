@@ -48,14 +48,14 @@ The candidate universe was constructed from the **UN Office of the High Represen
 
 | Category | Definition | N |
 |----------|-----------|---|
-| UN Member SIDS | Sovereign states formally listed as SIDS by UN-OHRLLS. Includes Cook Islands and Niue, which are sovereign states in free association with New Zealand and are not UN General Assembly members but appear on the SIDS list. | 39 |
+| OHRLLS-listed SIDS | Sovereign states formally listed as SIDS by UN-OHRLLS. Includes Cook Islands and Niue, which are sovereign states in free association with New Zealand and are not UN General Assembly members but appear on the SIDS list. | 39 |
 | Associate Member SIDS | Associate members of UN Regional Commissions included in the SIDS group; mostly non-sovereign territories | 18 |
 | Other island economy | BES (Bonaire, Sint Eustatius and Saba), retained for regional completeness; not on the UN SIDS list | 1 |
 | **Total candidate universe** | | **58** |
 
 ### Classification discrepancies documented
 
-- **Cook Islands and Niue**: Not UN General Assembly members. Included under "UN Member SIDS" with an explicit note. Do not have WDI coverage.
+- **Cook Islands and Niue**: Not UN General Assembly members. Included under "OHRLLS-listed SIDS" with an explicit note. Do not have WDI coverage.
 - **Bahrain**: Not on the current OHRLLS list. Previously appeared on some SIDS lists. Excluded.
 - **BES**: Dutch special municipalities. Included as "Other island economy." No WDI coverage.
 
@@ -237,3 +237,4 @@ OWID CSV files in `data/raw/` are fixed downloads from January–July 2026. They
 ---
 
 *Return to [Field Note](index.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*
+

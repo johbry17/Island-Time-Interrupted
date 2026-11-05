@@ -58,10 +58,11 @@ arr_2020_cover <- arrivals |>
   summarise(owid_arrivals_2020 = 1L, .groups = "drop")
 
 # -- WDI tourism receipts 2017-2019 -- complementary measure
-# NOTE: WDI ST.INT.RCPT.XP.ZS has a significant publication lag.
-# As of 2026, data is available only through approximately 2020; many
-# economies lack 2019 data. The 2017-2019 n therefore includes countries
-# with 2017 and 2018 data only.
+# NOTE: WDI ST.INT.RCPT.XP.ZS contains no observations beyond 2020 in this
+# retrieval. This may reflect a change in UN Tourism's data dissemination
+# approach following the pandemic, rather than a simple publication lag.
+# Many economies lack 2019 data; their 2017-2019 baseline uses 2017 and 2018 only.
+# See the Data Dictionary for documentation of this limitation.
 wb_receipts_cover <- wb |>
   filter(year %in% 2017:2019, !is.na(tourism_receipts_pct_exports)) |>
   group_by(iso3) |>
@@ -126,8 +127,21 @@ coverage <- base |>
 
     has_gdpgrowth_2020    = wb_gdpgrowth_2020 == 1,
 
-    has_real_gdp_recovery   = wb_gdpreal_n_req >= 2,
-    has_real_gdppc_recovery = wb_gdppcreal_n_req >= 2,
+    # Recovery sample: primary shock-eligible + 2019 real GDP baseline +
+    # at least one later comparison year (2020, 2022, or 2023) in real GDP.
+    # Explicitly requiring 2019 ensures the index can be computed.
+    has_real_gdp_recovery = {
+      has_2019 <- wb |>
+        filter(year == 2019, !is.na(gdp_real_const2015usd)) |>
+        pull(iso3)
+      iso3 %in% has_2019 & wb_gdpreal_n_req >= 2
+    },
+    has_real_gdppc_recovery = {
+      has_2019_pc <- wb |>
+        filter(year == 2019, !is.na(gdppc_real_const2015usd)) |>
+        pull(iso3)
+      iso3 %in% has_2019_pc & wb_gdppcreal_n_req >= 2
+    },
 
     # Sample definitions (based on 2017-2019 availability + 2020 GDP growth)
     in_tourism_data_sample   = has_any_tourism,
@@ -181,9 +195,37 @@ owid_panel <- tgdp |>
   ) |>
   filter(iso3 %in% candidates$iso3)
 
-analytical <- wb_panel |>
-  left_join(owid_panel, by = c("iso3", "year")) |>
+# Full join: preserves all economy-year records from both WDI and OWID sources.
+# Seven candidate economies (AIA, GLP, MTQ, MSR, BES, COK, NIU) are not in the
+# World Bank API and therefore have no WDI rows; a left_join from wb_panel would
+# silently drop their OWID observations. Using full_join followed by a coalesce
+# of metadata ensures all 58 candidate economies appear, with NA for any WDI
+# variables that are unavailable. Note: these 7 economies lack 2020 GDP growth
+# data and therefore cannot qualify for any analytical (shock) sample —
+# the join correction does not change any model results.
+analytical_raw <- wb_panel |>
+  full_join(owid_panel, by = c("iso3", "year"))
+
+# Coalesce metadata for economies present only in OWID (not in wb_panel)
+cand_meta <- select(candidates, iso3, country, sids_region, sids_status, political_status)
+
+analytical <- analytical_raw |>
+  left_join(cand_meta, by = "iso3", suffix = c("", "_cand")) |>
+  mutate(
+    country          = coalesce(country,          country_cand),
+    sids_region      = coalesce(sids_region,      sids_region_cand),
+    sids_status      = coalesce(sids_status,      sids_status_cand),
+    political_status = coalesce(political_status, political_status_cand)
+  ) |>
+  select(-ends_with("_cand")) |>
   arrange(iso3, year)
+
+# Verify: check for duplicate economy-year keys
+dup_check <- analytical |> group_by(iso3, year) |> filter(n() > 1)
+if (nrow(dup_check) > 0) {
+  stop("Duplicate iso3-year keys found in analytical panel: ",
+       paste(unique(dup_check$iso3), collapse = ", "))
+}
 
 write_csv(analytical, file.path(processed, "analytical_panel.csv"))
 message("Analytical panel saved: ", nrow(analytical), " rows, ",

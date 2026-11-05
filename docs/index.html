@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tourism-dependence-who-was-most-exposed" class="level2">
 <h2 class="anchored" data-anchor-id="tourism-dependence-who-was-most-exposed">Tourism Dependence: Who Was Most Exposed?</h2>
 <p>International visitor spending — the money foreign tourists spend in a destination country, measured relative to the size of that economy — varies enormously across the SIDS universe.</p>
-<p>At the top of the dependence ladder sit economies where the entire economic structure revolves around visitors: the Maldives, Aruba, Bermuda, the Cayman Islands, Sint Maarten, Seychelles, and Antigua and Barbuda all had pre-pandemic visitor spending exceeding 20 percent of GDP. For some, it exceeded 40 or 60 percent.</p>
+<p>At the top of the dependence ladder sit economies where the entire economic structure revolves around visitors: the Maldives, Aruba, Sint Maarten, Seychelles, and Antigua and Barbuda all had pre-pandemic visitor spending exceeding 40 percent of GDP.</p>
 <p>At the other end are economies where other sectors dominate: Guinea-Bissau, Suriname, Kiribati, Papua New Guinea, Trinidad and Tobago, and Cuba.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -238,11 +238,11 @@ Figure&nbsp;2: Pre-pandemic visitor spending (2015–2019 avg.) vs.&nbsp;2020 GD
 </section>
 <section id="the-maldives" class="level3">
 <h3 class="anchored" data-anchor-id="the-maldives">The Maldives</h3>
-<p>The Maldives is the most influential single observation. With visitor spending near 70% of GDP before the pandemic and a GDP contraction of approximately 33% in 2020, the Maldives sits far to the right and far below the horizontal zero line. Excluding it reduces R² from approximately 0.49 to 0.39, but the direction and statistical significance of the association remain intact. The story does not hinge on the Maldives — it is consistent with the broader pattern.</p>
+<p>The Maldives is the most influential single observation. With visitor spending approximately 59% of GDP (2015–2019 average) before the pandemic and a GDP contraction of approximately 33% in 2020, the Maldives sits far to the right and far below the horizontal zero line. Excluding it reduces R² from approximately 0.41 to 0.31, but the direction and statistical significance of the association remain intact. The story does not hinge on the Maldives — it is consistent with the broader pattern.</p>
 </section>
 <section id="a-note-on-the-complementary-indicator" class="level3">
 <h3 class="anchored" data-anchor-id="a-note-on-the-complementary-indicator">A note on the complementary indicator</h3>
-<p>A second measure of tourism dependence — WDI international tourism receipts as a share of total exports (<code>ST.INT.RCPT.XP.ZS</code>) — produces weaker results in the full indicator-specific sample (R² = 0.10, p = 0.06) but a moderate association on the common sample (R² = 0.23, p = 0.02). The two indicators measure related but conceptually distinct things: one divides tourism receipts by total GDP, the other by total exports of goods and services. The WDI receipts series also has a substantial publication lag and lacks data beyond 2020, limiting its value for ongoing monitoring. See the <a href="./analysis.html">Analysis</a> and <a href="./data-dictionary.html">Data Dictionary</a> pages for full indicator comparisons.</p>
+<p>A second measure of tourism dependence — WDI international tourism receipts as a share of total exports (<code>ST.INT.RCPT.XP.ZS</code>) — produces weaker results in the full indicator-specific sample (R² = 0.10, p = 0.06) but a moderate association on the common sample (R² = 0.23, p = 0.02). The two indicators measure related but conceptually distinct things: one divides tourism receipts by total GDP, the other by total exports of goods and services. The WDI receipts series contains no observations beyond 2020 in the current retrieval, likely reflecting a change in UN Tourism data dissemination rather than a simple publication lag, which limits its use for post-pandemic tracking. See the <a href="./analysis.html">Analysis</a> and <a href="./data-dictionary.html">Data Dictionary</a> pages for full indicator comparisons.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -276,10 +276,15 @@ Figure&nbsp;3: Real GDP trajectories, 2015–2025. Index: 2019 = 100. Each line 
 </div>
 </div>
 <p>By 2023, <strong>19 of 28 economies</strong> with available data had returned to or exceeded their 2019 aggregate real GDP level. Most of the Caribbean and AIMS economies recovered relatively quickly; Pacific economies were more mixed.</p>
-<p>However, aggregate GDP recovery and per-capita recovery are not the same thing. Because populations in some economies continued growing, a return to 2019 total GDP does not necessarily mean a return to 2019 GDP per person. When measured by real GDP per capita, the count of recovered economies by 2023 drops to <strong>17 of 28</strong> — two economies had restored their total GDP but not their per-person economic output.</p>
+<p>However, aggregate GDP recovery and per-capita recovery are not the same thing. When measured by real GDP per capita, the count of recovered economies by 2023 is <strong>17 of 28</strong> — two fewer than the aggregate count. The gap runs in both directions:</p>
+<ul>
+<li><strong>Four economies</strong> (Comoros, Papua New Guinea, Seychelles, and Vanuatu) had restored their aggregate GDP to 2019 levels by 2023 but had not restored GDP per capita — because population growth in those economies outpaced economic growth.</li>
+<li><strong>Two economies</strong> (Marshall Islands and Puerto Rico) show the opposite: their GDP per capita had recovered, but aggregate GDP had not — consistent with net population decline in both cases. Puerto Rico’s aggregate index in 2023 was approximately 99.8, just below the threshold; its per-capita index was approximately 103.</li>
+</ul>
+<p>These distinctions matter. Aggregate and per-capita recovery are not interchangeable, and the direction of the gap varies by economy.</p>
 <section id="the-non-recovery-economies" class="level3">
 <h3 class="anchored" data-anchor-id="the-non-recovery-economies">The non-recovery economies</h3>
-<p>Nine economies had not recovered to 2019 aggregate real GDP by 2023: Cuba (index ≈ 90), Curaçao (95), Suriname (86), Trinidad and Tobago (93), Tuvalu (89), Marshall Islands (93), Solomon Islands (97), Antigua and Barbuda (99), and Puerto Rico (100 — right at the threshold, effectively flat). For several of these, the challenge preceded or extended well beyond COVID-19.</p>
+<p>Nine economies had not recovered to 2019 aggregate real GDP by 2023: Cuba (index ≈ 90), Curaçao (95), Suriname (86), Trinidad and Tobago (93), Tuvalu (89), Marshall Islands (93), Solomon Islands (97), Antigua and Barbuda (99), and Puerto Rico (99.8 — ). For several of these, the challenge preceded or extended well beyond COVID-19.</p>
 </section>
 <section id="tourism-dependence-and-recovery-no-simple-second-act" class="level3">
 <h3 class="anchored" data-anchor-id="tourism-dependence-and-recovery-no-simple-second-act">Tourism dependence and recovery: no simple second act</h3>

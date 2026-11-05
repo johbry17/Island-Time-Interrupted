@@ -119,14 +119,14 @@ fig1_data <- baseline |>
 
 caption_fig1 <- paste0(
   "Source: OWID / UN Tourism. International visitor spending as % of GDP; ",
-  "2017\u20132019 mean of available years. Open circles: thin baseline (1 obs only)."
+  "2015\u20132019 mean (primary baseline). Open circles: thin baseline (1 obs only)."
 )
 
 p1 <- ggplot(fig1_data,
-             aes(x = vspend_mean_1719, y = label,
+             aes(x = vspend_mean_1519, y = label,
                  color = sids_region, alpha = thin_flag)) +
   geom_vline(xintercept = 0, color = "grey80", linewidth = 0.4) +
-  geom_segment(aes(x = 0, xend = vspend_mean_1719, yend = label),
+  geom_segment(aes(x = 0, xend = vspend_mean_1519, yend = label),
                linewidth = 0.5) +
   geom_point(size = 2.8) +
   scale_color_manual(values = pal_region, name = "Region") +
@@ -135,7 +135,7 @@ p1 <- ggplot(fig1_data,
   scale_x_continuous(labels = label_number(suffix = "%"),
                      expand = expansion(mult = c(0, 0.04))) +
   labs(
-    title    = "International Visitor Spending as a Share of GDP, 2017\u20132019",
+    title    = "International Visitor Spending as a Share of GDP, 2015\u20132019",
     x        = "International visitor spending (% of GDP)",
     y        = NULL,
     caption  = caption_fig1

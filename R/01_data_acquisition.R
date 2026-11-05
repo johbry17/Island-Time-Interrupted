@@ -24,20 +24,23 @@ dir.create(processed, showWarnings = FALSE, recursive = TRUE)
 # ---------------------------------------------------------------------------
 # Candidate universe
 # ---------------------------------------------------------------------------
-# 58 economies: all UN Member SIDS (39) + Associate Members of UN Regional
-# Commissions (18) + one non-listed island economy (BES).
+# 58 economies: all OHRLLS-listed SIDS (39) + Associate Members of UN Regional
+# Commissions included in the SIDS group (18) + one non-listed island economy (BES).
 # Authority: UN-OHRLLS list of SIDS, retrieved November 2026.
 # https://www.un.org/ohrlls/content/list-sids
 #
 # sids_status:
-#   "UN Member SIDS"       — UN member states formally recognised as SIDS
+#   "OHRLLS-listed SIDS"   — 39 economies formally listed as SIDS by UN-OHRLLS.
+#                            Includes Cook Islands and Niue, which are sovereign
+#                            states in free association with New Zealand and are
+#                            NOT UN General Assembly member states, but appear on
+#                            the OHRLLS list.
 #   "Associate Member SIDS"— associate members of UN Regional Commissions
-#                            included in the SIDS group
+#                            included in the SIDS group (non-sovereign territories)
 #   "Other island economy" — island economies not listed by UN-OHRLLS (BES)
 #
 # sids_region:
 #   "Caribbean" | "Pacific" | "AIMS" (Atlantic, Indian Ocean, Med., S. China Sea)
-#   "Not applicable" only for economies without a SIDS region assignment
 #
 # political_status:
 #   "Sovereign state"      — independent state with full international personality
@@ -46,24 +49,24 @@ dir.create(processed, showWarnings = FALSE, recursive = TRUE)
 #                            French collectivités and départements
 
 candidates <- tibble::tribble(
-  ~iso3,  ~country,                            ~sids_region,  ~sids_status,             ~political_status,       ~source,        ~notes,
-  # ── CARIBBEAN: UN Member SIDS ─────────────────────────────────────────────
-  "ATG",  "Antigua and Barbuda",               "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "BHS",  "Bahamas",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "BRB",  "Barbados",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "BLZ",  "Belize",                            "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "CUB",  "Cuba",                              "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "DMA",  "Dominica",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "DOM",  "Dominican Republic",                "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "GRD",  "Grenada",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "GUY",  "Guyana",                            "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "HTI",  "Haiti",                             "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
-  "JAM",  "Jamaica",                           "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "KNA",  "Saint Kitts and Nevis",             "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "LCA",  "Saint Lucia",                       "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "SUR",  "Suriname",                          "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "TTO",  "Trinidad and Tobago",               "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "VCT",  "Saint Vincent and the Grenadines",  "Caribbean",   "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  ~iso3,  ~country,                            ~sids_region,  ~sids_status,               ~political_status,       ~source,        ~notes,
+  # ── CARIBBEAN: OHRLLS-listed SIDS ─────────────────────────────────────────
+  "ATG",  "Antigua and Barbuda",               "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "BHS",  "Bahamas",                           "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "BRB",  "Barbados",                          "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "BLZ",  "Belize",                            "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "CUB",  "Cuba",                              "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "DMA",  "Dominica",                          "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "DOM",  "Dominican Republic",                "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "GRD",  "Grenada",                           "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "GUY",  "Guyana",                            "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "",
+  "HTI",  "Haiti",                             "Caribbean",   "OHRLLS-listed SIDS",       "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "JAM",  "Jamaica",                           "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "KNA",  "Saint Kitts and Nevis",             "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "LCA",  "Saint Lucia",                       "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "SUR",  "Suriname",                          "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "TTO",  "Trinidad and Tobago",               "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "VCT",  "Saint Vincent and the Grenadines",  "Caribbean",   "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
   # ── CARIBBEAN: Associate Member SIDS ─────────────────────────────────────
   "AIA",  "Anguilla",                          "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "British Overseas Territory",
   "ABW",  "Aruba",                             "Caribbean",   "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "Constituent country, Kingdom of the Netherlands",
@@ -81,21 +84,21 @@ candidates <- tibble::tribble(
   # ── CARIBBEAN: Other island economy ──────────────────────────────────────
   "BES",  "Bonaire, Sint Eustatius and Saba",  "Caribbean",   "Other island economy",   "Territory/Dependency",  "Not UN-listed","Dutch special municipalities; not on UN SIDS list",
   # ── PACIFIC: UN Member SIDS ───────────────────────────────────────────────
-  "COK",  "Cook Islands",                      "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
-  "FJI",  "Fiji",                              "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "KIR",  "Kiribati",                          "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
-  "MHL",  "Marshall Islands",                  "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "FSM",  "Micronesia (Fed. Sts.)",            "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "NRU",  "Nauru",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "NIU",  "Niue",                              "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
-  "PLW",  "Palau",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "PNG",  "Papua New Guinea",                  "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "WSM",  "Samoa",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "SLB",  "Solomon Islands",                   "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
-  "TLS",  "Timor-Leste",                       "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC; classified with Pacific SIDS by UN",
-  "TON",  "Tonga",                             "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
-  "TUV",  "Tuvalu",                            "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
-  "VUT",  "Vanuatu",                           "Pacific",     "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "COK",  "Cook Islands",                      "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
+  "FJI",  "Fiji",                              "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "KIR",  "Kiribati",                          "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "MHL",  "Marshall Islands",                  "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "FSM",  "Micronesia (Fed. Sts.)",            "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "NRU",  "Nauru",                             "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "NIU",  "Niue",                              "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Free association with New Zealand",
+  "PLW",  "Palau",                             "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "PNG",  "Papua New Guinea",                  "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "WSM",  "Samoa",                             "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "SLB",  "Solomon Islands",                   "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "TLS",  "Timor-Leste",                       "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC; classified with Pacific SIDS by UN",
+  "TON",  "Tonga",                             "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
+  "TUV",  "Tuvalu",                            "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "LDC",
+  "VUT",  "Vanuatu",                           "Pacific",     "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "",
   # ── PACIFIC: Associate Member SIDS ───────────────────────────────────────
   "ASM",  "American Samoa",                    "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US unincorporated territory",
   "MNP",  "Northern Mariana Islands",          "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "US Commonwealth territory; listed as Commonwealth of Northern Marianas",
@@ -104,19 +107,19 @@ candidates <- tibble::tribble(
   "NCL",  "New Caledonia",                     "Pacific",     "Associate Member SIDS",  "Territory/Dependency",  "UN-OHRLLS",    "French special collectivity",
   # ── AIMS: UN Member SIDS ─────────────────────────────────────────────────
   # Atlantic, Indian Ocean, Mediterranean, and South China Sea
-  "CPV",  "Cabo Verde",                        "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
-  "COM",  "Comoros",                           "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean; LDC",
-  "GNB",  "Guinea-Bissau",                     "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic; LDC",
-  "MDV",  "Maldives",                          "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
-  "MUS",  "Mauritius",                         "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
-  "STP",  "São Tomé and Príncipe",             "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
-  "SYC",  "Seychelles",                        "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
-  "SGP",  "Singapore",                         "AIMS",        "UN Member SIDS",         "Sovereign state",       "UN-OHRLLS",    "South China Sea"
+  "CPV",  "Cabo Verde",                        "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
+  "COM",  "Comoros",                           "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean; LDC",
+  "GNB",  "Guinea-Bissau",                     "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic; LDC",
+  "MDV",  "Maldives",                          "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "MUS",  "Mauritius",                         "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "STP",  "São Tomé and Príncipe",             "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Atlantic",
+  "SYC",  "Seychelles",                        "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "Indian Ocean",
+  "SGP",  "Singapore",                         "AIMS",        "OHRLLS-listed SIDS",         "Sovereign state",       "UN-OHRLLS",    "South China Sea"
 )
 
 write_csv(candidates, file.path(processed, "candidates.csv"))
 message("Candidate list saved: ", nrow(candidates), " economies")
-message("  UN Member SIDS:       ", sum(candidates$sids_status == "UN Member SIDS"))
+message("  OHRLLS-listed SIDS:       ", sum(candidates$sids_status == "OHRLLS-listed SIDS"))
 message("  Associate Member SIDS:", sum(candidates$sids_status == "Associate Member SIDS"))
 message("  Other island economy: ", sum(candidates$sids_status == "Other island economy"))
 message("  Caribbean: ", sum(candidates$sids_region == "Caribbean"))
@@ -238,10 +241,11 @@ wb_indicator_labels <- c(
 )
 
 message("Fetching World Bank data via wbstats (2008-2025)...")
-# Note: ST.INT.RCPT.XP.ZS (tourism receipts) has a significant publication lag.
-# As of 2026, WDI only provides receipts data through approximately 2020.
-# Real GDP indicators (NY.GDP.MKTP.KD, NY.GDP.PCAP.KD) are retrieved through 2025
-# but 2024-2025 observations may only be available for a subset of economies.
+# Note: ST.INT.RCPT.XP.ZS (tourism receipts) contains no observations beyond 2020
+# in this retrieval. This likely reflects a change in UN Tourism's data dissemination
+# approach following the pandemic rather than a simple publication lag; the WDI series
+# may no longer be actively updated. Real GDP indicators extend through 2024/2025
+# but preliminary estimates may not be available for all economies.
 wb_raw <- tryCatch(
   wb_data(
     indicator  = wb_indicators,
@@ -306,8 +310,9 @@ writeLines(
 message("WB data saved: ", nrow(wb_clean), " rows, ",
         length(wb_returned), " countries, ",
         min(wb_clean$year), "-", max(wb_clean$year))
-message("Note: ST.INT.RCPT.XP.ZS (receipts) lags ~3-5 years behind real-time;",
-        " most recent data ~2020. NY.GDP.MKTP.KD and NY.GDP.PCAP.KD extend to 2024/2025.")
+message("Note: ST.INT.RCPT.XP.ZS contains no observations beyond 2020 in this retrieval.",
+        " This likely reflects a change in UN Tourism data dissemination, not a simple lag.",
+        " NY.GDP.MKTP.KD and NY.GDP.PCAP.KD extend to 2024/2025.")
 
 # ---------------------------------------------------------------------------
 # Save cleaned OWID subsets (candidates only) to processed/
@@ -334,3 +339,5 @@ write_csv(owid_arrivals_cand, file.path(processed, "owid_arrivals.csv"))
 
 message("Processed OWID subsets saved.")
 message("Done: 01_data_acquisition.R")
+
+

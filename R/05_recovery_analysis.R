@@ -77,12 +77,11 @@ short_labels <- c(
 )
 
 # ---------------------------------------------------------------------------
-# Restrict to primary shock sample (N=29) for recovery analysis
+# Restrict to primary shock sample for recovery analysis; N is derived dynamically.
 # ---------------------------------------------------------------------------
-# These 29 economies have both the vspend baseline and 2020 GDP growth data.
-# Not all will have complete recovery trajectories.
 
 shock_isos <- bl |> filter(in_primary_shock_sample) |> pull(iso3)
+n_shock    <- length(shock_isos)  # used for coverage percentages below
 
 recovery_panel <- analytical |>
   filter(iso3 %in% shock_isos, year %in% 2015:2025) |>
@@ -93,7 +92,7 @@ recovery_panel <- analytical |>
 # ---------------------------------------------------------------------------
 
 cat("\n================================================================\n")
-cat("REAL GDP COVERAGE AUDIT (Primary Shock Sample, N=29)\n")
+cat("REAL GDP COVERAGE AUDIT (Primary Shock Sample, N =", n_shock, ")\n")
 cat("================================================================\n\n")
 
 cat("=== GDP constant 2015 USD by year ===\n")
@@ -101,7 +100,7 @@ recovery_panel |>
   group_by(year) |>
   summarise(
     n_avail = sum(!is.na(gdp_real_const2015usd)),
-    pct     = round(100 * n_avail / 29, 0)
+    pct     = round(100 * n_avail / n_shock, 0)
   ) |>
   print(n=20)
 
@@ -110,7 +109,7 @@ recovery_panel |>
   group_by(year) |>
   summarise(
     n_avail = sum(!is.na(gdppc_real_const2015usd)),
-    pct     = round(100 * n_avail / 29, 0)
+    pct     = round(100 * n_avail / n_shock, 0)
   ) |>
   print(n=20)
 
@@ -120,7 +119,7 @@ for (end_yr in c(2021, 2022, 2023, 2024, 2025)) {
   complete <- recovery_panel |>
     filter(year %in% c(2019, end_yr)) |>
     group_by(iso3) |>
-    summarise(has_both = all(!is.na(gdp_real_const2015usd))) |>
+    summarise(has_both = all(!is.na(gdp_real_const2015usd)), .groups = "drop") |>
     filter(has_both)
   cat(" ...through", end_yr, ": N =", nrow(complete),
       "(", paste(sort(complete$iso3), collapse=", "), ")\n")

@@ -90,11 +90,11 @@ cands <- read_csv(here("data","processed","candidates.csv"), show_col_types=FALS
 | **Definition** | International tourism receipts as a percentage of total exports of goods and services. Tourism receipts include any payments made to the destination country by tourists for accommodation, food, transport, entertainment, and shopping during their visit. |
 | **Units** | Percent of total exports |
 | **Source** | World Development Indicators, World Bank |
-| **Date range** | Available approximately 1995–2020 in this retrieval |
+| **Date range** | ~1995–2020 in this retrieval (no observations beyond 2020) |
 | **Coverage** | ~180 countries |
 | **Retrieved via** | `wbstats::wb_data()`, November 2026 |
 
-**Critical limitation: publication lag.** As of the November 2026 data retrieval, WDI `ST.INT.RCPT.XP.ZS` contains **no observations beyond 2020**. Additionally, 2019 data is missing for 14 of 35 WDI shock-sample members — their 2017–2019 baseline is computed from 2017 and 2018 only. Users relying on the WDI receipts series for post-pandemic monitoring should be aware that the series effectively ends at the pandemic year.
+**Note on availability: this series ends at 2020 in the current retrieval.** WDI `ST.INT.RCPT.XP.ZS` contains no observations beyond 2020 in the November 2026 retrieval. The most likely explanation is a change in UN Tourism's data dissemination approach following the pandemic — much of UN Tourism's current reporting has moved to interactive data portals — rather than a simple publication lag. The WDI series may no longer be actively updated. Additionally, 2019 data is missing for 14 of 35 WDI shock-sample members — their 2017–2019 baseline is computed from 2017 and 2018 only. Users requiring post-pandemic tracking of tourism receipts should consult the UN Tourism data portal directly.
 
 **Distinction from OWID visitor spending:** Both series ultimately draw on UN Tourism receipts data, but:
 
@@ -217,3 +217,5 @@ Bonaire, Sint Eustatius and Saba (BES) is retained in the candidate universe as 
 ---
 
 *Return to the [Field Note](index.qmd) · [Technical Analysis](analysis.qmd) · [Methodology](methodology.qmd)*
+
+

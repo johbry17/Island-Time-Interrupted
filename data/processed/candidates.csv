@@ -1,20 +1,20 @@
 iso3,country,sids_region,sids_status,political_status,source,notes
-ATG,Antigua and Barbuda,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-BHS,Bahamas,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-BRB,Barbados,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-BLZ,Belize,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-CUB,Cuba,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-DMA,Dominica,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-DOM,Dominican Republic,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-GRD,Grenada,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-GUY,Guyana,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-HTI,Haiti,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,LDC
-JAM,Jamaica,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-KNA,Saint Kitts and Nevis,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-LCA,Saint Lucia,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-SUR,Suriname,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-TTO,Trinidad and Tobago,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-VCT,Saint Vincent and the Grenadines,Caribbean,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
+ATG,Antigua and Barbuda,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+BHS,Bahamas,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+BRB,Barbados,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+BLZ,Belize,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+CUB,Cuba,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+DMA,Dominica,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+DOM,Dominican Republic,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+GRD,Grenada,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+GUY,Guyana,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+HTI,Haiti,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,LDC
+JAM,Jamaica,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+KNA,Saint Kitts and Nevis,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+LCA,Saint Lucia,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+SUR,Suriname,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+TTO,Trinidad and Tobago,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+VCT,Saint Vincent and the Grenadines,Caribbean,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
 AIA,Anguilla,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,British Overseas Territory
 ABW,Aruba,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,"Constituent country, Kingdom of the Netherlands"
 BMU,Bermuda,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,British Overseas Territory
@@ -29,31 +29,31 @@ SXM,Sint Maarten,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,
 TCA,Turks and Caicos Islands,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,British Overseas Territory
 VIR,US Virgin Islands,Caribbean,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,US unincorporated territory
 BES,"Bonaire, Sint Eustatius and Saba",Caribbean,Other island economy,Territory/Dependency,Not UN-listed,Dutch special municipalities; not on UN SIDS list
-COK,Cook Islands,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.
-FJI,Fiji,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-KIR,Kiribati,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,LDC
-MHL,Marshall Islands,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-FSM,Micronesia (Fed. Sts.),Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-NRU,Nauru,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-NIU,Niue,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,Sovereign state in free association with NZ. Not a UN General Assembly member state but included in UN-OHRLLS SIDS list.
-PLW,Palau,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-PNG,Papua New Guinea,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-WSM,Samoa,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-SLB,Solomon Islands,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,LDC
-TLS,Timor-Leste,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,LDC; classified with Pacific SIDS by UN
-TON,Tonga,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
-TUV,Tuvalu,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,LDC
-VUT,Vanuatu,Pacific,UN Member SIDS,Sovereign state,UN-OHRLLS,NA
+COK,Cook Islands,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Free association with New Zealand
+FJI,Fiji,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+KIR,Kiribati,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,LDC
+MHL,Marshall Islands,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+FSM,Micronesia (Fed. Sts.),Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+NRU,Nauru,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+NIU,Niue,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Free association with New Zealand
+PLW,Palau,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+PNG,Papua New Guinea,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+WSM,Samoa,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+SLB,Solomon Islands,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,LDC
+TLS,Timor-Leste,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,LDC; classified with Pacific SIDS by UN
+TON,Tonga,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
+TUV,Tuvalu,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,LDC
+VUT,Vanuatu,Pacific,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,
 ASM,American Samoa,Pacific,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,US unincorporated territory
 MNP,Northern Mariana Islands,Pacific,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,US Commonwealth territory; listed as Commonwealth of Northern Marianas
 PYF,French Polynesia,Pacific,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,French overseas collectivity
 GUM,Guam,Pacific,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,US unincorporated territory
 NCL,New Caledonia,Pacific,Associate Member SIDS,Territory/Dependency,UN-OHRLLS,French special collectivity
-CPV,Cabo Verde,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Atlantic
-COM,Comoros,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Indian Ocean; LDC
-GNB,Guinea-Bissau,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Atlantic; LDC
-MDV,Maldives,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
-MUS,Mauritius,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
-STP,São Tomé and Príncipe,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Atlantic
-SYC,Seychelles,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
-SGP,Singapore,AIMS,UN Member SIDS,Sovereign state,UN-OHRLLS,South China Sea
+CPV,Cabo Verde,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Atlantic
+COM,Comoros,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Indian Ocean; LDC
+GNB,Guinea-Bissau,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Atlantic; LDC
+MDV,Maldives,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
+MUS,Mauritius,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
+STP,São Tomé and Príncipe,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Atlantic
+SYC,Seychelles,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,Indian Ocean
+SGP,Singapore,AIMS,OHRLLS-listed SIDS,Sovereign state,UN-OHRLLS,South China Sea

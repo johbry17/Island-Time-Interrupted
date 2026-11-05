@@ -255,7 +255,7 @@ rsum |>
   kable(col.names=c("ISO3","Economy","Region","2020<br>(shock)","GDP idx<br>2023","GDP/cap<br>idx 2023","Agg.<br>recovered"),
         caption=paste0("Table A9. Aggregate real GDP and per-capita real GDP recovery indices ",
                "(2019=100). 'Agg. recovered' = GDP ≥ 100 in 2023. VIR has no 2023 data. ",
-               "19/28 recovered aggregate GDP; 17/28 recovered per-capita GDP."), escape=FALSE)
+               "19/28 recovered aggregate GDP by 2023; 17/28 recovered per-capita GDP by 2023. Four economies (COM, SYC, PNG, VUT) recovered aggregate but not per-capita; two (MHL, PRI) recovered per-capita but not aggregate.."), escape=FALSE)
 ```
 
 ### Recovery vs. tourism dependence
@@ -275,3 +275,4 @@ Per-capita recovery tells a more nuanced story: 17 of 28 economies had recovered
 ---
 
 *See [Data Dictionary](data-dictionary.qmd) for source documentation and [Methodology](methodology.qmd) for research design.*
+
