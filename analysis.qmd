@@ -70,10 +70,11 @@ tibble::tribble(
 
 ## Tourism Indicator Coverage
 
-### Figure 4: Coverage matrix
+### Coverage matrix
 
-```{r fig4}
-#| fig-cap: "Figure 4. Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent."
+```{r fig-coverage-matrix}
+#| echo: false
+#| fig-cap: "Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent."
 #| fig-width: 9.5
 #| fig-height: 10
 knitr::include_graphics(here("output","figures","fig4_coverage_matrix.png"))
@@ -130,8 +131,9 @@ purrr::map_dfr(names(samples_list), function(nm) {
 
 ## Indicator Comparison
 
-```{r fig2}
-#| fig-cap: "Figure 2. OWID visitor spending (% GDP) vs. WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts."
+```{r fig-indicator-comparison}
+#| echo: false
+#| fig-cap: "OWID visitor spending (% GDP) vs. WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts."
 #| fig-width: 7.5
 #| fig-height: 6
 knitr::include_graphics(here("output","figures","fig2_measure_comparison.png"))
@@ -157,8 +159,9 @@ mres |>
 
 ### Four-panel figure (2015–2019 baseline)
 
-```{r fig5}
-#| fig-cap: "Figure 5. Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs)."
+```{r fig-shock-four-panel}
+#| echo: false
+#| fig-cap: "Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs)."
 #| fig-width: 13
 #| fig-height: 10
 knitr::include_graphics(here("output","figures","fig5_shock_4panel_1519.png"))
@@ -168,8 +171,9 @@ knitr::include_graphics(here("output","figures","fig5_shock_4panel_1519.png"))
 
 The common sample (N = 24) holds the country set constant and varies only the indicator. Any difference in results between the two panels below reflects the indicator choice, not sample composition.
 
-```{r fig6}
-#| fig-cap: "Figure 6. Common sample (N=24): OWID visitor spending vs. WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association."
+```{r fig-common-sample}
+#| echo: false
+#| fig-cap: "Common sample (N=24): OWID visitor spending vs. WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association."
 #| fig-width: 11
 #| fig-height: 5.5
 knitr::include_graphics(here("output","figures","fig6_common_sample_comparison.png"))
@@ -220,10 +224,11 @@ ridx |>
   kable(caption="Table A8. Annual count of primary shock sample economies (N ≤ 29) with real GDP data. 2025 data are preliminary estimates.")
 ```
 
-### Figure 7: Trajectories
+### Trajectories
 
-```{r fig7}
-#| fig-cap: "Figure 7. Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size."
+```{r fig-recovery-trajectories}
+#| echo: false
+#| fig-cap: "Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size."
 #| fig-width: 9
 #| fig-height: 10
 knitr::include_graphics(here("output","figures","fig7_recovery_trajectories.png"))
@@ -255,8 +260,9 @@ rsum |>
 
 ### Recovery vs. tourism dependence
 
-```{r fig8}
-#| fig-cap: "Figure 8. Pre-pandemic visitor spending vs. 2023 real GDP index (2019=100). No statistically significant association (Pearson r = 0.18, p = 0.36, N = 28). Tourism-dependent economies had both the worst shocks and the strongest recoveries."
+```{r fig-recovery-vs-tourism}
+#| echo: false
+#| fig-cap: "Pre-pandemic visitor spending vs. 2023 real GDP index (2019=100). No statistically significant association (Pearson r = 0.18, p = 0.36, N = 28). Tourism-dependent economies had both the worst shocks and the strongest recoveries."
 #| fig-width: 8.5
 #| fig-height: 6
 knitr::include_graphics(here("output","figures","fig8_recovery_vs_tourism.png"))

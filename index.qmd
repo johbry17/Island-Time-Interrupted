@@ -74,8 +74,8 @@ At the top of the dependence ladder sit economies where the entire economic stru
 
 At the other end are economies where other sectors dominate: Guinea-Bissau, Suriname, Kiribati, Papua New Guinea, Trinidad and Tobago, and Cuba.
 
-```{r fig-ranking}
-#| fig-cap: "Figure 1. International visitor spending as a share of GDP, 2015–2019 average. Source: OWID / UN Tourism. Each bar represents one economy in the primary shock sample (N = 29). Open circles indicate thin baseline (Kiribati, 1 year of data)."
+```{r fig-ranking, echo=FALSE}
+#| fig-cap: "International visitor spending as a share of GDP, 2015–2019 average. Source: OWID / UN Tourism. Each bar represents one economy in the primary shock sample (N = 29). Open circles indicate thin baseline (Kiribati, 1 year of data)."
 #| fig-width: 8
 #| fig-height: 7
 
@@ -117,8 +117,8 @@ ggplot(plot_data, aes(x = vspend_mean_1519, y = label_disp,
 
 ## The 2020 Shock: Did Dependence Predict Vulnerability?
 
-```{r fig-shock}
-#| fig-cap: "Figure 2. Pre-pandemic visitor spending (2015–2019 avg.) vs. 2020 GDP growth. OLS regression line with 95% confidence band. Maldives (MDV) is the most influential observation. Open circle = Kiribati (thin baseline). Source: OWID / UN Tourism; WDI NY.GDP.MKTP.KD.ZG."
+```{r fig-shock, echo=FALSE}
+#| fig-cap: "Pre-pandemic visitor spending (2015–2019 avg.) vs. 2020 GDP growth. OLS regression line with 95% confidence band. Maldives (MDV) is the most influential observation. Open circle = Kiribati (thin baseline). Source: OWID / UN Tourism; WDI NY.GDP.MKTP.KD.ZG."
 #| fig-width: 9
 #| fig-height: 6.5
 
@@ -193,8 +193,8 @@ This analysis documents a cross-sectional association. It cannot establish that 
 
 ## Recovery: Rebound, Recovery, and What's Missing
 
-```{r fig-recovery}
-#| fig-cap: "Figure 3. Real GDP trajectories, 2015–2025. Index: 2019 = 100. Each line is one economy, coloured by region. The horizontal line marks the 2019 baseline. Numbers at bottom show how many economies have data each year. Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). 2025 data are preliminary estimates for a subset of economies."
+```{r fig-recovery, echo=FALSE}
+#| fig-cap: "Real GDP trajectories, 2015–2025. Index: 2019 = 100. Each line is one economy, coloured by region. The horizontal line marks the 2019 baseline. Numbers at bottom show how many economies have data each year. Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). 2025 data are preliminary estimates for a subset of economies."
 #| fig-width: 9.5
 #| fig-height: 9
 
@@ -202,8 +202,8 @@ ridx <- read_csv(here("data","processed","recovery_index.csv"), show_col_types=F
 
 annual_n <- ridx |>
   filter(!is.na(gdp_index)) |>
-  group_by(year) |>
-  summarise(n = n(), .groups="drop")
+  group_by(sids_region, year) |>
+  summarise(n = n_distinct(iso3), .groups = "drop")
 
 ggplot(ridx |> filter(!is.na(gdp_index)),
        aes(x = year, y = gdp_index, group = iso3)) +

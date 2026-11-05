@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bryan C. Johns">
-<meta name="dcterms.date" content="2026-11-04">
+<meta name="dcterms.date" content="2026-11-05">
 
 <title>Technical Analysis – Island Time, Interrupted</title>
 <style>
@@ -27,41 +27,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -178,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#tourism-indicator-coverage" id="toc-tourism-indicator-coverage" class="nav-link" data-scroll-target="#tourism-indicator-coverage">Tourism Indicator Coverage</a>
   <ul class="collapse">
-  <li><a href="#figure-4-coverage-matrix" id="toc-figure-4-coverage-matrix" class="nav-link" data-scroll-target="#figure-4-coverage-matrix">Figure 4: Coverage matrix</a></li>
+  <li><a href="#coverage-matrix" id="toc-coverage-matrix" class="nav-link" data-scroll-target="#coverage-matrix">Coverage matrix</a></li>
   <li><a href="#wdi-receipts-publication-lag" id="toc-wdi-receipts-publication-lag" class="nav-link" data-scroll-target="#wdi-receipts-publication-lag">WDI receipts publication lag</a></li>
   <li><a href="#baseline-coverage-distributions" id="toc-baseline-coverage-distributions" class="nav-link" data-scroll-target="#baseline-coverage-distributions">Baseline coverage distributions</a></li>
   </ul></li>
@@ -193,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#recovery-analysis" id="toc-recovery-analysis" class="nav-link" data-scroll-target="#recovery-analysis">Recovery Analysis</a>
   <ul class="collapse">
   <li><a href="#coverage" id="toc-coverage" class="nav-link" data-scroll-target="#coverage">Coverage</a></li>
-  <li><a href="#figure-7-trajectories" id="toc-figure-7-trajectories" class="nav-link" data-scroll-target="#figure-7-trajectories">Figure 7: Trajectories</a></li>
+  <li><a href="#trajectories" id="toc-trajectories" class="nav-link" data-scroll-target="#trajectories">Trajectories</a></li>
   <li><a href="#recovery-status-by-2023" id="toc-recovery-status-by-2023" class="nav-link" data-scroll-target="#recovery-status-by-2023">Recovery status by 2023</a></li>
   <li><a href="#recovery-vs.-tourism-dependence" id="toc-recovery-vs.-tourism-dependence" class="nav-link" data-scroll-target="#recovery-vs.-tourism-dependence">Recovery vs.&nbsp;tourism dependence</a></li>
   </ul></li>
@@ -223,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 4, 2026</p>
+      <p class="date">November 5, 2026</p>
     </div>
   </div>
   
@@ -338,18 +303,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tourism-indicator-coverage" class="level2">
 <h2 class="anchored" data-anchor-id="tourism-indicator-coverage">Tourism Indicator Coverage</h2>
-<section id="figure-4-coverage-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="figure-4-coverage-matrix">Figure 4: Coverage matrix</h3>
+<section id="coverage-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="coverage-matrix">Coverage matrix</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig4_coverage_matrix.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig4_coverage_matrix.png" class="img-fluid figure-img" width="1824"></p>
-<figcaption>Figure 4. Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent.</figcaption>
+<div id="fig-coverage-matrix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coverage-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig4_coverage_matrix.png" class="img-fluid figure-img" width="1824">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coverage-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial; grey = absent.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -572,15 +537,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="indicator-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="indicator-comparison">Indicator Comparison</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig2_measure_comparison.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig2_measure_comparison.png" class="img-fluid figure-img" width="1440"></p>
-<figcaption>Figure 2. OWID visitor spending (% GDP) vs.&nbsp;WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts.</figcaption>
+<div id="fig-indicator-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-indicator-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig2_measure_comparison.png" class="img-fluid figure-img" width="1440">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-indicator-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: OWID visitor spending (% GDP) vs.&nbsp;WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -745,15 +710,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="four-panel-figure-20152019-baseline" class="level3">
 <h3 class="anchored" data-anchor-id="four-panel-figure-20152019-baseline">Four-panel figure (2015–2019 baseline)</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig5_shock_4panel_1519.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig5_shock_4panel_1519.png" class="img-fluid figure-img" width="2496"></p>
-<figcaption>Figure 5. Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs).</figcaption>
+<div id="fig-shock-four-panel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-four-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig5_shock_4panel_1519.png" class="img-fluid figure-img" width="2496">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-four-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -763,15 +728,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="common-sample-comparison">Common-sample comparison</h3>
 <p>The common sample (N = 24) holds the country set constant and varies only the indicator. Any difference in results between the two panels below reflects the indicator choice, not sample composition.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig6_common_sample_comparison.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig6_common_sample_comparison.png" class="img-fluid figure-img" width="2112"></p>
-<figcaption>Figure 6. Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association.</figcaption>
+<div id="fig-common-sample" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-common-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig6_common_sample_comparison.png" class="img-fluid figure-img" width="2112">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-common-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1067,18 +1032,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="figure-7-trajectories" class="level3">
-<h3 class="anchored" data-anchor-id="figure-7-trajectories">Figure 7: Trajectories</h3>
+<section id="trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="trajectories">Trajectories</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig7_recovery_trajectories.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig7_recovery_trajectories.png" class="img-fluid figure-img" width="1728"></p>
-<figcaption>Figure 7. Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size.</figcaption>
+<div id="fig-recovery-trajectories" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recovery-trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig7_recovery_trajectories.png" class="img-fluid figure-img" width="1728">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recovery-trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1096,15 +1061,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="recovery-vs.-tourism-dependence" class="level3">
 <h3 class="anchored" data-anchor-id="recovery-vs.-tourism-dependence">Recovery vs.&nbsp;tourism dependence</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">"output"</span>,<span class="st">"figures"</span>,<span class="st">"fig8_recovery_vs_tourism.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="output/figures/fig8_recovery_vs_tourism.png" class="img-fluid figure-img" width="1632"></p>
-<figcaption>Figure 8. Pre-pandemic visitor spending vs.&nbsp;2023 real GDP index (2019=100). No statistically significant association (Pearson r = 0.18, p = 0.36, N = 28). Tourism-dependent economies had both the worst shocks and the strongest recoveries.</figcaption>
+<div id="fig-recovery-vs-tourism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/fig8_recovery_vs_tourism.png" class="img-fluid figure-img" width="1632">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Pre-pandemic visitor spending vs.&nbsp;2023 real GDP index (2019=100). No statistically significant association (Pearson r = 0.18, p = 0.36, N = 28). Tourism-dependent economies had both the worst shocks and the strongest recoveries.
+</figcaption>
 </figure>
 </div>
 </div>
