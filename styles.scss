@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+
+/* Slightly tighten figure margins */
+.quarto-figure {
+  margin-bottom: 1.5rem;
+}
+
+/* Caption styling */
+.figure-caption {
+  font-size: 0.82rem;
+  color: #5a5a5a;
+  margin-top: 0.35rem;
+}
+
+/* Table styling */
+table.table {
+  font-size: 0.88rem;
+}
+
+/* Mobile footer */
+@media (max-width: 767px) {
+  .nav-footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    // gap: 0.5rem;
+  }
+
+  .nav-footer-center { order: 1; }
+  .nav-footer-right { order: 2; }
+  .nav-footer-left { order: 3; }
+}

@@ -7,8 +7,6 @@ project:
     - data-dictionary.qmd
     - methodology.qmd
 
-author: "Bryan C. Johns"
-
 website:
   title: "Island Time, Interrupted"
   favicon: "images/favicon.ico"
@@ -25,11 +23,23 @@ website:
     right:
       - icon: github
         href: https://github.com/johbry17/Island-Time-Interrupted
+  page-footer:
+    left: "Data sources: World Bank, Our World in Data"
+    center: "© {{< current-year >}} Bryan C. Johns"
+    right:
+      - text: Portfolio
+        href: https://informedwanderer.com
+      - text: LinkedIn
+        href: https://www.linkedin.com/in/b-johns/
+      - text: GitHub
+        href: https://github.com/johbry17
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    author-meta: "Bryan C. Johns"
+    shortcodes: 
+      - year.lua
+    theme: [cosmo, styles.scss]
     respect-user-color-scheme: true
     toc: true
     toc-depth: 3
@@ -39,11 +49,12 @@ format:
     code-tools: false
     fig-format: png
     fig-dpi: 150
+    # fig-cap-location: bottom
     embed-resources: false
 
 execute:
   warning: false
   message: false
-  cache: true
+  freeze: auto
 
 editor: source

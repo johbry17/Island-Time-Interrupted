@@ -1,4 +1,5 @@
 /.quarto/
 **/*.quarto_ipynb
 /_site/
-# docs/ is intentionally NOT ignored — it is the GitHub Pages publish directory
+/_freeze/
+.vscode/

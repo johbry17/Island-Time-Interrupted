@@ -1,20 +1,9 @@
 ---
 title: "Technical Analysis"
 subtitle: "Tourism Dependence and the 2020 Shock: Full Results"
-date: today
-date-format: "MMMM D, YYYY"
-author: "Bryan C. Johns"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    code-fold: true
-    fig-cap-location: bottom
-execute:
-  warning: false
-  message: false
-  cache: false
 ---
+
+This page documents the analytical evidence behind the [Overview](index.qmd). It covers sample construction, tourism indicator coverage, all eight principal shock-model estimates, robustness diagnostics, and economic recovery through 2024. Code is available via the fold buttons. Source documentation and variable definitions are in the [Data Dictionary](data-dictionary.qmd); research design and methodological decisions are in [Methodology](methodology.qmd).
 
 ```{r setup}
 #| include: false
@@ -75,6 +64,8 @@ fmt_p <- function(p) {
 
 ## Candidate Universe and Sample Definitions
 
+The analysis draws on 58 candidate economies across three UN Small Island Developing States regions. From this universe, different indicator availability produces different analytical samples; all are documented explicitly and held fixed across model specifications.
+
 ```{r universe-summary}
 #| echo: false
 cands |>
@@ -111,6 +102,8 @@ tibble::tribble(
 > **Analytical panel note.** The candidate universe contains 58 economies; the analytical panel contains data for 57. BES (Bonaire, Sint Eustatius and Saba) is the one economy present in the candidate universe but absent from the panel: it has no coverage in any OWID dataset and no World Bank API coverage, so the full join that constructs the panel produces no rows for it. The remaining six WDI-absent economies (AIA, GLP, MTQ, MSR, COK, NIU) have at least partial OWID data and therefore appear in the panel with WDI columns missing. None of the seven WDI-absent economies qualifies for any shock or recovery sample.
 
 ## Tourism Indicator Coverage
+
+Data availability differs substantially between the two principal indicators. The OWID visitor spending series has near-complete coverage through 2024; the WDI receipts series stops at 2020 and is missing 2019 data for 14 of 35 WDI-sample members. This coverage asymmetry is part of why the two indicators produce different results.
 
 ### Coverage matrix
 
@@ -209,6 +202,8 @@ purrr::map_dfr(names(samples_list), function(nm) {
 
 ## Indicator Comparison
 
+The two principal measures are correlated but not equivalent. Figure 2 shows the relationship between them across the 24-economy common sample.
+
 ```{r fig-indicator-comparison}
 #| echo: false
 #| fig-cap: "OWID visitor spending (% GDP) vs. WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts."
@@ -225,8 +220,10 @@ The Pearson correlation between the two indicators (across economies with both) 
 
 ## Eight-Model Shock Analysis
 
+Each percentage point of visitor spending as a share of GDP is associated with roughly 0.31 percentage points of additional GDP contraction in 2020 — but this estimate varies across indicator choice, sample, and baseline window. The table below reports all eight principal specifications; none is selected or suppressed on the basis of its result.
+
 **Outcome:** 2020 annual GDP growth (%, WDI `NY.GDP.MKTP.KD.ZG`).  
-**Note:** The 2015–2019 primary window was evaluated after the 2017–2019 results were already observed. No window was designated a priori. All eight results are reported.
+**Transparency note:** The 2015–2019 primary window was evaluated after the 2017–2019 results were already observed. This is not preregistered research; the ordering is documented explicitly.
 
 ```{r full-results}
 #| echo: false
@@ -334,6 +331,8 @@ sens |>
 ```
 
 ## Recovery Analysis
+
+This section examines real GDP trajectories from 2015 through 2025, with 2024 as the primary recovery comparison year. 2024 is the most recent year with near-complete sample coverage (28 of 29 economies; VIR has no data). The 2019=100 index is computed separately for aggregate real GDP and real GDP per capita; the two tell different stories in a number of cases.
 
 ### Coverage
 

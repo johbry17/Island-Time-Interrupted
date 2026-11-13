@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bryan C. Johns">
-<meta name="dcterms.date" content="2026-11-05">
 
 <title>Methodology – Island Time, Interrupted</title>
 <style>
@@ -83,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1065e138ddad154c97082f4cd7767d6f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +112,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -186,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sample-definitions" id="toc-sample-definitions" class="nav-link" data-scroll-target="#sample-definitions">Sample Definitions</a>
   <ul class="collapse">
   <li><a href="#fixed-sample-principle" id="toc-fixed-sample-principle" class="nav-link" data-scroll-target="#fixed-sample-principle">Fixed-sample principle</a></li>
-  <li><a href="#four-principal-samples" id="toc-four-principal-samples" class="nav-link" data-scroll-target="#four-principal-samples">Four principal samples</a></li>
+  <li><a href="#sample-hierarchy" id="toc-sample-hierarchy" class="nav-link" data-scroll-target="#sample-hierarchy">Sample hierarchy</a></li>
   <li><a href="#excluded-economies-and-why" id="toc-excluded-economies-and-why" class="nav-link" data-scroll-target="#excluded-economies-and-why">Excluded economies (and why)</a></li>
   </ul></li>
   <li><a href="#baseline-windows" id="toc-baseline-windows" class="nav-link" data-scroll-target="#baseline-windows">Baseline Windows</a>
@@ -210,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#construction" id="toc-construction" class="nav-link" data-scroll-target="#construction">Construction</a></li>
   <li><a href="#pre-pandemic-baseline-2019" id="toc-pre-pandemic-baseline-2019" class="nav-link" data-scroll-target="#pre-pandemic-baseline-2019">Pre-pandemic baseline: 2019</a></li>
-  <li><a href="#comparison-year-2023" id="toc-comparison-year-2023" class="nav-link" data-scroll-target="#comparison-year-2023">Comparison year: 2023</a></li>
+  <li><a href="#comparison-year-2024" id="toc-comparison-year-2024" class="nav-link" data-scroll-target="#comparison-year-2024">Comparison year: 2024</a></li>
   <li><a href="#aggregate-vs.-per-capita-distinction" id="toc-aggregate-vs.-per-capita-distinction" class="nav-link" data-scroll-target="#aggregate-vs.-per-capita-distinction">Aggregate vs.&nbsp;per-capita distinction</a></li>
   </ul></li>
   <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing Data</a></li>
@@ -238,19 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Bryan C. Johns </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -260,17 +246,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>This page documents the research design, sample construction, and analytical decisions for <em>Island Time, Interrupted</em>. It explains what was done and why, including where judgments were made and what consequences those judgments carry for interpretation. The <a href="./data-dictionary.html">Data Dictionary</a> explains what the data are and where they came from. The <a href="./analysis.html">Technical Analysis</a> shows the results.</p>
 <section id="research-design" class="level2">
 <h2 class="anchored" data-anchor-id="research-design">Research Design</h2>
 <section id="questions" class="level3">
 <h3 class="anchored" data-anchor-id="questions">Questions</h3>
 <p><strong>Primary:</strong> Was greater pre-pandemic dependence on international tourism associated with more severe 2020 GDP contractions among Caribbean, Pacific, and AIMS small island developing states?</p>
-<p><strong>Secondary:</strong> Did the most tourism-dependent economies recover to their 2019 real GDP levels by 2022–2023?</p>
+<p><strong>Secondary:</strong> Were tourism-dependent economies more or less likely to have recovered to their 2019 real GDP levels by 2024?</p>
 </section>
 <section id="analytical-approach" class="level3">
 <h3 class="anchored" data-anchor-id="analytical-approach">Analytical approach</h3>
-<p>This is a cross-sectional exploratory analysis. The unit of analysis is the economy (one row per country). The approach is descriptive and associational: we examine whether a pre-pandemic characteristic (tourism dependence) predicts an outcome (2020 GDP growth) using bivariate OLS regression and rank correlation.</p>
-<p>This analysis does not establish causation. No controls for confounders (fiscal buffers, governance quality, pre-existing recession, pandemic response policy, population size, or economic structure) are included. The analysis is deliberately kept bivariate to maintain transparency about what the data show before additional assumptions are introduced.</p>
+<p>This is a cross-sectional exploratory analysis. The unit of analysis is the economy. The approach is descriptive and associational: does a pre-pandemic characteristic (tourism dependence) predict a 2020 outcome (GDP growth)? The statistical tool is bivariate OLS regression, supplemented by rank correlation and multiple specification comparisons.</p>
+<p>This analysis does not establish causation. No controls are included for fiscal position, economic structure, pre-existing recession, pandemic-response policy, or population dynamics. The analysis is intentionally kept bivariate to maintain transparency — these are the raw patterns in the data before any further assumptions are introduced.</p>
 <hr>
 </section>
 </section>
@@ -278,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="candidate-universe-and-sids-classification">Candidate Universe and SIDS Classification</h2>
 <section id="source-authority" class="level3">
 <h3 class="anchored" data-anchor-id="source-authority">Source authority</h3>
-<p>The candidate universe was constructed from the <strong>UN Office of the High Representative for the Least Developed Countries, Landlocked Developing Countries and Small Island Developing States (UN-OHRLLS) list of SIDS</strong>, retrieved November 2026 (<a href="https://www.un.org/ohrlls/content/list-sids">source</a>).</p>
+<p>The candidate universe was constructed from the <strong>UN-OHRLLS list of SIDS</strong>, retrieved November 2026 (<a href="https://www.un.org/ohrlls/content/list-sids">source</a>).</p>
 </section>
 <section id="classification-categories" class="level3">
 <h3 class="anchored" data-anchor-id="classification-categories">Classification categories</h3>
@@ -335,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="fixed-sample-principle">Fixed-sample principle</h3>
 <p>Sample membership is determined by <strong>2017–2019 indicator availability plus 2020 GDP growth availability</strong>. This definition is fixed and does not change when baseline windows are extended or narrowed. The 2017–2019 window was used for sample definition because it is the most recent pre-pandemic three-year period available for both indicators.</p>
 </section>
-<section id="four-principal-samples" class="level3">
-<h3 class="anchored" data-anchor-id="four-principal-samples">Four principal samples</h3>
+<section id="sample-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="sample-hierarchy">Sample hierarchy</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 36%">
@@ -512,14 +499,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="pre-pandemic-baseline-2019">Pre-pandemic baseline: 2019</h3>
 <p>The reference year is 2019, the last full year before COVID-19 travel restrictions. This is the most natural pre-pandemic comparison point. 2015–2018 observations are included to show the pre-pandemic trend.</p>
 </section>
-<section id="comparison-year-2023" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-year-2023">Comparison year: 2023</h3>
-<p>The primary recovery comparison year is 2023, the most recent year with near-complete data for the sample (28/29 economies). 2024 data exists for 28 economies but is preliminary for some; 2025 data exists for 22 economies only.</p>
-<p><strong>Annual sample sizes vary across the recovery period</strong> and are shown explicitly in Figure 7. Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.</p>
+<section id="comparison-year-2024" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-year-2024">Comparison year: 2024</h3>
+<p>The primary recovery comparison year is 2024, the most recent year with near-complete data for the sample (28/29 economies; VIR has no 2024 data). 2025 data exists for 22 economies only, an insufficient base for cross-economy comparisons.</p>
+<p><strong>Annual sample sizes vary across the recovery period</strong> and are shown explicitly in figures (Overview Figure 3 and Analysis Figure 5). Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.</p>
 </section>
 <section id="aggregate-vs.-per-capita-distinction" class="level3">
 <h3 class="anchored" data-anchor-id="aggregate-vs.-per-capita-distinction">Aggregate vs.&nbsp;per-capita distinction</h3>
-<p>These are not interchangeable. 19/28 economies recovered aggregate real GDP by 2023; 17/28 recovered real GDP per capita. The 2-economy gap reflects population growth in some Pacific economies. The Field Note reports both; claims about recovery should specify which measure is being used.</p>
+<p>These are not interchangeable. By 2024, 21 of 28 economies with available data had recovered aggregate real GDP to 2019 levels; 20 of 28 had recovered real GDP per capita. The net gap of one economy masks divergent dynamics in both directions: four economies (ATG, PNG, SYC, VUT) recovered aggregate but not per-capita GDP, consistent with population growth outpacing economic output; three economies (CUW, MHL, TUV) recovered per-capita but not aggregate GDP, consistent with declining or emigrating populations. Claims about recovery should specify which measure is being used.</p>
 <hr>
 </section>
 </section>
@@ -996,6 +983,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Data sources: World Bank, Our World in Data</p>
+</div>   
+    <div class="nav-footer-center">
+<p>© 2026 Bryan C. Johns</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://informedwanderer.com">
+<p>Portfolio</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/b-johns/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/johbry17">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

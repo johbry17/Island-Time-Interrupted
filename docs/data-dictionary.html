@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bryan C. Johns">
-<meta name="dcterms.date" content="2026-11-05">
 
 <title>Data Dictionary – Island Time, Interrupted</title>
 <style>
@@ -48,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1065e138ddad154c97082f4cd7767d6f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +77,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -179,19 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Bryan C. Johns </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -201,6 +187,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This page documents every data source, variable, and processed dataset used in the analysis. For how the data were used — sample construction, baseline calculations, model specifications — see <a href="./methodology.html">Methodology</a>. For the analysis itself, see <a href="./analysis.html">Technical Analysis</a>.</p>
+<p><strong>Most important distinction:</strong> the OWID visitor spending indicator and the WDI tourism receipts indicator are not interchangeable. They divide by different denominators, cover different economies, and have different data availability. The analysis uses them as separate measures of related but distinct aspects of tourism dependence.</p>
 <section id="tourism-indicators" class="level2">
 <h2 class="anchored" data-anchor-id="tourism-indicators">Tourism Indicators</h2>
 <section id="owid-international-visitor-spending-of-gdp" class="level3">
@@ -252,10 +240,6 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><strong>Raw file</strong></td>
 <td><code>data/raw/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/</code></td>
-</tr>
-<tr class="even">
-<td><strong>Retrieved</strong></td>
-<td>January 2026</td>
 </tr>
 </tbody>
 </table>
@@ -557,7 +541,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Why both matter:</strong> An economy can restore total real GDP while GDP per capita remains below 2019 levels if population has grown. By 2023, 19 of 28 shock-sample economies had recovered aggregate real GDP to 2019 levels; only 17 of 28 had recovered real GDP per capita.</p>
+<p><strong>Why both matter:</strong> An economy can restore total real GDP while GDP per capita remains below 2019 levels if population has grown — and the reverse is also possible, if population has declined or emigrated. By 2024, 21 of 28 shock-sample economies with available data had recovered aggregate real GDP to 2019 levels; 20 of 28 had recovered real GDP per capita.</p>
 </section>
 <section id="wdi-gdp-per-capita-current-usd-reference-only" class="level3">
 <h3 class="anchored" data-anchor-id="wdi-gdp-per-capita-current-usd-reference-only">WDI GDP Per Capita (Current USD) — Reference Only</h3>
@@ -1100,6 +1084,35 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Data sources: World Bank, Our World in Data</p>
+</div>   
+    <div class="nav-footer-center">
+<p>© 2026 Bryan C. Johns</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://informedwanderer.com">
+<p>Portfolio</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/b-johns/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/johbry17">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

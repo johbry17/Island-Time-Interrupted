@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bryan C. Johns">
-<meta name="dcterms.date" content="2026-11-05">
 
 <title>Technical Analysis – Island Time, Interrupted</title>
 <style>
@@ -48,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1065e138ddad154c97082f4cd7767d6f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +77,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -178,19 +176,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Bryan C. Johns </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -200,8 +186,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This page documents the analytical evidence behind the <a href="./index.html">Overview</a>. It covers sample construction, tourism indicator coverage, all eight principal shock-model estimates, robustness diagnostics, and economic recovery through 2024. Code is available via the fold buttons. Source documentation and variable definitions are in the <a href="./data-dictionary.html">Data Dictionary</a>; research design and methodological decisions are in <a href="./methodology.html">Methodology</a>.</p>
 <section id="candidate-universe-and-sample-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="candidate-universe-and-sample-definitions">Candidate Universe and Sample Definitions</h2>
+<p>The analysis draws on 58 candidate economies across three UN Small Island Developing States regions. From this universe, different indicator availability produces different analytical samples; all are documented explicitly and held fixed across model specifications.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -306,6 +294,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="tourism-indicator-coverage" class="level2">
 <h2 class="anchored" data-anchor-id="tourism-indicator-coverage">Tourism Indicator Coverage</h2>
+<p>Data availability differs substantially between the two principal indicators. The OWID visitor spending series has near-complete coverage through 2024; the WDI receipts series stops at 2020 and is missing 2019 data for 14 of 35 WDI-sample members. This coverage asymmetry is part of why the two indicators produce different results.</p>
 <section id="coverage-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="coverage-matrix">Coverage matrix</h3>
 <div class="cell">
@@ -539,6 +528,7 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </section>
 <section id="indicator-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="indicator-comparison">Indicator Comparison</h2>
+<p>The two principal measures are correlated but not equivalent. Figure 2 shows the relationship between them across the 24-economy common sample.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-indicator-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -557,8 +547,9 @@ Figure&nbsp;2: OWID visitor spending (% GDP) vs.&nbsp;WDI tourism receipts (% ex
 </section>
 <section id="eight-model-shock-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="eight-model-shock-analysis">Eight-Model Shock Analysis</h2>
+<p>Each percentage point of visitor spending as a share of GDP is associated with roughly 0.31 percentage points of additional GDP contraction in 2020 — but this estimate varies across indicator choice, sample, and baseline window. The table below reports all eight principal specifications; none is selected or suppressed on the basis of its result.</p>
 <p><strong>Outcome:</strong> 2020 annual GDP growth (%, WDI <code>NY.GDP.MKTP.KD.ZG</code>).<br>
-<strong>Note:</strong> The 2015–2019 primary window was evaluated after the 2017–2019 results were already observed. No window was designated a priori. All eight results are reported.</p>
+<strong>Transparency note:</strong> The 2015–2019 primary window was evaluated after the 2017–2019 results were already observed. This is not preregistered research; the ordering is documented explicitly.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -973,6 +964,7 @@ Figure&nbsp;4: Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism 
 </section>
 <section id="recovery-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="recovery-analysis">Recovery Analysis</h2>
+<p>This section examines real GDP trajectories from 2015 through 2025, with 2024 as the primary recovery comparison year. 2024 is the most recent year with near-complete sample coverage (28 of 29 economies; VIR has no data). The 2019=100 index is computed separately for aggregate real GDP and real GDP per capita; the two tell different stories in a number of cases.</p>
 <section id="coverage" class="level3">
 <h3 class="anchored" data-anchor-id="coverage">Coverage</h3>
 <div class="cell">
@@ -1803,6 +1795,35 @@ Figure&nbsp;6: Pre-pandemic visitor spending vs.&nbsp;2024 real GDP index (2019=
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Data sources: World Bank, Our World in Data</p>
+</div>   
+    <div class="nav-footer-center">
+<p>© 2026 Bryan C. Johns</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://informedwanderer.com">
+<p>Portfolio</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/b-johns/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/johbry17">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

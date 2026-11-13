@@ -1,19 +1,11 @@
 ---
 title: "Data Dictionary"
 subtitle: "Sources, Indicators, Coverage, and Limitations"
-date: today
-date-format: "MMMM D, YYYY"
-author: "Bryan C. Johns"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    fig-cap-location: bottom
-execute:
-  warning: false
-  message: false
-  cache: false
 ---
+
+This page documents every data source, variable, and processed dataset used in the analysis. For how the data were used — sample construction, baseline calculations, model specifications — see [Methodology](methodology.qmd). For the analysis itself, see [Technical Analysis](analysis.qmd).
+
+**Most important distinction:** the OWID visitor spending indicator and the WDI tourism receipts indicator are not interchangeable. They divide by different denominators, cover different economies, and have different data availability. The analysis uses them as separate measures of related but distinct aspects of tourism dependence.
 
 ```{r setup}
 #| include: false
@@ -21,10 +13,7 @@ library(here)
 library(readr)
 library(dplyr)
 library(knitr)
-cands <- read_csv(
-    here("data", "processed", "candidates.csv"),
-    show_col_types = FALSE
-)
+cands <- read_csv(here("data","processed","candidates.csv"), show_col_types = FALSE)
 ```
 
 ## Tourism Indicators
@@ -42,7 +31,6 @@ cands <- read_csv(
 | **Date range** | 1995–2024 |
 | **Coverage** | ~200 countries/territories |
 | **Raw file** | `data/raw/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/` |
-| **Retrieved** | January 2026 |
 
 **This indicator does not correspond to a single WDI indicator code.** The numerator (international tourism receipts) comes from UN Tourism statistics collected through annual questionnaires following the International Recommendations for Tourism Statistics (IRTS 2008). The denominator (GDP) comes from World Bank national accounts estimates. Do not attribute this indicator to `ST.INT.XPND.GD.ZS` or any other unverified WDI code.
 
@@ -148,7 +136,7 @@ cands <- read_csv(
 | **Source** | World Development Indicators, World Bank |
 | **Use** | Complementary recovery measure; distinguishes per-capita from aggregate recovery |
 
-**Why both matter:** An economy can restore total real GDP while GDP per capita remains below 2019 levels if population has grown. By 2023, 19 of 28 shock-sample economies had recovered aggregate real GDP to 2019 levels; only 17 of 28 had recovered real GDP per capita.
+**Why both matter:** An economy can restore total real GDP while GDP per capita remains below 2019 levels if population has grown — and the reverse is also possible, if population has declined or emigrated. By 2024, 21 of 28 shock-sample economies with available data had recovered aggregate real GDP to 2019 levels; 20 of 28 had recovered real GDP per capita.
 
 ### WDI GDP Per Capita (Current USD) — Reference Only
 

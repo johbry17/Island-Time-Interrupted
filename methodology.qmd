@@ -1,19 +1,9 @@
 ---
 title: "Methodology"
 subtitle: "Research Design, Sample Construction, and Analytical Decisions"
-date: today
-date-format: "MMMM D, YYYY"
-author: "Bryan C. Johns"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    fig-cap-location: bottom
-execute:
-  warning: false
-  message: false
-  cache: false
 ---
+
+This page documents the research design, sample construction, and analytical decisions for *Island Time, Interrupted*. It explains what was done and why, including where judgments were made and what consequences those judgments carry for interpretation. The [Data Dictionary](data-dictionary.qmd) explains what the data are and where they came from. The [Technical Analysis](analysis.qmd) shows the results.
 
 ```{r setup}
 #| include: false
@@ -21,14 +11,8 @@ library(here)
 library(readr)
 library(dplyr)
 library(knitr)
-bl <- read_csv(
-    here("data", "processed", "baseline_shock_recovery.csv"),
-    show_col_types = FALSE
-)
-cands <- read_csv(
-    here("data", "processed", "candidates.csv"),
-    show_col_types = FALSE
-)
+bl    <- read_csv(here("data","processed","baseline_shock_recovery.csv"), show_col_types = FALSE)
+cands <- read_csv(here("data","processed","candidates.csv"),              show_col_types = FALSE)
 ```
 
 ## Research Design
@@ -37,13 +21,13 @@ cands <- read_csv(
 
 **Primary:** Was greater pre-pandemic dependence on international tourism associated with more severe 2020 GDP contractions among Caribbean, Pacific, and AIMS small island developing states?
 
-**Secondary:** Did the most tourism-dependent economies recover to their 2019 real GDP levels by 2022–2023?
+**Secondary:** Were tourism-dependent economies more or less likely to have recovered to their 2019 real GDP levels by 2024?
 
 ### Analytical approach
 
-This is a cross-sectional exploratory analysis. The unit of analysis is the economy (one row per country). The approach is descriptive and associational: we examine whether a pre-pandemic characteristic (tourism dependence) predicts an outcome (2020 GDP growth) using bivariate OLS regression and rank correlation.
+This is a cross-sectional exploratory analysis. The unit of analysis is the economy. The approach is descriptive and associational: does a pre-pandemic characteristic (tourism dependence) predict a 2020 outcome (GDP growth)? The statistical tool is bivariate OLS regression, supplemented by rank correlation and multiple specification comparisons.
 
-This analysis does not establish causation. No controls for confounders (fiscal buffers, governance quality, pre-existing recession, pandemic response policy, population size, or economic structure) are included. The analysis is deliberately kept bivariate to maintain transparency about what the data show before additional assumptions are introduced.
+This analysis does not establish causation. No controls are included for fiscal position, economic structure, pre-existing recession, pandemic-response policy, or population dynamics. The analysis is intentionally kept bivariate to maintain transparency — these are the raw patterns in the data before any further assumptions are introduced.
 
 ---
 
@@ -51,7 +35,7 @@ This analysis does not establish causation. No controls for confounders (fiscal 
 
 ### Source authority
 
-The candidate universe was constructed from the **UN Office of the High Representative for the Least Developed Countries, Landlocked Developing Countries and Small Island Developing States (UN-OHRLLS) list of SIDS**, retrieved November 2026 ([source](https://www.un.org/ohrlls/content/list-sids)).
+The candidate universe was constructed from the **UN-OHRLLS list of SIDS**, retrieved November 2026 ([source](https://www.un.org/ohrlls/content/list-sids)).
 
 ### Classification categories
 
@@ -76,7 +60,7 @@ The candidate universe was constructed from the **UN Office of the High Represen
 
 Sample membership is determined by **2017–2019 indicator availability plus 2020 GDP growth availability**. This definition is fixed and does not change when baseline windows are extended or narrowed. The 2017–2019 window was used for sample definition because it is the most recent pre-pandemic three-year period available for both indicators.
 
-### Four principal samples
+### Sample hierarchy
 
 | Sample | Criterion | N |
 |--------|-----------|---|
@@ -186,15 +170,15 @@ Computed separately for aggregate real GDP (`NY.GDP.MKTP.KD`) and per-capita rea
 
 The reference year is 2019, the last full year before COVID-19 travel restrictions. This is the most natural pre-pandemic comparison point. 2015–2018 observations are included to show the pre-pandemic trend.
 
-### Comparison year: 2023
+### Comparison year: 2024
 
-The primary recovery comparison year is 2023, the most recent year with near-complete data for the sample (28/29 economies). 2024 data exists for 28 economies but is preliminary for some; 2025 data exists for 22 economies only.
+The primary recovery comparison year is 2024, the most recent year with near-complete data for the sample (28/29 economies; VIR has no 2024 data). 2025 data exists for 22 economies only, an insufficient base for cross-economy comparisons.
 
-**Annual sample sizes vary across the recovery period** and are shown explicitly in Figure 7. Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.
+**Annual sample sizes vary across the recovery period** and are shown explicitly in figures (Overview Figure 3 and Analysis Figure 5). Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.
 
 ### Aggregate vs. per-capita distinction
 
-These are not interchangeable. 19/28 economies recovered aggregate real GDP by 2023; 17/28 recovered real GDP per capita. The 2-economy gap reflects population growth in some Pacific economies. The Field Note reports both; claims about recovery should specify which measure is being used.
+These are not interchangeable. By 2024, 21 of 28 economies with available data had recovered aggregate real GDP to 2019 levels; 20 of 28 had recovered real GDP per capita. The net gap of one economy masks divergent dynamics in both directions: four economies (ATG, PNG, SYC, VUT) recovered aggregate but not per-capita GDP, consistent with population growth outpacing economic output; three economies (CUW, MHL, TUV) recovered per-capita but not aggregate GDP, consistent with declining or emigrating populations. Claims about recovery should specify which measure is being used.
 
 ---
 
