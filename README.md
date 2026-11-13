@@ -1,51 +1,45 @@
 # Island Time, Interrupted
 
-### Tourism Dependence and the COVID Cliff in Small Island Developing States
+**Tourism Dependence and the COVID Cliff in Small Island Developing States**
 
 *When international travel stopped, how did tourism-dependent island economies fare — and what happened next?*
 
+🔗 [Explore the Project](https://johbry17.github.io/Island-Time-Interrupted/)
 
-
----
-
-## Published Site
-
-> ### 🔗 [johbry17.github.io/Island-Time-Interrupted](https://johbry17.github.io/Island-Time-Interrupted/)
-
-| Page | Content |
-|------|---------|
-| [Overview](https://johbry17.github.io/Island-Time-Interrupted/index.html) | Narrative overview: question, findings, figures, conclusion |
-| [Analysis](https://johbry17.github.io/Island-Time-Interrupted/analysis.html) | Full technical results: all 8 models, diagnostics, recovery analysis |
-| [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/data-dictionary.html) | Sources, indicator definitions, coverage, and limitations |
-| [Methodology](https://johbry17.github.io/Island-Time-Interrupted/methodology.html) | Research design, sample construction, specifications, reproducibility |
-
----
-
-## Table of Contents
+## Contents
 
 - [Project Overview](#project-overview)
+- [Published Site](#published-site)
 - [Key Findings](#key-findings)
-- [Research Design](#research-design)
-- [Data Sources](#data-sources)
+  - [The 2020 Shock](#the-2020-shock)
+  - [The Recovery](#the-recovery)
+- [Research Design at a Glance](#research-design-at-a-glance)
 - [Figures](#figures)
-- [Tools and Technologies](#tools-and-technologies)
-- [Pipeline and Reproducibility](#pipeline-and-reproducibility)
+- [Data Sources](#data-sources)
+- [Tools](#tools)
+- [Reproduction](#reproduction)
 - [Repository Structure](#repository-structure)
 - [Limitations](#limitations)
 - [References](#references)
+- [License](#license)
 - [Author](#author)
-
----
 
 ## Project Overview
 
-The COVID-19 pandemic disrupted international travel at an unprecedented scale: global tourist arrivals fell by roughly 74 percent in 2020. For many countries, this was a significant but manageable sector-level disruption. For small island economies where international tourism accounts for a large fraction of total economic activity, the interruption of travel was something closer to the suspension of the primary economic engine.
+The COVID-19 pandemic interrupted international travel at a scale that turned an ordinary health crisis into an existential economic event for many small island states. This project asks a direct question: were the islands that depended most on tourism before the pandemic the ones that contracted most sharply in 2020?
 
-This project uses data from 58 candidate economies across the Caribbean, the Pacific, and the AIMS region (Atlantic, Indian Ocean, Mediterranean, and South China Sea) to examine whether the degree of pre-pandemic tourism dependence predicted the severity of the 2020 economic shock. It then traces the recovery through 2023–2025 using real GDP data from the World Bank.
+For the best available measure of tourism dependence, the answer is yes. For the subsequent recovery, the answer is considerably messier.
 
-The analysis uses two indicators of tourism dependence: international visitor spending as a share of GDP (primary, from OWID/UN Tourism) and international tourism receipts as a share of total exports (complementary, from the World Bank WDI). These two measures capture related but distinct concepts and have different data coverage; using them separately reveals that the choice of indicator matters for how clearly the pattern can be seen.
+## Published site
 
-This is an exploratory cross-sectional analysis. It documents associations; it does not establish causal explanations of national economic trajectories.
+> **[johbry17.github.io/Island-Time-Interrupted](https://johbry17.github.io/Island-Time-Interrupted/)**
+
+| Page | What it contains |
+|------|-----------------|
+| [Overview](https://johbry17.github.io/Island-Time-Interrupted/index.html) | The story: question, findings, implications |
+| [Analysis](https://johbry17.github.io/Island-Time-Interrupted/analysis.html) | All eight models, diagnostics, robustness checks, recovery |
+| [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/data-dictionary.html) | Sources, indicators, variable definitions, coverage |
+| [Methodology](https://johbry17.github.io/Island-Time-Interrupted/methodology.html) | Research design, sample construction, decisions, limitations |
 
 ---
 
@@ -53,122 +47,161 @@ This is an exploratory cross-sectional analysis. It documents associations; it d
 
 ### The 2020 shock
 
-- **Primary indicator (OWID visitor spending):** Strong, consistent negative association between pre-pandemic tourism dependence and 2020 GDP growth. Each percentage point increase in visitor spending as a share of GDP was associated with approximately 0.31 percentage points of additional GDP contraction (R² ≈ 0.41–0.49, Pearson r ≈ −0.64 to −0.70, p < 0.001).
-- The result holds across two baseline windows (2015–2019 primary; 2017–2019 sensitivity), two samples (full OWID, N=29; common sample, N=24), and after excluding the Maldives (the most influential observation).
-- **Complementary indicator (WDI receipts/exports):** Weaker and inconsistent results. In the full WDI sample (N=35), p ≈ 0.06; in the common sample (N=24), R² ≈ 0.23, p ≈ 0.02.
+Each additional percentage point of pre-pandemic international visitor spending as a share of GDP was associated with approximately **0.31 percentage points lower 2020 real GDP growth** (OLS, N = 29, R² ≈ 0.414, raw p < 0.001; Holm-adjusted p = 0.001). This holds across two baseline windows, two samples, and after removing the most influential observation (Maldives, Cook's D ≈ 0.39).
+
+The complementary indicator — WDI tourism receipts as a share of total exports — produces weaker results (R² ≈ 0.10 in the full WDI sample of 35, p ≈ 0.06). In the common 24-economy sample, the WDI indicator also produces a weaker relationship (R² = 0.233 versus 0.489 for OWID visitor spending), suggesting that the difference is not explained solely by sample composition. The choice of indicator matters substantively, not just methodologically.
 
 ### The recovery
 
-- **21 of 28** economies with 2024 data had returned to or exceeded their 2019 aggregate real GDP.
-- **20 of 28** had recovered real GDP per capita — two fewer, reflecting population dynamics: four economies (Seychelles, Antigua & Barbuda, Papua New Guinea, Vanuatu) recovered aggregate but not per-capita; three (Curaçao, Marshall Islands, Tuvalu) recovered per-capita but not aggregate.
-- Pre-pandemic tourism dependence was **not significantly associated** with the 2024 recovery index (Pearson r = 0.21, p = 0.275). Tourism-dependent economies contracted more sharply in 2020 and bounced back more strongly from 2021 — the shock and rebound share the same mechanism.
+By 2024, **21 of 28** economies with available data had returned to or exceeded their 2019 aggregate real GDP. **20 of 28** had recovered real GDP per capita.
+
+Pre-pandemic tourism dependence was **not significantly associated** with the 2024 aggregate real GDP index (Pearson r = 0.21, p = 0.275, N = 28). Tourism-dependent economies experienced sharper contractions in 2020, followed by substantial rebounds from 2021. But the strength of the initial shock did not translate into a predictable ranking of recovery by 2024. Where economies stood in 2024 relative to 2019 reflects factors beyond pre-pandemic tourism dependence.
 
 ---
 
-## Research Design
+## Research Design at a Glance
 
-| Dimension | Description |
-|-----------|-------------|
-| Unit of analysis | Country-year; cross-sectional summary at country level |
+| Element | Detail |
+|---------|--------|
+| Unit of Analysis | Economy; cross-sectional comparison |
 | Candidate universe | 58 SIDS and associated economies (UN-OHRLLS list) |
-| Primary shock sample | 29 economies with OWID vspend baseline and 2020 GDP growth |
-| Shock outcome | 2020 GDP growth (%), WDI NY.GDP.MKTP.KD.ZG |
-| Primary tourism measure | OWID visitor spending (% GDP), 2015–2019 mean |
-| Complementary measure | WDI receipts (% total exports), 2015–2019 mean |
-| Statistical approach | Bivariate OLS; Pearson and Spearman correlation |
-| Multiple-testing | Holm correction across 8 principal p-values |
+| Primary shock sample | 29 economies (OWID vspend baseline + 2020 GDP growth) |
+| Primary tourism measure | OWID visitor spending (% GDP), 2015–2019 average |
+| Complementary measure | WDI tourism receipts (% total exports) |
+| Shock outcome | 2020 real GDP growth (WDI NY.GDP.MKTP.KD.ZG) |
+| Recovery measure | Real GDP index, 2019 = 100 (WDI NY.GDP.MKTP.KD) |
+| Statistical approach | Bivariate OLS; Pearson and Spearman correlations |
+| Principal models | 8: two indicators × two samples × two baseline windows |
+| Model indicators | OWID visitor spending; WDI tourism receipts |
+| Model samples | Indicator-specific full sample; 24-economy common sample |
+| Model baselines | 	2015–2019; 2017–2019 |
+| Multiple testing | Holm correction across all 8 p-values |
 | Diagnostics | Cook's distance; coverage-restricted sensitivity |
-| Recovery outcome | Real GDP index, 2019 = 100 (NY.GDP.MKTP.KD) |
-
-Eight principal shock models are estimated: two indicators × two samples (full vs. common) × two baseline windows (2015–2019 and 2017–2019). All results are reported; no specification is selected on the basis of its p-value.
-
----
-
-## Data Sources
-
-| Dataset | Source | Indicator | Years |
-|---------|--------|-----------|-------|
-| Visitor spending (% GDP) | [OWID / UN Tourism](https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp) | Not a single WDI code | 1995–2024 |
-| Tourism direct GDP (% GDP) | [OWID / UN Tourism](https://ourworldindata.org/grapher/tourism-gdp-proportion-of-total-gdp) | SDG 8.9.1 (TSA method) | 2008–2023 |
-| Tourist arrivals | [OWID / UN Tourism](https://ourworldindata.org/grapher/international-tourist-trips) | Count | 1995–2024 |
-| Tourism receipts (% exports) | [WDI ST.INT.RCPT.XP.ZS](https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS) | % total exports | ~1995–2020† |
-| Real GDP | [WDI NY.GDP.MKTP.KD](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD) | Constant 2015 USD | 2008–2025 |
-| Real GDP per capita | [WDI NY.GDP.PCAP.KD](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD) | Constant 2015 USD | 2008–2025 |
-| GDP growth | [WDI NY.GDP.MKTP.KD.ZG](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG) | Annual % | 2008–2025 |
-
-† The WDI tourism receipts series contains no observations beyond 2020 in this retrieval. This appears to reflect a change in UN Tourism data dissemination rather than a simple publication lag.
-
-> **Important:** OWID visitor spending (% GDP) is sourced from UN Tourism statistics and World Bank national accounts. It is not equivalent to WDI `ST.INT.XPND.GD.ZS` or any other single WDI code. Do not conflate it with tourism direct GDP (SDG 8.9.1), which measures domestic value added rather than visitor expenditure.
+| Primary recovery outcome | 	Aggregate real GDP index, 2019 = 100 |
+| Recovery comparison | 2024; 28 of 29 economies |
 
 ---
 
 ## Figures
 
-| Figure | Description |
-|--------|-------------|
-| ![Ranking](output/figures/fig1_vspend_ranking.png) | Pre-pandemic tourism dependence rankings (primary shock sample) |
-| ![Shock](output/figures/fig3_shock_scatter.png) | Tourism dependence vs. 2020 GDP growth |
-| ![Recovery](output/figures/fig7_recovery_trajectories.png) | Real GDP recovery trajectories, 2015–2025 |
-| ![Coverage](output/figures/fig4_coverage_matrix.png) | Data coverage matrix across the candidate universe |
-| ![Models](output/figures/fig5_shock_4panel_1519.png) | Four-panel model comparison (2015–2019 baseline) |
-| ![Common sample](output/figures/fig6_common_sample_comparison.png) | Common-sample indicator comparison |
-| ![Recovery vs tourism](output/figures/fig8_recovery_vs_tourism.png) | 2024 recovery index vs. pre-pandemic tourism dependence |
+<!-- ### Tourism Dependence and Measurement -->
+
+<!-- **Pre-pandemic international visitor spending.**
+
+![International visitor spending as a share of GDP across small island economies.](output/figures/fig1_vspend_ranking.png)
+
+*International visitor spending varied enormously across economies. In Aruba and the Maldives, it exceeded 60% of GDP; in others, including Papua New Guinea and Guinea-Bissau, it represented a negligible share.* -->
+
+<!-- **Comparing measures of tourism dependence.**
+
+![Comparison of tourism dependence indicators.](output/figures/fig2_measure_comparison.png)
+
+*International visitor spending as a share of GDP and tourism receipts as a share of total exports capture different dimensions of tourism dependence. The choice of indicator matters for the strength of the relationship with the 2020 economic shock.* -->
+
+<!-- **Data coverage across candidate economies.**
+
+![Data coverage matrix across candidate economies and indicators.](output/figures/fig4_coverage_matrix.png)
+
+*Coverage varies across indicators and economies. The candidate universe is broader than the samples available for the principal shock and recovery analyses.* -->
+
+### The 2020 Economic Shock
+
+**Tourism dependence and the 2020 economic contraction.**
+
+![Scatterplot of pre-pandemic international visitor spending as a share of GDP against 2020 real GDP growth across 29 economies.](output/figures/fig3_shock_scatter.png)
+
+*Economies where international visitor spending represented a larger share of GDP tended to experience deeper contractions in 2020. This is a cross-country association, not evidence that tourism dependence alone caused the decline.*
+
+<!-- **The 2020 shock across model specifications.**
+
+![Four-panel comparison of shock models using the 2015–2019 baseline.](output/figures/fig5_shock_4panel_1519.png)
+
+*The principal shock relationship across alternative tourism-dependence measures and analytical samples. Comparing specifications helps distinguish the influence of indicator choice from the influence of sample composition.* -->
+
+<!-- **Comparing indicators in a common sample.**
+
+![Comparison of OWID visitor spending and WDI tourism receipts in the common 24-economy sample.](output/figures/fig6_common_sample_comparison.png)
+
+*Restricting both indicators to the same 24 economies provides a more direct comparison. The OWID visitor-spending measure retains a stronger relationship with 2020 GDP growth than the WDI tourism-receipts measure.* -->
+
+### Recovery
+
+**Real GDP recovery trajectories, 2015–2025.**
+
+![Indexed real GDP trajectories for small island economies, with 2019 set to 100.](output/figures/fig7_recovery_trajectories.png)
+
+*The rebound was not uniform. Most economies with available data had returned to or exceeded their 2019 aggregate output by 2024, but recovery paths differed considerably. Aggregate GDP recovery does not necessarily mean output per person has recovered.*
+
+**Tourism dependence and the 2024 recovery endpoint.**
+
+![Scatterplot comparing pre-pandemic international visitor spending with the 2024 real GDP index, 2019 set to 100.](output/figures/fig8_recovery_vs_tourism.png)
+
+*Unlike the relationship observed for the 2020 shock, pre-pandemic tourism dependence was not significantly associated with the 2024 aggregate real GDP index (Pearson r = 0.21, p = 0.275, N = 28). The severity of the initial contraction did not reliably predict where economies stood five years later.*
 
 ---
 
-## Tools and Technologies
+## Data Sources
 
-- **R 4.4.1** — data acquisition, analysis, and visualization
-- **Quarto** — reproducible HTML publication (four-page site)
-- **GitHub Pages** — site hosting (`docs/` branch)
+OWID CSVs are fixed downloads.  
+WDI is retrieved dynamically through the API.  
+Re-running the acquisition script may change the resulting analysis.  
+
+| Dataset | Source | Coverage |
+|---------|--------|----------|
+| Visitor spending (% GDP) | [OWID / UN Tourism](https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp) | 1995–2024 |
+| Tourism direct GDP (% GDP) | [OWID / UN Tourism](https://ourworldindata.org/grapher/tourism-gdp-proportion-of-total-gdp) | 2008–2023 |
+| Tourist arrivals | [OWID / UN Tourism](https://ourworldindata.org/grapher/international-tourist-trips) | 1995–2024 |
+| Tourism receipts (% exports) | [WDI ST.INT.RCPT.XP.ZS](https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS) | 2008–2020† |
+| Real GDP | [WDI NY.GDP.MKTP.KD](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD) | 2008–2025 |
+| Real GDP per capita | [WDI NY.GDP.PCAP.KD](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD) | 2008–2025 |
+| GDP growth | [WDI NY.GDP.MKTP.KD.ZG](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG) | 2008–2025 |
+
+† The WDI tourism receipts series contains no observations beyond 2020 in this retrieval. This likely reflects a change in UN Tourism's data dissemination approach rather than a simple publication lag.
+
+> **Note on the visitor spending indicator:** OWID visitor spending (% GDP) is sourced from UN Tourism statistics and World Bank national accounts. It does not map to any single WDI indicator code. Do not attribute it to `ST.INT.XPND.GD.ZS` or conflate it with tourism direct GDP (SDG 8.9.1).
+
+---
+
+## Tools
+
+- **R 4.4.1** — data acquisition, analysis, visualization
+- **Quarto** — four-page reproducible HTML publication
+- **GitHub Pages** — hosting from `docs/` directory
 - **wbstats** — World Bank API retrieval
-- **tidyverse** — data manipulation and visualization
-- **ggplot2** / **patchwork** — publication-quality figures
-- **here** — project-root-aware file paths
-- **svglite** — SVG figure export
+- **tidyverse / ggplot2 / patchwork** — data manipulation and figures
+- **here / svglite / scales** — project paths, SVG export, formatting
 
 ---
 
-## Pipeline and Reproducibility
+## Reproduction
 
-### Prerequisites
+**Prerequisites**: R 4.4.1 (tested), Quarto 1.1 or later.
 
-- R ≥ 4.4.0
-- Quarto ≥ 1.4
-- R packages:
+Install packages if needed:
 
 ```r
-install.packages(c("tidyverse", "wbstats", "here", "scales",
-                   "knitr", "rmarkdown", "patchwork", "svglite"))
+install.packages(c("tidyverse","wbstats","here","scales","knitr","rmarkdown","patchwork","svglite"))
 ```
 
-### Execution order
-
-Run from the **repository root** (where `.git` is located). `here()` anchors paths automatically.
+Run from the **repository root** (`.git` location). The `here` package anchors all paths automatically.
 
 ```r
 source("R/01_data_acquisition.R")   # ~2-3 min; calls World Bank API
-source("R/02_data_quality.R")       # coverage matrix, baselines
-source("R/03_preliminary_eda.R")    # preliminary figures
-source("R/04_shock_models.R")       # 8-model shock analysis
-source("R/05_recovery_analysis.R")  # recovery trajectories
+source("R/02_data_quality.R")
+source("R/03_preliminary_eda.R")
+source("R/04_shock_models.R")
+source("R/05_recovery_analysis.R")
 ```
 
-### Render the site
+Render the site:
 
 ```bash
 quarto render
 ```
 
-Renders all four pages to `docs/`. Open `docs/index.html` locally to preview.
+Output goes to `docs/`. Open `docs/index.html` to preview locally.
 
-> **Note:** R scripts must run before rendering. Quarto pages read pre-computed files from `data/processed/` and `output/`; they do not re-run the R pipeline.
-
-### Data freshness
-
-- OWID CSVs in `data/raw/` are fixed January–July 2026 downloads. To update, replace them with new downloads from the OWID grapher pages.
-- WDI data is retrieved programmatically at run time. Re-running `01_data_acquisition.R` will pull the latest WDI data, which may differ from the results here.
-- Retrieval date and returned codes are logged in `data/raw/worldbank/wdi_retrieval_metadata.txt`.
+> Scripts must run before rendering. Quarto reads pre-computed files from `data/processed/` and `output/`; it does not re-execute the R pipeline at render time.
 
 ---
 
@@ -176,65 +209,58 @@ Renders all four pages to `docs/`. Open `docs/index.html` locally to preview.
 
 ```
 Island-Time-Interrupted/
-│
-├── _quarto.yml                   Site configuration (output: docs/)
-├── index.qmd                     Field Note (public overview)
-├── analysis.qmd                  Technical analysis
-├── data-dictionary.qmd           Data sources and variable reference
-├── methodology.qmd               Research design and methods
-├── styles.css                    Site stylesheet
-├── images/                       Favicon
+├── index.qmd               Overview (public-facing narrative)
+├── analysis.qmd            Technical analysis
+├── data-dictionary.qmd     Data sources and variable reference
+├── methodology.qmd         Research design and methods
+├── _quarto.yml             Site configuration (output: docs/)
+├── styles.scss
+├── LICENSE.md
+├── LICENSE-CODE.md
+├── year.lua                Quarto footer copyright year
 │
 ├── R/
-│   ├── 01_data_acquisition.R     Load OWID; retrieve WDI via wbstats
-│   ├── 02_data_quality.R         Coverage matrix; 2015-19 and 2017-19 baselines
-│   ├── 03_preliminary_eda.R      Rankings, measure comparison, preliminary figures
-│   ├── 04_shock_models.R         Eight-model shock analysis with diagnostics
-│   └── 05_recovery_analysis.R    Recovery index and trajectories
+│   ├── 01_data_acquisition.R
+│   ├── 02_data_quality.R
+│   ├── 03_preliminary_eda.R
+│   ├── 04_shock_models.R
+│   └── 05_recovery_analysis.R
 │
 ├── data/
-│   ├── raw/
-│   │   ├── international-tourist-trips/
-│   │   ├── spending-by-international-visitors-…/
-│   │   ├── tourism-gdp-proportion-of-total-gdp/
-│   │   └── worldbank/            WDI CSV (retrieved via wbstats)
-│   └── processed/                All analytical datasets
-│       ├── candidates.csv        58-economy candidate universe
-│       ├── analytical_panel.csv  Long-format panel (57 economies, unbalanced)
-│       ├── country_coverage.csv  Coverage matrix with sample flags
-│       ├── baseline_shock_recovery.csv  Per-economy baselines + outcomes
-│       └── recovery_index.csv    2019=100 real GDP index
+│   ├── raw/                OWID CSVs + WDI (worldbank/)
+│   └── processed/          Analytical datasets
+│       ├── candidates.csv
+│       ├── analytical_panel.csv   (57 economies, unbalanced)
+│       ├── country_coverage.csv
+│       ├── baseline_shock_recovery.csv
+│       └── recovery_index.csv
 │
 ├── output/
-│   ├── figures/                  PNG (300 dpi) + SVG figures
-│   └── tables/                   CSV model results and recovery summary
+│   ├── figures/            PNG (300 dpi) + SVG
+│   └── tables/             CSV model and recovery results
 │
-├── docs/                         Rendered site → GitHub Pages
-├── archive/                      Superseded planning documents
-├── LICENSE
-└── README.md
+├── images/                 Favicon
+├── docs/                   Rendered site → GitHub Pages
+└── archive/                Superseded planning documents
 ```
 
 ---
 
 ## Limitations
 
-1. **Observational, not causal.** This analysis documents cross-sectional associations. It cannot establish that tourism dependence caused the observed contractions.
-2. **Small N.** The primary shock sample contains 29 economies. Individual outliers can be influential (particularly the Maldives); all diagnostics are reported.
-3. **Annual GDP as outcome.** 2020 annual GDP growth aggregates the full calendar year and does not capture within-year variation, employment, debt, or inequality.
-4. **WDI receipts end of series.** The WDI `ST.INT.RCPT.XP.ZS` series contains no observations beyond 2020 in this retrieval. The complementary-indicator analysis is limited to the shock period.
-5. **Coverage gaps.** Seven candidate economies (AIA, GLP, MTQ, MSR, BES, COK, NIU) have no World Bank API coverage and do not appear in any analytical sample. Some Pacific micro-states have sparse OWID data.
-6. **Recovery measurement.** Aggregate real GDP recovery by 2023 does not capture per-capita recovery, employment recovery, fiscal sustainability, or structural change. The distinction between aggregate and per-capita recovery is documented but not fully analyzed.
-7. **2025 data.** Preliminary for 22 of 29 primary-sample economies; cross-economy comparisons at 2025 should be treated cautiously.
+1. **Observational, not causal.** Associations, not mechanisms. Confounders are not controlled.
+2. **Small N.** Primary shock sample: 29 economies. Individual observations — particularly the Maldives — are influential.
+3. **Annual GDP as outcome.** Aggregates the full calendar year; misses within-year variation, employment, debt, and inequality.
+4. **WDI receipts end of series.** No observations beyond 2020; complementary analysis limited to the shock period.
+5. **Coverage gaps.** Seven candidate economies (AIA, GLP, MTQ, MSR, BES, COK, NIU) have no World Bank API coverage, one of which (BES) has no OWID data. None qualifies for the shock or recovery samples.
+6. **Recovery at 2024** covers 28 of 29 economies (VIR absent). 2025 data available for 22 only; not used for cross-country comparisons.
 
 ---
 
 ## References
 
 - UN-OHRLLS. [List of Small Island Developing States](https://www.un.org/ohrlls/content/list-sids). Retrieved November 2026.
-- Our World in Data. [Spending by international visitors while visiting a country as a share of GDP](https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp).
-- Our World in Data. [Tourism contribution to GDP](https://ourworldindata.org/grapher/tourism-gdp-proportion-of-total-gdp).
-- Our World in Data. [Arrivals of tourists from abroad](https://ourworldindata.org/grapher/international-tourist-trips).
+- Our World in Data. [Spending by international visitors as a share of GDP](https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp).
 - World Bank. [World Development Indicators](https://datatopics.worldbank.org/world-development-indicators/).
 - UN Tourism. [Tourism Statistics Database](https://www.untourism.int/tourism-statistics/tourism-statistics-database).
 
@@ -242,15 +268,14 @@ Island-Time-Interrupted/
 
 ## License
 
-OWID data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
-World Bank WDI data: [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses#cc-by)  
-Analysis code and narrative: © Bryan C. Johns — see LICENSE file
+Original written content, documentation, and visualizations are licensed under [CC BY 4.0](LICENSE.md). Source code is licensed separately under the [MIT License](LICENSE-CODE).
 
-
----
+Third-party data and materials are subject to their respective licenses and terms of use:
+- OWID data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- World Bank WDI: [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses#cc-by)  
 
 ## Author
- 
+
 Bryan Johns, November 2026  
 [bryan.johns@informedwanderer.com](mailto:bryan.johns@informedwanderer.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://informedwanderer.com)  
 — Fluent in Data. Fluent in Human.
