@@ -230,6 +230,6 @@ OWID CSV files in `data/raw/` are fixed downloads from January–July 2026. They
 
 ---
 
-*Return to [Overview](index.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*
+*Return to [Overview](overview.qmd) · [Technical Analysis](analysis.qmd) · [Data Dictionary](data-dictionary.qmd)*
 
 

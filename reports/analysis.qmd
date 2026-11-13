@@ -3,7 +3,7 @@ title: "Technical Analysis"
 subtitle: "Tourism Dependence and the 2020 Shock: Full Results"
 ---
 
-This page documents the analytical evidence behind the [Overview](index.qmd). It covers sample construction, tourism indicator coverage, all eight principal shock-model estimates, robustness diagnostics, and economic recovery through 2024. Code is available via the fold buttons. Source documentation and variable definitions are in the [Data Dictionary](data-dictionary.qmd); research design and methodological decisions are in [Methodology](methodology.qmd).
+This page documents the analytical evidence behind the [Overview](overview.qmd). It covers sample construction, tourism indicator coverage, all eight principal shock-model estimates, robustness diagnostics, and economic recovery through 2024. Code is available via the fold buttons. Source documentation and variable definitions are in the [Data Dictionary](data-dictionary.qmd); research design and methodological decisions are in [Methodology](methodology.qmd).
 
 ```{r setup}
 #| include: false

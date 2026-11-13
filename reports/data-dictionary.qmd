@@ -201,6 +201,6 @@ notes_df |> kable(caption = "Table D1. SIDS universe classification notes.")
 
 ---
 
-*Return to the [Overview](index.qmd) · [Technical Analysis](analysis.qmd) · [Methodology](methodology.qmd)*
+*Return to the [Overview](overview.qmd) · [Technical Analysis](analysis.qmd) · [Methodology](methodology.qmd)*
 
 

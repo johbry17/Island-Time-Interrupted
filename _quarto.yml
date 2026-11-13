@@ -2,23 +2,23 @@ project:
   type: website
   output-dir: docs
   render:
-    - index.qmd
-    - analysis.qmd
-    - data-dictionary.qmd
-    - methodology.qmd
+    - reports/overview.qmd
+    - reports/analysis.qmd
+    - reports/data-dictionary.qmd
+    - reports/methodology.qmd
 
 website:
   title: "Island Time, Interrupted"
   favicon: "images/favicon.ico"
   navbar:
     left:
-      - href: index.qmd
+      - href: reports/overview.qmd
         text: "Overview"
-      - href: analysis.qmd
+      - href: reports/analysis.qmd
         text: "Analysis"
-      - href: data-dictionary.qmd
+      - href: reports/data-dictionary.qmd
         text: "Data"
-      - href: methodology.qmd
+      - href: reports/methodology.qmd
         text: "Methods"
     right:
       - icon: github

@@ -36,10 +36,10 @@ For the best available measure of tourism dependence, the answer is yes. For the
 
 | Page | What it contains |
 |------|-----------------|
-| [Overview](https://johbry17.github.io/Island-Time-Interrupted/index.html) | The story: question, findings, implications |
-| [Analysis](https://johbry17.github.io/Island-Time-Interrupted/analysis.html) | All eight models, diagnostics, robustness checks, recovery |
-| [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/data-dictionary.html) | Sources, indicators, variable definitions, coverage |
-| [Methodology](https://johbry17.github.io/Island-Time-Interrupted/methodology.html) | Research design, sample construction, decisions, limitations |
+| [Overview](https://johbry17.github.io/Island-Time-Interrupted/reports/overview.html) | The story: question, findings, implications |
+| [Analysis](https://johbry17.github.io/Island-Time-Interrupted/reports/analysis.html) | All eight models, diagnostics, robustness checks, recovery |
+| [Data Dictionary](https://johbry17.github.io/Island-Time-Interrupted/reports/data-dictionary.html) | Sources, indicators, variable definitions, coverage |
+| [Methodology](https://johbry17.github.io/Island-Time-Interrupted/reports/methodology.html) | Research design, sample construction, decisions, limitations |
 
 ---
 
@@ -209,16 +209,18 @@ Output goes to `docs/`. Open `docs/index.html` to preview locally.
 
 ```
 Island-Time-Interrupted/
-├── index.qmd               Overview (public-facing narrative)
-├── analysis.qmd            Technical analysis
-├── data-dictionary.qmd     Data sources and variable reference
-├── methodology.qmd         Research design and methods
 ├── _quarto.yml             Site configuration (output: docs/)
-├── styles.scss
 ├── LICENSE.md
 ├── LICENSE-CODE.md
 ├── year.lua                Quarto footer copyright year
-│
+│   
+├── reports/
+│   ├── overview.qmd            Overview (public-facing narrative)
+│   ├── analysis.qmd            Technical analysis
+│   ├── data-dictionary.qmd     Data sources and variable reference
+│   ├── methodology.qmd         Research design and methods
+│   └── styles.scss
+│   
 ├── R/
 │   ├── 01_data_acquisition.R
 │   ├── 02_data_quality.R
