@@ -243,6 +243,9 @@ mres |>
         p_raw,
         p_holm
     ) |>
+    mutate(
+        across(c(p_raw, p_holm), ~ vapply(.x, fmt_p, character(1)))
+    ) |>
     kable(
         digits = 3,
         caption = paste0(
