@@ -1,8 +1,8 @@
 ---
 title: "Island Time, Interrupted"
 subtitle: "Tourism Dependence and the COVID Cliff in Small Island Developing States"
-date: today
 author: "Bryan Johns"
+date: today
 ---
 
 ```{r setup}

@@ -6,10 +6,17 @@ project:
     - reports/analysis.qmd
     - reports/data-dictionary.qmd
     - reports/methodology.qmd
+  resources:
+    - reports/scripts/site.js
 
 website:
   title: "Island Time, Interrupted"
-  favicon: "images/favicon.ico"
+  # description: ""
+  # site-url: "https://johbry17.github.io/Island-Time-Interrupted/"
+  favicon: images/favicon.ico
+  open-graph: true
+  twitter-card: true
+  back-to-top-navigation: true
   navbar:
     left:
       - href: reports/overview.qmd
@@ -25,7 +32,7 @@ website:
         href: https://github.com/johbry17/Island-Time-Interrupted
   page-footer:
     left: "Data sources: World Bank, Our World in Data"
-    center: "© {{< current-year >}} Bryan C. Johns"
+    center: "© <span id='copyright-year'>2026</span> Bryan C. Johns"
     right:
       - text: Portfolio
         href: https://informedwanderer.com
@@ -37,9 +44,9 @@ website:
 format:
   html:
     author-meta: "Bryan C. Johns"
-    shortcodes: 
-      - year.lua
-    theme: [cosmo, styles.scss]
+    theme: 
+      light: [cosmo, themes/archipelago-light.scss]
+      dark: [darkly, themes/archipelago-dark.scss]
     respect-user-color-scheme: true
     toc: true
     toc-depth: 3
@@ -49,8 +56,11 @@ format:
     code-tools: false
     fig-format: png
     fig-dpi: 150
-    # fig-cap-location: bottom
     embed-resources: false
+    smooth-scroll: true
+    include-after-body: # site.js for copyright year & back-to-top smooth scroll
+      - text: |
+          <script src="scripts/site.js"></script>
 
 execute:
   warning: false

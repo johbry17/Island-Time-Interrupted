@@ -212,14 +212,14 @@ Island-Time-Interrupted/
 ├── _quarto.yml             Site configuration (output: docs/)
 ├── LICENSE.md
 ├── LICENSE-CODE.md
-├── year.lua                Quarto footer copyright year
 │   
 ├── reports/
 │   ├── overview.qmd            Overview (public-facing narrative)
 │   ├── analysis.qmd            Technical analysis
 │   ├── data-dictionary.qmd     Data sources and variable reference
 │   ├── methodology.qmd         Research design and methods
-│   └── styles.scss
+│   ├── scripts/                Build utilities
+│   └── themes/                 SCSS themes
 │   
 ├── R/
 │   ├── 01_data_acquisition.R
