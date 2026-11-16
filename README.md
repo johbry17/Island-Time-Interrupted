@@ -209,17 +209,9 @@ Output goes to `docs/`. Open `docs/index.html` to preview locally.
 
 ```
 Island-Time-Interrupted/
-├── _quarto.yml             Site configuration (output: docs/)
+├── _quarto.yml                 Site configuration (output: docs/)
 ├── LICENSE.md
 ├── LICENSE-CODE.md
-│   
-├── reports/
-│   ├── overview.qmd            Overview (public-facing narrative)
-│   ├── analysis.qmd            Technical analysis
-│   ├── data-dictionary.qmd     Data sources and variable reference
-│   ├── methodology.qmd         Research design and methods
-│   ├── scripts/                Build utilities
-│   └── themes/                 SCSS themes
 │   
 ├── R/
 │   ├── 01_data_acquisition.R
@@ -240,6 +232,10 @@ Island-Time-Interrupted/
 ├── output/
 │   ├── figures/            PNG (300 dpi) + SVG
 │   └── tables/             CSV model and recovery results
+│   
+├── reports/                Quarto pages (public-facing narrative)
+│   ├── scripts/            JS 
+│   └── themes/             SCSS themes
 │
 ├── images/                 Favicon
 ├── docs/                   Rendered site → GitHub Pages
