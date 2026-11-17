@@ -4,8 +4,8 @@ project:
   render:
     - reports/overview.qmd
     - reports/analysis.qmd
-    - reports/data-dictionary.qmd
     - reports/methodology.qmd
+    - reports/data-dictionary.qmd
   resources:
     - reports/scripts/site.js
 
@@ -23,10 +23,10 @@ website:
         text: "Overview"
       - href: reports/analysis.qmd
         text: "Analysis"
-      - href: reports/data-dictionary.qmd
-        text: "Data"
       - href: reports/methodology.qmd
         text: "Methods"
+      - href: reports/data-dictionary.qmd
+        text: "Data"
     right:
       - icon: github
         href: https://github.com/johbry17/Island-Time-Interrupted

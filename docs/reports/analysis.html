@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -84,11 +119,11 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Technical Analysis – Island Time, Interrupted">
 <meta property="og:description" content="Tourism Dependence and the 2020 Shock: Full Results">
-<meta property="og:image" content="../output/figures/fig4_coverage_matrix.png">
+<meta property="og:image" content="../output/figures/fig7_recovery_trajectories.png">
 <meta property="og:site_name" content="Island Time, Interrupted">
 <meta name="twitter:title" content="Technical Analysis – Island Time, Interrupted">
 <meta name="twitter:description" content="Tourism Dependence and the 2020 Shock: Full Results">
-<meta name="twitter:image" content="../output/figures/fig4_coverage_matrix.png">
+<meta name="twitter:image" content="../output/figures/fig7_recovery_trajectories.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -289,12 +324,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../reports/data-dictionary.html"> 
-<span class="menu-text">Data</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../reports/methodology.html"> 
 <span class="menu-text">Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reports/data-dictionary.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -320,30 +355,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#candidate-universe-and-sample-definitions" id="toc-candidate-universe-and-sample-definitions" class="nav-link active" data-scroll-target="#candidate-universe-and-sample-definitions">Candidate Universe and Sample Definitions</a>
+  <li><a href="#from-candidate-universe-to-analytical-samples" id="toc-from-candidate-universe-to-analytical-samples" class="nav-link active" data-scroll-target="#from-candidate-universe-to-analytical-samples">From Candidate Universe to Analytical Samples</a>
   <ul class="collapse">
-  <li><a href="#three-fixed-samples" id="toc-three-fixed-samples" class="nav-link" data-scroll-target="#three-fixed-samples">Three fixed samples</a></li>
+  <li><a href="#analytical-samples" id="toc-analytical-samples" class="nav-link" data-scroll-target="#analytical-samples">Analytical samples</a></li>
   </ul></li>
-  <li><a href="#tourism-indicator-coverage" id="toc-tourism-indicator-coverage" class="nav-link" data-scroll-target="#tourism-indicator-coverage">Tourism Indicator Coverage</a>
+  <li><a href="#the-tourism-indicators" id="toc-the-tourism-indicators" class="nav-link" data-scroll-target="#the-tourism-indicators">The Tourism Indicators</a>
   <ul class="collapse">
-  <li><a href="#coverage-matrix" id="toc-coverage-matrix" class="nav-link" data-scroll-target="#coverage-matrix">Coverage matrix</a></li>
-  <li><a href="#wdi-receipts-end-of-series-in-this-retrieval" id="toc-wdi-receipts-end-of-series-in-this-retrieval" class="nav-link" data-scroll-target="#wdi-receipts-end-of-series-in-this-retrieval">WDI receipts: end of series in this retrieval</a></li>
-  <li><a href="#baseline-coverage-distributions" id="toc-baseline-coverage-distributions" class="nav-link" data-scroll-target="#baseline-coverage-distributions">Baseline coverage distributions</a></li>
+  <li><a href="#coverage-and-comparability" id="toc-coverage-and-comparability" class="nav-link" data-scroll-target="#coverage-and-comparability">Coverage and comparability</a></li>
+  <li><a href="#baseline-coverage" id="toc-baseline-coverage" class="nav-link" data-scroll-target="#baseline-coverage">Baseline coverage</a></li>
+  <li><a href="#how-closely-do-the-indicators-correspond" id="toc-how-closely-do-the-indicators-correspond" class="nav-link" data-scroll-target="#how-closely-do-the-indicators-correspond">How closely do the indicators correspond?</a></li>
+  <li><a href="#the-distribution-of-visitor-spending" id="toc-the-distribution-of-visitor-spending" class="nav-link" data-scroll-target="#the-distribution-of-visitor-spending">The distribution of visitor spending</a></li>
   </ul></li>
-  <li><a href="#indicator-comparison" id="toc-indicator-comparison" class="nav-link" data-scroll-target="#indicator-comparison">Indicator Comparison</a></li>
-  <li><a href="#eight-model-shock-analysis" id="toc-eight-model-shock-analysis" class="nav-link" data-scroll-target="#eight-model-shock-analysis">Eight-Model Shock Analysis</a>
+  <li><a href="#tourism-exposure-and-the-2020-shock" id="toc-tourism-exposure-and-the-2020-shock" class="nav-link" data-scroll-target="#tourism-exposure-and-the-2020-shock">Tourism Exposure and the 2020 Shock</a>
   <ul class="collapse">
-  <li><a href="#four-panel-figure-20152019-baseline" id="toc-four-panel-figure-20152019-baseline" class="nav-link" data-scroll-target="#four-panel-figure-20152019-baseline">Four-panel figure (2015–2019 baseline)</a></li>
-  <li><a href="#common-sample-comparison" id="toc-common-sample-comparison" class="nav-link" data-scroll-target="#common-sample-comparison">Common-sample comparison</a></li>
+  <li><a href="#primary-measure-owid-visitor-spending" id="toc-primary-measure-owid-visitor-spending" class="nav-link" data-scroll-target="#primary-measure-owid-visitor-spending">Primary measure: OWID visitor spending</a></li>
+  <li><a href="#complementary-measure-wdi-tourism-receipts" id="toc-complementary-measure-wdi-tourism-receipts" class="nav-link" data-scroll-target="#complementary-measure-wdi-tourism-receipts">Complementary measure: WDI tourism receipts</a></li>
+  </ul></li>
+  <li><a href="#sensitivity-and-influential-observations" id="toc-sensitivity-and-influential-observations" class="nav-link" data-scroll-target="#sensitivity-and-influential-observations">Sensitivity and Influential Observations</a>
+  <ul class="collapse">
   <li><a href="#influential-observations" id="toc-influential-observations" class="nav-link" data-scroll-target="#influential-observations">Influential observations</a></li>
-  <li><a href="#coverage-restricted-sensitivity-3-baseline-observations" id="toc-coverage-restricted-sensitivity-3-baseline-observations" class="nav-link" data-scroll-target="#coverage-restricted-sensitivity-3-baseline-observations">Coverage-restricted sensitivity (≥3 baseline observations)</a></li>
+  <li><a href="#coverage-restricted-sensitivity" id="toc-coverage-restricted-sensitivity" class="nav-link" data-scroll-target="#coverage-restricted-sensitivity">Coverage-restricted sensitivity</a></li>
   </ul></li>
-  <li><a href="#recovery-analysis" id="toc-recovery-analysis" class="nav-link" data-scroll-target="#recovery-analysis">Recovery Analysis</a>
+  <li><a href="#economic-recovery-through-2024" id="toc-economic-recovery-through-2024" class="nav-link" data-scroll-target="#economic-recovery-through-2024">Economic Recovery Through 2024</a>
   <ul class="collapse">
   <li><a href="#coverage" id="toc-coverage" class="nav-link" data-scroll-target="#coverage">Coverage</a></li>
-  <li><a href="#trajectories" id="toc-trajectories" class="nav-link" data-scroll-target="#trajectories">Trajectories</a></li>
-  <li><a href="#recovery-status-by-2024" id="toc-recovery-status-by-2024" class="nav-link" data-scroll-target="#recovery-status-by-2024">Recovery status by 2024</a></li>
-  <li><a href="#recovery-vs.-tourism-dependence" id="toc-recovery-vs.-tourism-dependence" class="nav-link" data-scroll-target="#recovery-vs.-tourism-dependence">Recovery vs.&nbsp;tourism dependence</a></li>
+  <li><a href="#aggregate-gdp-trajectories" id="toc-aggregate-gdp-trajectories" class="nav-link" data-scroll-target="#aggregate-gdp-trajectories">Aggregate GDP trajectories</a></li>
+  <li><a href="#aggregate-and-per-capita-recovery" id="toc-aggregate-and-per-capita-recovery" class="nav-link" data-scroll-target="#aggregate-and-per-capita-recovery">Aggregate and per-capita recovery</a></li>
+  <li><a href="#recovery-and-pre-pandemic-tourism-exposure" id="toc-recovery-and-pre-pandemic-tourism-exposure" class="nav-link" data-scroll-target="#recovery-and-pre-pandemic-tourism-exposure">Recovery and pre-pandemic tourism exposure</a></li>
+  </ul></li>
+  <li><a href="#findings-and-limits" id="toc-findings-and-limits" class="nav-link" data-scroll-target="#findings-and-limits">Findings and Limits</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#recovery-table" id="toc-recovery-table" class="nav-link" data-scroll-target="#recovery-table">Recovery Table</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -372,14 +415,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page documents the analytical evidence behind the <a href="../reports/overview.html">Overview</a>. It covers sample construction, tourism indicator coverage, all eight principal shock-model estimates, robustness diagnostics, and economic recovery through 2024. Code is available via the fold buttons. Source documentation and variable definitions are in the <a href="../reports/data-dictionary.html">Data Dictionary</a>; research design and methodological decisions are in <a href="../reports/methodology.html">Methodology</a>.</p>
-<section id="candidate-universe-and-sample-definitions" class="level2">
-<h2 class="anchored" data-anchor-id="candidate-universe-and-sample-definitions">Candidate Universe and Sample Definitions</h2>
-<p>The analysis draws on 58 candidate economies across three UN Small Island Developing States regions. From this universe, different indicator availability produces different analytical samples; all are documented explicitly and held fixed across model specifications.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.table</span> th em {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-transform</span><span class="ch">:</span> <span class="dv">lowercase</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="bu">inherit</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<style type="text/css">
+.table th em {
+  text-transform: lowercase;
+  text-align: inherit;
+}
+</style>
+</div>
+<p>The COVID-19 pandemic brought international travel to an abrupt halt. For small island economies with substantial exposure to international visitors, the disruption was immediate. But how closely did pre-pandemic tourism exposure correspond with the economic shock that followed? And did the economies most exposed to the initial disruption also experience the weakest recovery?</p>
+<p>This analysis examines those questions across 58 candidate economies in the Caribbean, Pacific, and Atlantic, Indian Ocean, and South China Sea (AIMS) regions. The available data produce different analytical samples for the two tourism indicators, so the results are tested across multiple sample definitions and baseline periods.</p>
+<p>The analysis has two parts. First, it estimates the cross-sectional relationship between pre-pandemic tourism exposure and real GDP growth in 2020. Second, it examines the subsequent recovery in aggregate real GDP and real GDP per capita through 2024.</p>
+<p>The central finding is that the relationship is considerably clearer for the initial shock than for the recovery. Economies with higher international visitor spending relative to GDP generally experienced more severe contractions in 2020. By 2024, however, pre-pandemic exposure was not significantly associated with where an economy stood relative to its 2019 aggregate GDP level.</p>
+<p>The sections below document the samples, indicator comparisons, model results, sensitivity checks, and recovery patterns behind those findings. Indicator definitions and source details are provided in the <a href="../reports/data-dictionary.html">Data Dictionary</a>; research design and calculation procedures are documented in the <a href="../reports/methodology.html">Methodology</a>.</p>
+<section id="from-candidate-universe-to-analytical-samples" class="level2">
+<h2 class="anchored" data-anchor-id="from-candidate-universe-to-analytical-samples">From Candidate Universe to Analytical Samples</h2>
+<p>The candidate universe contains 58 economies across the three UN SIDS regions. It includes 39 economies on the UN-OHRLLS SIDS list, 18 associate members, and one additional island economy included for comparison.</p>
+<p>Not every economy has the data needed for every part of the analysis. The resulting samples are therefore determined by indicator availability rather than by a single complete-case requirement across all variables.</p>
+<div class="cell">
+<div id="tbl-universe-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-universe-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: <strong>Candidate universe by region and classification.</strong> Source: UN-OHRLLS SIDS list and associated classifications, retrieved November 2026.
+</figcaption>
+<div aria-describedby="tbl-universe-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A1. Candidate universe: 58 economies across three SIDS regions. Authority: UN-OHRLLS list of SIDS, retrieved November 2026.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 25%">
@@ -417,17 +485,25 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-<section id="three-fixed-samples" class="level3">
-<h3 class="anchored" data-anchor-id="three-fixed-samples">Three fixed samples</h3>
-<p>Sample membership is defined by 2017–2019 data availability and is <strong>fixed</strong> — it does not change when the baseline window is varied. Changes in N across specifications reflect only baseline-window coverage within a fixed set of countries.</p>
+</figure>
+</div>
+</div>
+<section id="analytical-samples" class="level3">
+<h3 class="anchored" data-anchor-id="analytical-samples">Analytical samples</h3>
+<p>The shock-analysis samples are defined using the availability of the relevant tourism indicator during 2017–2019 and 2020 GDP growth. Membership is held fixed when the baseline period changes. This allows the two baseline windows to be compared without changing the underlying country set.</p>
 <div class="cell">
+<div id="tbl-sample-counts" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sample-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: <strong>Analytical sample definitions and sizes.</strong>
+</figcaption>
+<div aria-describedby="tbl-sample-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A2. Sample definitions and sizes.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 68%">
-<col style="width: 4%">
+<col style="width: 19%">
+<col style="width: 77%">
+<col style="width: 2%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -439,77 +515,69 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Candidate universe</td>
-<td style="text-align: left;">All 58 economies</td>
+<td style="text-align: left;">All candidate economies</td>
 <td style="text-align: right;">58</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Tourism-data sample</td>
-<td style="text-align: left;">At least one tourism indicator, 2017-2019</td>
+<td style="text-align: left;">At least one tourism indicator available during 2017–2019</td>
 <td style="text-align: right;">48</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">OWID shock sample</td>
-<td style="text-align: left;">OWID vspend (2017-19) + 2020 GDP growth</td>
+<td style="text-align: left;">OWID visitor spending and 2020 GDP growth available</td>
 <td style="text-align: right;">29</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WDI shock sample</td>
-<td style="text-align: left;">WDI receipts (2017-19) + 2020 GDP growth</td>
+<td style="text-align: left;">WDI tourism receipts and 2020 GDP growth available</td>
 <td style="text-align: right;">35</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Common sample</td>
-<td style="text-align: left;">Both indicators (2017-19) + 2020 GDP growth</td>
+<td style="text-align: left;">Common shock sample</td>
+<td style="text-align: left;">Both tourism indicators and 2020 GDP growth available</td>
 <td style="text-align: right;">24</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Recovery sample</td>
-<td style="text-align: left;">OWID shock sample + real GDP (2019 + later year)</td>
+<td style="text-align: left;">OWID shock sample with real GDP data for 2019 and at least one subsequent year</td>
 <td style="text-align: right;">29</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><strong>OWID-only economies</strong> (in OWID shock sample but not common sample): BRB, CUB, PRI, TUV, VIR.</p>
-<p><strong>WDI-only economies</strong> (in WDI shock sample but not common sample): DMA, DOM, GRD, HTI, KNA, LCA, NRU, PLW, SGP, STP, TLS.</p>
-<blockquote class="blockquote">
-<p><strong>Analytical panel note.</strong> The candidate universe contains 58 economies; the analytical panel contains data for 57. BES (Bonaire, Sint Eustatius and Saba) is the one economy present in the candidate universe but absent from the panel: it has no coverage in any OWID dataset and no World Bank API coverage, so the full join that constructs the panel produces no rows for it. The remaining six WDI-absent economies (AIA, GLP, MTQ, MSR, COK, NIU) have at least partial OWID data and therefore appear in the panel with WDI columns missing. None of the seven WDI-absent economies qualifies for any shock or recovery sample.</p>
-</blockquote>
-</section>
-</section>
-<section id="tourism-indicator-coverage" class="level2">
-<h2 class="anchored" data-anchor-id="tourism-indicator-coverage">Tourism Indicator Coverage</h2>
-<p>Data availability differs substantially between the two principal indicators. The OWID visitor spending series has near-complete coverage through 2024; the WDI receipts series stops at 2020 and is missing 2019 data for 14 of 35 WDI-sample members. This coverage asymmetry is part of why the two indicators produce different results.</p>
-<section id="coverage-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="coverage-matrix">Coverage matrix</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-coverage-matrix" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-coverage-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../output/figures/fig4_coverage_matrix.png" class="img-fluid figure-img" width="1824">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coverage-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all requested years available; yellow = partial (one year); grey = absent.
-</figcaption>
 </figure>
 </div>
 </div>
-</div>
+<p>The two indicator-specific samples overlap but are not identical. Five economies appear in the OWID shock sample but not the common sample: Barbados, Cuba, Puerto Rico, Tuvalu, and the U.S. Virgin Islands. Eleven appear in the WDI shock sample but not the common sample: Dominica, Dominican Republic, Grenada, Haiti, Saint Kitts and Nevis, Saint Lucia, Nauru, Palau, Singapore, São Tomé and Príncipe, and Timor-Leste.</p>
+<p>The recovery sample contains 29 economies. Coverage is slightly lower for the main 2024 comparison: 28 have real GDP data for that year; the U.S. Virgin Islands does not.</p>
 </section>
-<section id="wdi-receipts-end-of-series-in-this-retrieval" class="level3">
-<h3 class="anchored" data-anchor-id="wdi-receipts-end-of-series-in-this-retrieval">WDI receipts: end of series in this retrieval</h3>
-<p>WDI <code>ST.INT.RCPT.XP.ZS</code> has <strong>no observations beyond 2020</strong> in the retrieved data. This does not appear to be a simple publication lag; it likely reflects a change in UN Tourism’s data dissemination approach following the pandemic. The pre-pandemic coverage is also uneven: 14 of 35 WDI sample members have no 2019 receipts observation, meaning their 2017–2019 baseline draws on 2017 and 2018 only. The OWID visitor spending series, by contrast, is available through 2024 with near-complete coverage.</p>
+</section>
+<section id="the-tourism-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="the-tourism-indicators">The Tourism Indicators</h2>
+<p>Two measures are used to characterize pre-pandemic tourism exposure. They are related, but they do not measure the same thing.</p>
+<p>The <strong>primary indicator</strong> is international visitor spending as a percentage of GDP, compiled by Our World in Data (OWID). It compares gross spending by international visitors with the size of the destination economy. A higher value indicates that visitor spending is large relative to domestic economic output.</p>
+<p>The <strong>complementary indicator</strong> is international tourism receipts as a percentage of total exports, from the World Bank’s World Development Indicators (WDI). It compares tourism receipts with the value of all other exports of goods and services. This provides a different view of tourism’s importance, particularly in economies with relatively small or concentrated export sectors.</p>
+<p>Neither measure is a direct estimate of tourism’s contribution to GDP or of the share of domestic value added generated by tourism. They are proxies for different dimensions of economic exposure. Their definitions, source construction, and limitations are documented in the <a href="../reports/data-dictionary.html">Data Dictionary</a>.</p>
+<section id="coverage-and-comparability" class="level3">
+<h3 class="anchored" data-anchor-id="coverage-and-comparability">Coverage and comparability</h3>
+<p>The OWID visitor-spending series provides substantially broader coverage for the study’s purposes. It is available for all 29 economies in the primary shock sample and extends through 2024 in the retrieved data. The WDI receipts series has no observations after 2020, and 2019 data are missing for 14 of the 35 economies in the WDI shock sample.</p>
+<p>As a result, some WDI baseline averages rely on only 2017 and 2018 observations. The difference in coverage is important when interpreting comparisons between the two indicators.</p>
 <div class="cell">
+<div id="tbl-wdi-coverage" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wdi-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: <strong>Coverage differences between the principal tourism indicators.</strong>
+</figcaption>
+<div aria-describedby="tbl-wdi-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A3. Key coverage differences between tourism indicators.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 32%">
+<col style="width: 23%">
+<col style="width: 17%">
+<col style="width: 24%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -523,42 +591,52 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <tr class="odd">
 <td style="text-align: left;">OWID visitor spending (% GDP)</td>
 <td style="text-align: left;">2024</td>
-<td style="text-align: left;">Yes (all sample members)</td>
+<td style="text-align: left;">Yes, all primary-sample economies</td>
 <td style="text-align: left;">Updated 2026</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">WDI receipts (% exports)</td>
+<td style="text-align: left;">WDI tourism receipts (% exports)</td>
 <td style="text-align: left;">2020</td>
-<td style="text-align: left;">21 of 35 only</td>
-<td style="text-align: left;">Series ends 2020; 14/35 lack 2019 data</td>
+<td style="text-align: left;">21 of 35 WDI-sample economies</td>
+<td style="text-align: left;">No observations after 2020</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">WDI real GDP (const. 2015 USD)</td>
+<td style="text-align: left;">WDI real GDP, constant 2015 USD</td>
 <td style="text-align: left;">2024–2025</td>
-<td style="text-align: left;">Yes (all sample members)</td>
-<td style="text-align: left;">2025 preliminary for 22/29</td>
+<td style="text-align: left;">Yes, all recovery-sample economies</td>
+<td style="text-align: left;">2025 preliminary estimates available for 22 of 29</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
 </section>
-<section id="baseline-coverage-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="baseline-coverage-distributions">Baseline coverage distributions</h3>
+<section id="baseline-coverage" class="level3">
+<h3 class="anchored" data-anchor-id="baseline-coverage">Baseline coverage</h3>
+<p>Two pre-pandemic windows are examined: 2015–2019 and 2017–2019. The shorter period focuses on the years immediately preceding the pandemic; the longer period provides a broader average that is less dependent on any single year.</p>
+<p>For each economy, the indicator is averaged over the available annual observations within the selected window. No missing annual values are filled in. The number of observations contributing to each average therefore varies across economies.</p>
 <div class="cell">
+<div id="tbl-baseline-coverage" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-baseline-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: <strong>Annual observations available within each baseline window.</strong> Counts are restricted to the fixed membership of each shock sample.
+</figcaption>
+<div aria-describedby="tbl-baseline-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A4. Annual observation counts within each baseline window, restricted to fixed sample members. WDI receipts 2017-19 window has many economies with only 2 observations (2017+2018) because 2019 data is missing from the WDI series.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 18%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
+<col style="width: 17%">
+<col style="width: 27%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -575,8 +653,52 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">OWID (N=29)</td>
-<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">OWID visitor spending</td>
 <td style="text-align: left;">2015-19</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -587,17 +709,6 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </tr>
 <tr class="even">
 <td style="text-align: left;">OWID (N=29)</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">OWID (N=29)</td>
 <td style="text-align: left;">WDI receipts</td>
 <td style="text-align: left;">2015-19</td>
 <td style="text-align: right;">4</td>
@@ -606,6 +717,17 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OWID (N=29)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: left;">2017-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">OWID (N=29)</td>
@@ -620,7 +742,7 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WDI (N=35)</td>
-<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">OWID visitor spending</td>
 <td style="text-align: left;">2015-19</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">2</td>
@@ -631,7 +753,18 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </tr>
 <tr class="even">
 <td style="text-align: left;">WDI (N=35)</td>
-<td style="text-align: left;">OWID vspend</td>
+<td style="text-align: left;">WDI receipts</td>
+<td style="text-align: left;">2015-19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WDI (N=35)</td>
+<td style="text-align: left;">OWID visitor spending</td>
 <td style="text-align: left;">2017-19</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">1</td>
@@ -640,17 +773,6 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">WDI (N=35)</td>
-<td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">19</td>
-</tr>
 <tr class="even">
 <td style="text-align: left;">WDI (N=35)</td>
 <td style="text-align: left;">WDI receipts</td>
@@ -658,50 +780,6 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Common (N=24)</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">22</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Common (N=24)</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Common (N=24)</td>
-<td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Common (N=24)</td>
-<td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -710,11 +788,15 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<p>One economy, Kiribati, has only a single observation in the primary OWID baseline. Its value is retained in the principal models but flagged in the figures and examined in a coverage-restricted sensitivity analysis below.</p>
 </section>
-</section>
-<section id="indicator-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="indicator-comparison">Indicator Comparison</h2>
-<p>The two principal measures are correlated but not equivalent. Figure 2 shows the relationship between them across the 24-economy common sample.</p>
+<section id="how-closely-do-the-indicators-correspond" class="level3">
+<h3 class="anchored" data-anchor-id="how-closely-do-the-indicators-correspond">How closely do the indicators correspond?</h3>
+<p>Across the 24 economies with both measures, the indicators are positively correlated. The Pearson correlation is approximately 0.77; the Spearman rank correlation is 0.86.</p>
+<p>The broad rankings are therefore similar, but the indicators are not interchangeable. The export-based denominator can make tourism receipts appear especially important in economies with relatively limited non-tourism exports. The GDP-based denominator instead compares gross visitor spending with the overall scale of the economy.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-indicator-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -723,172 +805,229 @@ Figure&nbsp;1: Data coverage matrix across the candidate universe. Green = all r
 <img src="../output/figures/fig2_measure_comparison.png" class="img-fluid figure-img" width="1440">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-indicator-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: OWID visitor spending (% GDP) vs.&nbsp;WDI tourism receipts (% exports), 2015–2019 averages. The two indicators are correlated but not interchangeable — they divide by different denominators and measure related but distinct economic concepts.
+Figure&nbsp;1: <strong>OWID visitor spending (% GDP) and WDI tourism receipts (% exports), 2015–2019 averages.</strong> The two indicators are positively correlated across the common sample, but differences in their denominators produce meaningful differences in measured exposure.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The Pearson correlation between the two indicators (across economies with both) is approximately 0.77, and the Spearman rank correlation is 0.86. They produce similar rankings but material differences for some economies. The WDI receipts/exports denominator amplifies the apparent dependence of export-intensive small economies, while the OWID visitor spending/GDP denominator captures the share of overall economic activity attributable to visitors.</p>
 </section>
-<section id="eight-model-shock-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="eight-model-shock-analysis">Eight-Model Shock Analysis</h2>
-<p>Each percentage point of visitor spending as a share of GDP is associated with roughly 0.31 percentage points of additional GDP contraction in 2020 — but this estimate varies across indicator choice, sample, and baseline window. The table below reports all eight principal specifications; none is selected or suppressed on the basis of its result.</p>
-<p><strong>Outcome:</strong> 2020 annual GDP growth (%, WDI <code>NY.GDP.MKTP.KD.ZG</code>).<br>
-<strong>Transparency note:</strong> The 2015–2019 primary window was evaluated after the 2017–2019 results were already observed. This is not preregistered research; the ordering is documented explicitly.</p>
+<section id="the-distribution-of-visitor-spending" class="level3">
+<h3 class="anchored" data-anchor-id="the-distribution-of-visitor-spending">The distribution of visitor spending</h3>
+<p>The primary OWID measure also reveals substantial variation within the 29-economy shock sample. In some destinations, international visitor spending is equivalent to a very large share of GDP; in others, it is comparatively modest.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A5. Complete eight-model results. Holm correction applied across all 8 raw p-values. No result is suppressed.</caption>
+<div id="fig-ranking" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ranking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../output/figures/fig1_vspend_ranking.png" class="img-fluid figure-img" width="1632">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ranking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>International visitor spending as a percentage of GDP, 2015–2019 average.</strong> Each bar represents one economy in the primary OWID shock sample (N = 29). The open circle identifies Kiribati, whose baseline average is based on one annual observation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tourism-exposure-and-the-2020-shock" class="level2">
+<h2 class="anchored" data-anchor-id="tourism-exposure-and-the-2020-shock">Tourism Exposure and the 2020 Shock</h2>
+<p>The principal analysis estimates the cross-sectional relationship between pre-pandemic tourism exposure and real GDP growth in 2020. GDP growth is measured using the World Bank WDI indicator <code>NY.GDP.MKTP.KD.ZG</code>.</p>
+<p>Eight specifications are estimated. They combine:</p>
+<ul>
+<li>Two tourism indicators: OWID visitor spending and WDI tourism receipts.</li>
+<li>Each indicator’s own shock sample and the 24-economy common sample.</li>
+<li>Two baseline windows: 2015–2019 and 2017–2019.</li>
+</ul>
+<p>This produces four specifications for each indicator and eight in total. The common-sample models are particularly useful: because they hold the country set constant, differences between the two indicators cannot be attributed simply to different sample composition.</p>
+<p>All eight estimated slopes are negative. The strength of the relationship, however, varies substantially by indicator and sample. The table reports every principal specification, including confidence intervals and both unadjusted and Holm-adjusted <em>p</em>-values. The Holm correction is applied across the family of eight tests.</p>
+<div class="cell">
+<div id="tbl-full-results" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-full-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: <strong>Complete eight-model results.</strong> Holm adjustment is applied across all eight raw <em>p</em>-values.
+</figcaption>
+<div aria-describedby="tbl-full-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 12%">
-<col style="width: 2%">
-<col style="width: 6%">
+<col style="width: 4%">
 <col style="width: 15%">
 <col style="width: 5%">
-<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 4%">
 <col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">Model</th>
 <th style="text-align: left;">Indicator</th>
-<th style="text-align: left;">Window</th>
+<th style="text-align: right;">Window</th>
 <th style="text-align: left;">Sample</th>
 <th style="text-align: right;">N</th>
 <th style="text-align: right;">Slope</th>
-<th style="text-align: left;">95% CI</th>
-<th style="text-align: right;">R2</th>
-<th style="text-align: right;">Pearson_r</th>
-<th style="text-align: right;">Spearman_rho</th>
-<th style="text-align: left;">p_raw</th>
-<th style="text-align: left;">p_holm</th>
+<th style="text-align: right;">95% CI</th>
+<th style="text-align: right;">R²</th>
+<th style="text-align: right;">Pearson <em>r</em></th>
+<th style="text-align: right;">Spearman <em>ρ</em></th>
+<th style="text-align: right;"><em>p</em> raw</th>
+<th style="text-align: right;"><em>p</em> Holm</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">OWID (N=29)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: right;">2015-19</td>
+<td style="text-align: left;">OWID</td>
 <td style="text-align: right;">29</td>
 <td style="text-align: right;">-0.308</td>
-<td style="text-align: left;">[-0.453, -0.163]</td>
+<td style="text-align: right;">[-0.453, -0.163]</td>
 <td style="text-align: right;">0.414</td>
 <td style="text-align: right;">-0.643</td>
 <td style="text-align: right;">-0.550</td>
-<td style="text-align: left;">&lt; 0.001</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">WDI (N=35)</td>
+<td style="text-align: right;">2015-19</td>
+<td style="text-align: left;">WDI</td>
 <td style="text-align: right;">35</td>
 <td style="text-align: right;">-0.120</td>
-<td style="text-align: left;">[-0.248, 0.008]</td>
+<td style="text-align: right;">[-0.248, 0.008]</td>
 <td style="text-align: right;">0.100</td>
 <td style="text-align: right;">-0.316</td>
 <td style="text-align: right;">-0.443</td>
-<td style="text-align: left;">0.064</td>
-<td style="text-align: left;">0.129</td>
+<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.129</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: right;">2015-19</td>
+<td style="text-align: left;">Common</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">-0.331</td>
-<td style="text-align: left;">[-0.481, -0.181]</td>
+<td style="text-align: right;">[-0.481, -0.181]</td>
 <td style="text-align: right;">0.489</td>
 <td style="text-align: right;">-0.699</td>
 <td style="text-align: right;">-0.655</td>
-<td style="text-align: left;">&lt; 0.001</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">2015-19</td>
+<td style="text-align: left;">Common</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">-0.158</td>
-<td style="text-align: left;">[-0.285, -0.031]</td>
+<td style="text-align: right;">[-0.285, -0.031]</td>
 <td style="text-align: right;">0.233</td>
 <td style="text-align: right;">-0.483</td>
 <td style="text-align: right;">-0.480</td>
-<td style="text-align: left;">0.017</td>
-<td style="text-align: left;">0.053</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">0.053</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">OWID (N=29)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: right;">2017-19</td>
+<td style="text-align: left;">OWID</td>
 <td style="text-align: right;">29</td>
 <td style="text-align: right;">-0.320</td>
-<td style="text-align: left;">[-0.465, -0.174]</td>
+<td style="text-align: right;">[-0.465, -0.174]</td>
 <td style="text-align: right;">0.428</td>
 <td style="text-align: right;">-0.654</td>
 <td style="text-align: right;">-0.564</td>
-<td style="text-align: left;">&lt; 0.001</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">WDI (N=35)</td>
+<td style="text-align: right;">2017-19</td>
+<td style="text-align: left;">WDI</td>
 <td style="text-align: right;">35</td>
 <td style="text-align: right;">-0.116</td>
-<td style="text-align: left;">[-0.242, 0.01]</td>
+<td style="text-align: right;">[-0.242, 0.01]</td>
 <td style="text-align: right;">0.097</td>
 <td style="text-align: right;">-0.311</td>
 <td style="text-align: right;">-0.432</td>
-<td style="text-align: left;">0.069</td>
-<td style="text-align: left;">0.129</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">0.129</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: left;">OWID visitor spending</td>
+<td style="text-align: right;">2017-19</td>
+<td style="text-align: left;">Common</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">-0.339</td>
-<td style="text-align: left;">[-0.491, -0.187]</td>
+<td style="text-align: right;">[-0.491, -0.187]</td>
 <td style="text-align: right;">0.493</td>
 <td style="text-align: right;">-0.702</td>
 <td style="text-align: right;">-0.660</td>
-<td style="text-align: left;">&lt; 0.001</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">Common (N=24)</td>
+<td style="text-align: right;">2017-19</td>
+<td style="text-align: left;">Common</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">-0.160</td>
-<td style="text-align: left;">[-0.284, -0.037]</td>
+<td style="text-align: right;">[-0.284, -0.037]</td>
 <td style="text-align: right;">0.248</td>
 <td style="text-align: right;">-0.498</td>
 <td style="text-align: right;">-0.491</td>
-<td style="text-align: left;">0.013</td>
-<td style="text-align: left;">0.053</td>
+<td style="text-align: right;">0.013</td>
+<td style="text-align: right;">0.053</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<section id="four-panel-figure-20152019-baseline" class="level3">
-<h3 class="anchored" data-anchor-id="four-panel-figure-20152019-baseline">Four-panel figure (2015–2019 baseline)</h3>
+</figure>
+</div>
+</div>
+<section id="primary-measure-owid-visitor-spending" class="level3">
+<h3 class="anchored" data-anchor-id="primary-measure-owid-visitor-spending">Primary measure: OWID visitor spending</h3>
+<p>The OWID visitor-spending measure produces the clearest and most consistent relationship with the 2020 economic shock.</p>
+<p>In the primary 2015–2019 specification (M1), each additional percentage point of visitor spending relative to GDP is associated with approximately 0.31 percentage points lower real GDP growth in 2020. The model’s R² is 0.414, meaning the bivariate relationship accounts for about 41% of the cross-country variation in 2020 growth rates in this sample.</p>
+<p>The result is similar using the shorter 2017–2019 baseline. The estimated slope is -0.320 and R² is 0.428. It is also slightly stronger in the 24-economy common sample: R² is 0.489 for the longer baseline and 0.493 for the shorter one.</p>
+<p>All four OWID specifications remain statistically significant after the Holm adjustment. The consistency across baseline windows and sample definitions supports the conclusion that higher pre-pandemic visitor spending relative to GDP was strongly associated with a more severe 2020 contraction in this group of economies.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-shock" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../output/figures/fig3_shock_scatter.png" class="img-fluid figure-img" width="1632">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>Pre-pandemic visitor spending and 2020 real GDP growth.</strong> OWID visitor spending as a percentage of GDP, averaged over 2015–2019, is plotted against 2020 real GDP growth for the 29-economy primary sample. The line represents the estimated bivariate OLS relationship. The open circle identifies Kiribati, whose baseline is based on one observation. The relationship is exploratory and does not establish causation. Sources: OWID / UN Tourism and WDI GDP growth.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="complementary-measure-wdi-tourism-receipts" class="level3">
+<h3 class="anchored" data-anchor-id="complementary-measure-wdi-tourism-receipts">Complementary measure: WDI tourism receipts</h3>
+<p>The WDI measure produces a weaker and less consistent relationship.</p>
+<p>In the full WDI sample, the estimated relationship is negative but does not reach conventional statistical significance: R² is 0.100 for the 2015–2019 baseline and 0.097 for 2017–2019. The corresponding raw <em>p</em>-values are 0.064 and 0.069; neither remains significant after Holm adjustment.</p>
+<p>The common-sample results are stronger. With the country set held constant at 24 economies, the WDI models produce R² values of 0.233 and 0.248. Their raw <em>p</em>-values are 0.017 and 0.013, respectively. However, both Holm-adjusted <em>p</em>-values are 0.053, just above the conventional 0.05 threshold.</p>
+<p>The comparison is informative. The WDI measure points in the same general direction as the OWID measure, but the relationship is weaker and the statistical evidence less consistent. This difference remains when the analysis is restricted to the same 24 economies.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-shock-four-panel" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -897,16 +1036,12 @@ Figure&nbsp;2: OWID visitor spending (% GDP) vs.&nbsp;WDI tourism receipts (% ex
 <img src="../output/figures/fig5_shock_4panel_1519.png" class="img-fluid figure-img" width="2496">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-four-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Four model specifications, 2015–2019 baseline. Two indicators × two samples. OLS line with 95% CI. Open circles = thin baseline (Kiribati, 1 obs).
+Figure&nbsp;4: <strong>Four model specifications using the 2015–2019 baseline.</strong> The top row shows each indicator in its own sample; the bottom row shows both indicators in the common 24-economy sample. OWID visitor spending is shown on the left and WDI tourism receipts on the right. The open circles identify thin baselines. The comparison shows that the stronger OWID relationship is not simply a consequence of its different sample composition.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="common-sample-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="common-sample-comparison">Common-sample comparison</h3>
-<p>The common sample (N = 24) holds the country set constant and varies only the indicator. Any difference in results between the two panels below reflects the indicator choice, not sample composition.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-common-sample" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -915,248 +1050,285 @@ Figure&nbsp;3: Four model specifications, 2015–2019 baseline. Two indicators �
 <img src="../output/figures/fig6_common_sample_comparison.png" class="img-fluid figure-img" width="2112">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-common-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism receipts, same 24 economies, 2015–2019 baseline. The OWID vspend indicator produces a substantially stronger association.
+Figure&nbsp;5: <strong>Common-sample comparison (N = 24).</strong> OWID visitor spending and WDI tourism receipts plotted against 2020 GDP growth for the same economies and baseline period. This focused comparison makes the difference in estimated relationships easier to see.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="sensitivity-and-influential-observations" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-and-influential-observations">Sensitivity and Influential Observations</h2>
+<p>A cross-sectional analysis with relatively small samples can be sensitive to individual economies. The diagnostics therefore examine influential observations and test whether the main results depend on unusually thin baseline coverage.</p>
 <section id="influential-observations" class="level3">
 <h3 class="anchored" data-anchor-id="influential-observations">Influential observations</h3>
+<p>Cook’s distance is used to identify observations with disproportionate influence on each regression. The table reports the most influential economy in each model and compares the original estimate with the estimate after excluding that observation. These exclusions are diagnostic checks; the original full-sample models remain the principal results.</p>
 <div class="cell">
+<div id="tbl-influential" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: <strong>Most influential observation in each model and estimates after exclusion.</strong> Cook’s distance is assessed using the 4/N reference threshold. The <em>p</em>-values shown for exclusion models are unadjusted.
+</figcaption>
+<div aria-describedby="tbl-influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A6. Most influential observation per model (Cook’s D threshold = 4/N). MDV = Maldives; TLS = Timor-Leste. The OWID association survives MDV exclusion; the WDI/TLS exclusion actually strengthens M2 and M6.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 14%">
-<col style="width: 7%">
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 6%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Model</th>
 <th style="text-align: left;">Most influential</th>
-<th style="text-align: left;">Cook’s D</th>
-<th style="text-align: left;">Slope (orig.)</th>
-<th style="text-align: left;">Slope (excl.)</th>
-<th style="text-align: left;">R² (orig.)</th>
-<th style="text-align: left;">R² (excl.)</th>
-<th style="text-align: left;">p (excl.)</th>
+<th style="text-align: right;">Cook’s D</th>
+<th style="text-align: right;">Slope, original</th>
+<th style="text-align: right;">Slope, excluded</th>
+<th style="text-align: right;">R², original</th>
+<th style="text-align: right;">R², excluded</th>
+<th style="text-align: right;">Raw <em>p</em>, excluded</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">M1 OWID/2015-19/OWID (N=29)</td>
+<td style="text-align: left;">M1 OWID / 2015-19 / OWID</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.392</td>
-<td style="text-align: left;">-0.308</td>
-<td style="text-align: left;">-0.251</td>
-<td style="text-align: left;">0.414</td>
-<td style="text-align: left;">0.309</td>
-<td style="text-align: left;">0.002</td>
+<td style="text-align: right;">0.392</td>
+<td style="text-align: right;">-0.308</td>
+<td style="text-align: right;">-0.251</td>
+<td style="text-align: right;">0.414</td>
+<td style="text-align: right;">0.309</td>
+<td style="text-align: right;">0.002</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M2 WDI/2015-19/WDI (N=35)</td>
+<td style="text-align: left;">M2 WDI / 2015-19 / WDI</td>
 <td style="text-align: left;">TLS</td>
-<td style="text-align: left;">0.287</td>
-<td style="text-align: left;">-0.120</td>
-<td style="text-align: left;">-0.141</td>
-<td style="text-align: left;">0.100</td>
-<td style="text-align: left;">0.224</td>
-<td style="text-align: left;">0.005</td>
+<td style="text-align: right;">0.287</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: right;">-0.141</td>
+<td style="text-align: right;">0.100</td>
+<td style="text-align: right;">0.224</td>
+<td style="text-align: right;">0.005</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">M3 OWID/2015-19/Common (N=24)</td>
+<td style="text-align: left;">M3 OWID / 2015-19 / Common</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.363</td>
-<td style="text-align: left;">-0.331</td>
-<td style="text-align: left;">-0.276</td>
-<td style="text-align: left;">0.489</td>
-<td style="text-align: left;">0.389</td>
-<td style="text-align: left;">0.002</td>
+<td style="text-align: right;">0.363</td>
+<td style="text-align: right;">-0.331</td>
+<td style="text-align: right;">-0.276</td>
+<td style="text-align: right;">0.489</td>
+<td style="text-align: right;">0.389</td>
+<td style="text-align: right;">0.002</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M4 WDI/2015-19/Common (N=24)</td>
+<td style="text-align: left;">M4 WDI / 2015-19 / Common</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.339</td>
-<td style="text-align: left;">-0.158</td>
-<td style="text-align: left;">-0.116</td>
-<td style="text-align: left;">0.233</td>
-<td style="text-align: left;">0.157</td>
-<td style="text-align: left;">0.062</td>
+<td style="text-align: right;">0.339</td>
+<td style="text-align: right;">-0.158</td>
+<td style="text-align: right;">-0.116</td>
+<td style="text-align: right;">0.233</td>
+<td style="text-align: right;">0.157</td>
+<td style="text-align: right;">0.062</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">M5 OWID/2017-19/OWID (N=29)</td>
+<td style="text-align: left;">M5 OWID / 2017-19 / OWID</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.384</td>
-<td style="text-align: left;">-0.320</td>
-<td style="text-align: left;">-0.263</td>
-<td style="text-align: left;">0.428</td>
-<td style="text-align: left;">0.331</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">0.384</td>
+<td style="text-align: right;">-0.320</td>
+<td style="text-align: right;">-0.263</td>
+<td style="text-align: right;">0.428</td>
+<td style="text-align: right;">0.331</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M6 WDI/2017-19/WDI (N=35)</td>
+<td style="text-align: left;">M6 WDI / 2017-19 / WDI</td>
 <td style="text-align: left;">TLS</td>
-<td style="text-align: left;">0.324</td>
-<td style="text-align: left;">-0.116</td>
-<td style="text-align: left;">-0.142</td>
-<td style="text-align: left;">0.097</td>
-<td style="text-align: left;">0.234</td>
-<td style="text-align: left;">0.004</td>
+<td style="text-align: right;">0.324</td>
+<td style="text-align: right;">-0.116</td>
+<td style="text-align: right;">-0.142</td>
+<td style="text-align: right;">0.097</td>
+<td style="text-align: right;">0.234</td>
+<td style="text-align: right;">0.004</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">M7 OWID/2017-19/Common (N=24)</td>
+<td style="text-align: left;">M7 OWID / 2017-19 / Common</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.362</td>
-<td style="text-align: left;">-0.339</td>
-<td style="text-align: left;">-0.284</td>
-<td style="text-align: left;">0.493</td>
-<td style="text-align: left;">0.402</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: right;">0.362</td>
+<td style="text-align: right;">-0.339</td>
+<td style="text-align: right;">-0.284</td>
+<td style="text-align: right;">0.493</td>
+<td style="text-align: right;">0.402</td>
+<td style="text-align: right;">0.001</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M8 WDI/2017-19/Common (N=24)</td>
+<td style="text-align: left;">M8 WDI / 2017-19 / Common</td>
 <td style="text-align: left;">MDV</td>
-<td style="text-align: left;">0.334</td>
-<td style="text-align: left;">-0.160</td>
-<td style="text-align: left;">-0.120</td>
-<td style="text-align: left;">0.248</td>
-<td style="text-align: left;">0.173</td>
-<td style="text-align: left;">0.048</td>
+<td style="text-align: right;">0.334</td>
+<td style="text-align: right;">-0.160</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: right;">0.248</td>
+<td style="text-align: right;">0.173</td>
+<td style="text-align: right;">0.048</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><strong>Why Timor-Leste influences M2 and M6:</strong> Timor-Leste has moderately high WDI tourism receipts as a share of exports but experienced a modest 2020 contraction, making it a structural outlier in the WDI receipts models. Excluding it makes those models stronger, not weaker — a counter-intuitive diagnostic result worth noting.</p>
+</figure>
+</div>
+</div>
+<p>The Maldives is the most influential observation in all four OWID models and in the two WDI common-sample models. Excluding it reduces the strength of the OWID relationship, but the estimated slopes remain negative and statistically significant in all four specifications. In the primary model, R² falls from 0.414 to 0.309, while the slope changes from -0.308 to -0.251.</p>
+<p>The Maldives therefore makes the relationship more pronounced, but it does not create it.</p>
+<p>Timor-Leste is the most influential observation in the two full-sample WDI models. Its combination of relatively high tourism receipts as a share of exports and a comparatively modest 2020 contraction runs against the overall negative relationship. Excluding it strengthens both full-sample WDI estimates.</p>
+<p>The common-sample WDI models tell a less reassuring story. Excluding the Maldives weakens the estimates: M4’s raw <em>p</em>-value rises to 0.062, while M8’s is 0.048. These exclusion-model <em>p</em>-values have not been adjusted for multiple testing. The common-sample WDI relationship is therefore more sensitive to influential observations than the OWID relationship.</p>
+<p>Taken together, the diagnostics support a fairly specific conclusion: the OWID relationship is not dependent on the Maldives, while the WDI results are more sensitive to which economies are included. It would be too broad to describe both indicators as equally robust to influential observations.</p>
 </section>
-<section id="coverage-restricted-sensitivity-3-baseline-observations" class="level3">
-<h3 class="anchored" data-anchor-id="coverage-restricted-sensitivity-3-baseline-observations">Coverage-restricted sensitivity (≥3 baseline observations)</h3>
+<section id="coverage-restricted-sensitivity" class="level3">
+<h3 class="anchored" data-anchor-id="coverage-restricted-sensitivity">Coverage-restricted sensitivity</h3>
+<p>The principal models retain economies with thin baseline coverage, including Kiribati, which has one annual observation in the OWID baseline. A second sensitivity analysis restricts each model to economies with at least three annual observations in the relevant baseline window.</p>
+<p>This is a check on the influence of limited coverage, not a guarantee that three observations provide a fully representative baseline.</p>
 <div class="cell">
+<div id="tbl-sens-restricted" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-restricted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: <strong>Sensitivity models restricted to at least three annual baseline observations.</strong> Original and coverage-restricted results. N excluded reports the number of economies removed from each original sample.
+</figcaption>
+<div aria-describedby="tbl-sens-restricted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A7. Sensitivity analysis restricted to economies with ≥3 annual observations in the baseline window. S5 (WDI/2017-19/WDI) drops 14 economies (N drops from 35 to 21) because WDI 2019 receipts data is missing for many SIDS.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 9%">
+<col style="width: 15%">
 <col style="width: 6%">
-<col style="width: 10%">
-<col style="width: 5%">
-<col style="width: 2%">
-<col style="width: 5%">
-<col style="width: 4%">
+<col style="width: 7%">
 <col style="width: 7%">
 <col style="width: 5%">
-<col style="width: 43%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Sensitivity</th>
-<th style="text-align: left;">Window</th>
-<th style="text-align: left;">Indicator</th>
-<th style="text-align: left;">Sample</th>
-<th style="text-align: right;">N</th>
-<th style="text-align: right;">Slope</th>
-<th style="text-align: right;">R2</th>
-<th style="text-align: right;">Spearman</th>
-<th style="text-align: right;">p_raw</th>
-<th style="text-align: left;">Excluded</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">N excluded</th>
+<th style="text-align: right;">Slope, orig.</th>
+<th style="text-align: right;">Slope, rest.</th>
+<th style="text-align: right;">R², orig.</th>
+<th style="text-align: right;">R², rest.</th>
+<th style="text-align: right;">Spearman <em>ρ</em>, orig.</th>
+<th style="text-align: right;">Spearman <em>ρ</em>, rest.</th>
+<th style="text-align: right;"><em>p</em>, orig.</th>
+<th style="text-align: right;"><em>p</em>, rest.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">S1</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">OWID</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">M1 OWID / 2015–19 / OWID</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.308</td>
 <td style="text-align: right;">-0.302</td>
+<td style="text-align: right;">0.414</td>
 <td style="text-align: right;">0.397</td>
+<td style="text-align: right;">-0.550</td>
 <td style="text-align: right;">-0.522</td>
-<td style="text-align: right;">0.0003</td>
-<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">S2</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">WDI</td>
-<td style="text-align: right;">34</td>
+<td style="text-align: left;">M2 WDI / 2015–19 / WDI</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.120</td>
 <td style="text-align: right;">-0.116</td>
+<td style="text-align: right;">0.100</td>
 <td style="text-align: right;">0.092</td>
+<td style="text-align: right;">-0.443</td>
 <td style="text-align: right;">-0.432</td>
-<td style="text-align: right;">0.0820</td>
-<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.082</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">S3</td>
-<td style="text-align: left;">2015-19</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">Common</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: left;">M3 OWID / 2015–19 / Common</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.331</td>
 <td style="text-align: right;">-0.325</td>
+<td style="text-align: right;">0.489</td>
 <td style="text-align: right;">0.470</td>
+<td style="text-align: right;">-0.655</td>
 <td style="text-align: right;">-0.637</td>
-<td style="text-align: right;">0.0003</td>
-<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">S4</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">OWID</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">M5 OWID / 2017–19 / OWID</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.320</td>
 <td style="text-align: right;">-0.314</td>
+<td style="text-align: right;">0.428</td>
 <td style="text-align: right;">0.412</td>
+<td style="text-align: right;">-0.564</td>
 <td style="text-align: right;">-0.537</td>
-<td style="text-align: right;">0.0002</td>
-<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">S5</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">WDI receipts</td>
-<td style="text-align: left;">WDI</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: left;">M6 WDI / 2017–19 / WDI</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">-0.116</td>
 <td style="text-align: right;">-0.143</td>
+<td style="text-align: right;">0.097</td>
 <td style="text-align: right;">0.180</td>
+<td style="text-align: right;">-0.432</td>
 <td style="text-align: right;">-0.422</td>
-<td style="text-align: right;">0.0554</td>
-<td style="text-align: left;">DMA,DOM,GRD,HTI,KIR,KNA,LCA,MHL,NRU,PLW,PNG,SGP,STP,TLS</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">0.055</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">S6</td>
-<td style="text-align: left;">2017-19</td>
-<td style="text-align: left;">OWID vspend</td>
-<td style="text-align: left;">Common</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: left;">M7 OWID / 2017–19 / Common</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.339</td>
 <td style="text-align: right;">-0.333</td>
+<td style="text-align: right;">0.493</td>
 <td style="text-align: right;">0.474</td>
+<td style="text-align: right;">-0.660</td>
 <td style="text-align: right;">-0.643</td>
-<td style="text-align: right;">0.0003</td>
-<td style="text-align: left;">KIR</td>
+<td style="text-align: right;">&lt;0.001</td>
+<td style="text-align: right;">&lt;0.001</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<p>The OWID results are highly stable. Across all four specifications, slope estimates change by no more than 0.006, R² declines only slightly, and the negative relationship remains statistically detectable (<em>p</em> &lt; 0.001 throughout). The findings are therefore not driven by economies with sparse baseline coverage.</p>
+<p>The WDI results are less consistent. The 2015–2019 estimates change little after excluding Kiribati. In the shorter 2017–2019 window, however, the restriction removes 14 of 35 economies. R² increases from 0.097 to 0.180, and the slope becomes somewhat more negative, but Spearman’s correlation changes little and the raw <em>p</em>-value remains just above 0.05 (0.055).</p>
+<p>That change should be interpreted cautiously: the smaller WDI sample has a different composition, reflecting substantial gaps in baseline coverage. Overall, the sensitivity analysis reinforces the consistency of the OWID results, while the WDI measure remains less conclusive and more vulnerable to coverage limitations.</p>
 </section>
 </section>
-<section id="recovery-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="recovery-analysis">Recovery Analysis</h2>
-<p>This section examines real GDP trajectories from 2015 through 2025, with 2024 as the primary recovery comparison year. 2024 is the most recent year with near-complete sample coverage (28 of 29 economies; VIR has no data). The 2019=100 index is computed separately for aggregate real GDP and real GDP per capita; the two tell different stories in a number of cases.</p>
+<section id="economic-recovery-through-2024" class="level2">
+<h2 class="anchored" data-anchor-id="economic-recovery-through-2024">Economic Recovery Through 2024</h2>
+<p>The shock analysis identifies a strong relationship between pre-pandemic visitor spending and the severity of the 2020 contraction. The next question is whether that initial exposure was also associated with the subsequent recovery.</p>
+<p>Recovery is examined using real GDP and real GDP per capita, each indexed to 2019 = 100. The two measures are calculated separately. Aggregate GDP tracks the total size of an economy; GDP per capita adjusts that output for population and therefore provides a different perspective on economic recovery.</p>
+<p>The primary comparison year is 2024, the most recent year with near-complete coverage for the recovery sample. Twenty-eight of the 29 economies have real GDP data for that year. Data for 2025 are available for 22 economies and are preliminary estimates, so 2025 is treated as an additional, provisional observation rather than the principal recovery endpoint.</p>
 <section id="coverage" class="level3">
 <h3 class="anchored" data-anchor-id="coverage">Coverage</h3>
 <div class="cell">
+<div id="tbl-recovery-coverage" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-recovery-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: <strong>Recovery-sample economies with available real GDP data by year.</strong>
+</figcaption>
+<div aria-describedby="tbl-recovery-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A8. Annual count of primary shock sample economies (N ≤ 29) with real GDP data. 2025 data are preliminary estimates.</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">year</th>
@@ -1212,9 +1384,13 @@ Figure&nbsp;4: Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism 
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
 </section>
-<section id="trajectories" class="level3">
-<h3 class="anchored" data-anchor-id="trajectories">Trajectories</h3>
+<section id="aggregate-gdp-trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="aggregate-gdp-trajectories">Aggregate GDP trajectories</h3>
+<p>By 2024, 21 of the 28 economies with available data had returned to or exceeded their 2019 level of aggregate real GDP. The trajectories show a broad pattern of sharp contraction in 2020 followed by recovery over the subsequent years, although the depth of the initial decline and the pace of rebound varied considerably.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-recovery-trajectories" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1223,19 +1399,79 @@ Figure&nbsp;4: Common sample (N=24): OWID visitor spending vs.&nbsp;WDI tourism 
 <img src="../output/figures/fig7_recovery_trajectories.png" class="img-fluid figure-img" width="1728">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recovery-trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Line colour = SIDS region. Bottom numbers = annual sample size.
+Figure&nbsp;6: <strong>Real GDP recovery trajectories, 2015–2025 (2019 = 100).</strong> Lines are grouped by SIDS region. The horizontal reference at 100 marks each economy’s 2019 level. Annual sample sizes are shown below the chart. The 2025 observations are preliminary and cover a smaller set of economies.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="recovery-status-by-2024" class="level3">
-<h3 class="anchored" data-anchor-id="recovery-status-by-2024">Recovery status by 2024</h3>
+<section id="aggregate-and-per-capita-recovery" class="level3">
+<h3 class="anchored" data-anchor-id="aggregate-and-per-capita-recovery">Aggregate and per-capita recovery</h3>
+<p>Returning to the 2019 level of aggregate GDP does not necessarily mean that output per person has also recovered. Of the 28 economies with 2024 data, 20 had regained their 2019 real GDP per capita, compared with 21 that had regained aggregate real GDP. See <a href="#tbl-recovery-table" class="quarto-xref">Table&nbsp;9</a> in the appendix for details.</p>
+<p>The difference runs in both directions.</p>
+<p>Four economies — Antigua and Barbuda, Papua New Guinea, Seychelles, and Vanuatu — had recovered aggregate GDP but remained below their 2019 level of GDP per capita. This pattern is consistent with population growth outpacing the recovery in total output: the economy had regained its former size, but output per person had not.</p>
+<p>Three economies — Curaçao, the Marshall Islands, and Tuvalu — had recovered GDP per capita but not aggregate GDP. This can occur when per-person output rises even as total output remains below its previous level, including in circumstances involving population decline or emigration. Population change is one possible explanation; this analysis does not isolate its contribution.</p>
+<p>Seven economies remained below their 2019 level of aggregate real GDP in 2024: Cuba, Curaçao, the Marshall Islands, the Solomon Islands, Suriname, Trinidad and Tobago, and Tuvalu.</p>
+<p>The distinction matters. Aggregate GDP can return to its pre-pandemic level while output per person remains lower. Conversely, per-capita output can recover even while the total economy remains smaller. Neither measure captures the full experience of households, workers, or businesses, but together they provide a more complete picture than aggregate output alone.</p>
+</section>
+<section id="recovery-and-pre-pandemic-tourism-exposure" class="level3">
+<h3 class="anchored" data-anchor-id="recovery-and-pre-pandemic-tourism-exposure">Recovery and pre-pandemic tourism exposure</h3>
+<p>The relationship between pre-pandemic visitor spending and the 2024 aggregate GDP index is much less evident than the relationship between visitor spending and the initial 2020 contraction.</p>
+<p>Across the 28 economies with 2024 data, the Pearson correlation between pre-pandemic OWID visitor spending and the 2024 aggregate GDP index is 0.21 (<em>p</em> = 0.275). This is not statistically significant. The result does not establish that the two variables are unrelated; it indicates that this analysis does not detect a clear linear association in this sample.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table A9. Aggregate and per-capita real GDP recovery indices (2019=100). Recovery means an index &gt;= 100 in 2024. VIR has no 2024 data. 21/28 recovered aggregate GDP; 20/28 recovered per-capita GDP. Four economies recovered aggregate but not per-capita GDP (ATG, PNG, SYC, VUT); three recovered per-capita but not aggregate GDP (CUW, MHL, TUV).</caption>
+<div id="fig-recovery-vs-tourism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../output/figures/fig8_recovery_vs_tourism.png" class="img-fluid figure-img" width="1632">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: <strong>Pre-pandemic visitor spending and 2024 real GDP index (2019 = 100).</strong> Each point represents one economy in the recovery sample with available 2024 data (N = 28). The estimated Pearson correlation is 0.21 (<em>p</em> = 0.275).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The contrast with the shock analysis is notable. Pre-pandemic visitor spending was strongly associated with the severity of the initial contraction, but it offers little indication of where an economy stood relative to its 2019 aggregate GDP level four years later.</p>
+<p>That does not mean the initial shock was harmless, or that tourism-dependent economies proved resilient. A single comparison year cannot capture the full path between 2020 and 2024. It does not show how long economies remained below their previous output levels, how much employment was lost, what debt accumulated during the disruption, or which businesses failed to reopen.</p>
+<p>The recovery analysis is also limited to aggregate real GDP and real GDP per capita. It does not directly measure household income, employment quality, inequality, public finances, or the distribution of recovery gains. Those dimensions may tell a different story.</p>
+</section>
+</section>
+<section id="findings-and-limits" class="level2">
+<h2 class="anchored" data-anchor-id="findings-and-limits">Findings and Limits</h2>
+<p>Three findings emerge from the analysis.</p>
+<p><strong>First, the initial economic shock was strongly associated with pre-pandemic visitor spending relative to GDP.</strong> Across the four OWID specifications, the estimated relationship is negative, substantial, and remains statistically significant after adjustment for multiple testing. The result holds across both baseline windows and both sample definitions.</p>
+<p><strong>Second, the choice of tourism indicator matters.</strong> WDI tourism receipts as a share of exports point in the same general direction, but the relationship is weaker and less consistent. The difference persists in the common sample, where both indicators are tested against the same 24 economies. The measures capture related but distinct dimensions of exposure.</p>
+<p><strong>Third, the initial shock does not explain the 2024 recovery position.</strong> Most economies in the recovery sample had regained their 2019 aggregate GDP by 2024, but seven had not. The relationship between pre-pandemic visitor spending and the 2024 aggregate GDP index is not statistically significant. Aggregate and per-capita recovery also differ for several economies, underscoring that a return to the previous size of an economy is not necessarily a return to its previous level of output per person.</p>
+<p>These findings should be interpreted within the limits of the design. The shock models are exploratory, bivariate, cross-sectional regressions. They describe associations across a diverse group of economies; they do not establish that tourism exposure caused a particular contraction. Other factors — including economic structure, fiscal capacity, public-health restrictions, policy responses, and pre-existing economic conditions — are not controlled for in these models.</p>
+<p>The primary baseline window was selected after the shorter-window results had been examined. Both windows are reported, and the choice is documented in the Methodology, but the primary specification was not preregistered. The sample sizes are modest, the tourism indicators have uneven coverage, and some baseline averages rely on fewer annual observations than others.</p>
+<p>The recovery comparison is narrower still. It uses one endpoint, 2024, and two measures of national output. It cannot identify the mechanisms behind different recovery trajectories or establish whether households and workers experienced the same recovery as national accounts.</p>
+<p>The evidence is therefore strongest on the initial shock: economies where gross international visitor spending was large relative to GDP tended to experience deeper contractions when international travel collapsed. The evidence is considerably less informative about the longer-term recovery. That distinction is central to interpreting the results.</p>
+<hr>
+<section id="related-pages" class="level4">
+<h4 class="anchored" data-anchor-id="related-pages">Related pages</h4>
+<ul>
+<li><a href="../reports/overview.html">Overview</a>: The story and principal findings.</li>
+<li><a href="../reports/data-dictionary.html">Data Dictionary</a>: Indicators, sources, definitions, coverage, and limitations.</li>
+<li><a href="../reports/methodology.html">Methodology</a>: Research design, sample construction, calculations, and reproducibility.</li>
+</ul>
+<p><em>Analysis conducted in R 4.4.1. Data retrieved November 2026.</em></p>
+</section>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<section id="recovery-table" class="level3">
+<h3 class="anchored" data-anchor-id="recovery-table">Recovery Table</h3>
+<div class="cell">
+<div id="tbl-recovery-table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-recovery-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: <strong>Aggregate and per-capita real GDP recovery indices, 2024 (2019 = 100).</strong> An index of 100 or more indicates that the economy had returned to or exceeded its 2019 level. The U.S. Virgin Islands has no 2024 observation.
+</figcaption>
+<div aria-describedby="tbl-recovery-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 4%">
 <col style="width: 10%">
@@ -1553,27 +1789,9 @@ Figure&nbsp;5: Real GDP recovery trajectories, 2015–2025 (index: 2019=100). Li
 </table>
 </div>
 </div>
-</section>
-<section id="recovery-vs.-tourism-dependence" class="level3">
-<h3 class="anchored" data-anchor-id="recovery-vs.-tourism-dependence">Recovery vs.&nbsp;tourism dependence</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-recovery-vs-tourism" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../output/figures/fig8_recovery_vs_tourism.png" class="img-fluid figure-img" width="1632">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recovery-vs-tourism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Pre-pandemic visitor spending vs.&nbsp;2024 real GDP index (2019=100). No statistically significant association (Pearson r = 0.21, p = 0.27, N = 28).
-</figcaption>
 </figure>
 </div>
 </div>
-</div>
-<p>The absence of a significant association between pre-pandemic tourism dependence and the 2024 recovery index (Figure 6) does <strong>not</strong> mean tourism dependence was harmless or that the initial shock was inconsequential for these economies. Rather, the relationship between pre-pandemic exposure and longer-term economic recovery is not straightforward. Although tourism-dependent economies experienced particularly severe contractions in 2020, their subsequent recovery trajectories varied. By 2024, the degree of pre-pandemic tourism dependence alone did not explain which economies had regained their 2019 aggregate GDP levels.</p>
-<p>Per-capita recovery provides a more nuanced picture. By 2024, 20 of 28 economies had recovered their 2019 real GDP per capita, compared with 21 of 28 for aggregate GDP. The difference illustrates why aggregate output alone can overstate the extent of economic recovery: an economy may regain its total output while remaining below its pre-pandemic level on a per-person basis. Population growth is one possible contributor to this divergence, although this analysis does not isolate its effects.</p>
-<hr>
-<p><em>See <a href="../reports/data-dictionary.html">Data Dictionary</a> for source documentation and <a href="../reports/methodology.html">Methodology</a> for research design.</em></p>
 
 
 </section>

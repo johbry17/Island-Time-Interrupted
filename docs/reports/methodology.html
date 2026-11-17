@@ -116,6 +116,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Methodology – Island Time, Interrupted">
 <meta property="og:description" content="Research Design, Sample Construction, and Analytical Decisions">
@@ -322,12 +351,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../reports/data-dictionary.html"> 
-<span class="menu-text">Data</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../reports/methodology.html" aria-current="page"> 
 <span class="menu-text">Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reports/data-dictionary.html"> 
+<span class="menu-text">Data</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -355,53 +384,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#research-design" id="toc-research-design" class="nav-link active" data-scroll-target="#research-design">Research Design</a>
   <ul class="collapse">
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research questions</a></li>
   <li><a href="#analytical-approach" id="toc-analytical-approach" class="nav-link" data-scroll-target="#analytical-approach">Analytical approach</a></li>
   </ul></li>
-  <li><a href="#candidate-universe-and-sids-classification" id="toc-candidate-universe-and-sids-classification" class="nav-link" data-scroll-target="#candidate-universe-and-sids-classification">Candidate Universe and SIDS Classification</a>
+  <li><a href="#candidate-universe-and-classification" id="toc-candidate-universe-and-classification" class="nav-link" data-scroll-target="#candidate-universe-and-classification">Candidate Universe and Classification</a>
   <ul class="collapse">
-  <li><a href="#source-authority" id="toc-source-authority" class="nav-link" data-scroll-target="#source-authority">Source authority</a></li>
-  <li><a href="#classification-categories" id="toc-classification-categories" class="nav-link" data-scroll-target="#classification-categories">Classification categories</a></li>
-  <li><a href="#classification-discrepancies-documented" id="toc-classification-discrepancies-documented" class="nav-link" data-scroll-target="#classification-discrepancies-documented">Classification discrepancies documented</a></li>
+  <li><a href="#building-the-universe" id="toc-building-the-universe" class="nav-link" data-scroll-target="#building-the-universe">Building the universe</a></li>
+  <li><a href="#from-candidates-to-observations" id="toc-from-candidates-to-observations" class="nav-link" data-scroll-target="#from-candidates-to-observations">From candidates to observations</a></li>
   </ul></li>
-  <li><a href="#sample-definitions" id="toc-sample-definitions" class="nav-link" data-scroll-target="#sample-definitions">Sample Definitions</a>
+  <li><a href="#sample-construction" id="toc-sample-construction" class="nav-link" data-scroll-target="#sample-construction">Sample Construction</a>
   <ul class="collapse">
-  <li><a href="#fixed-sample-principle" id="toc-fixed-sample-principle" class="nav-link" data-scroll-target="#fixed-sample-principle">Fixed-sample principle</a></li>
+  <li><a href="#fixed-membership" id="toc-fixed-membership" class="nav-link" data-scroll-target="#fixed-membership">Fixed membership</a></li>
   <li><a href="#sample-hierarchy" id="toc-sample-hierarchy" class="nav-link" data-scroll-target="#sample-hierarchy">Sample hierarchy</a></li>
-  <li><a href="#excluded-economies-and-why" id="toc-excluded-economies-and-why" class="nav-link" data-scroll-target="#excluded-economies-and-why">Excluded economies (and why)</a></li>
   </ul></li>
-  <li><a href="#baseline-windows" id="toc-baseline-windows" class="nav-link" data-scroll-target="#baseline-windows">Baseline Windows</a>
+  <li><a href="#constructing-tourism-baselines" id="toc-constructing-tourism-baselines" class="nav-link" data-scroll-target="#constructing-tourism-baselines">Constructing Tourism Baselines</a>
   <ul class="collapse">
-  <li><a href="#two-specifications" id="toc-two-specifications" class="nav-link" data-scroll-target="#two-specifications">Two specifications</a></li>
-  <li><a href="#transparency-about-window-selection" id="toc-transparency-about-window-selection" class="nav-link" data-scroll-target="#transparency-about-window-selection">Transparency about window selection</a></li>
-  <li><a href="#baseline-construction" id="toc-baseline-construction" class="nav-link" data-scroll-target="#baseline-construction">Baseline construction</a></li>
+  <li><a href="#indicators" id="toc-indicators" class="nav-link" data-scroll-target="#indicators">Indicators</a></li>
+  <li><a href="#baseline-windows" id="toc-baseline-windows" class="nav-link" data-scroll-target="#baseline-windows">Baseline windows</a></li>
+  <li><a href="#calculation" id="toc-calculation" class="nav-link" data-scroll-target="#calculation">Calculation</a></li>
   <li><a href="#thin-baselines" id="toc-thin-baselines" class="nav-link" data-scroll-target="#thin-baselines">Thin baselines</a></li>
   </ul></li>
-  <li><a href="#shock-model-specification" id="toc-shock-model-specification" class="nav-link" data-scroll-target="#shock-model-specification">Shock Model Specification</a>
+  <li><a href="#modeling-the-2020-shock" id="toc-modeling-the-2020-shock" class="nav-link" data-scroll-target="#modeling-the-2020-shock">Modeling the 2020 Shock</a>
   <ul class="collapse">
-  <li><a href="#outcome-variable" id="toc-outcome-variable" class="nav-link" data-scroll-target="#outcome-variable">Outcome variable</a></li>
-  <li><a href="#explanatory-variable" id="toc-explanatory-variable" class="nav-link" data-scroll-target="#explanatory-variable">Explanatory variable</a></li>
-  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
-  <li><a href="#eight-principal-models" id="toc-eight-principal-models" class="nav-link" data-scroll-target="#eight-principal-models">Eight principal models</a></li>
-  <li><a href="#multiple-comparison-adjustment" id="toc-multiple-comparison-adjustment" class="nav-link" data-scroll-target="#multiple-comparison-adjustment">Multiple comparison adjustment</a></li>
+  <li><a href="#outcome-and-explanatory-variables" id="toc-outcome-and-explanatory-variables" class="nav-link" data-scroll-target="#outcome-and-explanatory-variables">Outcome and explanatory variables</a></li>
+  <li><a href="#eight-principal-specifications" id="toc-eight-principal-specifications" class="nav-link" data-scroll-target="#eight-principal-specifications">Eight principal specifications</a></li>
+  <li><a href="#statistical-reporting" id="toc-statistical-reporting" class="nav-link" data-scroll-target="#statistical-reporting">Statistical reporting</a></li>
+  </ul></li>
+  <li><a href="#sensitivity-and-influence-diagnostics" id="toc-sensitivity-and-influence-diagnostics" class="nav-link" data-scroll-target="#sensitivity-and-influence-diagnostics">Sensitivity and Influence Diagnostics</a>
+  <ul class="collapse">
   <li><a href="#influential-observations" id="toc-influential-observations" class="nav-link" data-scroll-target="#influential-observations">Influential observations</a></li>
+  <li><a href="#coverage-restricted-models" id="toc-coverage-restricted-models" class="nav-link" data-scroll-target="#coverage-restricted-models">Coverage-restricted models</a></li>
   </ul></li>
-  <li><a href="#coverage-restricted-sensitivity" id="toc-coverage-restricted-sensitivity" class="nav-link" data-scroll-target="#coverage-restricted-sensitivity">Coverage-Restricted Sensitivity</a></li>
-  <li><a href="#recovery-index" id="toc-recovery-index" class="nav-link" data-scroll-target="#recovery-index">Recovery Index</a>
+  <li><a href="#constructing-the-recovery-index" id="toc-constructing-the-recovery-index" class="nav-link" data-scroll-target="#constructing-the-recovery-index">Constructing the Recovery Index</a>
   <ul class="collapse">
-  <li><a href="#construction" id="toc-construction" class="nav-link" data-scroll-target="#construction">Construction</a></li>
-  <li><a href="#pre-pandemic-baseline-2019" id="toc-pre-pandemic-baseline-2019" class="nav-link" data-scroll-target="#pre-pandemic-baseline-2019">Pre-pandemic baseline: 2019</a></li>
-  <li><a href="#comparison-year-2024" id="toc-comparison-year-2024" class="nav-link" data-scroll-target="#comparison-year-2024">Comparison year: 2024</a></li>
-  <li><a href="#aggregate-vs.-per-capita-distinction" id="toc-aggregate-vs.-per-capita-distinction" class="nav-link" data-scroll-target="#aggregate-vs.-per-capita-distinction">Aggregate vs.&nbsp;per-capita distinction</a></li>
+  <li><a href="#index-calculation" id="toc-index-calculation" class="nav-link" data-scroll-target="#index-calculation">Index calculation</a></li>
+  <li><a href="#why-2019" id="toc-why-2019" class="nav-link" data-scroll-target="#why-2019">Why 2019?</a></li>
+  <li><a href="#why-2024" id="toc-why-2024" class="nav-link" data-scroll-target="#why-2024">Why 2024?</a></li>
+  <li><a href="#aggregate-and-per-capita-measures" id="toc-aggregate-and-per-capita-measures" class="nav-link" data-scroll-target="#aggregate-and-per-capita-measures">Aggregate and per-capita measures</a></li>
   </ul></li>
-  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing Data</a></li>
-  <li><a href="#reproduction" id="toc-reproduction" class="nav-link" data-scroll-target="#reproduction">Reproduction</a>
+  <li><a href="#missing-data-and-assumptions" id="toc-missing-data-and-assumptions" class="nav-link" data-scroll-target="#missing-data-and-assumptions">Missing Data and Assumptions</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a>
   <ul class="collapse">
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  <li><a href="#script-execution-order" id="toc-script-execution-order" class="nav-link" data-scroll-target="#script-execution-order">Script execution order</a></li>
-  <li><a href="#rendering-the-site" id="toc-rendering-the-site" class="nav-link" data-scroll-target="#rendering-the-site">Rendering the site</a></li>
-  <li><a href="#world-bank-api" id="toc-world-bank-api" class="nav-link" data-scroll-target="#world-bank-api">World Bank API</a></li>
-  <li><a href="#owid-data" id="toc-owid-data" class="nav-link" data-scroll-target="#owid-data">OWID data</a></li>
+  <li><a href="#software-and-packages" id="toc-software-and-packages" class="nav-link" data-scroll-target="#software-and-packages">Software and packages</a></li>
+  <li><a href="#script-execution" id="toc-script-execution" class="nav-link" data-scroll-target="#script-execution">Script execution</a></li>
+  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
+  <li><a href="#data-retrieval-and-updates" id="toc-data-retrieval-and-updates" class="nav-link" data-scroll-target="#data-retrieval-and-updates">Data retrieval and updates</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -430,338 +457,394 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page documents the research design, sample construction, and analytical decisions for <em>Island Time, Interrupted</em>. It explains what was done and why, including where judgments were made and what consequences those judgments carry for interpretation. The <a href="../reports/data-dictionary.html">Data Dictionary</a> explains what the data are and where they came from. The <a href="../reports/analysis.html">Technical Analysis</a> shows the results.</p>
+<p>This page documents how <em>Island Time, Interrupted</em> was designed and conducted: how the candidate universe and analytical samples were defined, how indicators were constructed, why particular specifications were chosen, and how limitations were handled.</p>
+<p>The <a href="../reports/data-dictionary.html">Data Dictionary</a> documents the sources, variables, definitions, and coverage. The <a href="../reports/analysis.html">Technical Analysis</a> presents the results. This page explains the decisions and procedures behind them.</p>
 <section id="research-design" class="level2">
 <h2 class="anchored" data-anchor-id="research-design">Research Design</h2>
-<section id="questions" class="level3">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
-<p><strong>Primary:</strong> Was greater pre-pandemic dependence on international tourism associated with more severe 2020 GDP contractions among Caribbean, Pacific, and AIMS small island developing states?</p>
-<p><strong>Secondary:</strong> Were tourism-dependent economies more or less likely to have recovered to their 2019 real GDP levels by 2024?</p>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions">Research questions</h3>
+<p>The analysis addresses two related questions:</p>
+<ol type="1">
+<li>Was greater pre-pandemic exposure to international visitor spending associated with more severe economic contractions in 2020?</li>
+<li>Was pre-pandemic tourism exposure associated with the extent of economic recovery by 2024?</li>
+</ol>
+<p>The unit of analysis is the economy. The study covers candidate small island developing states (SIDS) across the Caribbean, Pacific, and Atlantic, Indian Ocean, and South China Sea (AIMS) regions.</p>
 </section>
 <section id="analytical-approach" class="level3">
 <h3 class="anchored" data-anchor-id="analytical-approach">Analytical approach</h3>
-<p>This is a cross-sectional exploratory analysis. The unit of analysis is the economy. The approach is descriptive and associational: does a pre-pandemic characteristic (tourism dependence) predict a 2020 outcome (GDP growth)? The statistical tool is bivariate OLS regression, supplemented by rank correlation and multiple specification comparisons.</p>
-<p>This analysis does not establish causation. No controls are included for fiscal position, economic structure, pre-existing recession, pandemic-response policy, or population dynamics. The analysis is intentionally kept bivariate to maintain transparency — these are the raw patterns in the data before any further assumptions are introduced.</p>
-<hr>
+<p>This is an exploratory, cross-sectional analysis. The shock analysis uses bivariate ordinary least squares (OLS) regression to examine the relationship between a pre-pandemic tourism indicator and annual real GDP growth in 2020. Pearson and Spearman correlations provide complementary measures of linear association and rank correspondence.</p>
+<p>The recovery analysis uses indexed real GDP and real GDP per capita to compare each economy’s output with its 2019 level.</p>
+<p>The models are deliberately bivariate. They do not control for fiscal capacity, economic structure, pre-existing economic conditions, pandemic restrictions, policy responses, or other factors that may have influenced the economic shock and recovery.</p>
+<p>The purpose is to describe the cross-country patterns, not to isolate the independent effect of tourism. <strong>The analysis identifies associations; it does not establish causation.</strong></p>
 </section>
 </section>
-<section id="candidate-universe-and-sids-classification" class="level2">
-<h2 class="anchored" data-anchor-id="candidate-universe-and-sids-classification">Candidate Universe and SIDS Classification</h2>
-<section id="source-authority" class="level3">
-<h3 class="anchored" data-anchor-id="source-authority">Source authority</h3>
-<p>The candidate universe was constructed from the <strong>UN-OHRLLS list of SIDS</strong>, retrieved November 2026 (<a href="https://www.un.org/ohrlls/content/list-sids">source</a>).</p>
-</section>
-<section id="classification-categories" class="level3">
-<h3 class="anchored" data-anchor-id="classification-categories">Classification categories</h3>
+<section id="candidate-universe-and-classification" class="level2">
+<h2 class="anchored" data-anchor-id="candidate-universe-and-classification">Candidate Universe and Classification</h2>
+<section id="building-the-universe" class="level3">
+<h3 class="anchored" data-anchor-id="building-the-universe">Building the universe</h3>
+<p>The candidate universe was constructed from the <a href="https://www.un.org/ohrlls/content/list-sids">UN Office of the High Representative for the Least Developed Countries, Landlocked Developing Countries and Small Island Developing States (UN-OHRLLS) list of SIDS</a>, retrieved November 2026.</p>
+<p>It contains 58 economies:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 45%">
-<col style="width: 12%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Category</th>
-<th>Definition</th>
-<th>N</th>
+<th>Classification</th>
+<th style="text-align: right;">Economies</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>OHRLLS-listed SIDS</td>
-<td>Sovereign states formally listed as SIDS by UN-OHRLLS. Includes Cook Islands and Niue, which are sovereign states in free association with New Zealand and are not UN General Assembly members but appear on the SIDS list.</td>
-<td>39</td>
+<td style="text-align: right;">39</td>
 </tr>
 <tr class="even">
 <td>Associate Member SIDS</td>
-<td>Associate members of UN Regional Commissions included in the SIDS group; mostly non-sovereign territories</td>
-<td>18</td>
+<td style="text-align: right;">18</td>
 </tr>
 <tr class="odd">
 <td>Other island economy</td>
-<td>BES (Bonaire, Sint Eustatius and Saba), retained for regional completeness; not on the UN SIDS list</td>
-<td>1</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td><strong>Total candidate universe</strong></td>
-<td></td>
-<td><strong>58</strong></td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>58</strong></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="classification-discrepancies-documented" class="level3">
-<h3 class="anchored" data-anchor-id="classification-discrepancies-documented">Classification discrepancies documented</h3>
+<p>The classification preserves several distinctions:</p>
 <ul>
-<li><strong>Cook Islands and Niue</strong>: Not UN General Assembly members. Included under “OHRLLS-listed SIDS” with an explicit note. No WDI coverage.</li>
-<li><strong>Bahrain</strong>: Not on the current OHRLLS list. Previously appeared on some SIDS lists. Excluded.</li>
-<li><strong>BES</strong>: Dutch special municipalities. Included as “Other island economy.” No WDI coverage, no OWID data. BES is the one candidate that appears in the universe but not in the analytical panel (57 economies in the panel, 58 in the universe) — because no data source produced rows for it.</li>
+<li><strong>OHRLLS-listed SIDS:</strong> Includes the Cook Islands and Niue, which appear on the SIDS list despite not being UN General Assembly members.</li>
+<li><strong>Associate Member SIDS:</strong> Includes associate members of UN Regional Commissions, most of which are non-sovereign territories.</li>
+<li><strong>Other island economy:</strong> Bonaire, Sint Eustatius, and Saba (BES) are included for regional completeness, but are not classified as a SIDS group member.</li>
 </ul>
-<hr>
+<p>Bahrain was excluded because it does not appear on the current OHRLLS list.</p>
+</section>
+<section id="from-candidates-to-observations" class="level3">
+<h3 class="anchored" data-anchor-id="from-candidates-to-observations">From candidates to observations</h3>
+<p>The candidate universe is not the same as the analytical panel. Economies enter the panel when at least one source provides observations. The resulting panel contains 57 economies; BES has no rows in the retrieved sources.</p>
+<p>The shock-analysis samples are then determined by tourism-indicator availability and 2020 GDP growth. These are data-driven inclusion rules, not judgments about which economies are substantively representative.</p>
 </section>
 </section>
-<section id="sample-definitions" class="level2">
-<h2 class="anchored" data-anchor-id="sample-definitions">Sample Definitions</h2>
-<section id="fixed-sample-principle" class="level3">
-<h3 class="anchored" data-anchor-id="fixed-sample-principle">Fixed-sample principle</h3>
-<p>Sample membership is determined by <strong>2017–2019 indicator availability plus 2020 GDP growth availability</strong>. This definition is fixed and does not change when baseline windows are extended or narrowed. The 2017–2019 window was used for sample definition because it is the most recent pre-pandemic three-year period available for both indicators.</p>
+<section id="sample-construction" class="level2">
+<h2 class="anchored" data-anchor-id="sample-construction">Sample Construction</h2>
+<section id="fixed-membership" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-membership">Fixed membership</h3>
+<p>Sample membership is defined using the availability of the relevant tourism indicator during 2017–2019 and 2020 GDP growth.</p>
+<p>The 2017–2019 period is used to establish membership because it is the most recent three-year pre-pandemic window. Once defined, membership remains fixed when the alternative 2015–2019 baseline is calculated. This prevents changes in sample composition from being mistaken for differences between baseline specifications.</p>
 </section>
 <section id="sample-hierarchy" class="level3">
 <h3 class="anchored" data-anchor-id="sample-hierarchy">Sample hierarchy</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 36%">
-<col style="width: 50%">
-<col style="width: 13%">
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Sample</th>
-<th>Criterion</th>
-<th>N</th>
+<th>Inclusion rule</th>
+<th style="text-align: right;">N</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Candidate universe</td>
-<td>All 58 economies</td>
-<td>58</td>
+<td>All candidate economies</td>
+<td style="text-align: right;">58</td>
 </tr>
 <tr class="even">
 <td>Analytical panel</td>
-<td>Economies with ≥1 observation in any source</td>
-<td>57</td>
+<td>At least one observation in any source</td>
+<td style="text-align: right;">57</td>
 </tr>
 <tr class="odd">
 <td>Tourism-data sample</td>
-<td>Any tourism indicator, 2017–2019</td>
-<td>48</td>
+<td>At least one tourism indicator available in 2017–2019</td>
+<td style="text-align: right;">48</td>
 </tr>
 <tr class="even">
 <td>OWID shock sample</td>
-<td>OWID vspend (2017–19) + 2020 GDP growth</td>
-<td>29</td>
+<td>OWID visitor spending and 2020 GDP growth available</td>
+<td style="text-align: right;">29</td>
 </tr>
 <tr class="odd">
 <td>WDI shock sample</td>
-<td>WDI receipts (2017–19) + 2020 GDP growth</td>
-<td>35</td>
+<td>WDI tourism receipts and 2020 GDP growth available</td>
+<td style="text-align: right;">35</td>
 </tr>
 <tr class="even">
-<td>Common sample</td>
-<td>Both indicators (2017–19) + 2020 GDP growth</td>
-<td>24</td>
+<td>Common shock sample</td>
+<td>Both tourism indicators and 2020 GDP growth available</td>
+<td style="text-align: right;">24</td>
 </tr>
 <tr class="odd">
 <td>Recovery sample</td>
-<td>OWID shock sample + real GDP (2019 + ≥1 later year)</td>
-<td>29</td>
+<td>OWID shock sample with 2019 and subsequent real GDP data</td>
+<td style="text-align: right;">29</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="excluded-economies-and-why" class="level3">
-<h3 class="anchored" data-anchor-id="excluded-economies-and-why">Excluded economies (and why)</h3>
-<p>Economies not in any shock sample are excluded because they lack either: - A usable pre-pandemic tourism baseline (AIA, GLP, MTQ, MSR, BES, COK, NIU: no WDI coverage; BLZ, TCA: no OWID vspend data for 2017–2019). - 2020 GDP growth data.</p>
-<p>Exclusion is based on data availability, not substantive selection. These economies are documented in <code>data/processed/country_coverage.csv</code>.</p>
-<hr>
+<p>The two indicator-specific shock samples overlap but are not identical. The common sample provides a way to compare the indicators while holding the economies constant.</p>
+<p>Economies outside the shock samples are excluded because of missing tourism baselines, missing 2020 GDP growth, or both. The exclusions are documented in <code>data/processed/country_coverage.csv</code>.</p>
+<p>The recovery sample follows the primary OWID shock sample. All 29 economies have a 2019 real GDP observation, although coverage declines in later years.</p>
 </section>
 </section>
-<section id="baseline-windows" class="level2">
-<h2 class="anchored" data-anchor-id="baseline-windows">Baseline Windows</h2>
-<section id="two-specifications" class="level3">
-<h3 class="anchored" data-anchor-id="two-specifications">Two specifications</h3>
+<section id="constructing-tourism-baselines" class="level2">
+<h2 class="anchored" data-anchor-id="constructing-tourism-baselines">Constructing Tourism Baselines</h2>
+<section id="indicators" class="level3">
+<h3 class="anchored" data-anchor-id="indicators">Indicators</h3>
+<p>Two indicators are used to represent different dimensions of international tourism exposure:</p>
+<ul>
+<li>International visitor spending as a percentage of GDP, from Our World in Data (OWID).</li>
+<li>International tourism receipts as a percentage of total exports, from the World Bank’s World Development Indicators (WDI).</li>
+</ul>
+<p>These measures have different denominators and are not interchangeable. Neither is a direct measure of tourism’s contribution to domestic value added. They are treated as exposure proxies, not as estimates of tourism’s share of GDP.</p>
+</section>
+<section id="baseline-windows" class="level3">
+<h3 class="anchored" data-anchor-id="baseline-windows">Baseline windows</h3>
+<p>Two pre-pandemic windows are calculated:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 26%">
-<col style="width: 42%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Window</th>
+<th>Specification</th>
 <th>Years</th>
-<th>Rationale</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Primary (2015–2019)</strong></td>
-<td>Up to 5 years</td>
-<td>Broader window, less sensitive to a single atypical year; more stable estimate of structural dependence</td>
+<td>Primary</td>
+<td>2015–2019</td>
+<td>Broader measure of pre-pandemic exposure</td>
 </tr>
 <tr class="even">
-<td><strong>Sensitivity (2017–2019)</strong></td>
-<td>Up to 3 years</td>
-<td>Most recent pre-pandemic conditions; used for sample-membership definition</td>
+<td>Sensitivity</td>
+<td>2017–2019</td>
+<td>More recent pre-pandemic conditions</td>
 </tr>
 </tbody>
 </table>
+<p>The longer window provides a broader average that is less dependent on any single year. The shorter window focuses on conditions immediately preceding the pandemic.</p>
+<p><strong>An important qualification:</strong> The 2015–2019 primary window was evaluated after the 2017–2019 results had been examined. The primary specification was not preregistered or selected before inspecting the data. Both windows are reported in full rather than presenting only the more favorable result.</p>
 </section>
-<section id="transparency-about-window-selection" class="level3">
-<h3 class="anchored" data-anchor-id="transparency-about-window-selection">Transparency about window selection</h3>
-<p><strong>The 2015–2019 primary window was evaluated after observing the 2017–2019 results.</strong> This is not preregistered research. The primary specification was not selected before examining the data. This is documented explicitly, and both specifications are reported in full (see <a href="../reports/analysis.html">Analysis</a>, Table A5). The two specifications produce nearly identical results for the OWID indicator.</p>
-</section>
-<section id="baseline-construction" class="level3">
-<h3 class="anchored" data-anchor-id="baseline-construction">Baseline construction</h3>
-<p>For each economy and each indicator, the baseline is the arithmetic mean of available annual observations within the window. A country with 4 out of 5 possible years contributes a 4-year mean. Medians are computed as supplementary statistics (in output tables) but are not used as primary regression inputs.</p>
-<p><strong>No imputation.</strong> Missing annual observations are not filled. Economies with zero observations in a window do not contribute a baseline.</p>
+<section id="calculation" class="level3">
+<h3 class="anchored" data-anchor-id="calculation">Calculation</h3>
+<p>For each economy and indicator, the baseline is the arithmetic mean of the available annual observations within the selected window:</p>
+<p><span class="math display">\[
+\bar{x}_{i} = \frac{1}{n_i}\sum_{t \in T_i} x_{it}
+\]</span></p>
+<p>where <span class="math inline">\(x_{it}\)</span> is the annual indicator value for economy <span class="math inline">\(i\)</span>, and <span class="math inline">\(T_i\)</span> is the set of available years within the baseline window.</p>
+<p>No missing annual values are filled. An economy with four available years in a five-year window receives a four-year mean, not an imputed five-year average. The number of observations contributing to each baseline is retained for coverage assessment.</p>
 </section>
 <section id="thin-baselines" class="level3">
 <h3 class="anchored" data-anchor-id="thin-baselines">Thin baselines</h3>
-<p>Economies with only one annual observation in the baseline window are flagged as “thin baseline” in all figures (open circles) and tables. <strong>Kiribati</strong> is the thin-baseline economy in both OWID vspend samples (1 observation in both 2015–2019 and 2017–2019). Sensitivity analyses excluding Kiribati show minimal effect on results.</p>
-<hr>
+<p>A baseline based on only one annual observation is flagged as thin. Kiribati is the only economy with a one-observation baseline in the primary OWID shock sample, and it is also thin in the shorter OWID window.</p>
+<p>Thin baselines are retained in the principal models rather than excluded by default. Their influence is examined separately through a coverage-restricted sensitivity analysis.</p>
 </section>
 </section>
-<section id="shock-model-specification" class="level2">
-<h2 class="anchored" data-anchor-id="shock-model-specification">Shock Model Specification</h2>
-<section id="outcome-variable" class="level3">
-<h3 class="anchored" data-anchor-id="outcome-variable">Outcome variable</h3>
-<p><strong>2020 annual GDP growth (%)</strong> from WDI <code>NY.GDP.MKTP.KD.ZG</code>. This is the percentage change in constant-price GDP from 2019 to 2020.</p>
-<p>Limitations: - Annual GDP growth aggregates a full calendar year. Travel restrictions began at different times in different economies; some may have had partial within-year recovery. - GDP growth does not capture unemployment, poverty, or debt accumulation. - Some economies had pre-existing recessions that overlap with the pandemic period.</p>
+<section id="modeling-the-2020-shock" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-the-2020-shock">Modeling the 2020 Shock</h2>
+<section id="outcome-and-explanatory-variables" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-and-explanatory-variables">Outcome and explanatory variables</h3>
+<p>The outcome is annual real GDP growth in 2020, measured using WDI indicator <code>NY.GDP.MKTP.KD.ZG</code>.</p>
+<p>The explanatory variable is the pre-pandemic tourism baseline, measured separately using each of the two indicators.</p>
+<p>The estimated model is:</p>
+<p><span class="math display">\[
+GDPGrowth_{i,2020} = \beta_0 + \beta_1 TourismExposure_i + \epsilon_i
+\]</span></p>
+<p>The slope <span class="math inline">\(\beta_1\)</span> describes the average change in 2020 GDP growth associated with a one-percentage-point increase in the tourism exposure indicator.</p>
+<p>For the OWID measure, this means a one-percentage-point increase in visitor spending relative to GDP. For the WDI measure, it means a one-percentage-point increase in tourism receipts relative to total exports.</p>
+<p>The slope is an association across economies, not a causal effect.</p>
 </section>
-<section id="explanatory-variable" class="level3">
-<h3 class="anchored" data-anchor-id="explanatory-variable">Explanatory variable</h3>
-<p>Pre-pandemic tourism-dependence baseline (% of GDP or % of exports), computed as described above.</p>
-</section>
-<section id="estimation" class="level3">
-<h3 class="anchored" data-anchor-id="estimation">Estimation</h3>
-<p>Bivariate OLS: <code>gdp_growth_2020 ~ baseline_tourism_dependence</code></p>
-<p>This is the simplest possible linear specification. No interaction terms, no controls, no fixed effects. This is intentional: the goal is to describe the raw association transparently before introducing model complexity.</p>
-</section>
-<section id="eight-principal-models" class="level3">
-<h3 class="anchored" data-anchor-id="eight-principal-models">Eight principal models</h3>
+<section id="eight-principal-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="eight-principal-specifications">Eight principal specifications</h3>
+<p>The models vary along three dimensions:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Dimension</th>
-<th>Levels</th>
+<th>Specifications</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Indicator</td>
-<td>OWID visitor spending (% GDP); WDI receipts (% exports)</td>
+<td>Tourism indicator</td>
+<td>OWID visitor spending; WDI tourism receipts</td>
 </tr>
 <tr class="even">
 <td>Sample</td>
-<td>OWID shock sample; WDI shock sample; Common sample</td>
+<td>Indicator-specific sample; common sample</td>
 </tr>
 <tr class="odd">
-<td>Window</td>
+<td>Baseline window</td>
 <td>2015–2019; 2017–2019</td>
 </tr>
 </tbody>
 </table>
-<p>Models 1–4 use the 2015–2019 baseline; Models 5–8 use 2017–2019. <strong>All eight are reported. No model is suppressed.</strong> Model preference should not be inferred from which produces the most significant p-value.</p>
+<p>This produces eight principal models: four for each indicator, using its own sample and the common 24-economy sample across both baseline windows.</p>
+<p>The common-sample specifications are particularly useful because they hold country membership constant when comparing the two indicators. Differences in results are therefore less likely to be explained simply by different sample composition.</p>
 </section>
-<section id="multiple-comparison-adjustment" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-comparison-adjustment">Multiple comparison adjustment</h3>
-<p>Holm’s step-down procedure is applied across all 8 principal p-values. This is reported for transparency, not as a definitive decision criterion. The 8 models are not independent (overlapping samples and related outcomes), so the Holm adjustment is conservative.</p>
+<section id="statistical-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-reporting">Statistical reporting</h3>
+<p>Each model reports:</p>
+<ul>
+<li>Sample size</li>
+<li>Estimated slope</li>
+<li>95% confidence interval</li>
+<li>R-squared</li>
+<li>Pearson correlation</li>
+<li>Spearman rank correlation</li>
+<li>Raw <em>p</em>-value</li>
+<li>Holm-adjusted <em>p</em>-value</li>
+</ul>
+<p>Holm’s step-down procedure is applied across the family of eight principal model <em>p</em>-values. This provides a multiple-testing adjustment while retaining the complete set of specifications. Because the models share economies and related explanatory variables, their tests are not independent; the adjustment should be interpreted in that context.</p>
 </section>
+</section>
+<section id="sensitivity-and-influence-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-and-influence-diagnostics">Sensitivity and Influence Diagnostics</h2>
+<p>Small cross-sectional samples can be sensitive to individual observations. Two checks are used to examine that risk.</p>
 <section id="influential-observations" class="level3">
 <h3 class="anchored" data-anchor-id="influential-observations">Influential observations</h3>
-<p>Cook’s distance is computed for all models. The conventional threshold 4/N is used to flag influential observations. <strong>Maldives (MDV)</strong> is consistently the most influential in OWID models (Cook’s D ≈ 0.36–0.39). <strong>Timor-Leste (TLS)</strong> is influential in WDI receipts models.</p>
-<p>Excluding influential observations is reported as a labeled diagnostic sensitivity analysis. <strong>Influential observations are not removed from primary models.</strong> The Maldives is an economically meaningful data point — an economy with genuine extreme tourism dependence that experienced one of the largest 2020 contractions.</p>
-<hr>
+<p>Cook’s distance is calculated for each principal regression. The conventional reference threshold of <span class="math inline">\(4/N\)</span> is used to flag potentially influential observations.</p>
+<p>The most influential economy is then excluded in a diagnostic rerun of the relevant model. These exclusions are reported separately and do not replace the principal estimates.</p>
+<p>This distinction matters. An influential observation is not necessarily erroneous. The Maldives, for example, represents a genuine case of exceptionally high tourism exposure. Removing it from the primary analysis would remove an economically meaningful part of the phenomenon being studied.</p>
+<p>The exclusion checks therefore ask whether the estimated relationship depends disproportionately on a particular economy, not whether that economy should be removed from the study.</p>
+</section>
+<section id="coverage-restricted-models" class="level3">
+<h3 class="anchored" data-anchor-id="coverage-restricted-models">Coverage-restricted models</h3>
+<p>A second sensitivity analysis restricts each model to economies with at least three annual observations in the relevant baseline window.</p>
+<p>This tests whether thin baselines materially affect the results. It also reveals the cost of uneven source coverage.</p>
+<p>The most consequential case is the WDI 2017–2019 full-sample specification. Requiring three annual observations reduces the sample from 35 to 21 economies. Fourteen economies are excluded because their available WDI receipts observations are insufficient for the restriction.</p>
+<p>The restricted model remains negative, but its statistical evidence is weaker. This result must be interpreted alongside the substantial reduction in sample size and the uneven availability of the underlying indicator.</p>
+<p>The coverage restriction is a diagnostic choice, not a claim that three observations guarantee a representative baseline.</p>
 </section>
 </section>
-<section id="coverage-restricted-sensitivity" class="level2">
-<h2 class="anchored" data-anchor-id="coverage-restricted-sensitivity">Coverage-Restricted Sensitivity</h2>
-<p>A secondary sensitivity analysis restricts each sample to economies with at least 3 annual observations in the relevant baseline window. This tests whether thin-baseline economies drive the results.</p>
-<p>The most consequential case is <strong>S5 (WDI receipts, 2017–2019, WDI sample, N=35 → 21)</strong>: 14 economies are excluded because WDI 2019 receipts data is missing (the baseline can only be computed from 2017 and 2018). The restricted N=21 sample still shows a negative slope (−0.143) but with weaker evidence (p = 0.055). This primarily reflects the severe reduction in sample size rather than an absence of pattern.</p>
-<hr>
+<section id="constructing-the-recovery-index" class="level2">
+<h2 class="anchored" data-anchor-id="constructing-the-recovery-index">Constructing the Recovery Index</h2>
+<section id="index-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="index-calculation">Index calculation</h3>
+<p>Recovery is measured using two WDI series:</p>
+<ul>
+<li>Aggregate real GDP: <code>NY.GDP.MKTP.KD</code></li>
+<li>Real GDP per capita: <code>NY.GDP.PCAP.KD</code></li>
+</ul>
+<p>Each series is indexed independently to its 2019 value:</p>
+<p><span class="math display">\[
+Index_{i,t} = \left(\frac{Value_{i,t}}{Value_{i,2019}}\right)\times 100
+\]</span></p>
+<p>An index of 100 indicates a return to the 2019 level. Values above 100 indicate output greater than the 2019 level; values below 100 indicate output that remains lower.</p>
+<p>Because the index is calculated relative to each economy’s own 2019 value, the comparison concerns recovery to a pre-pandemic level, not the absolute size of economies relative to one another.</p>
 </section>
-<section id="recovery-index" class="level2">
-<h2 class="anchored" data-anchor-id="recovery-index">Recovery Index</h2>
-<section id="construction" class="level3">
-<h3 class="anchored" data-anchor-id="construction">Construction</h3>
-<p><code>Recovery_index_t = (Real_GDP_t / Real_GDP_2019) × 100</code></p>
-<p>Computed separately for aggregate real GDP (<code>NY.GDP.MKTP.KD</code>) and per-capita real GDP (<code>NY.GDP.PCAP.KD</code>). A value of 100 means the economy has exactly returned to its 2019 level; above 100 means it has exceeded it.</p>
+<section id="why-2019" class="level3">
+<h3 class="anchored" data-anchor-id="why-2019">Why 2019?</h3>
+<p>2019 is used as the reference year because it is the last full calendar year before the pandemic disrupted international travel. Earlier observations from 2015–2018 are retained to show the pre-pandemic trajectory.</p>
 </section>
-<section id="pre-pandemic-baseline-2019" class="level3">
-<h3 class="anchored" data-anchor-id="pre-pandemic-baseline-2019">Pre-pandemic baseline: 2019</h3>
-<p>The reference year is 2019, the last full year before COVID-19 travel restrictions. This is the most natural pre-pandemic comparison point. 2015–2018 observations are included to show the pre-pandemic trend.</p>
+<section id="why-2024" class="level3">
+<h3 class="anchored" data-anchor-id="why-2024">Why 2024?</h3>
+<p>The primary recovery comparison uses 2024, the most recent year with near-complete coverage across the recovery sample. Twenty-eight of the 29 economies have an available observation; the U.S. Virgin Islands does not.</p>
+<p>Data for 2025 are available for 22 economies, but those observations are preliminary and cover a smaller subset. They are retained where available and flagged as preliminary, but are not used for the principal cross-economy recovery comparison.</p>
 </section>
-<section id="comparison-year-2024" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-year-2024">Comparison year: 2024</h3>
-<p>The primary recovery comparison year is 2024, the most recent year with near-complete data for the sample (28/29 economies; VIR has no 2024 data). 2025 data exists for 22 economies only, an insufficient base for cross-economy comparisons.</p>
-<p><strong>Annual sample sizes vary across the recovery period</strong> and are shown explicitly in figures (Overview Figure 3 and Analysis Figure 5). Cross-economy recovery comparisons at 2025 are not made because the 2025 sample (N=22) is not representative of the full shock sample.</p>
-</section>
-<section id="aggregate-vs.-per-capita-distinction" class="level3">
-<h3 class="anchored" data-anchor-id="aggregate-vs.-per-capita-distinction">Aggregate vs.&nbsp;per-capita distinction</h3>
-<p>These are not interchangeable. By 2024, 21 of 28 economies with available data had recovered aggregate real GDP to 2019 levels; 20 of 28 had recovered real GDP per capita. The net gap of one economy masks divergent dynamics in both directions: four economies (ATG, PNG, SYC, VUT) recovered aggregate but not per-capita GDP, consistent with population growth outpacing economic output; three economies (CUW, MHL, TUV) recovered per-capita but not aggregate GDP, consistent with declining or emigrating populations. Claims about recovery should specify which measure is being used.</p>
-<hr>
+<section id="aggregate-and-per-capita-measures" class="level3">
+<h3 class="anchored" data-anchor-id="aggregate-and-per-capita-measures">Aggregate and per-capita measures</h3>
+<p>Aggregate GDP and GDP per capita are calculated separately because they answer different questions.</p>
+<p>Aggregate GDP measures the total output of an economy. GDP per capita adjusts for population and provides a measure of output relative to the number of residents.</p>
+<p>The two can move in different directions. An economy can regain its previous total output while remaining below its previous output per person, or recover output per person while its total economy remains smaller.</p>
+<p>Population growth, decline, and migration may help explain these differences, but the index alone cannot identify the mechanisms. The analysis therefore reports both measures without attributing their divergence to a specific cause.</p>
 </section>
 </section>
-<section id="missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="missing-data">Missing Data</h2>
+<section id="missing-data-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data-and-assumptions">Missing Data and Assumptions</h2>
+<p>The analysis uses available observations without filling gaps through statistical imputation.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 52%">
-<col style="width: 47%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Situation</th>
 <th>Treatment</th>
-<th>Approach</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Baseline calculation</td>
-<td>Arithmetic mean of available years (no imputation)</td>
+<td>Missing annual tourism observations</td>
+<td>Baseline calculated from available years</td>
 </tr>
 <tr class="even">
-<td>Sample membership</td>
-<td>Requires at least 1 baseline observation AND 2020 GDP growth</td>
+<td>No tourism observations in a baseline window</td>
+<td>No baseline; excluded from that indicator’s shock sample</td>
 </tr>
 <tr class="odd">
-<td>Recovery index</td>
-<td>Requires 2019 real GDP observation (all 29 shock-sample members satisfy this)</td>
+<td>Missing 2020 GDP growth</td>
+<td>Excluded from shock models</td>
 </tr>
 <tr class="even">
-<td>Coverage matrix</td>
-<td>Missing = 0 observations; documented explicitly</td>
+<td>Missing 2019 real GDP</td>
+<td>No recovery index can be calculated</td>
+</tr>
+<tr class="odd">
+<td>Missing later-year GDP</td>
+<td>Economy omitted from that year’s recovery comparison</td>
+</tr>
+<tr class="even">
+<td>Source-published preliminary estimates</td>
+<td>Retained as supplied and flagged where applicable</td>
 </tr>
 </tbody>
 </table>
-<p>No observations are imputed, substituted, or estimated. Countries with no usable data for a particular indicator are excluded from analyses using that indicator and documented.</p>
-<hr>
-</section>
-<section id="reproduction" class="level2">
-<h2 class="anchored" data-anchor-id="reproduction">Reproduction</h2>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
+<p>No missing observations are imputed by this analysis. Source-published estimates are retained as supplied; their preliminary status is made explicit where relevant.</p>
+<p>Several assumptions and limitations follow from these choices:</p>
 <ul>
-<li>R 4.4.1</li>
-<li>Required packages: <code>tidyverse</code>, <code>wbstats</code>, <code>here</code>, <code>scales</code>, <code>knitr</code>, <code>rmarkdown</code>, <code>patchwork</code>, <code>svglite</code></li>
+<li>The two tourism indicators are treated as proxies for economic exposure, not direct measures of tourism value added.</li>
+<li>Annual GDP growth captures the calendar-year contraction, not the timing or duration of restrictions within each economy.</li>
+<li>The cross-sectional models do not account for differences in economic structure, policy response, fiscal capacity, or pre-existing economic conditions.</li>
+<li>The baseline averages vary in the number of annual observations contributing to them.</li>
+<li>The recovery index measures national output relative to 2019, not household welfare, employment quality, inequality, or the distribution of recovery gains.</li>
 </ul>
+<p>These constraints define what the analysis can reasonably claim. They are not problems that can be resolved simply by adding more decimal places to the estimates.</p>
 </section>
-<section id="script-execution-order" class="level3">
-<h3 class="anchored" data-anchor-id="script-execution-order">Script execution order</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/01_data_acquisition.R"</span>)   <span class="co"># ~2-3 min; calls World Bank API</span></span>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<section id="software-and-packages" class="level3">
+<h3 class="anchored" data-anchor-id="software-and-packages">Software and packages</h3>
+<p>The analysis was conducted in R 4.4.1 and rendered using Quarto.</p>
+<p>Principal packages include:</p>
+<p><code>tidyr</code>, <code>dplyr</code>, <code>wbstats</code>, <code>scales</code>, <code>here</code>, <code>knitr</code>, and <code>ggplot2</code>.</p>
+</section>
+<section id="script-execution" class="level3">
+<h3 class="anchored" data-anchor-id="script-execution">Script execution</h3>
+<p>The project separates acquisition, quality assessment, exploratory analysis, shock modeling, and recovery analysis into sequential scripts:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/01_data_acquisition.R"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/02_data_quality.R"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/03_preliminary_eda.R"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/04_shock_models.R"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/05_recovery_analysis.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The acquisition script retrieves WDI observations through <code>wbstats::wb_data()</code>. Subsequent scripts construct the analytical panel, evaluate coverage, calculate baselines, estimate the models, run sensitivity checks, and construct recovery indices.</p>
 </section>
-<section id="rendering-the-site" class="level3">
-<h3 class="anchored" data-anchor-id="rendering-the-site">Rendering the site</h3>
+<section id="rendering" class="level3">
+<h3 class="anchored" data-anchor-id="rendering">Rendering</h3>
+<p>The Quarto project is rendered with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This renders all four pages to <code>docs/</code>. The site is published from <code>docs/</code> on the <code>main</code> branch via GitHub Pages.</p>
+<p>The resulting site is published from the <code>docs/</code> directory through GitHub Pages.</p>
 </section>
-<section id="world-bank-api" class="level3">
-<h3 class="anchored" data-anchor-id="world-bank-api">World Bank API</h3>
-<p>WDI data is retrieved using <code>wbstats::wb_data()</code>. Future runs may retrieve updated data (particularly as WDI receipts lag resolves and 2025 real GDP estimates become final). The current retrieval date and returned codes are recorded in <code>data/raw/worldbank/wdi_retrieval_metadata.txt</code>. Note that ST.INT.RCPT.XP.ZS (tourism receipts) contains no observations beyond 2020 in this retrieval; this appears to reflect a change in UN Tourism data dissemination rather than a simple publication lag, and may indicate the WDI series is no longer actively updated.</p>
-</section>
-<section id="owid-data" class="level3">
-<h3 class="anchored" data-anchor-id="owid-data">OWID data</h3>
-<p>OWID CSV files in <code>data/raw/</code> are fixed downloads from January–July 2026. They will not automatically update. To retrieve updated data, download fresh CSVs from the OWID grapher and replace the files in <code>data/raw/</code>.</p>
-<hr>
-<p><em>Return to <a href="../reports/overview.html">Overview</a> · <a href="../reports/analysis.html">Technical Analysis</a> · <a href="../reports/data-dictionary.html">Data Dictionary</a></em></p>
+<section id="data-retrieval-and-updates" class="level3">
+<h3 class="anchored" data-anchor-id="data-retrieval-and-updates">Data retrieval and updates</h3>
+<p>The WDI retrieval date and returned indicator codes are recorded in:</p>
+<p><code>data/raw/worldbank/wdi_retrieval_metadata.txt</code></p>
+<p>OWID CSV files in <code>data/raw/</code> are fixed downloads from 2026 and do not update automatically. Updated OWID data require a fresh download and replacement of the local files.</p>
+<p>WDI data are retrieved through the World Bank API and may change between runs as source data are revised.</p>
+<p>Processed datasets, source metadata, and the project scripts are retained in the repository to support inspection and reproduction of the analysis.</p>
+<section id="related-pages" class="level4">
+<h4 class="anchored" data-anchor-id="related-pages">Related pages</h4>
+<ul>
+<li><a href="../reports/overview.html">Overview</a>: The story and principal findings.</li>
+<li><a href="../reports/analysis.html">Analysis</a>: Full model results, comparisons, diagnostics, and recovery data.</li>
+<li><a href="../reports/data-dictionary.html">Data Dictionary</a>: Indicators, sources, definitions, coverage, and limitations.</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
