@@ -121,8 +121,8 @@ baseline <- baseline |>
 fig1_data <- baseline |>
   filter(!is.na(vspend_mean_1519)) |>
   mutate(
-    thin_flag = if_else(vspend_thin_1519, "Thin (1 obs)", "Full (2-3 obs)"),
-    thin_flag = factor(thin_flag, levels = c("Full (2-3 obs)", "Thin (1 obs)"))
+    thin_flag = if_else(vspend_thin_1519, "Thin (1 obs)", "Full (2-5 obs)"),
+    thin_flag = factor(thin_flag, levels = c("Full (2-5 obs)", "Thin (1 obs)"))
   ) |>
   arrange(vspend_mean_1519) |>
   mutate(label = factor(label, levels = label))
@@ -151,7 +151,7 @@ build_fig1 <- function(pal) {
     geom_point(size = 2.8) +
     scale_color_manual(values = pal_reg, name = "Region") +
     scale_alpha_manual(
-      values = c("Full (2-3 obs)" = 1, "Thin (1 obs)" = 0.45),
+      values = c("Full (2-5 obs)" = 1, "Thin (1 obs)" = 0.45),
       name = "Baseline"
     ) +
     scale_x_continuous(
@@ -290,9 +290,13 @@ if (nrow(fig2_data) >= 4) {
 
 # Primary shock sample: OWID vspend + 2020 GDP growth
 shock_primary <- baseline |>
-  filter(!is.na(vspend_mean_1719), !is.na(gdp_growth_pct_2020)) |>
+  filter(
+    in_primary_shock_sample,
+    !is.na(vspend_mean_1519),
+    !is.na(gdp_growth_pct_2020)
+  ) |>
   mutate(
-    thin_flag = if_else(vspend_thin_1719, "Thin (1 obs)", "Full (2-3 obs)")
+    thin_flag = if_else(vspend_thin_1519, "Thin (1 obs)", "Full (2-5 obs)")
   )
 
 cat("\n================================================================\n")
@@ -301,7 +305,7 @@ cat("================================================================\n\n")
 cat("Primary shock sample N:", nrow(shock_primary), "\n")
 cat(
   "Visitor spending range:",
-  round(range(shock_primary$vspend_mean_1719, na.rm = TRUE), 1),
+  round(range(shock_primary$vspend_mean_1519, na.rm = TRUE), 1),
   "\n"
 )
 cat(
@@ -311,18 +315,18 @@ cat(
 )
 
 if (nrow(shock_primary) >= 6) {
-  fit_p <- lm(gdp_growth_pct_2020 ~ vspend_mean_1719, data = shock_primary)
+  fit_p <- lm(gdp_growth_pct_2020 ~ vspend_mean_1519, data = shock_primary)
   fit_sum <- summary(fit_p)
   r2_p <- round(fit_sum$r.squared, 3)
   pval_p <- round(coef(fit_sum)[2, 4], 4)
   slope_p <- round(coef(fit_p)[2], 3)
   cor_p <- round(
-    cor(shock_primary$vspend_mean_1719, shock_primary$gdp_growth_pct_2020),
+    cor(shock_primary$vspend_mean_1519, shock_primary$gdp_growth_pct_2020),
     3
   )
   cor_sp_p <- round(
     cor(
-      shock_primary$vspend_mean_1719,
+      shock_primary$vspend_mean_1519,
       shock_primary$gdp_growth_pct_2020,
       method = "spearman"
     ),
@@ -336,13 +340,19 @@ if (nrow(shock_primary) >= 6) {
   cat("Spearman \u03c1:   ", cor_sp_p, "\n")
   cat("Note: exploratory association only. NOT causal.\n")
 
+  p_label <- if (pval_p < 0.001) {
+    "<0.001"
+  } else {
+    formatC(pval_p, format = "f", digits = 3)
+  }
+
   reg_ann_p <- paste0(
     "OLS slope: ",
     slope_p,
     " | R\u00b2 = ",
     r2_p,
     " | p = ",
-    pval_p,
+    p_label,
     "\nPearson r = ",
     cor_p,
     " | Spearman \u03c1 = ",
@@ -350,9 +360,9 @@ if (nrow(shock_primary) >= 6) {
   )
 
   # --- Sensitivity: exclude thin baselines ---
-  shock_full <- shock_primary |> filter(!vspend_thin_1719)
+  shock_full <- shock_primary |> filter(!vspend_thin_1519)
   if (nrow(shock_full) >= 6) {
-    fit_f <- lm(gdp_growth_pct_2020 ~ vspend_mean_1719, data = shock_full)
+    fit_f <- lm(gdp_growth_pct_2020 ~ vspend_mean_1519, data = shock_full)
     fit_fs <- summary(fit_f)
     cat("\nSENSITIVITY (full baselines only, n =", nrow(shock_full), "):\n")
     cat("  OLS slope: ", round(coef(fit_f)[2], 3), "\n")
@@ -361,7 +371,7 @@ if (nrow(shock_primary) >= 6) {
   }
 
   fig3_caption <- paste0(
-    "Sources: OWID/UN Tourism (visitor spending % GDP); WDI (NY.GDP.MKTP.KD.ZG). \n",
+    "Sources: OWID/UN Tourism (visitor spending % GDP, 2015–2019 mean); WDI (NY.GDP.MKTP.KD.ZG). \n",
     "OLS line is exploratory only \u2014 does not imply causation. N = ",
     nrow(shock_primary),
     "."
@@ -377,7 +387,7 @@ if (nrow(shock_primary) >= 6) {
 
     ggplot(
       shock_primary,
-      aes(x = vspend_mean_1719, y = gdp_growth_pct_2020, color = sids_region)
+      aes(x = vspend_mean_1519, y = gdp_growth_pct_2020, color = sids_region)
     ) +
       geom_hline(yintercept = 0, color = pal$reference, linewidth = 0.5) +
       geom_smooth(
@@ -399,7 +409,7 @@ if (nrow(shock_primary) >= 6) {
       ) +
       scale_color_manual(values = pal_reg, name = "Region") +
       scale_shape_manual(
-        values = c("Full (2-3 obs)" = 16, "Thin (1 obs)" = 1),
+        values = c("Full (2-5 obs)" = 16, "Thin (1 obs)" = 1),
         name = "Baseline"
       ) +
       scale_x_continuous(
@@ -412,7 +422,7 @@ if (nrow(shock_primary) >= 6) {
       ) +
       annotate(
         "text",
-        x = max(shock_primary$vspend_mean_1719, na.rm = TRUE) * 0.98,
+        x = max(shock_primary$vspend_mean_1519, na.rm = TRUE) * 0.98,
         y = max(shock_primary$gdp_growth_pct_2020, na.rm = TRUE),
         label = reg_ann_p,
         hjust = 1,
@@ -423,8 +433,8 @@ if (nrow(shock_primary) >= 6) {
       ) +
       labs(
         title = "Tourism Dependence and the 2020 Economic Shock",
-        subtitle = "International visitor spending (2017\u20132019 avg.) vs. 2020 GDP growth",
-        x = "International visitor spending (% of GDP, 2017\u20132019 avg.)",
+        subtitle = "International visitor spending (2015\u20132019 avg.) vs. 2020 GDP growth",
+        x = "International visitor spending (% of GDP, 2015\u20132019 avg.)",
         y = "GDP growth (annual %, 2020)",
         caption = fig3_caption
       ) +
@@ -443,10 +453,10 @@ if (nrow(shock_primary) >= 6) {
 
 # --- Complementary: receipts-based shock (for comparison) ---
 shock_receipts <- baseline |>
-  filter(!is.na(receipts_mean_1719), !is.na(gdp_growth_pct_2020))
+  filter(!is.na(receipts_mean_1519), !is.na(gdp_growth_pct_2020))
 
 if (nrow(shock_receipts) >= 6) {
-  fit_r <- lm(gdp_growth_pct_2020 ~ receipts_mean_1719, data = shock_receipts)
+  fit_r <- lm(gdp_growth_pct_2020 ~ receipts_mean_1519, data = shock_receipts)
   fit_rs <- summary(fit_r)
   cat("\nCOMPLEMENTARY (WDI receipts, n =", nrow(shock_receipts), "):\n")
   cat("  OLS slope: ", round(coef(fit_r)[2], 3), "\n")
@@ -456,7 +466,7 @@ if (nrow(shock_receipts) >= 6) {
     "  Spearman \u03c1:",
     round(
       cor(
-        shock_receipts$receipts_mean_1719,
+        shock_receipts$receipts_mean_1519,
         shock_receipts$gdp_growth_pct_2020,
         method = "spearman"
       ),
