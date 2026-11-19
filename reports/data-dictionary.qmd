@@ -1,339 +1,95 @@
 ---
 title: "Data Dictionary"
-subtitle: "Sources, Indicators, Coverage, and Limitations"
+subtitle: "Sources, indicators, coverage, and limitations"
 ---
 
-```{r setup}
-#| include: false
-```
+The analysis combines international tourism and economic indicators for small island developing states (SIDS). Sources differ in definitions, coverage, and reporting periods; the indicators are not interchangeable.
 
-This page documents the data behind *Island Time, Interrupted*: where the information came from, what each indicator measures, how the datasets are structured, and what limitations affect their use.
-
-The [Methodology](methodology.qmd) explains how these data were selected, combined, and analyzed. The [Technical Analysis](analysis.qmd) presents the findings.
+Raw source files are retained in `data/raw/`, processed datasets in `data/processed/`, and retrieval metadata alongside the source files.
 
 ## Tourism Indicators
 
-### International visitor spending (% of GDP)
+| Source | Indicator | Variable | Unit | Coverage |
+|---|---|---|---|---|
+| Our World in Data (OWID) | International visitor spending | `visitor_spend_gdp_pct` | % GDP | 1995–2024 |
+| World Bank WDI | International tourism receipts (`ST.INT.RCPT.XP.ZS`) | `tourism_receipts_pct_exports` | % exports | Approximately 1995–2020 |
 
-<badge color="success">Primary indicator</badge>
+OWID visitor spending is the primary exposure indicator. It measures spending by international visitors in the destination economy, including accommodation, food, transport, entertainment, shopping, and fares paid to domestic airlines. Its underlying sources include UN Tourism, national statistical organizations and central banks, OECD national accounts, and World Bank estimates.
 
-| Field | Description |
-|---|---|
-| Source | UN Tourism statistics, national statistical organizations and central banks, OECD national accounts, and World Bank staff estimates, processed by Our World in Data |
-| Publisher | [Our World in Data](https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp) |
-| Analytical variable | `visitor_spend_gdp_pct` |
-| Baseline variables | `vspend_mean_1519`, `vspend_mean_1719` |
-| Unit | Percent of GDP |
-| Available years | 1995–2024 |
-| Use | Primary explanatory indicator for shock analysis |
+WDI tourism receipts measure payments by international visitors relative to exports of goods and services. Fourteen of the 35 economies in the WDI shock sample lack a 2019 observation; their 2017–2019 baselines use 2017 and 2018 only.
 
-**What it measures**
-
-Spending by international visitors in the destination economy, expressed relative to the economy's GDP. It includes spending on accommodation, food, transport, entertainment, shopping, and fares paid to domestic airlines.
-
-The indicator provides a measure of the scale of international visitor spending relative to the overall economy. A higher value suggests greater exposure to international visitor demand.
-
-**Use in this project**
-
-This is the primary explanatory indicator in the shock analysis. Its relatively broad coverage makes it more suitable for cross-economy comparison than the available tourism direct GDP series.
-
----
-
-### International tourism receipts (% of total exports)
-
-| Field | Description |
-|---|---|
-| Source | World Bank, World Development Indicators (WDI) |
-| Indicator code | `ST.INT.RCPT.XP.ZS` |
-| Analytical variable | `tourism_receipts_pct_exports` |
-| Baseline variables | `receipts_mean_1519`, `receipts_mean_1719` |
-| Unit | Percent of total exports of goods and services |
-| Available years | Approximately 1995–2020 |
-| Use | Complementary explanatory indicator for shock analysis |
-
-**What it measures**
-
-International tourism receipts relative to the total value of exports of goods and services. Receipts represent payments made to a destination economy by international visitors for goods and services consumed during their trips.
-
-**Coverage limitations**
-
-Fourteen of the 35 economies in the WDI shock sample lack a 2019 observation. Their 2017–2019 baselines therefore rely on 2017 and 2018 only.
-
-This uneven coverage is important when comparing the WDI results with those from OWID.
-
-**Use in this project**
-
-A complementary tourism exposure measure. It is used in its own shock sample and in the common-sample comparison, allowing the analysis to test whether the observed relationship depends on the choice of tourism indicator.
-
----
+Both indicators are exposure proxies, not direct measures of tourism value added.
 
 ## Economic Indicators
 
-Economic outcome data come primarily from the World Bank's [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators).
+Source: [World Bank, World Development Indicators](https://databank.worldbank.org/source/world-development-indicators).
 
-### GDP growth (annual %)
+| Indicator | WDI code | Variable | Unit | Use |
+|---|---|---|---|---|
+| GDP growth | `NY.GDP.MKTP.KD.ZG` | `gdp_growth_pct` | Annual % | 2020 economic shock |
+| Real GDP | `NY.GDP.MKTP.KD` | `gdp_real_const2015usd` | Constant 2015 USD | Aggregate recovery |
+| Real GDP per capita | `NY.GDP.PCAP.KD` | `gdppc_real_const2015usd` | Constant 2015 USD/person | Per-capita recovery |
 
-| Field | Description |
-|---|---|
-| Source | World Bank, WDI |
-| Indicator code | `NY.GDP.MKTP.KD.ZG` |
-| Analytical variable | `gdp_growth_pct` |
-| Derived variable | `gdp_growth_pct_2020` |
-| Unit | Annual percent change |
-| Prices | Constant 2015 prices |
-| Use | Outcome variable for 2020 shock regressions |
+GDP growth measures annual changes in real output. GDP and GDP per capita are indexed independently to 2019 = 100 for recovery comparisons.
 
-**What it measures**
+GDP data cover 2015–2025. Within the 29-economy recovery sample, coverage falls from 29 economies through 2022 to 28 in 2023–2024 and 22 in 2025. The 2025 observations are preliminary.
 
-The annual percentage change in real gross domestic product. It captures the change in the volume of economic output, excluding the effects of price changes.
+## Candidate Universe
 
-**Use in this project**
+Based on the [UN-OHRLLS SIDS list](https://www.un.org/ohrlls/content/list-sids).
 
-The primary outcome variable in the 2020 shock regressions. It measures the economy-wide contraction during the first pandemic year.
+| Classification | Economies |
+|---|---:|
+| OHRLLS-listed SIDS | 39 |
+| Associate Member SIDS | 18 |
+| Additional island economy (BES) | 1 |
+| **Candidate universe** | **58** |
 
-**Limitations**
+The universe includes Cook Islands and Niue, both listed by OHRLLS despite not being UN General Assembly members. Associate members are primarily non-sovereign territories. Bahrain is excluded because it is no longer classified as a UN SIDS.
 
-Annual GDP growth aggregates activity across the entire calendar year. It does not capture the precise timing of travel restrictions, differences in the duration of economic disruption, or the distribution of economic losses among households and industries.
-
-It also cannot distinguish pandemic-related effects from other economic developments occurring in the same year.
-
----
-
-### Real GDP (constant 2015 USD)
-
-| Field | Description |
-|---|---|
-| Source | World Bank, WDI |
-| Indicator code | `NY.GDP.MKTP.KD` |
-| Analytical variable | `gdp_real_const2015usd` |
-| Unit | Constant 2015 US dollars |
-| Use | Outcome variable for recovery analysis |
-
-**What it measures**
-
-The total value of domestic production, expressed in constant 2015 US dollars. Constant-price values remove the effect of changes in prices over time, allowing comparisons of real output across years.
-
-**Use in this project**
-
-The primary measure of aggregate recovery. Each economy's annual value is indexed to its 2019 level, with 2019 set equal to 100.
-
-**Coverage**
-
-Within the 29-economy shock sample:
-
-- 2015–2022: 29 economies
-- 2023–2024: 28 economies
-- 2025: 22 economies, with preliminary estimates
-
----
-
-### Real GDP per capita (constant 2015 USD)
-
-| Field | Description |
-|---|---|
-| Source | World Bank, WDI |
-| Indicator code | `NY.GDP.PCAP.KD` |
-| Analytical variable | `gdppc_real_const2015usd` |
-| Unit | Constant 2015 US dollars per person |
-| Use | Per-capita economic recovery |
-
-**What it measures**
-
-Real GDP divided by the population, expressed in constant 2015 US dollars per person.
-
-**Use in this project**
-
-A complementary recovery measure. It distinguishes the recovery of total economic output from the recovery of output relative to population.
-
----
-
-## Candidate Universe and Classification
-
-The candidate universe is based on the [UN-OHRLLS list of Small Island Developing States](https://www.un.org/ohrlls/content/list-sids).
-
-| Classification | Count | Description |
-|---|---:|---|
-| OHRLLS-listed SIDS | 39 | Economies formally included on the UN SIDS list |
-| Associate Member SIDS | 18 | Associate members of UN Regional Commissions included in the SIDS group |
-| Other island economy | 1 | Bonaire, Sint Eustatius, and Saba (BES), included for regional completeness |
-| **Candidate universe** | **58** | |
-
-Several classification details are worth preserving:
-
-- **Cook Islands and Niue:** Included on the OHRLLS SIDS list despite not being UN General Assembly members. They are sovereign states in free association with New Zealand.
-- **Bahrain:** No longer classified as a United Nations Small Island Developing State.
-- **Associate members:** Mostly non-sovereign territories and dependencies associated with UN Regional Commissions.
-- **BES:** Dutch special municipalities, not included on the OHRLLS list. Retained as an additional island economy but absent from the analytical panel because no retrieved source provided observations.
-
-The candidate universe should not be confused with the regression samples. Data availability determines which economies can contribute to each analysis.
-
----
+Bonaire, Sint Eustatius, and Saba (BES) are included for regional completeness but have no observations in the retrieved sources.
 
 ## Processed Datasets
 
-The raw sources are transformed into a set of processed datasets that support sample construction, analysis, and visualization. Repo location: `data/processed/`.
+Repository location: `data/processed/`.
 
-`candidates.csv`
+| File | Structure | Contents |
+|---|---|---|
+| `candidates.csv` | 58 economies | Candidate universe and classification |
+| `country_coverage.csv` | 58 economies | Source coverage and analytical sample flags |
+| `baseline_shock_recovery.csv` | 57 economies | Tourism baselines, observation counts, economic outcomes, and sample flags |
+| `analytical_panel.csv` | 1,707 economy-year observations | Long-format, unbalanced panel, 1995–2025 |
+| `recovery_index.csv` | Economy-year observations | Indexed real GDP and GDP per capita |
 
-**Unit:** One row per candidate economy (58 rows).
+The analytical panel combines available OWID and WDI observations. Coverage varies by indicator, economy, and year; missing values are retained. BES is absent.
 
-Contains the candidate universe and its classification.
+`baseline_shock_recovery.csv` contains both 2015–2019 and 2017–2019 tourism means and the number of annual observations contributing to each.
 
-| Variable | Description |
-|---|---|
-| `iso3` | Three-letter economy code |
-| `country` | Economy name |
-| `sids_region` | Caribbean, Pacific, or AIMS |
-| `sids_status` | Classification within the SIDS universe |
-| `political_status` | Political or territorial status |
-| `source` | Classification source |
-| `notes` | Additional classification details |
+`recovery_index.csv` contains `gdp_index` and `gdppc_index`, each referenced to 2019 = 100.
 
----
+## Raw Data and Coverage
 
-`country_coverage.csv`
+**World Bank:** `data/raw/worldbank/wdi_tourism_covid.csv` contains observations retrieved through `wbstats::wb_data()` in November 2026. The API returned 51 economies; AIA, GLP, MTQ, MSR, BES, COK, and NIU were not recognized.
 
-**Unit:** One row per candidate economy (58 rows).
+Retrieval details are recorded in `data/raw/worldbank/wdi_retrieval_metadata.txt`.
 
-Documents the availability of source observations and the resulting sample membership.
+**Our World in Data:** Visitor-spending CSV files are stored under `data/raw/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/`. These are fixed 2026 downloads and do not update automatically.
 
-Includes observation counts for the relevant tourism indicators and binary flags identifying membership in the OWID shock sample, WDI shock sample, common sample, and recovery sample.
-
-This file is the principal record of why an economy is included in or excluded from a particular analysis.
-
----
-
-`baseline_shock_recovery.csv`
-
-**This is the principal economy-level dataset used to assemble the shock and recovery analyses.**
-
-**Unit:** One row per economy in the analytical panel (57 rows).
-
-Combines the constructed tourism baselines, observation counts, economic outcomes, and sample-membership flags.
-
-Includes:
-
-- 2015–2019 and 2017–2019 tourism-indicator means
-- Annual observation counts contributing to each baseline
-- Economic outcome values for 2015–2025
-- Flags identifying the relevant analytical samples
-
----
-
-`analytical_panel.csv`
-
-**Unit:** One economy-year observation.
-
-A long-format, unbalanced panel containing 1,707 rows across 57 economies and years 1995–2025.
-
-The dataset combines the available OWID and WDI indicators into a common structure. Coverage varies by indicator, economy, and year. Consequently, many rows contain missing values for individual variables.
-
-This is not a balanced panel: not every economy has an observation for every year.
-
-BES is absent because no source returned observations for it.
-
-`recovery_index.csv`
-
----
-
-**Unit:** One economy-year observation.
-
-Contains indexed real GDP and real GDP per capita for the 29-economy primary shock sample.
-
-| Variable | Description |
-|---|---|
-| `gdp_index` | Aggregate real GDP, 2019 = 100 |
-| `gdppc_index` | Real GDP per capita, 2019 = 100 |
-
-The dataset covers 2015–2025, with annual coverage declining in later years. The 2025 observations cover 22 economies and include preliminary source estimates.
-
----
-
-## Raw Data and Retrieval Records
-
-### World Bank data
-
-`data/raw/worldbank/wdi_tourism_covid.csv`
-
-Raw WDI observations retrieved through `wbstats::wb_data()` in November 2026.
-
-The requested indicators include:
-
-| Indicator code | Description |
-|---|---|
-| `ST.INT.RCPT.XP.ZS` | International tourism receipts (% of total exports) |
-| `NY.GDP.MKTP.KD.ZG` | GDP growth (annual %) |
-| `NY.GDP.MKTP.KD` | Real GDP (constant 2015 USD) |
-| `NY.GDP.PCAP.KD` | Real GDP per capita (constant 2015 USD) |
-
-The retrieval returned 51 economies. Seven requested candidate codes were not recognized by the World Bank API: AIA, GLP, MTQ, MSR, BES, COK, and NIU.
-
-`data/raw/worldbank/wdi_retrieval_metadata.txt`
-
-Records the retrieval date, requested indicators, requested economy codes, and codes returned or missing.
-
-### Our World in Data files
-
-The OWID source files are stored locally under `data/raw/`:
-
-| Dataset | Directory |
-|---|---|
-| International visitor spending (% GDP) | `spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/` |
-<!-- | Tourism direct GDP (% GDP) | `tourism-gdp-proportion-of-total-gdp/` | -->
-<!-- | International tourist arrivals | `international-tourist-trips/` | -->
-
-These are fixed CSV downloads retrieved during 2026. They do not update automatically when the upstream OWID datasets change.
-
----
-
-## Coverage and Comparability
-
-The two principal tourism indicators have different coverage profiles. That difference affects which economies can be compared and how much confidence to place in comparisons across specifications.
-
-| Indicator | Latest year in current retrieval | Key coverage issue |
-|---|---:|---|
-| OWID visitor spending (% GDP) | 2024 | Broadest coverage in the shock sample |
-| WDI tourism receipts (% exports) | 2020 | No observations after 2020; 14 of 35 WDI shock-sample economies lack 2019 |
-| WDI real GDP | 2025 | 2025 coverage limited to 22 economies and preliminary |
-
-The common sample of 24 economies allows the two principal tourism indicators to be compared without changing the country set.
-
-Even within that sample, the indicators can produce different estimates because their denominators and underlying coverage differ.
-
-Missing data should not be interpreted as zero tourism, zero economic activity, or absence of an economic relationship. It means the relevant source did not provide an observation suitable for that comparison.
-
----
-
-## Source Notes and Limitations
-
-Several limitations apply across the data inventory:
-
-- **Different statistical concepts:** Gross visitor spending and tourism receipts measure different things. Their values should not be substituted for one another.
-- **Uneven national reporting:** International tourism statistics depend on national collection and reporting systems. Definitions and coverage can vary.
-- **Incomplete territorial coverage:** Some non-sovereign territories and smaller island economies are not recognized by the World Bank API or are missing from particular OWID datasets.
-- **Uneven time coverage:** Tourism and economic indicators do not necessarily cover the same years or economies. The analysis documents these differences rather than filling gaps with assumed values.
-- **Revisions and preliminary estimates:** Source datasets can be revised. The 2025 GDP observations are preliminary in the current retrieval and should not be treated as final.
-- **National aggregates:** GDP and tourism indicators describe economy-wide activity. They do not directly measure the distribution of gains and losses among residents.
-
-The processed datasets preserve the distinctions between source observations, constructed baselines, and indexed outcomes. The Methodology documents the transformations and inclusion decisions applied to them.
-
----
+The two tourism indicators have different denominators and coverage. Their common shock sample contains 24 economies. Missing observations do not represent zero tourism or economic activity.
 
 ## Sources
 
-- [UN-OHRLLS: List of Small Island Developing States](https://www.un.org/ohrlls/content/list-sids)
-- [World Bank: World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
-- [Our World in Data: Tourism](https://ourworldindata.org/tourism)
-- [UN Tourism: Data and statistics](https://www.unwto.org/tourism-statistics)
+- [UN-OHRLLS — List of SIDS](https://www.un.org/ohrlls/content/list-sids)
+- [World Bank — World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)
+- [Our World in Data — Tourism](https://ourworldindata.org/tourism)
+- [UN Tourism — Statistics](https://www.unwto.org/tourism-statistics)
 
-Data retrievals and source files used in this project are documented in the repository. Current source availability reflects the November 2026 retrieval unless otherwise indicated.
+Source availability reflects the November 2026 retrieval. National reporting differences, territorial coverage, and subsequent source revisions may affect comparability.
 
 ---
 
 #### Related pages
 
 - [Overview](overview.qmd): The story and principal findings.
-- [Analysis](analysis.qmd): Full model results, comparisons, diagnostics, and recovery data.
-- [Methodology](methodology.qmd): Research design, sample construction, calculations, and reproducibility.
-
-*Analysis conducted in R `r paste(R.version$major, R.version$minor, sep = ".")`. Data retrieved November 2026.*
+- [Analysis](analysis.qmd): Model results, diagnostics, and recovery comparisons.
+- [Methodology](methodology.qmd): Research design and analytical decisions.

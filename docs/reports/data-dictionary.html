@@ -83,10 +83,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Data Dictionary – Island Time, Interrupted">
-<meta property="og:description" content="Sources, Indicators, Coverage, and Limitations">
+<meta property="og:description" content="Sources, indicators, coverage, and limitations">
 <meta property="og:site_name" content="Island Time, Interrupted">
 <meta name="twitter:title" content="Data Dictionary – Island Time, Interrupted">
-<meta name="twitter:description" content="Sources, Indicators, Coverage, and Limitations">
+<meta name="twitter:description" content="Sources, indicators, coverage, and limitations">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -318,26 +318,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tourism-indicators" id="toc-tourism-indicators" class="nav-link active" data-scroll-target="#tourism-indicators">Tourism Indicators</a>
-  <ul class="collapse">
-  <li><a href="#international-visitor-spending-of-gdp" id="toc-international-visitor-spending-of-gdp" class="nav-link" data-scroll-target="#international-visitor-spending-of-gdp">International visitor spending (% of GDP)</a></li>
-  <li><a href="#international-tourism-receipts-of-total-exports" id="toc-international-tourism-receipts-of-total-exports" class="nav-link" data-scroll-target="#international-tourism-receipts-of-total-exports">International tourism receipts (% of total exports)</a></li>
-  </ul></li>
-  <li><a href="#economic-indicators" id="toc-economic-indicators" class="nav-link" data-scroll-target="#economic-indicators">Economic Indicators</a>
-  <ul class="collapse">
-  <li><a href="#gdp-growth-annual" id="toc-gdp-growth-annual" class="nav-link" data-scroll-target="#gdp-growth-annual">GDP growth (annual %)</a></li>
-  <li><a href="#real-gdp-constant-2015-usd" id="toc-real-gdp-constant-2015-usd" class="nav-link" data-scroll-target="#real-gdp-constant-2015-usd">Real GDP (constant 2015 USD)</a></li>
-  <li><a href="#real-gdp-per-capita-constant-2015-usd" id="toc-real-gdp-per-capita-constant-2015-usd" class="nav-link" data-scroll-target="#real-gdp-per-capita-constant-2015-usd">Real GDP per capita (constant 2015 USD)</a></li>
-  </ul></li>
-  <li><a href="#candidate-universe-and-classification" id="toc-candidate-universe-and-classification" class="nav-link" data-scroll-target="#candidate-universe-and-classification">Candidate Universe and Classification</a></li>
+  <li><a href="#tourism-indicators" id="toc-tourism-indicators" class="nav-link active" data-scroll-target="#tourism-indicators">Tourism Indicators</a></li>
+  <li><a href="#economic-indicators" id="toc-economic-indicators" class="nav-link" data-scroll-target="#economic-indicators">Economic Indicators</a></li>
+  <li><a href="#candidate-universe" id="toc-candidate-universe" class="nav-link" data-scroll-target="#candidate-universe">Candidate Universe</a></li>
   <li><a href="#processed-datasets" id="toc-processed-datasets" class="nav-link" data-scroll-target="#processed-datasets">Processed Datasets</a></li>
-  <li><a href="#raw-data-and-retrieval-records" id="toc-raw-data-and-retrieval-records" class="nav-link" data-scroll-target="#raw-data-and-retrieval-records">Raw Data and Retrieval Records</a>
-  <ul class="collapse">
-  <li><a href="#world-bank-data" id="toc-world-bank-data" class="nav-link" data-scroll-target="#world-bank-data">World Bank data</a></li>
-  <li><a href="#our-world-in-data-files" id="toc-our-world-in-data-files" class="nav-link" data-scroll-target="#our-world-in-data-files">Our World in Data files</a></li>
-  </ul></li>
-  <li><a href="#coverage-and-comparability" id="toc-coverage-and-comparability" class="nav-link" data-scroll-target="#coverage-and-comparability">Coverage and Comparability</a></li>
-  <li><a href="#source-notes-and-limitations" id="toc-source-notes-and-limitations" class="nav-link" data-scroll-target="#source-notes-and-limitations">Source Notes and Limitations</a></li>
+  <li><a href="#raw-data-and-coverage" id="toc-raw-data-and-coverage" class="nav-link" data-scroll-target="#raw-data-and-coverage">Raw Data and Coverage</a></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 </nav>
@@ -349,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Data Dictionary</h1>
-<p class="subtitle lead">Sources, Indicators, Coverage, and Limitations</p>
+<p class="subtitle lead">Sources, indicators, coverage, and limitations</p>
 </div>
 
 
@@ -366,526 +351,199 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page documents the data behind <em>Island Time, Interrupted</em>: where the information came from, what each indicator measures, how the datasets are structured, and what limitations affect their use.</p>
-<p>The <a href="../reports/methodology.html">Methodology</a> explains how these data were selected, combined, and analyzed. The <a href="../reports/analysis.html">Technical Analysis</a> presents the findings.</p>
+<p>The analysis combines international tourism and economic indicators for small island developing states (SIDS). Sources differ in definitions, coverage, and reporting periods; the indicators are not interchangeable.</p>
+<p>Raw source files are retained in <code>data/raw/</code>, processed datasets in <code>data/processed/</code>, and retrieval metadata alongside the source files.</p>
 <section id="tourism-indicators" class="level2">
 <h2 class="anchored" data-anchor-id="tourism-indicators">Tourism Indicators</h2>
-<section id="international-visitor-spending-of-gdp" class="level3">
-<h3 class="anchored" data-anchor-id="international-visitor-spending-of-gdp">International visitor spending (% of GDP)</h3>
-<p><badge color="success">Primary indicator</badge></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source</td>
-<td>UN Tourism statistics, national statistical organizations and central banks, OECD national accounts, and World Bank staff estimates, processed by Our World in Data</td>
-</tr>
-<tr class="even">
-<td>Publisher</td>
-<td><a href="https://ourworldindata.org/grapher/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp">Our World in Data</a></td>
-</tr>
-<tr class="odd">
-<td>Analytical variable</td>
-<td><code>visitor_spend_gdp_pct</code></td>
-</tr>
-<tr class="even">
-<td>Baseline variables</td>
-<td><code>vspend_mean_1519</code>, <code>vspend_mean_1719</code></td>
-</tr>
-<tr class="odd">
-<td>Unit</td>
-<td>Percent of GDP</td>
-</tr>
-<tr class="even">
-<td>Available years</td>
-<td>1995–2024</td>
-</tr>
-<tr class="odd">
-<td>Use</td>
-<td>Primary explanatory indicator for shock analysis</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What it measures</strong></p>
-<p>Spending by international visitors in the destination economy, expressed relative to the economy’s GDP. It includes spending on accommodation, food, transport, entertainment, shopping, and fares paid to domestic airlines.</p>
-<p>The indicator provides a measure of the scale of international visitor spending relative to the overall economy. A higher value suggests greater exposure to international visitor demand.</p>
-<p><strong>Use in this project</strong></p>
-<p>This is the primary explanatory indicator in the shock analysis. Its relatively broad coverage makes it more suitable for cross-economy comparison than the available tourism direct GDP series.</p>
-<hr>
-</section>
-<section id="international-tourism-receipts-of-total-exports" class="level3">
-<h3 class="anchored" data-anchor-id="international-tourism-receipts-of-total-exports">International tourism receipts (% of total exports)</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source</td>
-<td>World Bank, World Development Indicators (WDI)</td>
-</tr>
-<tr class="even">
-<td>Indicator code</td>
-<td><code>ST.INT.RCPT.XP.ZS</code></td>
-</tr>
-<tr class="odd">
-<td>Analytical variable</td>
-<td><code>tourism_receipts_pct_exports</code></td>
-</tr>
-<tr class="even">
-<td>Baseline variables</td>
-<td><code>receipts_mean_1519</code>, <code>receipts_mean_1719</code></td>
-</tr>
-<tr class="odd">
-<td>Unit</td>
-<td>Percent of total exports of goods and services</td>
-</tr>
-<tr class="even">
-<td>Available years</td>
-<td>Approximately 1995–2020</td>
-</tr>
-<tr class="odd">
-<td>Use</td>
-<td>Complementary explanatory indicator for shock analysis</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What it measures</strong></p>
-<p>International tourism receipts relative to the total value of exports of goods and services. Receipts represent payments made to a destination economy by international visitors for goods and services consumed during their trips.</p>
-<p><strong>Coverage limitations</strong></p>
-<p>Fourteen of the 35 economies in the WDI shock sample lack a 2019 observation. Their 2017–2019 baselines therefore rely on 2017 and 2018 only.</p>
-<p>This uneven coverage is important when comparing the WDI results with those from OWID.</p>
-<p><strong>Use in this project</strong></p>
-<p>A complementary tourism exposure measure. It is used in its own shock sample and in the common-sample comparison, allowing the analysis to test whether the observed relationship depends on the choice of tourism indicator.</p>
-<hr>
-</section>
-</section>
-<section id="economic-indicators" class="level2">
-<h2 class="anchored" data-anchor-id="economic-indicators">Economic Indicators</h2>
-<p>Economic outcome data come primarily from the World Bank’s <a href="https://databank.worldbank.org/source/world-development-indicators">World Development Indicators</a>.</p>
-<section id="gdp-growth-annual" class="level3">
-<h3 class="anchored" data-anchor-id="gdp-growth-annual">GDP growth (annual %)</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source</td>
-<td>World Bank, WDI</td>
-</tr>
-<tr class="even">
-<td>Indicator code</td>
-<td><code>NY.GDP.MKTP.KD.ZG</code></td>
-</tr>
-<tr class="odd">
-<td>Analytical variable</td>
-<td><code>gdp_growth_pct</code></td>
-</tr>
-<tr class="even">
-<td>Derived variable</td>
-<td><code>gdp_growth_pct_2020</code></td>
-</tr>
-<tr class="odd">
-<td>Unit</td>
-<td>Annual percent change</td>
-</tr>
-<tr class="even">
-<td>Prices</td>
-<td>Constant 2015 prices</td>
-</tr>
-<tr class="odd">
-<td>Use</td>
-<td>Outcome variable for 2020 shock regressions</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What it measures</strong></p>
-<p>The annual percentage change in real gross domestic product. It captures the change in the volume of economic output, excluding the effects of price changes.</p>
-<p><strong>Use in this project</strong></p>
-<p>The primary outcome variable in the 2020 shock regressions. It measures the economy-wide contraction during the first pandemic year.</p>
-<p><strong>Limitations</strong></p>
-<p>Annual GDP growth aggregates activity across the entire calendar year. It does not capture the precise timing of travel restrictions, differences in the duration of economic disruption, or the distribution of economic losses among households and industries.</p>
-<p>It also cannot distinguish pandemic-related effects from other economic developments occurring in the same year.</p>
-<hr>
-</section>
-<section id="real-gdp-constant-2015-usd" class="level3">
-<h3 class="anchored" data-anchor-id="real-gdp-constant-2015-usd">Real GDP (constant 2015 USD)</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source</td>
-<td>World Bank, WDI</td>
-</tr>
-<tr class="even">
-<td>Indicator code</td>
-<td><code>NY.GDP.MKTP.KD</code></td>
-</tr>
-<tr class="odd">
-<td>Analytical variable</td>
-<td><code>gdp_real_const2015usd</code></td>
-</tr>
-<tr class="even">
-<td>Unit</td>
-<td>Constant 2015 US dollars</td>
-</tr>
-<tr class="odd">
-<td>Use</td>
-<td>Outcome variable for recovery analysis</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What it measures</strong></p>
-<p>The total value of domestic production, expressed in constant 2015 US dollars. Constant-price values remove the effect of changes in prices over time, allowing comparisons of real output across years.</p>
-<p><strong>Use in this project</strong></p>
-<p>The primary measure of aggregate recovery. Each economy’s annual value is indexed to its 2019 level, with 2019 set equal to 100.</p>
-<p><strong>Coverage</strong></p>
-<p>Within the 29-economy shock sample:</p>
-<ul>
-<li>2015–2022: 29 economies</li>
-<li>2023–2024: 28 economies</li>
-<li>2025: 22 economies, with preliminary estimates</li>
-</ul>
-<hr>
-</section>
-<section id="real-gdp-per-capita-constant-2015-usd" class="level3">
-<h3 class="anchored" data-anchor-id="real-gdp-per-capita-constant-2015-usd">Real GDP per capita (constant 2015 USD)</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source</td>
-<td>World Bank, WDI</td>
-</tr>
-<tr class="even">
-<td>Indicator code</td>
-<td><code>NY.GDP.PCAP.KD</code></td>
-</tr>
-<tr class="odd">
-<td>Analytical variable</td>
-<td><code>gdppc_real_const2015usd</code></td>
-</tr>
-<tr class="even">
-<td>Unit</td>
-<td>Constant 2015 US dollars per person</td>
-</tr>
-<tr class="odd">
-<td>Use</td>
-<td>Per-capita economic recovery</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What it measures</strong></p>
-<p>Real GDP divided by the population, expressed in constant 2015 US dollars per person.</p>
-<p><strong>Use in this project</strong></p>
-<p>A complementary recovery measure. It distinguishes the recovery of total economic output from the recovery of output relative to population.</p>
-<hr>
-</section>
-</section>
-<section id="candidate-universe-and-classification" class="level2">
-<h2 class="anchored" data-anchor-id="candidate-universe-and-classification">Candidate Universe and Classification</h2>
-<p>The candidate universe is based on the <a href="https://www.un.org/ohrlls/content/list-sids">UN-OHRLLS list of Small Island Developing States</a>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 40%">
-<col style="width: 30%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Source</th>
+<th>Indicator</th>
+<th>Variable</th>
+<th>Unit</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Our World in Data (OWID)</td>
+<td>International visitor spending</td>
+<td><code>visitor_spend_gdp_pct</code></td>
+<td>% GDP</td>
+<td>1995–2024</td>
+</tr>
+<tr class="even">
+<td>World Bank WDI</td>
+<td>International tourism receipts (<code>ST.INT.RCPT.XP.ZS</code>)</td>
+<td><code>tourism_receipts_pct_exports</code></td>
+<td>% exports</td>
+<td>Approximately 1995–2020</td>
+</tr>
+</tbody>
+</table>
+<p>OWID visitor spending is the primary exposure indicator. It measures spending by international visitors in the destination economy, including accommodation, food, transport, entertainment, shopping, and fares paid to domestic airlines. Its underlying sources include UN Tourism, national statistical organizations and central banks, OECD national accounts, and World Bank estimates.</p>
+<p>WDI tourism receipts measure payments by international visitors relative to exports of goods and services. Fourteen of the 35 economies in the WDI shock sample lack a 2019 observation; their 2017–2019 baselines use 2017 and 2018 only.</p>
+<p>Both indicators are exposure proxies, not direct measures of tourism value added.</p>
+</section>
+<section id="economic-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="economic-indicators">Economic Indicators</h2>
+<p>Source: <a href="https://databank.worldbank.org/source/world-development-indicators">World Bank, World Development Indicators</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Indicator</th>
+<th>WDI code</th>
+<th>Variable</th>
+<th>Unit</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GDP growth</td>
+<td><code>NY.GDP.MKTP.KD.ZG</code></td>
+<td><code>gdp_growth_pct</code></td>
+<td>Annual %</td>
+<td>2020 economic shock</td>
+</tr>
+<tr class="even">
+<td>Real GDP</td>
+<td><code>NY.GDP.MKTP.KD</code></td>
+<td><code>gdp_real_const2015usd</code></td>
+<td>Constant 2015 USD</td>
+<td>Aggregate recovery</td>
+</tr>
+<tr class="odd">
+<td>Real GDP per capita</td>
+<td><code>NY.GDP.PCAP.KD</code></td>
+<td><code>gdppc_real_const2015usd</code></td>
+<td>Constant 2015 USD/person</td>
+<td>Per-capita recovery</td>
+</tr>
+</tbody>
+</table>
+<p>GDP growth measures annual changes in real output. GDP and GDP per capita are indexed independently to 2019 = 100 for recovery comparisons.</p>
+<p>GDP data cover 2015–2025. Within the 29-economy recovery sample, coverage falls from 29 economies through 2022 to 28 in 2023–2024 and 22 in 2025. The 2025 observations are preliminary.</p>
+</section>
+<section id="candidate-universe" class="level2">
+<h2 class="anchored" data-anchor-id="candidate-universe">Candidate Universe</h2>
+<p>Based on the <a href="https://www.un.org/ohrlls/content/list-sids">UN-OHRLLS SIDS list</a>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
 <th>Classification</th>
-<th style="text-align: right;">Count</th>
-<th>Description</th>
+<th style="text-align: right;">Economies</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>OHRLLS-listed SIDS</td>
 <td style="text-align: right;">39</td>
-<td>Economies formally included on the UN SIDS list</td>
 </tr>
 <tr class="even">
 <td>Associate Member SIDS</td>
 <td style="text-align: right;">18</td>
-<td>Associate members of UN Regional Commissions included in the SIDS group</td>
 </tr>
 <tr class="odd">
-<td>Other island economy</td>
+<td>Additional island economy (BES)</td>
 <td style="text-align: right;">1</td>
-<td>Bonaire, Sint Eustatius, and Saba (BES), included for regional completeness</td>
 </tr>
 <tr class="even">
 <td><strong>Candidate universe</strong></td>
 <td style="text-align: right;"><strong>58</strong></td>
-<td></td>
 </tr>
 </tbody>
 </table>
-<p>Several classification details are worth preserving:</p>
-<ul>
-<li><strong>Cook Islands and Niue:</strong> Included on the OHRLLS SIDS list despite not being UN General Assembly members. They are sovereign states in free association with New Zealand.</li>
-<li><strong>Bahrain:</strong> No longer classified as a United Nations Small Island Developing State.</li>
-<li><strong>Associate members:</strong> Mostly non-sovereign territories and dependencies associated with UN Regional Commissions.</li>
-<li><strong>BES:</strong> Dutch special municipalities, not included on the OHRLLS list. Retained as an additional island economy but absent from the analytical panel because no retrieved source provided observations.</li>
-</ul>
-<p>The candidate universe should not be confused with the regression samples. Data availability determines which economies can contribute to each analysis.</p>
-<hr>
+<p>The universe includes Cook Islands and Niue, both listed by OHRLLS despite not being UN General Assembly members. Associate members are primarily non-sovereign territories. Bahrain is excluded because it is no longer classified as a UN SIDS.</p>
+<p>Bonaire, Sint Eustatius, and Saba (BES) are included for regional completeness but have no observations in the retrieved sources.</p>
 </section>
 <section id="processed-datasets" class="level2">
 <h2 class="anchored" data-anchor-id="processed-datasets">Processed Datasets</h2>
-<p>The raw sources are transformed into a set of processed datasets that support sample construction, analysis, and visualization. Repo location: <code>data/processed/</code>.</p>
-<p><code>candidates.csv</code></p>
-<p><strong>Unit:</strong> One row per candidate economy (58 rows).</p>
-<p>Contains the candidate universe and its classification.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>iso3</code></td>
-<td>Three-letter economy code</td>
-</tr>
-<tr class="even">
-<td><code>country</code></td>
-<td>Economy name</td>
-</tr>
-<tr class="odd">
-<td><code>sids_region</code></td>
-<td>Caribbean, Pacific, or AIMS</td>
-</tr>
-<tr class="even">
-<td><code>sids_status</code></td>
-<td>Classification within the SIDS universe</td>
-</tr>
-<tr class="odd">
-<td><code>political_status</code></td>
-<td>Political or territorial status</td>
-</tr>
-<tr class="even">
-<td><code>source</code></td>
-<td>Classification source</td>
-</tr>
-<tr class="odd">
-<td><code>notes</code></td>
-<td>Additional classification details</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><code>country_coverage.csv</code></p>
-<p><strong>Unit:</strong> One row per candidate economy (58 rows).</p>
-<p>Documents the availability of source observations and the resulting sample membership.</p>
-<p>Includes observation counts for the relevant tourism indicators and binary flags identifying membership in the OWID shock sample, WDI shock sample, common sample, and recovery sample.</p>
-<p>This file is the principal record of why an economy is included in or excluded from a particular analysis.</p>
-<hr>
-<p><code>baseline_shock_recovery.csv</code></p>
-<p><strong>This is the principal economy-level dataset used to assemble the shock and recovery analyses.</strong></p>
-<p><strong>Unit:</strong> One row per economy in the analytical panel (57 rows).</p>
-<p>Combines the constructed tourism baselines, observation counts, economic outcomes, and sample-membership flags.</p>
-<p>Includes:</p>
-<ul>
-<li>2015–2019 and 2017–2019 tourism-indicator means</li>
-<li>Annual observation counts contributing to each baseline</li>
-<li>Economic outcome values for 2015–2025</li>
-<li>Flags identifying the relevant analytical samples</li>
-</ul>
-<hr>
-<p><code>analytical_panel.csv</code></p>
-<p><strong>Unit:</strong> One economy-year observation.</p>
-<p>A long-format, unbalanced panel containing 1,707 rows across 57 economies and years 1995–2025.</p>
-<p>The dataset combines the available OWID and WDI indicators into a common structure. Coverage varies by indicator, economy, and year. Consequently, many rows contain missing values for individual variables.</p>
-<p>This is not a balanced panel: not every economy has an observation for every year.</p>
-<p>BES is absent because no source returned observations for it.</p>
-<p><code>recovery_index.csv</code></p>
-<hr>
-<p><strong>Unit:</strong> One economy-year observation.</p>
-<p>Contains indexed real GDP and real GDP per capita for the 29-economy primary shock sample.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>gdp_index</code></td>
-<td>Aggregate real GDP, 2019 = 100</td>
-</tr>
-<tr class="even">
-<td><code>gdppc_index</code></td>
-<td>Real GDP per capita, 2019 = 100</td>
-</tr>
-</tbody>
-</table>
-<p>The dataset covers 2015–2025, with annual coverage declining in later years. The 2025 observations cover 22 economies and include preliminary source estimates.</p>
-<hr>
-</section>
-<section id="raw-data-and-retrieval-records" class="level2">
-<h2 class="anchored" data-anchor-id="raw-data-and-retrieval-records">Raw Data and Retrieval Records</h2>
-<section id="world-bank-data" class="level3">
-<h3 class="anchored" data-anchor-id="world-bank-data">World Bank data</h3>
-<p><code>data/raw/worldbank/wdi_tourism_covid.csv</code></p>
-<p>Raw WDI observations retrieved through <code>wbstats::wb_data()</code> in November 2026.</p>
-<p>The requested indicators include:</p>
+<p>Repository location: <code>data/processed/</code>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Indicator code</th>
-<th>Description</th>
+<th>File</th>
+<th>Structure</th>
+<th>Contents</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>ST.INT.RCPT.XP.ZS</code></td>
-<td>International tourism receipts (% of total exports)</td>
+<td><code>candidates.csv</code></td>
+<td>58 economies</td>
+<td>Candidate universe and classification</td>
 </tr>
 <tr class="even">
-<td><code>NY.GDP.MKTP.KD.ZG</code></td>
-<td>GDP growth (annual %)</td>
+<td><code>country_coverage.csv</code></td>
+<td>58 economies</td>
+<td>Source coverage and analytical sample flags</td>
 </tr>
 <tr class="odd">
-<td><code>NY.GDP.MKTP.KD</code></td>
-<td>Real GDP (constant 2015 USD)</td>
+<td><code>baseline_shock_recovery.csv</code></td>
+<td>57 economies</td>
+<td>Tourism baselines, observation counts, economic outcomes, and sample flags</td>
 </tr>
 <tr class="even">
-<td><code>NY.GDP.PCAP.KD</code></td>
-<td>Real GDP per capita (constant 2015 USD)</td>
+<td><code>analytical_panel.csv</code></td>
+<td>1,707 economy-year observations</td>
+<td>Long-format, unbalanced panel, 1995–2025</td>
+</tr>
+<tr class="odd">
+<td><code>recovery_index.csv</code></td>
+<td>Economy-year observations</td>
+<td>Indexed real GDP and GDP per capita</td>
 </tr>
 </tbody>
 </table>
-<p>The retrieval returned 51 economies. Seven requested candidate codes were not recognized by the World Bank API: AIA, GLP, MTQ, MSR, BES, COK, and NIU.</p>
-<p><code>data/raw/worldbank/wdi_retrieval_metadata.txt</code></p>
-<p>Records the retrieval date, requested indicators, requested economy codes, and codes returned or missing.</p>
+<p>The analytical panel combines available OWID and WDI observations. Coverage varies by indicator, economy, and year; missing values are retained. BES is absent.</p>
+<p><code>baseline_shock_recovery.csv</code> contains both 2015–2019 and 2017–2019 tourism means and the number of annual observations contributing to each.</p>
+<p><code>recovery_index.csv</code> contains <code>gdp_index</code> and <code>gdppc_index</code>, each referenced to 2019 = 100.</p>
 </section>
-<section id="our-world-in-data-files" class="level3">
-<h3 class="anchored" data-anchor-id="our-world-in-data-files">Our World in Data files</h3>
-<p>The OWID source files are stored locally under <code>data/raw/</code>:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dataset</th>
-<th>Directory</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>International visitor spending (% GDP)</td>
-<td><code>spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/</code></td>
-</tr>
-</tbody>
-</table>
-<!-- | Tourism direct GDP (% GDP) | `tourism-gdp-proportion-of-total-gdp/` | -->
-<!-- | International tourist arrivals | `international-tourist-trips/` | -->
-<p>These are fixed CSV downloads retrieved during 2026. They do not update automatically when the upstream OWID datasets change.</p>
-<hr>
-</section>
-</section>
-<section id="coverage-and-comparability" class="level2">
-<h2 class="anchored" data-anchor-id="coverage-and-comparability">Coverage and Comparability</h2>
-<p>The two principal tourism indicators have different coverage profiles. That difference affects which economies can be compared and how much confidence to place in comparisons across specifications.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 40%">
-<col style="width: 30%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Indicator</th>
-<th style="text-align: right;">Latest year in current retrieval</th>
-<th>Key coverage issue</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>OWID visitor spending (% GDP)</td>
-<td style="text-align: right;">2024</td>
-<td>Broadest coverage in the shock sample</td>
-</tr>
-<tr class="even">
-<td>WDI tourism receipts (% exports)</td>
-<td style="text-align: right;">2020</td>
-<td>No observations after 2020; 14 of 35 WDI shock-sample economies lack 2019</td>
-</tr>
-<tr class="odd">
-<td>WDI real GDP</td>
-<td style="text-align: right;">2025</td>
-<td>2025 coverage limited to 22 economies and preliminary</td>
-</tr>
-</tbody>
-</table>
-<p>The common sample of 24 economies allows the two principal tourism indicators to be compared without changing the country set.</p>
-<p>Even within that sample, the indicators can produce different estimates because their denominators and underlying coverage differ.</p>
-<p>Missing data should not be interpreted as zero tourism, zero economic activity, or absence of an economic relationship. It means the relevant source did not provide an observation suitable for that comparison.</p>
-<hr>
-</section>
-<section id="source-notes-and-limitations" class="level2">
-<h2 class="anchored" data-anchor-id="source-notes-and-limitations">Source Notes and Limitations</h2>
-<p>Several limitations apply across the data inventory:</p>
-<ul>
-<li><strong>Different statistical concepts:</strong> Gross visitor spending and tourism receipts measure different things. Their values should not be substituted for one another.</li>
-<li><strong>Uneven national reporting:</strong> International tourism statistics depend on national collection and reporting systems. Definitions and coverage can vary.</li>
-<li><strong>Incomplete territorial coverage:</strong> Some non-sovereign territories and smaller island economies are not recognized by the World Bank API or are missing from particular OWID datasets.</li>
-<li><strong>Uneven time coverage:</strong> Tourism and economic indicators do not necessarily cover the same years or economies. The analysis documents these differences rather than filling gaps with assumed values.</li>
-<li><strong>Revisions and preliminary estimates:</strong> Source datasets can be revised. The 2025 GDP observations are preliminary in the current retrieval and should not be treated as final.</li>
-<li><strong>National aggregates:</strong> GDP and tourism indicators describe economy-wide activity. They do not directly measure the distribution of gains and losses among residents.</li>
-</ul>
-<p>The processed datasets preserve the distinctions between source observations, constructed baselines, and indexed outcomes. The Methodology documents the transformations and inclusion decisions applied to them.</p>
-<hr>
+<section id="raw-data-and-coverage" class="level2">
+<h2 class="anchored" data-anchor-id="raw-data-and-coverage">Raw Data and Coverage</h2>
+<p><strong>World Bank:</strong> <code>data/raw/worldbank/wdi_tourism_covid.csv</code> contains observations retrieved through <code>wbstats::wb_data()</code> in November 2026. The API returned 51 economies; AIA, GLP, MTQ, MSR, BES, COK, and NIU were not recognized.</p>
+<p>Retrieval details are recorded in <code>data/raw/worldbank/wdi_retrieval_metadata.txt</code>.</p>
+<p><strong>Our World in Data:</strong> Visitor-spending CSV files are stored under <code>data/raw/spending-by-international-visitors-while-visiting-a-country-as-a-share-of-gdp/</code>. These are fixed 2026 downloads and do not update automatically.</p>
+<p>The two tourism indicators have different denominators and coverage. Their common shock sample contains 24 economies. Missing observations do not represent zero tourism or economic activity.</p>
 </section>
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <ul>
-<li><a href="https://www.un.org/ohrlls/content/list-sids">UN-OHRLLS: List of Small Island Developing States</a></li>
-<li><a href="https://databank.worldbank.org/source/world-development-indicators">World Bank: World Development Indicators</a></li>
-<li><a href="https://ourworldindata.org/tourism">Our World in Data: Tourism</a></li>
-<li><a href="https://www.unwto.org/tourism-statistics">UN Tourism: Data and statistics</a></li>
+<li><a href="https://www.un.org/ohrlls/content/list-sids">UN-OHRLLS — List of SIDS</a></li>
+<li><a href="https://databank.worldbank.org/source/world-development-indicators">World Bank — World Development Indicators</a></li>
+<li><a href="https://ourworldindata.org/tourism">Our World in Data — Tourism</a></li>
+<li><a href="https://www.unwto.org/tourism-statistics">UN Tourism — Statistics</a></li>
 </ul>
-<p>Data retrievals and source files used in this project are documented in the repository. Current source availability reflects the November 2026 retrieval unless otherwise indicated.</p>
+<p>Source availability reflects the November 2026 retrieval. National reporting differences, territorial coverage, and subsequent source revisions may affect comparability.</p>
 <hr>
 <section id="related-pages" class="level4">
 <h4 class="anchored" data-anchor-id="related-pages">Related pages</h4>
 <ul>
 <li><a href="../reports/overview.html">Overview</a>: The story and principal findings.</li>
-<li><a href="../reports/analysis.html">Analysis</a>: Full model results, comparisons, diagnostics, and recovery data.</li>
-<li><a href="../reports/methodology.html">Methodology</a>: Research design, sample construction, calculations, and reproducibility.</li>
+<li><a href="../reports/analysis.html">Analysis</a>: Model results, diagnostics, and recovery comparisons.</li>
+<li><a href="../reports/methodology.html">Methodology</a>: Research design and analytical decisions.</li>
 </ul>
-<p><em>Analysis conducted in R 4.4.1. Data retrieved November 2026.</em></p>
 
 
 </section>
