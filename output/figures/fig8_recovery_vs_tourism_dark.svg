@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='612.00pt' height='432.00pt' viewBox='0 0 612.00 432.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #0D1E2B;'/>
+<defs>
+  <clipPath id='cpMC4wMHw2MTIuMDB8MC4wMHw0MzIuMDA='>
+    <rect x='0.00' y='0.00' width='612.00' height='432.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw2MTIuMDB8MC4wMHw0MzIuMDA=)'>
+<rect x='0.00' y='0.00' width='612.00' height='432.00' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+</g>
+<defs>
+  <clipPath id='cpNDYuMzh8NTA4LjI2fDQ4LjMyfDM4MS4yNQ=='>
+    <rect x='46.38' y='48.32' width='461.88' height='332.94' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDYuMzh8NTA4LjI2fDQ4LjMyfDM4MS4yNQ==)'>
+<rect x='46.38' y='48.32' width='461.88' height='332.94' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+<polyline points='46.38,347.77 508.26,347.77 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='46.38,264.51 508.26,264.51 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='46.38,181.25 508.26,181.25 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='46.38,97.99 508.26,97.99 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='62.71,381.25 62.71,48.32 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='200.24,381.25 200.24,48.32 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='337.77,381.25 337.77,48.32 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<polyline points='475.30,381.25 475.30,48.32 ' style='stroke-width: 1.07; stroke: #1F3348; stroke-linecap: butt;' />
+<line x1='46.38' y1='264.51' x2='508.26' y2='264.51' style='stroke-width: 1.07; stroke: #5A5248; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
+<polygon points='62.88,186.68 68.10,186.90 73.32,187.11 78.54,187.29 83.76,187.46 88.98,187.61 94.20,187.73 99.42,187.84 104.64,187.92 109.86,187.97 115.08,188.00 120.30,188.00 125.52,187.97 130.74,187.90 135.96,187.80 141.18,187.67 146.40,187.50 151.62,187.29 156.84,187.04 162.06,186.75 167.28,186.41 172.50,186.03 177.72,185.60 182.94,185.13 188.16,184.60 193.38,184.03 198.60,183.41 203.82,182.74 209.04,182.02 214.26,181.25 219.48,180.43 224.70,179.56 229.92,178.65 235.14,177.69 240.36,176.69 245.58,175.64 250.80,174.56 256.02,173.44 261.24,172.27 266.46,171.08 271.68,169.85 276.90,168.59 282.12,167.29 287.34,165.97 292.56,164.62 297.78,163.25 303.00,161.85 308.22,160.43 313.44,158.99 318.66,157.53 323.88,156.05 329.10,154.55 334.33,153.03 339.55,151.50 344.77,149.96 349.99,148.40 355.21,146.83 360.43,145.25 365.65,143.65 370.87,142.05 376.09,140.43 381.31,138.80 386.53,137.17 391.75,135.53 396.97,133.88 402.19,132.22 407.41,130.55 412.63,128.88 417.85,127.20 423.07,125.51 428.29,123.82 433.51,122.13 438.73,120.43 443.95,118.72 449.17,117.01 454.39,115.29 459.61,113.57 464.83,111.85 470.05,110.12 475.27,108.39 475.27,247.25 470.05,246.81 464.83,246.38 459.61,245.95 454.39,245.53 449.17,245.10 443.95,244.69 438.73,244.28 433.51,243.87 428.29,243.47 423.07,243.07 417.85,242.68 412.63,242.30 407.41,241.92 402.19,241.55 396.97,241.18 391.75,240.83 386.53,240.48 381.31,240.14 376.09,239.81 370.87,239.49 365.65,239.17 360.43,238.87 355.21,238.59 349.99,238.31 344.77,238.04 339.55,237.79 334.33,237.56 329.10,237.34 323.88,237.14 318.66,236.95 313.44,236.78 308.22,236.64 303.00,236.51 297.78,236.41 292.56,236.33 287.34,236.27 282.12,236.25 276.90,236.25 271.68,236.28 266.46,236.34 261.24,236.44 256.02,236.58 250.80,236.75 245.58,236.96 240.36,237.21 235.14,237.50 229.92,237.84 224.70,238.22 219.48,238.65 214.26,239.12 209.04,239.65 203.82,240.22 198.60,240.84 193.38,241.52 188.16,242.24 182.94,243.01 177.72,243.83 172.50,244.69 167.28,245.61 162.06,246.57 156.84,247.57 151.62,248.61 146.40,249.70 141.18,250.82 135.96,251.98 130.74,253.18 125.52,254.41 120.30,255.67 115.08,256.97 109.86,258.29 104.64,259.64 99.42,261.01 94.20,262.41 88.98,263.83 83.76,265.27 78.54,266.73 73.32,268.22 68.10,269.71 62.88,271.23 ' style='stroke-width: 0.00; stroke: none; stroke-linecap: butt; fill: #7A7068; fill-opacity: 0.30;' />
+<polyline points='62.88,186.68 68.10,186.90 73.32,187.11 78.54,187.29 83.76,187.46 88.98,187.61 94.20,187.73 99.42,187.84 104.64,187.92 109.86,187.97 115.08,188.00 120.30,188.00 125.52,187.97 130.74,187.90 135.96,187.80 141.18,187.67 146.40,187.50 151.62,187.29 156.84,187.04 162.06,186.75 167.28,186.41 172.50,186.03 177.72,185.60 182.94,185.13 188.16,184.60 193.38,184.03 198.60,183.41 203.82,182.74 209.04,182.02 214.26,181.25 219.48,180.43 224.70,179.56 229.92,178.65 235.14,177.69 240.36,176.69 245.58,175.64 250.80,174.56 256.02,173.44 261.24,172.27 266.46,171.08 271.68,169.85 276.90,168.59 282.12,167.29 287.34,165.97 292.56,164.62 297.78,163.25 303.00,161.85 308.22,160.43 313.44,158.99 318.66,157.53 323.88,156.05 329.10,154.55 334.33,153.03 339.55,151.50 344.77,149.96 349.99,148.40 355.21,146.83 360.43,145.25 365.65,143.65 370.87,142.05 376.09,140.43 381.31,138.80 386.53,137.17 391.75,135.53 396.97,133.88 402.19,132.22 407.41,130.55 412.63,128.88 417.85,127.20 423.07,125.51 428.29,123.82 433.51,122.13 438.73,120.43 443.95,118.72 449.17,117.01 454.39,115.29 459.61,113.57 464.83,111.85 470.05,110.12 475.27,108.39 ' style='stroke-width: 1.28; stroke: none; stroke-linecap: butt;' />
+<polyline points='475.27,247.25 470.05,246.81 464.83,246.38 459.61,245.95 454.39,245.53 449.17,245.10 443.95,244.69 438.73,244.28 433.51,243.87 428.29,243.47 423.07,243.07 417.85,242.68 412.63,242.30 407.41,241.92 402.19,241.55 396.97,241.18 391.75,240.83 386.53,240.48 381.31,240.14 376.09,239.81 370.87,239.49 365.65,239.17 360.43,238.87 355.21,238.59 349.99,238.31 344.77,238.04 339.55,237.79 334.33,237.56 329.10,237.34 323.88,237.14 318.66,236.95 313.44,236.78 308.22,236.64 303.00,236.51 297.78,236.41 292.56,236.33 287.34,236.27 282.12,236.25 276.90,236.25 271.68,236.28 266.46,236.34 261.24,236.44 256.02,236.58 250.80,236.75 245.58,236.96 240.36,237.21 235.14,237.50 229.92,237.84 224.70,238.22 219.48,238.65 214.26,239.12 209.04,239.65 203.82,240.22 198.60,240.84 193.38,241.52 188.16,242.24 182.94,243.01 177.72,243.83 172.50,244.69 167.28,245.61 162.06,246.57 156.84,247.57 151.62,248.61 146.40,249.70 141.18,250.82 135.96,251.98 130.74,253.18 125.52,254.41 120.30,255.67 115.08,256.97 109.86,258.29 104.64,259.64 99.42,261.01 94.20,262.41 88.98,263.83 83.76,265.27 78.54,266.73 73.32,268.22 68.10,269.71 62.88,271.23 ' style='stroke-width: 1.28; stroke: none; stroke-linecap: butt;' />
+<polyline points='62.88,228.96 68.10,228.31 73.32,227.66 78.54,227.01 83.76,226.37 88.98,225.72 94.20,225.07 99.42,224.43 104.64,223.78 109.86,223.13 115.08,222.48 120.30,221.84 125.52,221.19 130.74,220.54 135.96,219.89 141.18,219.25 146.40,218.60 151.62,217.95 156.84,217.30 162.06,216.66 167.28,216.01 172.50,215.36 177.72,214.72 182.94,214.07 188.16,213.42 193.38,212.77 198.60,212.13 203.82,211.48 209.04,210.83 214.26,210.18 219.48,209.54 224.70,208.89 229.92,208.24 235.14,207.60 240.36,206.95 245.58,206.30 250.80,205.65 256.02,205.01 261.24,204.36 266.46,203.71 271.68,203.06 276.90,202.42 282.12,201.77 287.34,201.12 292.56,200.47 297.78,199.83 303.00,199.18 308.22,198.53 313.44,197.89 318.66,197.24 323.88,196.59 329.10,195.94 334.33,195.30 339.55,194.65 344.77,194.00 349.99,193.35 355.21,192.71 360.43,192.06 365.65,191.41 370.87,190.77 376.09,190.12 381.31,189.47 386.53,188.82 391.75,188.18 396.97,187.53 402.19,186.88 407.41,186.23 412.63,185.59 417.85,184.94 423.07,184.29 428.29,183.65 433.51,183.00 438.73,182.35 443.95,181.70 449.17,181.06 454.39,180.41 459.61,179.76 464.83,179.11 470.05,178.47 475.27,177.82 ' style='stroke-width: 1.28; stroke: #7A7068; stroke-linecap: butt;' />
+<circle cx='475.27' cy='156.21' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='440.79' cy='252.74' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='244.05' cy='173.02' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='111.24' cy='180.51' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='191.07' cy='190.68' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='101.54' cy='171.09' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='220.22' cy='180.46' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='83.81' cy='355.75' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='209.29' cy='269.36' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='169.52' cy='134.50' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='227.19' cy='217.16' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='70.47' cy='60.65' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='78.65' cy='85.71' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='467.66' cy='147.51' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='111.07' cy='294.56' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='160.09' cy='218.26' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='62.88' cy='182.69' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='86.87' cy='240.14' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='98.29' cy='268.92' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='75.47' cy='368.92' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='421.14' cy='178.00' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='374.86' cy='214.55' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<circle cx='137.94' cy='237.84' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='81.05' cy='306.12' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='167.22' cy='327.59' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='247.20' cy='177.46' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<circle cx='248.89' cy='197.52' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<circle cx='197.82' cy='151.51' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<text x='475.27' y='152.30' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='18.21px' lengthAdjust='spacingAndGlyphs'>Aruba</text>
+<text x='440.79' y='248.83' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='23.14px' lengthAdjust='spacingAndGlyphs'>Antigua</text>
+<text x='244.05' y='169.11' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='28.83px' lengthAdjust='spacingAndGlyphs'>Bahamas</text>
+<text x='111.24' y='176.60' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='27.69px' lengthAdjust='spacingAndGlyphs'>Bermuda</text>
+<text x='191.07' y='186.77' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='29.21px' lengthAdjust='spacingAndGlyphs'>Barbados</text>
+<text x='101.54' y='167.17' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='27.69px' lengthAdjust='spacingAndGlyphs'>Comoros</text>
+<text x='220.22' y='176.55' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='34.15px' lengthAdjust='spacingAndGlyphs'>CapeVerde</text>
+<text x='83.81' y='351.84' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='16.32px' lengthAdjust='spacingAndGlyphs'>Cuba</text>
+<text x='209.29' y='265.45' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='25.80px' lengthAdjust='spacingAndGlyphs'>Curacao</text>
+<text x='169.52' y='130.59' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='34.51px' lengthAdjust='spacingAndGlyphs'>Cayman Is.</text>
+<text x='227.19' y='213.25' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='8.73px' lengthAdjust='spacingAndGlyphs'>Fiji</text>
+<text x='70.47' y='56.74' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='30.72px' lengthAdjust='spacingAndGlyphs'>Guinea-B.</text>
+<text x='78.65' y='81.80' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='20.87px' lengthAdjust='spacingAndGlyphs'>Kiribati</text>
+<text x='467.66' y='143.60' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='26.94px' lengthAdjust='spacingAndGlyphs'>Maldives</text>
+<text x='111.07' y='290.65' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='34.89px' lengthAdjust='spacingAndGlyphs'>Marshall Is.</text>
+<text x='160.09' y='214.35' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='27.69px' lengthAdjust='spacingAndGlyphs'>Mauritius</text>
+<text x='62.88' y='178.78' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='31.86px' lengthAdjust='spacingAndGlyphs'>Papua NG</text>
+<text x='86.87' y='236.23' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='35.65px' lengthAdjust='spacingAndGlyphs'>Puerto Rico</text>
+<text x='98.29' y='265.01' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='36.03px' lengthAdjust='spacingAndGlyphs'>Solomon Is.</text>
+<text x='75.47' y='365.01' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='29.21px' lengthAdjust='spacingAndGlyphs'>Suriname</text>
+<text x='421.14' y='174.09' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='38.69px' lengthAdjust='spacingAndGlyphs'>Sint Maarten</text>
+<text x='374.86' y='210.64' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='33.00px' lengthAdjust='spacingAndGlyphs'>Seychelles</text>
+<text x='137.94' y='233.93' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='18.59px' lengthAdjust='spacingAndGlyphs'>Tonga</text>
+<text x='81.05' y='302.21' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='24.41px' lengthAdjust='spacingAndGlyphs'>Trinidad</text>
+<text x='167.22' y='323.67' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='20.23px' lengthAdjust='spacingAndGlyphs'>Tuvalu</text>
+<text x='248.89' y='193.61' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='24.91px' lengthAdjust='spacingAndGlyphs'>Vanuatu</text>
+<text x='197.82' y='147.60' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='21.62px' lengthAdjust='spacingAndGlyphs'>Samoa</text>
+<text x='494.90' y='56.86' text-anchor='end' style='font-size: 7.97px;fill: #7A7068; font-family: "Arial";' textLength='133.57px' lengthAdjust='spacingAndGlyphs'>Pearson r = 0.21 | Spearman ρ = 0.24</text>
+</g>
+<g clip-path='url(#cpMC4wMHw2MTIuMDB8MC4wMHw0MzIuMDA=)'>
+<text x='41.45' y='351.11' text-anchor='end' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='10.40px' lengthAdjust='spacingAndGlyphs'>90</text>
+<text x='41.45' y='267.85' text-anchor='end' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='15.60px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='41.45' y='184.59' text-anchor='end' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='14.90px' lengthAdjust='spacingAndGlyphs'>110</text>
+<text x='41.45' y='101.33' text-anchor='end' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='15.60px' lengthAdjust='spacingAndGlyphs'>120</text>
+<text x='62.71' y='392.87' text-anchor='middle' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='13.51px' lengthAdjust='spacingAndGlyphs'>0%</text>
+<text x='200.24' y='392.87' text-anchor='middle' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='18.71px' lengthAdjust='spacingAndGlyphs'>20%</text>
+<text x='337.77' y='392.87' text-anchor='middle' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='18.71px' lengthAdjust='spacingAndGlyphs'>40%</text>
+<text x='475.30' y='392.87' text-anchor='middle' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='18.71px' lengthAdjust='spacingAndGlyphs'>60%</text>
+<text x='277.32' y='404.66' text-anchor='middle' style='font-size: 9.90px;fill: #DDD8D0; font-family: "Arial";' textLength='185.51px' lengthAdjust='spacingAndGlyphs'>Visitor spending (% GDP, 2015-2019 avg.)</text>
+<text transform='translate(21.03,214.79) rotate(-90)' text-anchor='middle' style='font-size: 9.90px;fill: #DDD8D0; font-family: "Arial";' textLength='157.37px' lengthAdjust='spacingAndGlyphs'>Real GDP index, 2024 (2019 = 100)</text>
+<rect x='519.22' y='176.32' width='76.84' height='76.93' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+<text x='524.70' y='189.47' style='font-size: 9.35px; font-weight: bold;fill: #DDD8D0; font-family: "Arial";' textLength='31.67px' lengthAdjust='spacingAndGlyphs'>Region</text>
+<rect x='524.70' y='195.93' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+<circle cx='533.34' cy='204.57' r='3.56' style='stroke-width: 0.71; stroke: #7AB8C8; stroke-opacity: 0.90; fill: #7AB8C8; fill-opacity: 0.90;' />
+<text x='533.34' y='220.99' text-anchor='middle' style='font-size: 6.83px;fill: #7AB8C8; font-family: "Arial";' textLength='3.79px' lengthAdjust='spacingAndGlyphs'>a</text>
+<rect x='524.70' y='213.21' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+<circle cx='533.34' cy='221.85' r='3.56' style='stroke-width: 0.71; stroke: #5BBCC9; stroke-opacity: 0.90; fill: #5BBCC9; fill-opacity: 0.90;' />
+<text x='533.34' y='238.27' text-anchor='middle' style='font-size: 6.83px;fill: #5BBCC9; font-family: "Arial";' textLength='3.79px' lengthAdjust='spacingAndGlyphs'>a</text>
+<rect x='524.70' y='230.49' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #132535;' />
+<circle cx='533.34' cy='239.13' r='3.56' style='stroke-width: 0.71; stroke: #D4845E; stroke-opacity: 0.90; fill: #D4845E; fill-opacity: 0.90;' />
+<text x='533.34' y='255.55' text-anchor='middle' style='font-size: 6.83px;fill: #D4845E; font-family: "Arial";' textLength='3.79px' lengthAdjust='spacingAndGlyphs'>a</text>
+<text x='547.46' y='207.92' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='22.85px' lengthAdjust='spacingAndGlyphs'>AIMS</text>
+<text x='547.46' y='225.20' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='43.12px' lengthAdjust='spacingAndGlyphs'>Caribbean</text>
+<text x='547.46' y='242.48' style='font-size: 9.35px;fill: #DDD8D0; font-family: "Arial";' textLength='27.53px' lengthAdjust='spacingAndGlyphs'>Pacific</text>
+<text x='46.38' y='38.03' style='font-size: 11.00px;fill: #7A7068; font-family: "Arial";' textLength='365.57px' lengthAdjust='spacingAndGlyphs'>Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). N=28.</text>
+<text x='46.38' y='23.39' style='font-size: 13.20px; font-weight: bold;fill: #DDD8D0; font-family: "Arial";' textLength='275.41px' lengthAdjust='spacingAndGlyphs'>Tourism Dependence and Recovery by 2024</text>
+<text x='46.38' y='420.37' style='font-size: 7.92px;fill: #7A7068; font-family: "Arial";' textLength='270.35px' lengthAdjust='spacingAndGlyphs'>Sources: OWID/UN Tourism; WDI NY.GDP.MKTP.KD. OLS line is exploratory.</text>
+</g>
+</svg>

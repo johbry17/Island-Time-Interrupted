@@ -3,7 +3,7 @@ title: "Technical Analysis"
 subtitle: "Tourism Dependence and the 2020 Shock: Full Results"
 ---
 
-```{css}
+```{css echo=FALSE}
 .table th em {
   text-transform: lowercase;
   text-align: inherit;
@@ -15,6 +15,7 @@ The COVID-19 pandemic brought international travel to an abrupt halt. For small 
 This analysis examines those questions across 58 candidate economies in the Caribbean, Pacific, and Atlantic, Indian Ocean, and South China Sea (AIMS) regions. The available data produce different analytical samples for the two tourism indicators, so the results are tested across multiple sample definitions and baseline periods.
 
 ```{r setup}
+#| echo: false
 #| include: false
 library(here)
 library(readr)
@@ -230,27 +231,42 @@ Across the 24 economies with both measures, the indicators are positively correl
 
 The broad rankings are therefore similar, but the indicators are not interchangeable. The export-based denominator can make tourism receipts appear especially important in economies with relatively limited non-tourism exports. The GDP-based denominator instead compares gross visitor spending with the overall scale of the economy.
 
-```{r fig-indicator-comparison}
+```{r fig-indicator-comparison-light}
 #| echo: false
 #| fig-cap: "**OWID visitor spending (% GDP) and WDI tourism receipts (% exports), 2015–2019 averages.** The two indicators are positively correlated across the common sample, but differences in their denominators produce meaningful differences in measured exposure."
 #| fig-width: 7.5
 #| fig-height: 6
-knitr::include_graphics(here(
-    "output",
-    "figures",
-    "fig2_measure_comparison.png"
-))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig2_measure_comparison_light.png"))
+```
+
+```{r fig-indicator-comparison-dark}
+#| echo: false
+#| fig-cap: "**OWID visitor spending (% GDP) and WDI tourism receipts (% exports), 2015–2019 averages.** The two indicators are positively correlated across the common sample, but differences in their denominators produce meaningful differences in measured exposure."
+#| fig-width: 7.5
+#| fig-height: 6
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig2_measure_comparison_dark.png"))
 ```
 
 ### The distribution of visitor spending
 
 The primary OWID measure also reveals substantial variation within the 29-economy shock sample. In some destinations, international visitor spending is equivalent to a very large share of GDP; in others, it is comparatively modest.
 
-```{r fig-ranking, echo=FALSE}
+```{r fig-ranking-light, echo=FALSE}
 #| fig-cap: "**International visitor spending as a percentage of GDP, 2015–2019 average.** Each bar represents one economy in the primary OWID shock sample (N = 29). The open circle identifies Kiribati, whose baseline average is based on one annual observation."
 #| fig-width: 8.5
 #| fig-height: 7.5
-knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking.png"))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking_light.png"))
+```
+
+```{r fig-ranking-dark, echo=FALSE}
+#| fig-cap: "**International visitor spending as a percentage of GDP, 2015–2019 average.** Each bar represents one economy in the primary OWID shock sample (N = 29). The open circle identifies Kiribati, whose baseline average is based on one annual observation."
+#| fig-width: 8.5
+#| fig-height: 7.5
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking_dark.png"))
 ```
 
 ## Tourism Exposure and the 2020 Shock
@@ -323,11 +339,20 @@ The result is similar using the shorter 2017–2019 baseline. The estimated slop
 
 All four OWID specifications remain statistically significant after the Holm adjustment. The consistency across baseline windows and sample definitions supports the conclusion that higher pre-pandemic visitor spending relative to GDP was strongly associated with a more severe 2020 contraction in this group of economies.
 
-```{r fig-shock, echo=FALSE}
+```{r fig-shock-light, echo=FALSE}
 #| fig-cap: "**Pre-pandemic visitor spending and 2020 real GDP growth.** OWID visitor spending as a percentage of GDP, averaged over 2015–2019, is plotted against 2020 real GDP growth for the 29-economy primary sample. The line represents the estimated bivariate OLS relationship. The open circle identifies Kiribati, whose baseline is based on one observation. The relationship is exploratory and does not establish causation. Sources: OWID / UN Tourism and WDI GDP growth."
 #| fig-width: 9
 #| fig-height: 6.5
-knitr::include_graphics(here("output", "figures", "fig3_shock_scatter.png"))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig3_shock_scatter_light.png"))
+```
+
+```{r fig-shock-dark, echo=FALSE}
+#| fig-cap: "**Pre-pandemic visitor spending and 2020 real GDP growth.** OWID visitor spending as a percentage of GDP, averaged over 2015–2019, is plotted against 2020 real GDP growth for the 29-economy primary sample. The line represents the estimated bivariate OLS relationship. The open circle identifies Kiribati, whose baseline is based on one observation. The relationship is exploratory and does not establish causation. Sources: OWID / UN Tourism and WDI GDP growth."
+#| fig-width: 9
+#| fig-height: 6.5
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig3_shock_scatter_dark.png"))
 ```
 
 ### Complementary measure: WDI tourism receipts
@@ -340,24 +365,40 @@ The common-sample results are stronger. With the country set held constant at 24
 
 The comparison is informative. The WDI measure points in the same general direction as the OWID measure, but the relationship is weaker and the statistical evidence less consistent. This difference remains when the analysis is restricted to the same 24 economies.
 
-```{r fig-shock-four-panel}
+```{r fig-shock-four-panel-light}
 #| echo: false
 #| fig-cap: "**Four model specifications using the 2015–2019 baseline.** The top row shows each indicator in its own sample; the bottom row shows both indicators in the common 24-economy sample. OWID visitor spending is shown on the left and WDI tourism receipts on the right. The open circles identify thin baselines. The comparison shows that the stronger OWID relationship is not simply a consequence of its different sample composition."
 #| fig-width: 13
 #| fig-height: 10
-knitr::include_graphics(here("output", "figures", "fig5_shock_4panel_1519.png"))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig5_shock_4panel_1519_light.png"))
 ```
 
-```{r fig-common-sample}
+```{r fig-shock-four-panel-dark}
+#| echo: false
+#| fig-cap: "**Four model specifications using the 2015–2019 baseline.** The top row shows each indicator in its own sample; the bottom row shows both indicators in the common 24-economy sample. OWID visitor spending is shown on the left and WDI tourism receipts on the right. The open circles identify thin baselines. The comparison shows that the stronger OWID relationship is not simply a consequence of its different sample composition."
+#| fig-width: 13
+#| fig-height: 10
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig5_shock_4panel_1519_dark.png"))
+```
+
+```{r fig-common-sample-light}
 #| echo: false
 #| fig-cap: "**Common-sample comparison (N = 24).** OWID visitor spending and WDI tourism receipts plotted against 2020 GDP growth for the same economies and baseline period. This focused comparison makes the difference in estimated relationships easier to see."
 #| fig-width: 11
 #| fig-height: 5.5
-knitr::include_graphics(here(
-    "output",
-    "figures",
-    "fig6_common_sample_comparison.png"
-))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig6_common_sample_comparison_light.png"))
+```
+
+```{r fig-common-sample-dark}
+#| echo: false
+#| fig-cap: "**Common-sample comparison (N = 24).** OWID visitor spending and WDI tourism receipts plotted against 2020 GDP growth for the same economies and baseline period. This focused comparison makes the difference in estimated relationships easier to see."
+#| fig-width: 11
+#| fig-height: 5.5
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig6_common_sample_comparison_dark.png"))
 ```
 
 ## Sensitivity and Influential Observations
@@ -500,16 +541,22 @@ ridx |>
 
 By 2024, 21 of the 28 economies with available data had returned to or exceeded their 2019 level of aggregate real GDP. The trajectories show a broad pattern of sharp contraction in 2020 followed by recovery over the subsequent years, although the depth of the initial decline and the pace of rebound varied considerably.
 
-```{r fig-recovery-trajectories}
+```{r fig-recovery-trajectories-light}
 #| echo: false
 #| fig-cap: "**Real GDP recovery trajectories, 2015–2025 (2019 = 100).** Lines are grouped by SIDS region. The horizontal reference at 100 marks each economy's 2019 level. Annual sample sizes are shown below the chart. The 2025 observations are preliminary and cover a smaller set of economies."
 #| fig-width: 9
 #| fig-height: 10
-knitr::include_graphics(here(
-    "output",
-    "figures",
-    "fig7_recovery_trajectories.png"
-))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig7_recovery_trajectories_light.png"))
+```
+
+```{r fig-recovery-trajectories-dark}
+#| echo: false
+#| fig-cap: "**Real GDP recovery trajectories, 2015–2025 (2019 = 100).** Lines are grouped by SIDS region. The horizontal reference at 100 marks each economy's 2019 level. Annual sample sizes are shown below the chart. The 2025 observations are preliminary and cover a smaller set of economies."
+#| fig-width: 9
+#| fig-height: 10
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig7_recovery_trajectories_dark.png"))
 ```
 
 ### Aggregate and per-capita recovery
@@ -532,16 +579,22 @@ The relationship between pre-pandemic visitor spending and the 2024 aggregate GD
 
 Across the 28 economies with 2024 data, the Pearson correlation between pre-pandemic OWID visitor spending and the 2024 aggregate GDP index is 0.21 (*p* = 0.275). This is not statistically significant. The result does not establish that the two variables are unrelated; it indicates that this analysis does not detect a clear linear association in this sample.
 
-```{r fig-recovery-vs-tourism}
+```{r fig-recovery-vs-tourism-light}
 #| echo: false
 #| fig-cap: "**Pre-pandemic visitor spending and 2024 real GDP index (2019 = 100).** Each point represents one economy in the recovery sample with available 2024 data (N = 28). The estimated Pearson correlation is 0.21 (*p* = 0.275)."
 #| fig-width: 8.5
 #| fig-height: 6
-knitr::include_graphics(here(
-    "output",
-    "figures",
-    "fig8_recovery_vs_tourism.png"
-))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig8_recovery_vs_tourism_light.png"))
+```
+
+```{r fig-recovery-vs-tourism-dark}
+#| echo: false
+#| fig-cap: "**Pre-pandemic visitor spending and 2024 real GDP index (2019 = 100).** Each point represents one economy in the recovery sample with available 2024 data (N = 28). The estimated Pearson correlation is 0.21 (*p* = 0.275)."
+#| fig-width: 8.5
+#| fig-height: 6
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig8_recovery_vs_tourism_dark.png"))
 ```
 
 The contrast with the shock analysis is notable. Pre-pandemic visitor spending was strongly associated with the severity of the initial contraction, but it offers little indication of where an economy stood relative to its 2019 aggregate GDP level four years later.

@@ -3,6 +3,7 @@
 # Island Time, Interrupted: Tourism Dependence and the COVID Cliff
 # Purpose: Preliminary EDA and publication-quality figures.
 # Depends on: 01_data_acquisition.R and 02_data_quality.R having been run.
+#             R/theme_utils.R must exist (provides palettes and save_fig_dual).
 # Run from: repository root (here() anchors at .git)
 # =============================================================================
 
@@ -12,6 +13,8 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(scales)
+
+source(here("R", "theme_utils.R")) # palettes, make_fn_theme, save_fig_dual
 
 processed <- here("data", "processed")
 fig_dir <- here("output", "figures")
@@ -37,63 +40,8 @@ coverage <- read_csv(
 )
 
 # ---------------------------------------------------------------------------
-# Design system
+# Short labels for figure annotations
 # ---------------------------------------------------------------------------
-# Three-region palette — Wong colorblind-safe
-
-pal_region <- c(
-  "Caribbean" = "#0072B2", # accessible blue
-  "Pacific" = "#D55E00", # accessible vermillion
-  "AIMS" = "#009E73" # accessible teal/green
-)
-
-base_theme <- theme_minimal(base_size = 11) +
-  theme(
-    text = element_text(family = "sans", color = "grey15"),
-    plot.title = element_text(face = "bold", size = 13, margin = margin(b = 4)),
-    plot.subtitle = element_text(
-      size = 10,
-      color = "grey35",
-      margin = margin(b = 8)
-    ),
-    plot.caption = element_text(
-      size = 7.5,
-      color = "grey50",
-      hjust = 0,
-      margin = margin(t = 8)
-    ),
-    axis.title = element_text(size = 9, color = "grey25"),
-    axis.text = element_text(size = 8.5, color = "grey30"),
-    axis.ticks = element_line(color = "grey80"),
-    panel.grid.major = element_line(color = "grey92"),
-    panel.grid.minor = element_blank(),
-    legend.title = element_text(size = 9, face = "bold"),
-    legend.text = element_text(size = 8.5),
-    legend.key.size = unit(0.9, "lines"),
-    plot.margin = margin(12, 14, 8, 12),
-    strip.text = element_text(face = "bold", size = 9)
-  )
-
-theme_set(base_theme)
-
-save_fig <- function(plot, filename, width = 8, height = 5.5) {
-  ggsave(
-    file.path(fig_dir, paste0(filename, ".png")),
-    plot = plot,
-    width = width,
-    height = height,
-    dpi = 300,
-    bg = "white"
-  )
-  ggsave(
-    file.path(fig_dir, paste0(filename, ".svg")),
-    plot = plot,
-    width = width,
-    height = height,
-    bg = "white"
-  )
-  message("Saved: ", filename)
-}
 
 short_labels <- c(
   # Caribbean UN SIDS
@@ -169,9 +117,6 @@ baseline <- baseline |>
 # ============================================================
 
 # Figure 1: OWID visitor spending (% GDP) ranking — PRIMARY measure
-# Rationale: Direct measure of inbound international visitor spending relative
-# to the size of the economy. Best coverage across the expanded SIDS universe.
-# Sources: UN Tourism; WB national accounts. No single WDI indicator code.
 
 fig1_data <- baseline |>
   filter(!is.na(vspend_mean_1519)) |>
@@ -184,45 +129,55 @@ fig1_data <- baseline |>
 
 caption_fig1 <- paste0(
   "Source: OWID / UN Tourism. International visitor spending as % of GDP; ",
-  "2015\u20132019 mean (primary baseline). Open circles: thin baseline (1 obs only)."
+  "2015\u20132019 mean (primary baseline).\nOpen circles: thin baseline (1 obs only)."
 )
 
-p1 <- ggplot(
-  fig1_data,
-  aes(x = vspend_mean_1519, y = label, color = sids_region, alpha = thin_flag)
-) +
-  geom_vline(xintercept = 0, color = "grey80", linewidth = 0.4) +
-  geom_segment(
-    aes(x = 0, xend = vspend_mean_1519, yend = label),
-    linewidth = 0.5
-  ) +
-  geom_point(size = 2.8) +
-  scale_color_manual(values = pal_region, name = "Region") +
-  scale_alpha_manual(
-    values = c("Full (2-3 obs)" = 1, "Thin (1 obs)" = 0.45),
-    name = "Baseline"
-  ) +
-  scale_x_continuous(
-    labels = label_number(suffix = "%"),
-    expand = expansion(mult = c(0, 0.04))
-  ) +
-  labs(
-    title = "International Visitor Spending as a Share of GDP, 2015\u20132019",
-    x = "International visitor spending (% of GDP)",
-    y = NULL,
-    caption = caption_fig1
-  ) +
-  theme(
-    axis.text.y = element_text(size = 7.5),
-    panel.grid.major.y = element_blank(),
-    panel.grid.major.x = element_line(color = "grey92")
+build_fig1 <- function(pal) {
+  pal_reg <- c(
+    Caribbean = pal$series1,
+    Pacific = pal$series2,
+    AIMS = pal$series3
   )
 
-save_fig(
-  p1,
+  ggplot(
+    fig1_data,
+    aes(x = vspend_mean_1519, y = label, color = sids_region, alpha = thin_flag)
+  ) +
+    geom_vline(xintercept = 0, color = pal$grid, linewidth = 0.4) +
+    geom_segment(
+      aes(x = 0, xend = vspend_mean_1519, yend = label),
+      linewidth = 0.5
+    ) +
+    geom_point(size = 2.8) +
+    scale_color_manual(values = pal_reg, name = "Region") +
+    scale_alpha_manual(
+      values = c("Full (2-3 obs)" = 1, "Thin (1 obs)" = 0.45),
+      name = "Baseline"
+    ) +
+    scale_x_continuous(
+      labels = label_number(suffix = "%"),
+      expand = expansion(mult = c(0, 0.04))
+    ) +
+    labs(
+      title = "International Visitor Spending as a Share of GDP, 2015\u20132019",
+      x = "International visitor spending (% of GDP)",
+      y = NULL,
+      caption = caption_fig1
+    ) +
+    make_fn_theme(pal) +
+    theme(
+      axis.text.y = element_text(size = 7.5),
+      panel.grid.major.y = element_blank()
+    )
+}
+
+save_fig_dual(
+  build_fig1(pal_archipelago_light),
+  build_fig1(pal_archipelago_dark),
   "fig1_vspend_ranking",
-  width = 8.5,
-  height = max(5.5, nrow(fig1_data) * 0.28 + 1.2)
+  fig_dir,
+  w = 8.5,
+  h = max(5.5, nrow(fig1_data) * 0.28 + 1.2)
 )
 
 # ============================================================
@@ -236,7 +191,7 @@ fig2_data <- baseline |>
   filter(!is.na(vspend_mean_1719) & !is.na(receipts_mean_1719))
 
 fig2_caption <- paste0(
-  "Sources: OWID/UN Tourism (visitor spending % GDP); WDI ST.INT.RCPT.XP.ZS (receipts % exports). ",
+  "Sources: OWID/UN Tourism (visitor spending % GDP); WDI ST.INT.RCPT.XP.ZS (receipts % exports). \n",
   "Both: 2017\u20132019 mean. N = ",
   nrow(fig2_data),
   " economies with data in both series."
@@ -259,57 +214,74 @@ if (nrow(fig2_data) >= 4) {
   cat("Pearson r (vspend vs receipts):", round(cor_pearson, 3), "\n")
   cat("Spearman rho:                  ", round(cor_spearman, 3), "\n")
 
-  p2 <- ggplot(
-    fig2_data,
-    aes(x = vspend_mean_1719, y = receipts_mean_1719, color = sids_region)
-  ) +
-    geom_smooth(
-      method = "lm",
-      formula = y ~ x,
-      se = FALSE,
-      color = "grey60",
-      linewidth = 0.5,
-      linetype = "dashed"
-    ) +
-    geom_point(size = 2.5, alpha = 0.85) +
-    geom_text(
-      aes(label = label),
-      size = 2.5,
-      vjust = -0.75,
-      check_overlap = TRUE
-    ) +
-    scale_color_manual(values = pal_region, name = "Region") +
-    scale_x_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.03, 0.06))
-    ) +
-    scale_y_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.03, 0.06))
-    ) +
-    annotate(
-      "text",
-      x = Inf,
-      y = Inf,
-      label = paste0(
-        "Pearson r = ",
-        round(cor_pearson, 2),
-        "\nSpearman \u03c1 = ",
-        round(cor_spearman, 2)
-      ),
-      hjust = 1.1,
-      vjust = 1.3,
-      size = 2.9,
-      color = "grey35"
-    ) +
-    labs(
-      title = "Two Tourism-Dependence Measures Compared",
-      subtitle = "Visitor spending (% GDP) vs. tourism receipts (% exports); 2017\u20132019 averages",
-      x = "OWID: International visitor spending (% of GDP)",
-      y = "WDI: Tourism receipts (% of total exports)",
-      caption = fig2_caption
+  build_fig2 <- function(pal) {
+    pal_reg <- c(
+      Caribbean = pal$series1,
+      Pacific = pal$series2,
+      AIMS = pal$series3
     )
-  save_fig(p2, "fig2_measure_comparison", width = 7.5, height = 6)
+    ann_lab <- paste0(
+      "Pearson r = ",
+      round(cor_pearson, 2),
+      "\nSpearman \u03c1 = ",
+      round(cor_spearman, 2)
+    )
+    ggplot(
+      fig2_data,
+      aes(x = vspend_mean_1719, y = receipts_mean_1719, color = sids_region)
+    ) +
+      geom_smooth(
+        method = "lm",
+        formula = y ~ x,
+        se = FALSE,
+        color = pal$muted,
+        linewidth = 0.5,
+        linetype = "dashed"
+      ) +
+      geom_point(size = 2.5, alpha = 0.85) +
+      geom_text(
+        aes(label = label),
+        size = 2.5,
+        vjust = -0.75,
+        check_overlap = TRUE
+      ) +
+      scale_color_manual(values = pal_reg, name = "Region") +
+      scale_x_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.03, 0.06))
+      ) +
+      scale_y_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.03, 0.06))
+      ) +
+      annotate(
+        "text",
+        x = Inf,
+        y = Inf,
+        label = ann_lab,
+        hjust = 1.1,
+        vjust = 1.3,
+        size = 2.9,
+        color = pal$muted
+      ) +
+      labs(
+        title = "Two Tourism-Dependence Measures Compared",
+        subtitle = "Visitor spending (% GDP) vs. tourism receipts (% exports); 2017\u20132019 averages",
+        x = "OWID: International visitor spending (% of GDP)",
+        y = "WDI: Tourism receipts (% of total exports)",
+        caption = fig2_caption
+      ) +
+      make_fn_theme(pal)
+  }
+
+  save_fig_dual(
+    build_fig2(pal_archipelago_light),
+    build_fig2(pal_archipelago_dark),
+    "fig2_measure_comparison",
+    fig_dir,
+    w = 7.5,
+    h = 6
+  )
 }
 
 # ============================================================
@@ -389,66 +361,84 @@ if (nrow(shock_primary) >= 6) {
   }
 
   fig3_caption <- paste0(
-    "Sources: OWID/UN Tourism (visitor spending % GDP); WDI (NY.GDP.MKTP.KD.ZG). ",
+    "Sources: OWID/UN Tourism (visitor spending % GDP); WDI (NY.GDP.MKTP.KD.ZG). \n",
     "OLS line is exploratory only \u2014 does not imply causation. N = ",
     nrow(shock_primary),
     "."
   )
 
-  p3 <- ggplot(
-    shock_primary,
-    aes(x = vspend_mean_1719, y = gdp_growth_pct_2020, color = sids_region)
-  ) +
-    geom_hline(yintercept = 0, color = "grey70", linewidth = 0.5) +
-    geom_smooth(
-      method = "lm",
-      formula = y ~ x,
-      se = TRUE,
-      color = "grey40",
-      fill = "grey85",
-      linewidth = 0.7,
-      alpha = 0.35,
-      show.legend = FALSE
-    ) +
-    geom_point(aes(shape = thin_flag), size = 2.8, alpha = 0.9) +
-    geom_text(
-      aes(label = label),
-      size = 2.5,
-      vjust = -0.85,
-      check_overlap = TRUE
-    ) +
-    scale_color_manual(values = pal_region, name = "Region") +
-    scale_shape_manual(
-      values = c("Full (2-3 obs)" = 16, "Thin (1 obs)" = 1),
-      name = "Baseline"
-    ) +
-    scale_x_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.03, 0.08))
-    ) +
-    scale_y_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.05, 0.05))
-    ) +
-    annotate(
-      "text",
-      x = max(shock_primary$vspend_mean_1719, na.rm = TRUE) * 0.98,
-      y = max(shock_primary$gdp_growth_pct_2020, na.rm = TRUE),
-      label = reg_ann_p,
-      hjust = 1,
-      vjust = 1.2,
-      size = 2.6,
-      color = "grey35",
-      lineheight = 1.3
-    ) +
-    labs(
-      title = "Tourism Dependence and the 2020 Economic Shock",
-      subtitle = "International visitor spending (2017\u20132019 avg.) vs. 2020 GDP growth",
-      x = "International visitor spending (% of GDP, 2017\u20132019 avg.)",
-      y = "GDP growth (annual %, 2020)",
-      caption = fig3_caption
+  build_fig3 <- function(pal) {
+    pal_reg <- c(
+      Caribbean = pal$series1,
+      Pacific = pal$series2,
+      AIMS = pal$series3
     )
-  save_fig(p3, "fig3_shock_scatter", width = 8.5, height = 6.5)
+    ci_fill <- paste0(pal$muted, "50") # ~31% opacity CI band
+
+    ggplot(
+      shock_primary,
+      aes(x = vspend_mean_1719, y = gdp_growth_pct_2020, color = sids_region)
+    ) +
+      geom_hline(yintercept = 0, color = pal$reference, linewidth = 0.5) +
+      geom_smooth(
+        method = "lm",
+        formula = y ~ x,
+        se = TRUE,
+        color = pal$muted,
+        fill = ci_fill,
+        linewidth = 0.7,
+        alpha = 0.35,
+        show.legend = FALSE
+      ) +
+      geom_point(aes(shape = thin_flag), size = 2.8, alpha = 0.9) +
+      geom_text(
+        aes(label = label),
+        size = 2.5,
+        vjust = -0.85,
+        check_overlap = TRUE
+      ) +
+      scale_color_manual(values = pal_reg, name = "Region") +
+      scale_shape_manual(
+        values = c("Full (2-3 obs)" = 16, "Thin (1 obs)" = 1),
+        name = "Baseline"
+      ) +
+      scale_x_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.03, 0.08))
+      ) +
+      scale_y_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.05, 0.05))
+      ) +
+      annotate(
+        "text",
+        x = max(shock_primary$vspend_mean_1719, na.rm = TRUE) * 0.98,
+        y = max(shock_primary$gdp_growth_pct_2020, na.rm = TRUE),
+        label = reg_ann_p,
+        hjust = 1,
+        vjust = 1.2,
+        size = 2.6,
+        color = pal$muted,
+        lineheight = 1.3
+      ) +
+      labs(
+        title = "Tourism Dependence and the 2020 Economic Shock",
+        subtitle = "International visitor spending (2017\u20132019 avg.) vs. 2020 GDP growth",
+        x = "International visitor spending (% of GDP, 2017\u20132019 avg.)",
+        y = "GDP growth (annual %, 2020)",
+        caption = fig3_caption
+      ) +
+      make_fn_theme(pal)
+  }
+
+  save_fig_dual(
+    build_fig3(pal_archipelago_light),
+    build_fig3(pal_archipelago_dark),
+    "fig3_shock_scatter",
+    fig_dir,
+    w = 8.5,
+    h = 6.5
+  )
 }
 
 # --- Complementary: receipts-based shock (for comparison) ---
@@ -533,41 +523,41 @@ cov_plot_data <- cov_plot_data |>
     indicator = factor(indicator, levels = indicator_order)
   )
 
-pal_avail <- c(
-  "Available" = "#2a9d8f",
-  "Partial" = "#e9c46a",
-  "None" = "#e8e8e8"
-)
 n_cov <- length(unique(cov_plot_data$country))
 
-p4 <- ggplot(cov_plot_data, aes(x = indicator, y = country, fill = avail)) +
-  geom_tile(color = "white", linewidth = 0.4) +
-  scale_fill_manual(values = pal_avail, name = "Coverage", drop = FALSE) +
-  facet_grid(sids_region ~ ., scales = "free_y", space = "free_y") +
-  labs(
-    title = "Data Coverage Matrix: Tourism and Economic Indicators",
-    subtitle = paste0("SIDS candidate universe (n = ", n_cov, " shown)"),
-    x = NULL,
-    y = NULL,
-    caption = paste0(
-      "Sources: OWID (UN Tourism); World Bank WDI via wbstats. ",
-      "\u2018Partial\u2019 = 1 of requested years available. ",
-      "Key years: 2017\u20132019 baseline; 2020 shock; 2022\u20132023 recovery."
+build_fig4 <- function(pal, cov_pal) {
+  ggplot(cov_plot_data, aes(x = indicator, y = country, fill = avail)) +
+    geom_tile(color = pal$bg, linewidth = 0.4) +
+    scale_fill_manual(values = cov_pal, name = "Coverage", drop = FALSE) +
+    facet_grid(sids_region ~ ., scales = "free_y", space = "free_y") +
+    labs(
+      title = "Data Coverage Matrix: Tourism and Economic Indicators",
+      subtitle = paste0("SIDS candidate universe (n = ", n_cov, " shown)"),
+      x = NULL,
+      y = NULL,
+      caption = paste0(
+        "Sources: OWID (UN Tourism); World Bank WDI via wbstats. ",
+        "\u2018Partial\u2019 = 1 of requested years available. \n",
+        "Key years: 2017\u20132019 baseline; 2020 shock; 2022\u20132023 recovery."
+      )
+    ) +
+    make_fn_theme(pal) +
+    theme(
+      axis.text.x = element_text(size = 7.5, angle = 25, hjust = 1),
+      axis.text.y = element_text(size = 7.5),
+      strip.text.y = element_text(angle = 0, face = "bold", size = 8.5),
+      panel.spacing = unit(0.3, "lines"),
+      legend.position = "bottom"
     )
-  ) +
-  theme(
-    axis.text.x = element_text(size = 7.5, angle = 25, hjust = 1),
-    axis.text.y = element_text(size = 7.5),
-    strip.text.y = element_text(angle = 0, face = "bold", size = 8.5),
-    panel.spacing = unit(0.3, "lines"),
-    legend.position = "bottom"
-  )
+}
 
-save_fig(
-  p4,
+save_fig_dual(
+  build_fig4(pal_archipelago_light, pal_coverage_light),
+  build_fig4(pal_archipelago_dark, pal_coverage_dark),
   "fig4_coverage_matrix",
-  width = 9.5,
-  height = max(6, n_cov * 0.26 + 2.5)
+  fig_dir,
+  w = 9.5,
+  h = max(6, n_cov * 0.26 + 2.5)
 )
 
 # ============================================================

@@ -3,6 +3,7 @@
 # Island Time, Interrupted: Tourism Dependence and the COVID Cliff
 # Purpose: Real GDP recovery trajectories for SIDS shock sample, 2015-2025.
 # Depends on: 02_data_quality.R having been run first.
+#             R/theme_utils.R must exist (provides palettes and save_fig_dual).
 # Run from: repository root (here() anchors at .git)
 # =============================================================================
 # NOTE ON RECOVERY MEASUREMENT:
@@ -21,6 +22,8 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(scales)
+
+source(here("R", "theme_utils.R")) # palettes, make_fn_theme, save_fig_dual
 
 processed <- here("data", "processed")
 fig_dir <- here("output", "figures")
@@ -46,53 +49,8 @@ cands <- read_csv(
 )
 
 # ---------------------------------------------------------------------------
-# Design system
+# Short labels for figure annotations
 # ---------------------------------------------------------------------------
-
-pal_region <- c(
-  "Caribbean" = "#0072B2",
-  "Pacific" = "#D55E00",
-  "AIMS" = "#009E73"
-)
-
-base_theme <- theme_minimal(base_size = 11) +
-  theme(
-    text = element_text(family = "sans", color = "grey15"),
-    plot.title = element_text(face = "bold", size = 12, margin = margin(b = 4)),
-    plot.subtitle = element_text(
-      size = 9.5,
-      color = "grey35",
-      margin = margin(b = 8)
-    ),
-    plot.caption = element_text(size = 7.5, color = "grey50", hjust = 0),
-    axis.title = element_text(size = 9, color = "grey25"),
-    axis.text = element_text(size = 8.5, color = "grey30"),
-    panel.grid.major = element_line(color = "grey92"),
-    panel.grid.minor = element_blank(),
-    legend.title = element_text(size = 9, face = "bold"),
-    legend.text = element_text(size = 8.5),
-    plot.margin = margin(12, 14, 8, 12)
-  )
-theme_set(base_theme)
-
-save_fig <- function(plt, nm, w = 10, h = 6.5) {
-  ggsave(
-    file.path(fig_dir, paste0(nm, ".png")),
-    plot = plt,
-    width = w,
-    height = h,
-    dpi = 300,
-    bg = "white"
-  )
-  ggsave(
-    file.path(fig_dir, paste0(nm, ".svg")),
-    plot = plt,
-    width = w,
-    height = h,
-    bg = "white"
-  )
-  message("Saved: ", nm)
-}
 
 short_labels <- c(
   ATG = "Antigua",
@@ -142,7 +100,7 @@ short_labels <- c(
 # ---------------------------------------------------------------------------
 
 shock_isos <- bl |> filter(in_primary_shock_sample) |> pull(iso3)
-n_shock <- length(shock_isos) # used for coverage percentages below
+n_shock <- length(shock_isos)
 
 recovery_panel <- analytical |>
   filter(iso3 %in% shock_isos, year %in% 2015:2025) |>
@@ -337,56 +295,68 @@ annual_n <- recovery_idx |>
   group_by(sids_region, year) |>
   summarise(n = n_distinct(iso3), .groups = "drop")
 
-p7 <- ggplot(
-  recovery_idx |> filter(!is.na(gdp_index)),
-  aes(x = year, y = gdp_index, group = iso3)
-) +
-  geom_hline(
-    yintercept = 100,
-    color = "grey40",
-    linewidth = 0.7,
-    linetype = "solid"
-  ) +
-  geom_line(aes(color = sids_region), alpha = 0.65, linewidth = 0.65) +
-  geom_point(
-    data = recovery_idx |> filter(year == 2020, !is.na(gdp_index)),
-    aes(color = sids_region),
-    size = 1.8,
-    alpha = 0.9
-  ) +
-  facet_wrap(~sids_region, ncol = 1, scales = "fixed") +
-  geom_text(
-    data = annual_n,
-    inherit.aes = FALSE,
-    aes(x = year, y = 55, label = paste0("n=", n)),
-    size = 2.2,
-    color = "grey55",
-    hjust = 0.5
-  ) +
-  scale_color_manual(values = pal_region, name = "Region") +
-  scale_x_continuous(breaks = c(2015, 2017, 2019, 2021, 2023, 2025)) +
-  scale_y_continuous(
-    labels = label_number(suffix = ""),
-    limits = c(50, 165),
-    breaks = seq(60, 160, by = 20)
-  ) +
-  labs(
-    title = "Real GDP Recovery Trajectories: 2015\u20132025",
-    subtitle = "Primary shock sample (N \u226429); index 2019 = 100. Bottom row: annual sample sizes.",
-    x = NULL,
-    y = "Real GDP Index (2019 = 100)",
-    caption = paste0(
-      "Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). ",
-      "Lines show individual economies by SIDS region. ",
-      "Horizontal line = 2019 level. 2025 preliminary for some economies."
-    )
-  ) +
-  theme(
-    legend.position = "none",
-    strip.text = element_text(face = "bold", size = 9.5)
+build_fig7 <- function(pal) {
+  pal_reg <- c(
+    Caribbean = pal$series1,
+    Pacific = pal$series2,
+    AIMS = pal$series3
   )
+  ann_data <- annual_n
 
-save_fig(p7, "fig7_recovery_trajectories", w = 9, h = 10)
+  ggplot(
+    recovery_idx |> filter(!is.na(gdp_index)),
+    aes(x = year, y = gdp_index, group = iso3)
+  ) +
+    geom_hline(yintercept = 100, color = pal$reference, linewidth = 0.7) +
+    geom_line(aes(color = sids_region), alpha = 0.65, linewidth = 0.65) +
+    geom_point(
+      data = recovery_idx |> filter(year == 2020, !is.na(gdp_index)),
+      aes(color = sids_region),
+      size = 1.8,
+      alpha = 0.9
+    ) +
+    facet_wrap(~sids_region, ncol = 1, scales = "fixed") +
+    geom_text(
+      data = ann_data,
+      inherit.aes = FALSE,
+      aes(x = year, y = 55, label = paste0("n=", n)),
+      size = 2.2,
+      color = pal$muted,
+      hjust = 0.5
+    ) +
+    scale_color_manual(values = pal_reg, name = "Region") +
+    scale_x_continuous(breaks = c(2015, 2017, 2019, 2021, 2023, 2025)) +
+    scale_y_continuous(
+      labels = label_number(suffix = ""),
+      limits = c(50, 165),
+      breaks = seq(60, 160, by = 20)
+    ) +
+    labs(
+      title = "Real GDP Recovery Trajectories: 2015\u20132025",
+      subtitle = "Primary shock sample (N \u226429); index 2019 = 100. Bottom row: annual sample sizes.",
+      x = NULL,
+      y = "Real GDP Index (2019 = 100)",
+      caption = paste0(
+        "Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). ",
+        "Lines show individual economies by SIDS region. \n",
+        "Horizontal line = 2019 level. 2025 preliminary for some economies."
+      )
+    ) +
+    make_fn_theme(pal) +
+    theme(
+      legend.position = "none",
+      strip.text = element_text(face = "bold", size = 9.5)
+    )
+}
+
+save_fig_dual(
+  build_fig7(pal_archipelago_light),
+  build_fig7(pal_archipelago_dark),
+  "fig7_recovery_trajectories",
+  fig_dir,
+  w = 9,
+  h = 10
+)
 
 # ---------------------------------------------------------------------------
 # Figure 8: Recovery index in 2024 vs pre-pandemic tourism dependence
@@ -423,69 +393,86 @@ if (nrow(rec_vs_tourism) >= 6) {
   )
   cat("(Exploratory only; does not imply causation)\n")
 
-  p8 <- ggplot(
-    rec_vs_tourism,
-    aes(x = vspend_mean_1519, y = gdp_index, color = sids_region)
-  ) +
-    geom_hline(
-      yintercept = 100,
-      color = "grey60",
-      linewidth = 0.5,
-      linetype = "dashed"
-    ) +
-    geom_smooth(
-      method = "lm",
-      formula = y ~ x,
-      se = TRUE,
-      color = "grey40",
-      fill = "grey88",
-      linewidth = 0.6,
-      alpha = 0.3,
-      show.legend = FALSE
-    ) +
-    geom_point(size = 3, alpha = 0.9) +
-    geom_text(
-      aes(label = label_disp),
-      size = 2.4,
-      vjust = -0.8,
-      check_overlap = TRUE
-    ) +
-    scale_color_manual(values = pal_region, name = "Region") +
-    scale_x_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.04, 0.08))
-    ) +
-    scale_y_continuous(
-      labels = label_number(suffix = ""),
-      expand = expansion(mult = c(0.04, 0.04))
-    ) +
-    annotate(
-      "text",
-      x = Inf,
-      y = Inf,
-      label = paste0(
-        "Pearson r = ",
-        round(cor_p, 2),
-        " | Spearman \u03c1 = ",
-        round(cor_s, 2)
-      ),
-      hjust = 1.1,
-      vjust = 1.5,
-      size = 2.8,
-      color = "grey35"
-    ) +
-    labs(
-      title = "Tourism Dependence and Recovery by 2024",
-      subtitle = paste0(
-        "Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). N=",
-        nrow(rec_vs_tourism),
-        "."
-      ),
-      x = "Visitor spending (% GDP, 2015-2019 avg.)",
-      y = "Real GDP index, 2024 (2019 = 100)",
-      caption = "Sources: OWID/UN Tourism; WDI NY.GDP.MKTP.KD. OLS line is exploratory."
+  build_fig8 <- function(pal) {
+    pal_reg <- c(
+      Caribbean = pal$series1,
+      Pacific = pal$series2,
+      AIMS = pal$series3
     )
-  save_fig(p8, "fig8_recovery_vs_tourism", w = 8.5, h = 6)
+    ci_fill <- paste0(pal$muted, "50")
+    ggplot(
+      rec_vs_tourism,
+      aes(x = vspend_mean_1519, y = gdp_index, color = sids_region)
+    ) +
+      geom_hline(
+        yintercept = 100,
+        color = pal$reference,
+        linewidth = 0.5,
+        linetype = "dashed"
+      ) +
+      geom_smooth(
+        method = "lm",
+        formula = y ~ x,
+        se = TRUE,
+        color = pal$muted,
+        fill = ci_fill,
+        linewidth = 0.6,
+        alpha = 0.3,
+        show.legend = FALSE
+      ) +
+      geom_point(size = 3, alpha = 0.9) +
+      geom_text(
+        aes(label = label_disp),
+        size = 2.4,
+        vjust = -0.8,
+        check_overlap = TRUE
+      ) +
+      scale_color_manual(values = pal_reg, name = "Region") +
+      scale_x_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.04, 0.08))
+      ) +
+      scale_y_continuous(
+        labels = label_number(suffix = ""),
+        expand = expansion(mult = c(0.04, 0.04))
+      ) +
+      annotate(
+        "text",
+        x = Inf,
+        y = Inf,
+        label = paste0(
+          "Pearson r = ",
+          round(cor_p, 2),
+          " | Spearman \u03c1 = ",
+          round(cor_s, 2)
+        ),
+        hjust = 1.1,
+        vjust = 1.5,
+        size = 2.8,
+        color = pal$muted
+      ) +
+      labs(
+        title = "Tourism Dependence and Recovery by 2024",
+        subtitle = paste0(
+          "Pre-pandemic visitor spending vs. 2024 real GDP index (2019=100). N=",
+          nrow(rec_vs_tourism),
+          "."
+        ),
+        x = "Visitor spending (% GDP, 2015-2019 avg.)",
+        y = "Real GDP index, 2024 (2019 = 100)",
+        caption = "Sources: OWID/UN Tourism; WDI NY.GDP.MKTP.KD. OLS line is exploratory."
+      ) +
+      make_fn_theme(pal)
+  }
+
+  save_fig_dual(
+    build_fig8(pal_archipelago_light),
+    build_fig8(pal_archipelago_dark),
+    "fig8_recovery_vs_tourism",
+    fig_dir,
+    w = 8.5,
+    h = 6
+  )
 }
 
 cat("Done: 05_recovery_analysis.R\n")

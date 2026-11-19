@@ -5,6 +5,7 @@
 #          Two indicators x two baseline windows x OWID/WDI/Common samples.
 #          Influential-observation diagnostics and coverage-restricted sensitivity.
 # Depends on: 02_data_quality.R having been run first.
+#             R/theme_utils.R must exist (provides palettes and save_fig_dual).
 # Run from: repository root (here() anchors at .git)
 # =============================================================================
 # METHODOLOGICAL NOTE:
@@ -22,6 +23,8 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(scales)
+
+source(here("R", "theme_utils.R")) # palettes, make_fn_theme, save_fig_dual
 
 processed <- here("data", "processed")
 fig_dir <- here("output", "figures")
@@ -88,55 +91,6 @@ short_labels <- c(
 
 bl <- bl |>
   mutate(label = coalesce(short_labels[iso3], iso3))
-
-# ---------------------------------------------------------------------------
-# Design system
-# ---------------------------------------------------------------------------
-
-pal_region <- c(
-  "Caribbean" = "#0072B2",
-  "Pacific" = "#D55E00",
-  "AIMS" = "#009E73"
-)
-
-base_theme <- theme_minimal(base_size = 11) +
-  theme(
-    text = element_text(family = "sans", color = "grey15"),
-    plot.title = element_text(face = "bold", size = 12, margin = margin(b = 4)),
-    plot.subtitle = element_text(
-      size = 9.5,
-      color = "grey35",
-      margin = margin(b = 8)
-    ),
-    plot.caption = element_text(size = 7.5, color = "grey50", hjust = 0),
-    axis.title = element_text(size = 9, color = "grey25"),
-    axis.text = element_text(size = 8.5, color = "grey30"),
-    panel.grid.major = element_line(color = "grey92"),
-    panel.grid.minor = element_blank(),
-    legend.title = element_text(size = 9, face = "bold"),
-    legend.text = element_text(size = 8.5),
-    plot.margin = margin(12, 14, 8, 12)
-  )
-theme_set(base_theme)
-
-save_fig <- function(plt, nm, w = 8.5, h = 6) {
-  ggsave(
-    file.path(fig_dir, paste0(nm, ".png")),
-    plot = plt,
-    width = w,
-    height = h,
-    dpi = 300,
-    bg = "white"
-  )
-  ggsave(
-    file.path(fig_dir, paste0(nm, ".svg")),
-    plot = plt,
-    width = w,
-    height = h,
-    bg = "white"
-  )
-  message("Saved: ", nm)
-}
 
 # ---------------------------------------------------------------------------
 # Helper: fit one model and extract all statistics
@@ -557,15 +511,15 @@ write_csv(sens_tbl, file.path(tbl_dir, "shock_sensitivity_restricted.csv"))
 # Figure 5: 4-panel comparison (2015-2019 baseline)
 # ---------------------------------------------------------------------------
 
-pal_region <- c(
-  "Caribbean" = "#0072B2",
-  "Pacific" = "#D55E00",
-  "AIMS" = "#009E73"
-)
+# make_scatter: builds one panel; takes model result and active palette
+make_scatter <- function(r, pal) {
+  pal_reg <- c(
+    Caribbean = pal$series1,
+    Pacific = pal$series2,
+    AIMS = pal$series3
+  )
+  ci_fill <- paste0(pal$muted, "50")
 
-make_scatter <- function(r) {
-  # r$df has the renamed x/y cols plus all original columns including iso3, sids_region
-  # Add label and thin_baseline flag
   n_col <- if (grepl("vspend", r$x_col)) {
     if (grepl("1519", r$x_col)) "vspend_n_1519" else "vspend_n_1719"
   } else {
@@ -588,13 +542,13 @@ make_scatter <- function(r) {
   )
 
   ggplot(df, aes(x = x, y = y, color = sids_region)) +
-    geom_hline(yintercept = 0, color = "grey70", linewidth = 0.4) +
+    geom_hline(yintercept = 0, color = pal$reference, linewidth = 0.4) +
     geom_smooth(
       method = "lm",
       formula = y ~ x,
       se = TRUE,
-      color = "grey40",
-      fill = "grey88",
+      color = pal$muted,
+      fill = ci_fill,
       linewidth = 0.6,
       alpha = 0.35,
       show.legend = FALSE
@@ -606,7 +560,7 @@ make_scatter <- function(r) {
       vjust = -0.85,
       check_overlap = TRUE
     ) +
-    scale_color_manual(values = pal_region, name = "Region") +
+    scale_color_manual(values = pal_reg, name = "Region") +
     scale_shape_manual(
       values = c("FALSE" = 16, "TRUE" = 1),
       name = "Baseline",
@@ -628,7 +582,7 @@ make_scatter <- function(r) {
       hjust = 1.05,
       vjust = 1.5,
       size = 2.6,
-      color = "grey35"
+      color = pal$muted
     ) +
     labs(
       title = r$label,
@@ -639,52 +593,63 @@ make_scatter <- function(r) {
       },
       y = "GDP growth 2020 (%)"
     ) +
+    make_fn_theme(pal) +
     theme(
       plot.title = element_text(size = 9, face = "bold"),
       legend.position = "none"
     )
 }
 
-plots_1519 <- lapply(results[1:4], make_scatter)
-
-p5 <- ggpubr_or_patchwork <- tryCatch(
-  {
-    library(patchwork)
-    (plots_1519[[1]] | plots_1519[[2]]) /
-      (plots_1519[[3]] | plots_1519[[4]]) +
-      plot_annotation(
-        title = "Tourism Dependence and 2020 GDP Growth: 2015\u20132019 Baseline",
-        subtitle = "Four model specifications; OLS regression line with 95% CI band shown",
-        caption = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG.\nExploratory OLS; does not imply causation. Open circles = thin baseline (1 obs).",
-        theme = theme(
-          plot.title = element_text(face = "bold", size = 13),
-          plot.subtitle = element_text(size = 10, color = "grey35"),
-          plot.caption = element_text(size = 7.5, color = "grey50", hjust = 0)
+build_fig5 <- function(pal) {
+  panels <- lapply(results[1:4], make_scatter, pal = pal)
+  tryCatch(
+    {
+      library(patchwork)
+      (panels[[1]] | panels[[2]]) /
+        (panels[[3]] | panels[[4]]) +
+        plot_annotation(
+          title = "Tourism Dependence and 2020 GDP Growth: 2015\u20132019 Baseline",
+          subtitle = "Four model specifications; OLS regression line with 95% CI band shown",
+          caption = paste0(
+            "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG.\n",
+            "Exploratory OLS; does not imply causation. Open circles = thin baseline (1 obs)."
+          ),
+          theme = make_fn_theme(pal) +
+            theme(
+              plot.title = element_text(face = "bold", size = 13),
+              plot.subtitle = element_text(size = 10),
+              plot.caption = element_text(size = 7.5, hjust = 0)
+            )
         )
-      )
-  },
-  error = function(e) NULL
-)
+    },
+    error = function(e) NULL
+  )
+}
 
-if (!is.null(p5)) {
-  save_fig(p5, "fig5_shock_4panel_1519", w = 13, h = 10)
-  message("Saved: fig5_shock_4panel_1519")
+p5_light <- build_fig5(pal_archipelago_light)
+p5_dark <- build_fig5(pal_archipelago_dark)
+if (!is.null(p5_light) && !is.null(p5_dark)) {
+  save_fig_dual(
+    p5_light,
+    p5_dark,
+    "fig5_shock_4panel_1519",
+    fig_dir,
+    w = 13,
+    h = 10
+  )
 }
 
 # ---------------------------------------------------------------------------
 # Figure 6: Common-sample comparison (isolates indicator differences)
 # ---------------------------------------------------------------------------
 
-r3 <- results[["M3"]] # vspend 2015-19, common
-r4 <- results[["M4"]] # receipts 2015-19, common
+r3 <- results[["M3"]]
+r4 <- results[["M4"]]
 
 if (!is.null(r3) && !is.null(r4)) {
-  common_comp <- r3$df |>
+  common_base <- r3$df |>
     rename(vspend = x, gdp_growth = y) |>
-    left_join(
-      r4$df |> select(iso3, receipts = x),
-      by = "iso3"
-    ) |>
+    left_join(r4$df |> select(iso3, receipts = x), by = "iso3") |>
     mutate(label_disp = coalesce(short_labels[iso3], iso3)) |>
     pivot_longer(
       c(vspend, receipts),
@@ -702,46 +667,63 @@ if (!is.null(r3) && !is.null(r4)) {
       )
     )
 
-  p6 <- ggplot(
-    common_comp,
-    aes(x = tourism_dep, y = gdp_growth, color = sids_region)
-  ) +
-    geom_hline(yintercept = 0, color = "grey70", linewidth = 0.4) +
-    geom_smooth(
-      method = "lm",
-      formula = y ~ x,
-      se = TRUE,
-      color = "grey40",
-      fill = "grey88",
-      linewidth = 0.7,
-      alpha = 0.35,
-      show.legend = FALSE
-    ) +
-    geom_point(size = 2.8, alpha = 0.9) +
-    geom_text(
-      aes(label = label_disp),
-      size = 2.4,
-      vjust = -0.8,
-      check_overlap = TRUE
-    ) +
-    facet_wrap(~indicator, scales = "free_x") +
-    scale_color_manual(values = pal_region, name = "Region") +
-    scale_y_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.05, 0.05))
-    ) +
-    scale_x_continuous(
-      labels = label_number(suffix = "%"),
-      expand = expansion(mult = c(0.04, 0.08))
-    ) +
-    labs(
-      title = "Common Sample (N=24): Both Indicators, 2015\u20132019 Baseline",
-      subtitle = "Same 24 economies; indicator difference isolates measurement choice from sample composition",
-      x = "Tourism dependence measure",
-      y = "GDP growth 2020 (%)",
-      caption = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG."
+  build_fig6 <- function(pal) {
+    pal_reg <- c(
+      Caribbean = pal$series1,
+      Pacific = pal$series2,
+      AIMS = pal$series3
     )
-  save_fig(p6, "fig6_common_sample_comparison", w = 11, h = 5.5)
+    ci_fill <- paste0(pal$muted, "50")
+    ggplot(
+      common_base,
+      aes(x = tourism_dep, y = gdp_growth, color = sids_region)
+    ) +
+      geom_hline(yintercept = 0, color = pal$reference, linewidth = 0.4) +
+      geom_smooth(
+        method = "lm",
+        formula = y ~ x,
+        se = TRUE,
+        color = pal$muted,
+        fill = ci_fill,
+        linewidth = 0.7,
+        alpha = 0.35,
+        show.legend = FALSE
+      ) +
+      geom_point(size = 2.8, alpha = 0.9) +
+      geom_text(
+        aes(label = label_disp),
+        size = 2.4,
+        vjust = -0.8,
+        check_overlap = TRUE
+      ) +
+      facet_wrap(~indicator, scales = "free_x") +
+      scale_color_manual(values = pal_reg, name = "Region") +
+      scale_y_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.05, 0.05))
+      ) +
+      scale_x_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.04, 0.08))
+      ) +
+      labs(
+        title = "Common Sample (N=24): Both Indicators, 2015\u20132019 Baseline",
+        subtitle = "Same 24 economies; indicator difference isolates measurement choice from sample composition",
+        x = "Tourism dependence measure",
+        y = "GDP growth 2020 (%)",
+        caption = "Sources: OWID/UN Tourism; WDI ST.INT.RCPT.XP.ZS; WDI NY.GDP.MKTP.KD.ZG."
+      ) +
+      make_fn_theme(pal)
+  }
+
+  save_fig_dual(
+    build_fig6(pal_archipelago_light),
+    build_fig6(pal_archipelago_dark),
+    "fig6_common_sample_comparison",
+    fig_dir,
+    w = 11,
+    h = 5.5
+  )
 }
 
 message("Done: 04_shock_models.R")

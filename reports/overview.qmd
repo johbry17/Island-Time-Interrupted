@@ -25,20 +25,38 @@ The first answer is a fairly emphatic yes. The second is more complicated.
 
 Tourism exposure varies enormously across small island economies. Before the pandemic, international visitor spending in Aruba and the Maldives was equivalent to roughly 60 percent of GDP. In other economies, it represented a much smaller share.
 
-```{r fig-ranking, echo=FALSE}
+```{r fig-ranking-light, echo=FALSE}
 #| fig-cap: "**International visitor spending as a share of GDP, 2015–2019 average.** Sources: Our World in Data / UN Tourism"
 #| fig-width: 8.5
 #| fig-height: 7.5
-knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking.png"))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking_light.png"))
+```
+
+```{r fig-ranking-dark, echo=FALSE}
+#| fig-cap: "**International visitor spending as a share of GDP, 2015–2019 average.** Sources: Our World in Data / UN Tourism"
+#| fig-width: 8.5
+#| fig-height: 7.5
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig1_vspend_ranking_dark.png"))
 ```
 
 That difference mattered when travel collapsed.
 
-```{r fig-shock, echo=FALSE}
-#| fig-cap: "**Pre-pandemic visitor spending (2015–2019 average) versus 2020 real GDP growth.** Sources: Our World in Data / UN Tourism; WDI `NY.GDP.MKTP.KD.ZG` (constant 2015 USD)."
+```{r fig-shock-light, echo=FALSE}
+#| fig-cap: "**Pre-pandemic visitor spending (2015–2019 average) versus 2020 real GDP growth.** Sources: Our World in Data / UN Tourism; WDI NY.GDP.MKTP.KD.ZG (constant 2015 USD)."
 #| fig-width: 9
 #| fig-height: 6.5
-knitr::include_graphics(here("output", "figures", "fig3_shock_scatter.png"))
+#| classes: light-content
+knitr::include_graphics(here("output", "figures", "fig3_shock_scatter_light.png"))
+```
+
+```{r fig-shock-dark, echo=FALSE}
+#| fig-cap: "**Pre-pandemic visitor spending (2015–2019 average) versus 2020 real GDP growth.** Sources: Our World in Data / UN Tourism; WDI NY.GDP.MKTP.KD.ZG (constant 2015 USD)."
+#| fig-width: 9
+#| fig-height: 6.5
+#| classes: dark-content
+knitr::include_graphics(here("output", "figures", "fig3_shock_scatter_dark.png"))
 ```
 
 Across 29 economies in the Caribbean, Pacific, and AIMS regions, higher pre-pandemic visitor spending was strongly associated with a deeper economic contraction in 2020. Each additional percentage point of visitor spending relative to GDP corresponded to approximately 0.31 percentage points lower GDP growth. The relationship accounted for about 41 percent of the variation across the sample.
@@ -53,14 +71,27 @@ These are associations, not proof of causation. But the pattern is striking.
 
 By 2024, 21 of the 28 economies with available data had regained or exceeded their 2019 level of aggregate real GDP.
 
-```{r fig-recovery, echo=FALSE}
-#| fig-cap: "**Real GDP trajectories, 2015–2025. Index: 2019 = 100.** Source: WDI `NY.GDP.MKTP.KD` (constant 2015 USD). 2025 figures are preliminary."
+```{r fig-recovery-light, echo=FALSE}
+#| fig-cap: "**Real GDP trajectories, 2015–2025. Index: 2019 = 100.** Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). 2025 figures are preliminary."
 #| fig-width: 9.5
 #| fig-height: 9
+#| classes: light-content
 knitr::include_graphics(here(
     "output",
     "figures",
-    "fig7_recovery_trajectories.png"
+    "fig7_recovery_trajectories_light.png"
+))
+```
+
+```{r fig-recovery-dark, echo=FALSE}
+#| fig-cap: "**Real GDP trajectories, 2015–2025. Index: 2019 = 100.** Source: WDI NY.GDP.MKTP.KD (constant 2015 USD). 2025 figures are preliminary."
+#| fig-width: 9.5
+#| fig-height: 9
+#| classes: dark-content
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig7_recovery_trajectories_dark.png"
 ))
 ```
 

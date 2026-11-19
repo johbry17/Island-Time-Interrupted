@@ -5,6 +5,19 @@
 // It assumes Bootstrap variables are already set (via scss:defaults above).
 // =============================================================================
 
+// ── Light / Dark figure switching ────────────────────────────────────────────
+// Use .light-content and .dark-content in QMD reports to show the matching
+// figure variant. Quarto's color scheme toggle adds/removes class `quarto-dark`
+// on <body> (see inline script in rendered HTML: toggleBodyColorMode).
+
+.light-content { display: block; }
+.dark-content  { display: none;  }
+
+body.quarto-dark {
+  .light-content { display: none;  }
+  .dark-content  { display: block; }
+}
+
 // ── Page Layout ───────────────────────────────────────────────────────────────
 
 #quarto-content {
