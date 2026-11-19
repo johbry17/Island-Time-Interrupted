@@ -227,7 +227,7 @@ One economy, Kiribati, has only a single observation in the primary OWID baselin
 
 ### How closely do the indicators correspond?
 
-Across the 24 economies with both measures, the indicators are positively correlated. The Pearson correlation is approximately 0.77; the Spearman rank correlation is 0.86.
+Across the 24 economies with both measures, the indicators are positively correlated. The Pearson correlation is approximately 0.77; the Spearman rank correlation is 0.87.
 
 The broad rankings are therefore similar, but the indicators are not interchangeable. The export-based denominator can make tourism receipts appear especially important in economies with relatively limited non-tourism exports. The GDP-based denominator instead compares gross visitor spending with the overall scale of the economy.
 

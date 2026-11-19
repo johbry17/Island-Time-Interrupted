@@ -188,24 +188,29 @@ save_fig_dual(
 # Note: these measure related but distinct concepts and use different denominators
 
 fig2_data <- baseline |>
-  filter(!is.na(vspend_mean_1719) & !is.na(receipts_mean_1719))
+  filter(
+    in_primary_shock_sample,
+    in_receipts_shock_sample,
+    !is.na(vspend_mean_1519),
+    !is.na(receipts_mean_1519)
+  )
 
 fig2_caption <- paste0(
   "Sources: OWID/UN Tourism (visitor spending % GDP); WDI ST.INT.RCPT.XP.ZS (receipts % exports). \n",
-  "Both: 2017\u20132019 mean. N = ",
+  "Both: 2015\u20132019 mean. N = ",
   nrow(fig2_data),
   " economies with data in both series."
 )
 
 if (nrow(fig2_data) >= 4) {
   cor_pearson <- cor(
-    fig2_data$vspend_mean_1719,
-    fig2_data$receipts_mean_1719,
+    fig2_data$vspend_mean_1519,
+    fig2_data$receipts_mean_1519,
     use = "complete.obs"
   )
   cor_spearman <- cor(
-    fig2_data$vspend_mean_1719,
-    fig2_data$receipts_mean_1719,
+    fig2_data$vspend_mean_1519,
+    fig2_data$receipts_mean_1519,
     method = "spearman",
     use = "complete.obs"
   )
@@ -223,12 +228,12 @@ if (nrow(fig2_data) >= 4) {
     ann_lab <- paste0(
       "Pearson r = ",
       round(cor_pearson, 2),
-      "\nSpearman \u03c1 = ",
+      "; Spearman \u03c1 = ",
       round(cor_spearman, 2)
     )
     ggplot(
       fig2_data,
-      aes(x = vspend_mean_1719, y = receipts_mean_1719, color = sids_region)
+      aes(x = vspend_mean_1519, y = receipts_mean_1519, color = sids_region)
     ) +
       geom_smooth(
         method = "lm",
@@ -266,7 +271,7 @@ if (nrow(fig2_data) >= 4) {
       ) +
       labs(
         title = "Two Tourism-Dependence Measures Compared",
-        subtitle = "Visitor spending (% GDP) vs. tourism receipts (% exports); 2017\u20132019 averages",
+        subtitle = "Visitor spending (% GDP) vs. tourism receipts (% exports); 2015\u20132019 averages",
         x = "OWID: International visitor spending (% of GDP)",
         y = "WDI: Tourism receipts (% of total exports)",
         caption = fig2_caption
