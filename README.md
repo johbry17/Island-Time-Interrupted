@@ -108,7 +108,8 @@ Pre-pandemic tourism dependence was **not significantly associated** with the 20
 
 **Tourism dependence and the 2020 economic contraction.**
 
-![Scatterplot of pre-pandemic international visitor spending as a share of GDP against 2020 real GDP growth across 29 economies.](output/figures/fig3_shock_scatter.png)
+![Scatterplot of pre-pandemic international visitor spending as a share of GDP against 2020 real GDP growth across 29 economies, light theme.](output/figures/fig3_shock_scatter_light.png#gh-light-mode-only)
+![Scatterplot of pre-pandemic international visitor spending as a share of GDP against 2020 real GDP growth across 29 economies, dark theme.](output/figures/fig3_shock_scatter_dark.png#gh-dark-mode-only)
 
 *Economies where international visitor spending represented a larger share of GDP tended to experience deeper contractions in 2020. This is a cross-country association, not evidence that tourism dependence alone caused the decline.*
 
@@ -128,13 +129,15 @@ Pre-pandemic tourism dependence was **not significantly associated** with the 20
 
 **Real GDP recovery trajectories, 2015–2025.**
 
-![Indexed real GDP trajectories for small island economies, with 2019 set to 100.](output/figures/fig7_recovery_trajectories.png)
+![Indexed real GDP trajectories for small island economies, with 2019 set to 100, light theme.](output/figures/fig7_recovery_trajectories_light.png#gh-light-mode-only)
+![Indexed real GDP trajectories for small island economies, with 2019 set to 100, dark theme.](output/figures/fig7_recovery_trajectories_dark.png#gh-dark-mode-only)
 
 *The rebound was not uniform. Most economies with available data had returned to or exceeded their 2019 aggregate output by 2024, but recovery paths differed considerably. Aggregate GDP recovery does not necessarily mean output per person has recovered.*
 
 **Tourism dependence and the 2024 recovery endpoint.**
 
-![Scatterplot comparing pre-pandemic international visitor spending with the 2024 real GDP index, 2019 set to 100.](output/figures/fig8_recovery_vs_tourism.png)
+![Scatterplot comparing pre-pandemic international visitor spending with the 2024 real GDP index, 2019 set to 100, light theme.](output/figures/fig8_recovery_vs_tourism_light.png#gh-light-mode-only)
+![Scatterplot comparing pre-pandemic international visitor spending with the 2024 real GDP index, 2019 set to 100, dark theme.](output/figures/fig8_recovery_vs_tourism_dark.png#gh-dark-mode-only)
 
 *Unlike the relationship observed for the 2020 shock, pre-pandemic tourism dependence was not significantly associated with the 2024 aggregate real GDP index (Pearson r = 0.21, p = 0.275, N = 28). The severity of the initial contraction did not reliably predict where economies stood five years later.*
 
