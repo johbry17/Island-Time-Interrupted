@@ -238,8 +238,7 @@ Island-Time-Interrupted/
 │   └── themes/             SCSS themes
 │
 ├── images/                 Favicon
-├── docs/                   Rendered site → GitHub Pages
-└── archive/                Superseded planning documents
+└── docs/                   Rendered site → GitHub Pages
 ```
 
 ---
