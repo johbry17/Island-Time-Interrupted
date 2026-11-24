@@ -13,7 +13,7 @@ website:
   title: "Island Time, Interrupted"
   # description: ""
   # site-url: "https://johbry17.github.io/Island-Time-Interrupted/"
-  favicon: images/favicon.ico
+  favicon: reports/images/favicon.ico
   open-graph: true
   twitter-card: true
   back-to-top-navigation: true

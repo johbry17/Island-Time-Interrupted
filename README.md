@@ -237,10 +237,10 @@ Island-Time-Interrupted/
 │   └── tables/             CSV model and recovery results
 │   
 ├── reports/                Quarto pages (public-facing narrative)
+│   ├── images/             Favicon
 │   ├── scripts/            JS 
 │   └── themes/             SCSS themes
 │
-├── images/                 Favicon
 └── docs/                   Rendered site → GitHub Pages
 ```
 
