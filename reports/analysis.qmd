@@ -597,7 +597,43 @@ knitr::include_graphics(here("output", "figures", "fig8_recovery_vs_tourism_ligh
 knitr::include_graphics(here("output", "figures", "fig8_recovery_vs_tourism_dark.png"))
 ```
 
-The contrast with the shock analysis is notable. Pre-pandemic visitor spending was strongly associated with the severity of the initial contraction, but it offers little indication of where an economy stood relative to its 2019 aggregate GDP level four years later.
+The relationship is similarly weak when recovery is measured using real GDP per capita. Across the 28 economies with complete data, the Pearson correlation between pre-pandemic visitor spending and the 2024 real GDP per capita index is 0.10 (*p* = 0.620). The model accounts for approximately 1% of the observed variation in per-capita recovery (R² = 0.010).
+
+The result provides no evidence of a detectable association between pre-pandemic tourism exposure and either measure of recovery in 2024.
+
+:::: {#fig-recovery-vs-tourism-per-capita}
+
+::: {.light-content}
+```{r}
+#| echo: false
+#| fig-width: 8.5
+#| fig-height: 6
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig9_gdppc_recovery_vs_tourism_light.png"
+))
+```
+:::
+
+::: {.dark-content}
+```{r}
+#| echo: false
+#| fig-width: 8.5
+#| fig-height: 6
+knitr::include_graphics(here(
+    "output",
+    "figures",
+    "fig9_gdppc_recovery_vs_tourism_dark.png"
+))
+```
+:::
+
+**Pre-pandemic visitor spending and 2024 real GDP per capita index (2019 = 100).** Each point represents one economy in the recovery sample with available 2024 data (N = 28). The estimated Pearson correlation is 0.10 (*p* = 0.620).
+
+::::
+
+The contrast with the shock analysis is notable. Pre-pandemic visitor spending was strongly associated with the severity of the initial contraction, but it offers little indication of where an economy stood relative to its 2019 level of aggregate output or output per person four years later.
 
 That does not mean the initial shock was harmless, or that tourism-dependent economies proved resilient. A single comparison year cannot capture the full path between 2020 and 2024. It does not show how long economies remained below their previous output levels, how much employment was lost, what debt accumulated during the disruption, or which businesses failed to reopen.
 
@@ -611,7 +647,7 @@ Three findings emerge from the analysis.
 
 **Second, the choice of tourism indicator matters.** WDI tourism receipts as a share of exports point in the same general direction, but the relationship is weaker and less consistent. The difference persists in the common sample, where both indicators are tested against the same 24 economies. The measures capture related but distinct dimensions of exposure.
 
-**Third, the initial shock does not explain the 2024 recovery position.** Most economies in the recovery sample had regained their 2019 aggregate GDP by 2024, but seven had not. The relationship between pre-pandemic visitor spending and the 2024 aggregate GDP index is not statistically significant. Aggregate and per-capita recovery also differ for several economies, underscoring that a return to the previous size of an economy is not necessarily a return to its previous level of output per person.
+**Third, the initial shock does not explain the 2024 recovery position.** Most economies in the recovery sample had regained their 2019 aggregate GDP by 2024, but seven had not. Pre-pandemic visitor spending was not significantly associated with either the 2024 aggregate GDP index or the real GDP per capita index. Aggregate and per-capita recovery also differ for several economies, underscoring that a return to the previous size of an economy is not necessarily a return to its previous level of output per person.
 
 These findings should be interpreted within the limits of the design. The shock models are exploratory, bivariate, cross-sectional regressions. They describe associations across a diverse group of economies; they do not establish that tourism exposure caused a particular contraction. Other factors — including economic structure, fiscal capacity, public-health restrictions, policy responses, and pre-existing economic conditions — are not controlled for in these models.
 

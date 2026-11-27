@@ -475,4 +475,161 @@ if (nrow(rec_vs_tourism) >= 6) {
   )
 }
 
+# ---------------------------------------------------------------------------
+# Figure 9 / Supplementary test: GDP per capita recovery vs tourism exposure
+# ---------------------------------------------------------------------------
+
+gdppc_vs_tourism <- recovery_idx |>
+  filter(year == 2024) |>
+  filter(!is.na(gdppc_index), !is.na(vspend_mean_1519)) |>
+  mutate(label_disp = coalesce(short_labels[iso3], iso3))
+
+if (nrow(gdppc_vs_tourism) >= 6) {
+
+  cor_p_pc <- cor(
+    gdppc_vs_tourism$vspend_mean_1519,
+    gdppc_vs_tourism$gdppc_index,
+    method = "pearson"
+  )
+
+  cor_s_pc <- cor(
+    gdppc_vs_tourism$vspend_mean_1519,
+    gdppc_vs_tourism$gdppc_index,
+    method = "spearman"
+  )
+
+  fit_pc <- lm(
+    gdppc_index ~ vspend_mean_1519,
+    data = gdppc_vs_tourism
+  )
+
+  fit_pc_s <- summary(fit_pc)
+  ci_pc <- confint(fit_pc)["vspend_mean_1519", ]
+
+  cat("\n============================================================\n")
+  cat("GDP PER CAPITA RECOVERY vs TOURISM DEPENDENCE (2024)\n")
+  cat("============================================================\n")
+  cat("Outcome: Real GDP per capita index (2019 = 100)\n")
+  cat("Predictor: Visitor spending (% GDP, 2015-2019 average)\n\n")
+
+  cat("N:", nrow(gdppc_vs_tourism), "\n")
+  cat("Pearson r:", round(cor_p_pc, 3), "\n")
+  cat("Spearman rho:", round(cor_s_pc, 3), "\n")
+  cat("OLS slope:", round(coef(fit_pc)[2], 3), "\n")
+  cat("95% CI:", round(ci_pc[1], 3), "to", round(ci_pc[2], 3), "\n")
+  cat("R-squared:", round(fit_pc_s$r.squared, 3), "\n")
+  cat("p-value:", round(fit_pc_s$coefficients[2, 4], 4), "\n")
+  cat("(Exploratory association; does not imply causation)\n")
+
+  # Export model results
+  gdppc_results <- tibble(
+    Outcome = "Real GDP per capita index (2019=100)",
+    Year = 2024,
+    N = nrow(gdppc_vs_tourism),
+    Pearson_r = cor_p_pc,
+    Spearman_rho = cor_s_pc,
+    Slope = coef(fit_pc)[2],
+    CI_lo = ci_pc[1],
+    CI_hi = ci_pc[2],
+    R2 = fit_pc_s$r.squared,
+    p_value = fit_pc_s$coefficients[2, 4]
+  )
+
+  write_csv(
+    gdppc_results,
+    file.path(tbl_dir, "gdppc_tourism_association_2024.csv")
+  )
+
+  # Figure 9
+  build_fig9 <- function(pal) {
+
+    pal_reg <- c(
+      Caribbean = pal$series1,
+      Pacific = pal$series2,
+      AIMS = pal$series3
+    )
+
+    ci_fill <- paste0(pal$muted, "50")
+
+    ggplot(
+      gdppc_vs_tourism,
+      aes(
+        x = vspend_mean_1519,
+        y = gdppc_index,
+        color = sids_region
+      )
+    ) +
+      geom_hline(
+        yintercept = 100,
+        color = pal$reference,
+        linewidth = 0.5,
+        linetype = "dashed"
+      ) +
+      geom_smooth(
+        method = "lm",
+        formula = y ~ x,
+        se = TRUE,
+        color = pal$muted,
+        fill = ci_fill,
+        linewidth = 0.6,
+        alpha = 0.3,
+        show.legend = FALSE
+      ) +
+      geom_point(size = 3, alpha = 0.9) +
+      geom_text(
+        aes(label = label_disp),
+        size = 2.4,
+        vjust = -0.8,
+        check_overlap = TRUE
+      ) +
+      scale_color_manual(values = pal_reg, name = "Region") +
+      scale_x_continuous(
+        labels = label_number(suffix = "%"),
+        expand = expansion(mult = c(0.04, 0.08))
+      ) +
+      scale_y_continuous(
+        labels = label_number(),
+        expand = expansion(mult = c(0.04, 0.06))
+      ) +
+      annotate(
+        "text",
+        x = Inf,
+        y = Inf,
+        label = paste0(
+          "Pearson r = ", round(cor_p_pc, 2),
+          " | Spearman rho = ", round(cor_s_pc, 2)
+        ),
+        hjust = 1.1,
+        vjust = 1.5,
+        size = 2.8,
+        color = pal$muted
+      ) +
+      labs(
+        title = "Tourism Dependence and GDP per Capita Recovery",
+        subtitle = paste0(
+          "Pre-pandemic visitor spending vs. 2024 real GDP per capita ",
+          "(2019 = 100). N = ", nrow(gdppc_vs_tourism), "."
+        ),
+        x = "Visitor spending (% GDP, 2015-2019 average)",
+        y = "Real GDP per capita index (2019 = 100)",
+        caption = paste0(
+          "Sources: OWID/UN Tourism; WDI NY.GDP.PCAP.KD. ",
+          "Exploratory OLS; does not imply causation."
+        )
+      ) +
+      make_fn_theme(pal)
+  }
+
+  save_fig_dual(
+    build_fig9(pal_archipelago_light),
+    build_fig9(pal_archipelago_dark),
+    "fig9_gdppc_recovery_vs_tourism",
+    fig_dir,
+    w = 8.5,
+    h = 6
+  )
+}
+
+message("GDP per capita association test complete")
+
 cat("Done: 05_recovery_analysis.R\n")
